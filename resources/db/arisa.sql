@@ -179,10 +179,12 @@ create table venta(
 idVenta int primary key auto_increment,
 fecha date,
 idCliente int,
+idFactura int,
 idOrden int,
 subTotal double,
 borradoLogico int,
 foreign key(idCliente) references cliente(idCliente),
+foreign key(idFactura) references tipofactura(idFactura),
 foreign key(idOrden) references orden(idOrden)
 );
 

@@ -35,7 +35,7 @@ class Cotizacion_m extends CI_Model{
         if($id!=null){
             $this->db->where("idInventario",$id);
         }
-        $this->db->order_by("inventario.nombre","ASC");
+        $this->db->order_by("inventario.nombreInv","ASC");
         $query = $this->db->get();
         return $query->result();
     }

@@ -87,13 +87,19 @@ $(document).ready(function () {
     });
     let a = 0;
     $("#addDes").click(function(){
-        let form = $("#formModal").serialize();
+        let form = $("#formModal").serializeArray();
         
         if(a<=0){
-            $.post("cotizacion/insertarCotizacion",{
-            form
-            },function(res){
-                console.log(res);
+            $.ajax({
+                url:"cotizacion/insertarCotizacion",
+                type:"POST",
+                data:form,
+                dataType:'JSON',
+                beforeSend: function(){
+                    console.log("enviando")
+                },success: function(res){
+                    console.log(res);
+                }
             });
           $("#divDesc").show("true");
         }
