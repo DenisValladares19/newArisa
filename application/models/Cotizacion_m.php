@@ -56,4 +56,13 @@ class Cotizacion_m extends CI_Model{
         $this->db->insert("cotizacion",$data);
         return $this->db->insert_id();
     }
+
+    public function insertarDesc($data){
+        $this->db->insert("descripcion",$data);
+        return $this->db->insert_id();
+    }
+    public function insertarDetalle($data){
+        $this->db->insert("detallecotizacion",$data);
+        return $this->db->insert_id();
+    }
 }

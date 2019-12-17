@@ -123,7 +123,7 @@ vTotal float
 );
 
 create table detalleCotizacion(
-idDestale int primary key auto_increment,
+idDetalle int primary key auto_increment,
 idCotizacion int,
 idDescripcion int,
 descripcion text,

@@ -73,13 +73,12 @@ class Cotizacion extends Padre_Desing
         
         $desc = $form[0]['value'];
         $cant = $form[1]['value'];
-        $uni = $form[2]['value'];
-        $precio = $form[3]['value'];
-        $total = $form[4]['value'];
+        $precio = $form[2]['value'];
+        $total = $form[3]['value'];
         $idCotizacion = $_POST["idCotizacion"];
-         /*//Insercion a la tabla descCotizacion 
+         //Insercion a la tabla descCotizacion 
         $data1 = array(
-            "idDesc"=>0,
+            "idDescripcion"=>0,
             "subtotal"=>$total,
             "iva"=>($total*0.13),
             "vTotal"=>(($total*0.13)+$total)
@@ -89,15 +88,14 @@ class Cotizacion extends Padre_Desing
           //Insercion a la tabla detalle 
         $data2 = array(
             "idDetalle"=>0,
-            "idDesc"=>$idDesc,
+            "idDescripcion"=>$idDesc,
             "idCotizacion"=>$idCotizacion,
             "descripcion"=>$desc,
             "cantidad"=>$cant,
-            "unidad"=>$uni,
             "precio"=>$precio,
             "total"=>$total
         );
-        //$this->Cotizacion_m->insertarDetalle($data2);*/
+        $this->Cotizacion_m->insertarDetalle($data2);
     }
     
     public function getAllCotizacion(){

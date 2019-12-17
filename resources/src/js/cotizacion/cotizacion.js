@@ -113,12 +113,11 @@ $(document).ready(function () {
                 data:{form,idCotizacion},
                 dataType:'JSON',
                 success: function(res){
-                    console.log(res);
+                    localStorage.setItem("idDesc",res);
                 }
             });
           $("#divDesc").show("true");
         }
-        a++;
     });
     
    
