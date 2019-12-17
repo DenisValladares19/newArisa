@@ -108,9 +108,9 @@ idEstado1 int,
 idTipoImpresion int,
 fecha date,
 descripcion text,
-idEstado int,
 borradoLogico int,
 foreign key(idTipoImpresion) references tipoImpresion(idTipoImpresion),
+foreign key(idCliente) references cliente(idCliente),
 foreign key(idEstado1) references estado1(idEstado1)
 );
 

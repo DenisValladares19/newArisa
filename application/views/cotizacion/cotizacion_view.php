@@ -97,7 +97,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label>Fecha</label>
-                                <input type="text" name="fecha" id="fechaI" class="form-control"></input>
+                                <input type="text" name="fecha" id="fechaI" class="form-control" autocomplete='off' ></input>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -113,14 +113,20 @@
                             </div>
                         </div>
                     </div>
+                        <div class='row'>
+                            <div class='col-md-12'>
+                                <textarea class='form-control' name='descripcion' id='descripcionI' placeholder='Descripcion corta(para Diseñador).'></textarea>
+                            </div>
+                        </div>
+                    
                 </form>
-                <form id="frmDesc">
                     <div class="row">
                             
                         <div class="col-md-12"><br>
                             <a id="addDes" class="btn btn-success">Agregar descripcion</a>
                         </div>
                     </div>
+                <form id="frmDesc">
                     <div class="row" id='divDesc'>
                     <div class='col-md-4'><input type='text' name='desc' class='form-control' placeholder='Descripción'/></div>
                     <div class='col-md-2'><input type='text' name='cant' id='cantI' class='form-control' placeholder='Cantidad'/></div>

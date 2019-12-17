@@ -54,12 +54,14 @@ class Cotizacion extends Padre_Desing
         $fecha = $_POST["fecha"];
         $idTipo = $_POST["tipoImprecion"];
         $idEstado = $_POST["estado"];
+        $desc = $_POST['descripcion'];
         $data = array(
             "idCotizacion"=>0,
             "idCliente"=>$idCliente,
             "idEstado1"=>$idEstado,
             "idTipoImpresion"=>$idTipo,
             "fecha"=>$fecha,
+            "descripcion"=>$desc,
             "borradoLogico"=>1
         );
         $res = $this->Cotizacion_m->insertCotizacion($data);
@@ -67,19 +69,24 @@ class Cotizacion extends Padre_Desing
     }
   
     public function insertarDesc(){
-        $desc = $_POST["desc"];
-        $cant = $_POST["cant"];
-        $uni = $_POST["uni"];
-        $precio = $_POST["precio"];
-        $total = $_POST["total"];
+        $form = $_POST["form"];
+        
+        $desc = $form[0]['value'];
+        $cant = $form[1]['value'];
+        $uni = $form[2]['value'];
+        $precio = $form[3]['value'];
+        $total = $form[4]['value'];
         $idCotizacion = $_POST["idCotizacion"];
-        /* Insercion a la tabla descCotizacion 
+         /*//Insercion a la tabla descCotizacion 
         $data1 = array(
-            "idDesc"=>0
+            "idDesc"=>0,
+            "subtotal"=>$total,
+            "iva"=>($total*0.13),
+            "vTotal"=>(($total*0.13)+$total)
         );
         $idDesc = $this->Cotizacion_m->insertarDesc($data1);
         echo $idDesc;
-        /**  Insercion a la tabla detalle *
+          //Insercion a la tabla detalle 
         $data2 = array(
             "idDetalle"=>0,
             "idDesc"=>$idDesc,
@@ -89,8 +96,8 @@ class Cotizacion extends Padre_Desing
             "unidad"=>$uni,
             "precio"=>$precio,
             "total"=>$total
-        );*/
-        //$this->Cotizacion_m->insertarDetalle($data2);
+        );
+        //$this->Cotizacion_m->insertarDetalle($data2);*/
     }
     
     public function getAllCotizacion(){

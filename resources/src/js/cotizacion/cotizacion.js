@@ -11,7 +11,7 @@ $(document).ready(function () {
         dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
         dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
         weekHeader: 'Sm',
-        dateFormat: 'dd/mm/yy',
+        dateFormat: 'yy/mm/dd',
         firstDay: 1,
         isRTL: false,
         showMonthAfterYear: false,
@@ -95,9 +95,24 @@ $(document).ready(function () {
                 type:"POST",
                 data:form,
                 dataType:'JSON',
-                beforeSend: function(){
-                    console.log("enviando")
-                },success: function(res){
+                success: function(res){
+                    localStorage.setItem("idCotizacion",res);
+                }
+            });
+          $("#divDesc").show("true");
+        }
+        a++;
+    });
+    $("#addDes").click(function(){
+        let form = $("#frmDesc").serializeArray();
+        let idCotizacion = localStorage.getItem("idCotizacion");
+        if(a>1){
+            $.ajax({
+                url:"cotizacion/insertarDesc",
+                type:"POST",
+                data:{form,idCotizacion},
+                dataType:'JSON',
+                success: function(res){
                     console.log(res);
                 }
             });
