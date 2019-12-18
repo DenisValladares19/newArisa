@@ -103,5 +103,32 @@ class Cotizacion extends Padre_Desing
         echo json_encode($res);
     }
     
+    public function getDescripcion(){
+        $idCotizacion = $_POST["idCotizacion"];
+        $idDesc = $_POST["idDesc"];
+        $res = $this->Cotizacion_m->getDescripcion($idCotizacion,$idDesc);
+        echo json_encode($res);
+    }
+
+    public function insertarDescripcion(){
+        $form = $_POST["form"];
+        $desc = $form[0]['value'];
+        $cant = $form[1]['value'];
+        $precio = $form[2]['value'];
+        $total = $form[3]['value'];
+        $idCotizacion = $_POST["idCotizacion"];
+        $idDesc = $_POST["idDesc"];
+
+        $data2 = array(
+            "idDetalle"=>0,
+            "idDescripcion"=>$idDesc,
+            "idCotizacion"=>$idCotizacion,
+            "descripcion"=>$desc,
+            "cantidad"=>$cant,
+            "precio"=>$precio,
+            "total"=>$total
+        );
+        $this->Cotizacion_m->insertarDetalle($data2);
+    }
     
 }

@@ -88,7 +88,6 @@ $(document).ready(function () {
     let a = 0;
     $("#addDes").click(function(){
         let form = $("#formModal").serializeArray();
-        
         if(a<=0){
             $.ajax({
                 url:"cotizacion/insertarCotizacion",
@@ -99,6 +98,7 @@ $(document).ready(function () {
                     localStorage.setItem("idCotizacion",res);
                 }
             });
+          $("#formModal").hide();
           $("#divDesc").show("true");
         }
         a++;
@@ -106,7 +106,7 @@ $(document).ready(function () {
     $("#addDes").click(function(){
         let form = $("#frmDesc").serializeArray();
         let idCotizacion = localStorage.getItem("idCotizacion");
-        if(a>1){
+        if(a>0 && a<=2){
             $.ajax({
                 url:"cotizacion/insertarDesc",
                 type:"POST",
@@ -115,8 +115,29 @@ $(document).ready(function () {
                 success: function(res){
                     localStorage.setItem("idDesc",res);
                 }
+            }).done(function(){
+                limpiar();
+                llenarDescripcion();
             });
-          $("#divDesc").show("true");
+        }
+    });
+
+    $("#addDes").click(function(){
+        let form = $("#frmDesc").serializeArray();
+        let idCotizacion = localStorage.getItem("idCotizacion");
+        let idDesc = localStorage.getItem("idDesc");
+        if(a>2){
+            $.ajax({
+                url:"cotizacion/insertarDescripcion",
+                type:"POST",
+                data:{form,idCotizacion,idDesc},
+                dataType:'JSON',
+                success: function(res){
+                }
+            }).done(function(){
+                limpiar();
+                llenarDescripcion();
+            });
         }
     });
     
@@ -152,5 +173,25 @@ function llenarTipo(){
 }
 
 function llenarDescripcion(){
-    
+    let idCotizacion = localStorage.getItem("idCotizacion");
+    let idDesc = localStorage.getItem("idDesc");
+    $.ajax({
+        url:"cotizacion/getDescripcion",
+        type:"POST",
+        dataType:"JSON",
+        data:{idCotizacion,idDesc},
+        success:function(res){
+            console.log(res);
+        }
+    });
+
 }
+
+function limpiar(){
+    $("#descI").val('');
+    $("#cantI").val('');
+    $("#Precio").val('');
+    $("#totalI").val('');
+}
+
+

@@ -65,4 +65,14 @@ class Cotizacion_m extends CI_Model{
         $this->db->insert("detallecotizacion",$data);
         return $this->db->insert_id();
     }
+
+    public function getDescripcion($idCotizacion, $idDesc){
+        $this->db->select("idDetalle, descripcion, cantidad, precio, total");
+        $this->db->from("detallecotizacion");
+        $this->db->where("idCotizacion",$idCotizacion);
+        $this->db->where("idDescripcion",$idDesc);
+        $this->db->order_by("idDetalle","DESC");
+        $query = $this->db->get();
+        return $query->result();
+    }
 }
