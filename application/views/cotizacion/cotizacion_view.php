@@ -133,7 +133,13 @@
                     <div class='col-md-2'><input type='text' name='precio' id='Precio' class="form-control" placeholder="precio"/></div>
                     <div class='col-md-2'><input type='text' name='total' id='totalI' class='form-control' placeholder='total'/></div>
                     </div>
-                    <button type="submit" name="btnSave" id="btnGuardar" class="btn btn-primary">Guardar Cotización</button>
+                    <!-- cargar tabla de la descripcion -->
+                    <div class="row mt-4">
+                        <div class='col-md-12'>
+                            <div id="tablaDesc"></div>
+                        </div>
+                    </div>
+                    <button type="submit" name="btnSave" id="btnGuardar" class="btn btn-primary mt-5">Guardar Cotización</button>
                 </form>
               </div>
             </div>
@@ -142,28 +148,5 @@
     </div>
 
 
-<!-- Modal para mostrar el inventario -->
 
-<div class="modal fade bd-example-modal-lg" id="modalAdd">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-    <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Inventario</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-          <a id="addDes" class="btn btn-success">Agregar Descripcion</a>    
-          <form name="frmPrueba" method="POST">
-              
-          </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="submit" class="btn btn-primary">Guardar</button>
-      </div>
-    </div>
-  </div>
-</div>
 

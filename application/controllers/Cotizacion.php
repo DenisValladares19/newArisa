@@ -107,7 +107,9 @@ class Cotizacion extends Padre_Desing
         $idCotizacion = $_POST["idCotizacion"];
         $idDesc = $_POST["idDesc"];
         $res = $this->Cotizacion_m->getDescripcion($idCotizacion,$idDesc);
-        echo json_encode($res);
+        if($res!=null){
+            echo json_encode($res);
+        }
     }
 
     public function insertarDescripcion(){
@@ -128,7 +130,8 @@ class Cotizacion extends Padre_Desing
             "precio"=>$precio,
             "total"=>$total
         );
-        $this->Cotizacion_m->insertarDetalle($data2);
+        $res = $this->Cotizacion_m->insertarDetalle($data2);
+        echo $res;
     }
     
 }

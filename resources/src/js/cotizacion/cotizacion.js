@@ -88,7 +88,7 @@ $(document).ready(function () {
     let a = 0;
     $("#addDes").click(function(){
         let form = $("#formModal").serializeArray();
-        if(a<=0){
+        if(a==0){
             $.ajax({
                 url:"cotizacion/insertarCotizacion",
                 type:"POST",
@@ -106,7 +106,7 @@ $(document).ready(function () {
     $("#addDes").click(function(){
         let form = $("#frmDesc").serializeArray();
         let idCotizacion = localStorage.getItem("idCotizacion");
-        if(a>0 && a<=2){
+        if(a===2){
             $.ajax({
                 url:"cotizacion/insertarDesc",
                 type:"POST",
@@ -131,9 +131,7 @@ $(document).ready(function () {
                 url:"cotizacion/insertarDescripcion",
                 type:"POST",
                 data:{form,idCotizacion,idDesc},
-                dataType:'JSON',
-                success: function(res){
-                }
+                dataType:'JSON'
             }).done(function(){
                 limpiar();
                 llenarDescripcion();
@@ -180,8 +178,48 @@ function llenarDescripcion(){
         type:"POST",
         dataType:"JSON",
         data:{idCotizacion,idDesc},
-        success:function(res){
-            console.log(res);
+        success:function(w){
+            /*var r = JSON.parse(w);
+            console.log(r);
+            */
+        },
+        error:function(jqXHR,status,exception){
+            console.log(status+exception);
+            console.warn(jqXHR.responseText);
+        }
+    }).done(function (res){
+        let data = JSON.parse(JSON.stringify(res));
+        if(data!=null){
+            var tabla = "<table id='tablaDescripcion' class='table table-bordered dataTable' width='100%'><thead style='background-color: rgba(11, 23, 41 , 0.6);'><tr><th>Descripción</th><th>Cantidad</th><th>Precio</th><th>Total</th></tr></thead><tbody>";
+            for(var i = 0;i<data.length;i++){
+                tabla += "<tr><td>"+data[i].descripcion+"</td><td>"+data[i].cantidad+"</td><td>"+data[i].precio+"</td><td>"+data[i].total+"</td></tr>";
+            }
+            tabla += "</tbody><tfoot><tr><th>Descripción</th><th>Cantidad</th><th>Precio</th><th>Total</th></tr></tfoot></table>";
+            $("#tablaDesc").empty();
+            $("#tablaDesc").append(tabla);
+            
+            $('#tablaDescripcion').DataTable({
+                language: {
+                    "decimal": "",
+                    "emptyTable": "No hay información",
+                    "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                    "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                    "infoFiltered": "(Filtrado de  _MAX_  total entradas)",
+                    "infoPostFix": "",
+                    "thousands": ",",
+                    "lengthMenu": "Mostrar _MENU_ Entradas",
+                    "loadingRecords": "Cargando...",
+                    "processing": "Procesando...",
+                    "search": "Buscar:",
+                    "zeroRecords": "Sin resultados encontrados",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Ultimo",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                }
+            });
         }
     });
 
