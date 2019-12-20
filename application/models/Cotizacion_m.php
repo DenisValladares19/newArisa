@@ -71,7 +71,7 @@ class Cotizacion_m extends CI_Model{
         $this->db->from("detallecotizacion");
         $this->db->where("idCotizacion",$idCotizacion);
         $this->db->where("idDescripcion",$idDesc);
-        $this->db->order_by("idDetalle","DESC");
+        $this->db->order_by("idDetalle","ASC");
         $query = $this->db->get();
         return $query->result();
     }

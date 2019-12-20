@@ -130,6 +130,7 @@ descripcion text,
 cantidad int,
 precio float,
 total float,
+borradoLogico int,
 foreign key(idCotizacion) references cotizacion(idCotizacion),
 foreign key(idDescripcion) references descripcion(idDescripcion)
 );

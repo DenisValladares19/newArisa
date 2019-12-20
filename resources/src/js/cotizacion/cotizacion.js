@@ -188,6 +188,7 @@ function llenarDescripcion(){
             console.warn(jqXHR.responseText);
         }
     }).done(function (res){
+
         let data = JSON.parse(JSON.stringify(res));
         if(data!=null){
             var tabla = "<table id='tablaDescripcion' class='table table-bordered dataTable' width='100%'><thead style='background-color: rgba(11, 23, 41 , 0.6);'><tr><th>Descripción</th><th>Cantidad</th><th>Precio</th><th>Total</th></tr></thead><tbody>";
@@ -196,8 +197,8 @@ function llenarDescripcion(){
             }
             tabla += "</tbody><tfoot><tr><th>Descripción</th><th>Cantidad</th><th>Precio</th><th>Total</th></tr></tfoot></table>";
             $("#tablaDesc").empty();
+            $("#tablaDesc").hide();
             $("#tablaDesc").append(tabla);
-            
             $('#tablaDescripcion').DataTable({
                 language: {
                     "decimal": "",
@@ -220,6 +221,7 @@ function llenarDescripcion(){
                     }
                 }
             });
+            $("#tablaDesc").show();
         }
     });
 
