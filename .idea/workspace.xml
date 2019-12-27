@@ -2,25 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc70b34d-f42a-49b0-bec1-cbcb24508da6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/ARISA/application/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/ARISA/application/config/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ARISA/application/controllers/Orden.php" beforeDir="false" afterPath="$PROJECT_DIR$/ARISA/application/controllers/Orden.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ARISA/application/controllers/Proveedor.php" beforeDir="false" afterPath="$PROJECT_DIR$/ARISA/application/controllers/Proveedor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ARISA/application/controllers/Usuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/ARISA/application/controllers/Usuario.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ARISA/application/models/Cliente_M.php" beforeDir="false" afterPath="$PROJECT_DIR$/ARISA/application/models/Cliente_M.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ARISA/application/models/Inventario_m.php" beforeDir="false" afterPath="$PROJECT_DIR$/ARISA/application/models/Inventario_m.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ARISA/application/models/Login_m.php" beforeDir="false" afterPath="$PROJECT_DIR$/ARISA/application/models/Login_m.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ARISA/application/models/Muestra_M.php" beforeDir="false" afterPath="$PROJECT_DIR$/ARISA/application/models/Muestra_M.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ARISA/application/models/Rol_M.php" beforeDir="false" afterPath="$PROJECT_DIR$/ARISA/application/models/Rol_M.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ARISA/application/models/Usuario_M.php" beforeDir="false" afterPath="$PROJECT_DIR$/ARISA/application/models/Usuario_M.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ARISA/application/views/inventario/inventario_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/ARISA/application/views/inventario/inventario_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ARISA/application/views/login/login_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/ARISA/application/views/login/login_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ARISA/application/views/proveedor/proveedor_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/ARISA/application/views/proveedor/proveedor_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ARISA/resources/images/uploads/service.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ARISA/resources/src/js/cliente/cliente.js" beforeDir="false" afterPath="$PROJECT_DIR$/ARISA/resources/src/js/cliente/cliente.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ARISA/resources/src/js/muestra/muestra.js" beforeDir="false" afterPath="$PROJECT_DIR$/ARISA/resources/src/js/muestra/muestra.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ARISA/resources/src/js/proveedor/proveedor.js" beforeDir="false" afterPath="$PROJECT_DIR$/ARISA/resources/src/js/proveedor/proveedor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ARISA/resources/src/js/rol/rol.js" beforeDir="false" afterPath="$PROJECT_DIR$/ARISA/resources/src/js/rol/rol.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ARISA/resources/src/js/usuario/usuario.js" beforeDir="false" afterPath="$PROJECT_DIR$/ARISA/resources/src/js/usuario/usuario.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Inventario.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Inventario.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Proveedor.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Proveedor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Inventario_m.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Inventario_m.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Proveedor_m.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Proveedor_m.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/inventario/inventario_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/inventario/inventario_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/layout/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/layout/sidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/proveedor/proveedor_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/proveedor/proveedor_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/src/js/inventario/inventario.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/src/js/inventario/inventario.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/src/js/proveedor/proveedor.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/src/js/proveedor/proveedor.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,41 +76,57 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="-102341041">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.12" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="js" value="12" />
+          <entry key="php" value="28" />
+          <entry key="sql" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JavaScript" value="12" />
+          <entry key="PHP" value="28" />
+          <entry key="SQL" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="js" value="19" />
+          <entry key="php" value="174" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JavaScript" value="19" />
+          <entry key="PHP" value="174" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ARISA/resources/src/js/muestra/muestra.js">
+        <entry file="file://$PROJECT_DIR$/resources/src/js/inventario/inventario.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ARISA/application/controllers/Muestra.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="42" column="37" selection-start-line="42" selection-start-column="37" selection-end-line="42" selection-end-column="37" />
+            <state relative-caret-position="518">
+              <caret line="118" column="22" selection-start-line="118" selection-start-column="22" selection-end-line="118" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ARISA/application/models/Muestra_M.php">
+        <entry file="file://$PROJECT_DIR$/application/views/inventario/inventario_view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="20" column="34" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ARISA/application/views/muestra/muestra_view.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="618">
-              <caret line="80" column="106" selection-start-line="80" selection-start-column="106" selection-end-line="80" selection-end-column="106" />
+            <state relative-caret-position="178">
+              <caret line="159" column="74" selection-start-line="159" selection-start-column="74" selection-end-line="159" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -124,7 +134,7 @@
     </leaf>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/ARISA" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -147,6 +157,19 @@
         <option value="$PROJECT_DIR$/ARISA/application/models/Login_m.php" />
         <option value="$PROJECT_DIR$/ARISA/application/models/Usuario_M.php" />
         <option value="$PROJECT_DIR$/ARISA/application/views/login/login_view.php" />
+        <option value="$PROJECT_DIR$/application/config/config.php" />
+        <option value="$PROJECT_DIR$/resources/db/arisa.sql" />
+        <option value="F:/recu/proveedor_view.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Proveedor.php" />
+        <option value="$PROJECT_DIR$/application/models/Proveedor_m.php" />
+        <option value="$PROJECT_DIR$/application/models/Inventario_m.php" />
+        <option value="$PROJECT_DIR$/application/views/layout/sidebar.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Padre_Session.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Inventario.php" />
+        <option value="$PROJECT_DIR$/application/views/proveedor/proveedor_view.php" />
+        <option value="$PROJECT_DIR$/resources/src/js/proveedor/proveedor.js" />
+        <option value="$PROJECT_DIR$/resources/src/js/inventario/inventario.js" />
+        <option value="$PROJECT_DIR$/application/views/inventario/inventario_view.php" />
       </list>
     </option>
   </component>
@@ -155,6 +178,14 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/resources/sweetalert2/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="PhpServers">
+    <servers />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="10" />
@@ -168,66 +199,77 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="Arisa3.0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Arisa3.0" type="462c0819:PsiDirectoryNode" />
+              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Arisa3.0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Arisa3.0" type="462c0819:PsiDirectoryNode" />
-              <item name="ARISA" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Arisa3.0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Arisa3.0" type="462c0819:PsiDirectoryNode" />
-              <item name="ARISA" type="462c0819:PsiDirectoryNode" />
+              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Arisa3.0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Arisa3.0" type="462c0819:PsiDirectoryNode" />
-              <item name="ARISA" type="462c0819:PsiDirectoryNode" />
+              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Arisa3.0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Arisa3.0" type="462c0819:PsiDirectoryNode" />
-              <item name="ARISA" type="462c0819:PsiDirectoryNode" />
+              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="inventario" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="proveedor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Arisa3.0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Arisa3.0" type="462c0819:PsiDirectoryNode" />
-              <item name="ARISA" type="462c0819:PsiDirectoryNode" />
+              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Arisa3.0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Arisa3.0" type="462c0819:PsiDirectoryNode" />
-              <item name="ARISA" type="462c0819:PsiDirectoryNode" />
+              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Arisa3.0" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Arisa3.0" type="462c0819:PsiDirectoryNode" />
-              <item name="ARISA" type="462c0819:PsiDirectoryNode" />
+              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="muestra" type="462c0819:PsiDirectoryNode" />
+              <item name="inventario" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="proveedor" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -260,16 +302,18 @@
       <updated>1575640894855</updated>
       <workItem from="1575640896527" duration="3357000" />
       <workItem from="1575645548134" duration="4355000" />
+      <workItem from="1577405957287" duration="6310000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7712000" />
+    <option name="totallyTimeSpent" value="14022000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24659607" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18123667" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -318,181 +362,148 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ARISA/application/config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-966" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ARISA/application/views/cotizacion/cotizacion_view.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ARISA/application/config/config.php">
+    <entry file="file://$PROJECT_DIR$/ARISA/application/config/database.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/views/cotizacion/cotizacion_view.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/config/config.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/views/rol/rol_view.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/models/Cliente_M.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/resources/src/js/cotizacion/cotizacion.js" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/controllers/Login.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/resources/src/js/cliente/cliente.js" />
+    <entry file="file://$PROJECT_DIR$/ARISA/resources/src/js/rol/rol.js" />
+    <entry file="file://$PROJECT_DIR$/ARISA/resources/css/sb-admin.css" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/views/proveedor/proveedor_view.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/resources/src/js/inventario/inventario.js" />
+    <entry file="file://$PROJECT_DIR$/ARISA/resources/src/js/proveedor/proveedor.js" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/models/Inventario_m.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/views/inventario/inventario_view.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/models/Proveedor_m.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/controllers/Proveedor.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/models/Login_m.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/resources/src/js/usuario/usuario.js" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/controllers/Usuario.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/models/Usuario_M.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/models/Rol_M.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/views/login/login_view.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/views/muestra/muestra_view.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/resources/src/js/muestra/muestra.js" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/controllers/Muestra.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/models/Muestra_M.php" />
+    <entry file="file://$PROJECT_DIR$/application/config/config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
-          <caret line="25" column="57" lean-forward="true" selection-start-line="25" selection-start-column="57" selection-end-line="25" selection-end-column="57" />
+          <caret line="25" column="44" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ARISA/application/views/rol/rol_view.php">
+    <entry file="file://$PROJECT_DIR$/resources/db/arisa.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+        <state relative-caret-position="276">
+          <caret line="209" column="2" lean-forward="true" selection-start-line="209" selection-start-column="2" selection-end-line="209" selection-end-column="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ARISA/application/models/Cliente_M.php">
+    <entry file="file://$PROJECT_DIR$/application/models/Proveedor_m.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+        <state relative-caret-position="841">
+          <caret line="71" column="1" selection-start-line="71" selection-start-column="1" selection-end-line="71" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ARISA/resources/src/js/cotizacion/cotizacion.js">
+    <entry file="file://$PROJECT_DIR$/application/models/Inventario_m.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1451">
-          <caret column="31" selection-start-column="31" selection-end-column="31" />
+        <state relative-caret-position="796">
+          <caret line="58" column="1" selection-start-line="58" selection-start-column="1" selection-end-line="58" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ARISA/application/controllers/Login.php">
+    <entry file="file://F:/recu/proveedor_view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ARISA/resources/src/js/cliente/cliente.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="114" column="12" selection-start-line="114" selection-start-column="12" selection-end-line="114" selection-end-column="12" />
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-end-line="277" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ARISA/resources/src/js/rol/rol.js">
+    <entry file="file://F:/recu/inventario_view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="103" column="49" selection-start-line="103" selection-start-column="49" selection-end-line="103" selection-end-column="49" />
+        <state relative-caret-position="306">
+          <caret line="18" column="59" lean-forward="true" selection-end-line="186" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ARISA/resources/css/sb-admin.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="1874" column="37" lean-forward="true" selection-start-line="1874" selection-start-column="37" selection-end-line="1874" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ARISA/application/views/proveedor/proveedor_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="53" column="39" selection-start-line="53" selection-start-column="39" selection-end-line="53" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ARISA/resources/src/js/inventario/inventario.js">
+    <entry file="file://$PROJECT_DIR$/application/views/layout/footer.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/ARISA/resources/src/js/proveedor/proveedor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="20" column="55" selection-start-line="20" selection-start-column="55" selection-end-line="20" selection-end-column="55" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/application/views/layout/navbar.php">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/ARISA/application/models/Inventario_m.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="21" column="112" selection-start-line="21" selection-start-column="112" selection-end-line="21" selection-end-column="112" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/application/views/layout/header.php">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/ARISA/application/views/inventario/inventario_view.php">
+    <entry file="file://$PROJECT_DIR$/application/views/layout/sidebar.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="48" column="35" selection-start-line="48" selection-start-column="35" selection-end-line="48" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ARISA/application/models/Proveedor_m.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-151" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ARISA/application/controllers/Proveedor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="69" column="48" lean-forward="true" selection-start-line="69" selection-start-column="48" selection-end-line="69" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ARISA/application/models/Login_m.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-645">
-          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ARISA/resources/src/js/usuario/usuario.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-964">
-          <caret line="66" column="12" lean-forward="true" selection-start-line="66" selection-start-column="12" selection-end-line="66" selection-end-column="12" />
+        <state relative-caret-position="255">
+          <caret line="126" column="113" selection-start-line="126" selection-start-column="113" selection-end-line="126" selection-end-column="113" />
           <folding>
-            <element signature="n#style#0;n#img#0;n#td#3;n#tr#0;n#!!top" expanded="true" />
+            <element signature="e#1420#1426#0#HTML" expanded="true" />
+            <element signature="e#4484#4490#0#HTML" expanded="true" />
+            <element signature="e#4730#4736#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ARISA/application/controllers/Usuario.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/Inventario.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="77" column="44" lean-forward="true" selection-start-line="77" selection-start-column="44" selection-end-line="77" selection-end-column="44" />
+        <state relative-caret-position="68">
+          <caret line="9" column="37" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ARISA/application/models/Usuario_M.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/Padre_Session.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="67" column="34" selection-start-line="67" selection-start-column="34" selection-end-line="67" selection-end-column="34" />
+        <state relative-caret-position="425">
+          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ARISA/application/models/Rol_M.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/Proveedor.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="50" column="39" lean-forward="true" selection-start-line="50" selection-start-column="39" selection-end-line="50" selection-end-column="39" />
+        <state relative-caret-position="136">
+          <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="49" />
+          <folding>
+            <element signature="e#6#90#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ARISA/application/views/login/login_view.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/Padre_Desing.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/proveedor/proveedor_view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="46" column="36" lean-forward="true" selection-start-line="46" selection-start-column="36" selection-end-line="46" selection-end-column="36" />
+        <state relative-caret-position="626">
+          <caret line="278" lean-forward="true" selection-start-line="278" selection-end-line="278" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ARISA/application/views/muestra/muestra_view.php">
+    <entry file="file://$PROJECT_DIR$/resources/src/js/proveedor/proveedor.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="618">
-          <caret line="80" column="106" selection-start-line="80" selection-start-column="106" selection-end-line="80" selection-end-column="106" />
+        <state relative-caret-position="144">
+          <caret line="169" column="28" selection-start-line="169" selection-start-column="28" selection-end-line="169" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ARISA/resources/src/js/muestra/muestra.js">
+    <entry file="file://$PROJECT_DIR$/resources/src/js/inventario/inventario.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+        <state relative-caret-position="518">
+          <caret line="118" column="22" selection-start-line="118" selection-start-column="22" selection-end-line="118" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ARISA/application/controllers/Muestra.php">
+    <entry file="file://$PROJECT_DIR$/application/views/inventario/inventario_view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="42" column="37" selection-start-line="42" selection-start-column="37" selection-end-line="42" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ARISA/application/models/Muestra_M.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="20" column="34" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
+        <state relative-caret-position="178">
+          <caret line="159" column="74" selection-start-line="159" selection-start-column="74" selection-end-line="159" selection-end-column="74" />
         </state>
       </provider>
     </entry>

@@ -19,7 +19,7 @@ class Inventario_m extends CI_Model
         $borrado=array(
             'compras.borradoLogico'=>1,
         );
-        $this->db->select("compras.idCompras,compras.fecha,compras.cantidad,compras.subtotal,proveedor.nombreInv,inventario.nombre");
+        $this->db->select("compras.idCompras,compras.fecha,compras.cantidad,compras.subtotal,proveedor.nombre,inventario.nombreInv");
         $this->db->from("compras");
         $this->db->join("proveedor","inventario.nombre proveedor.idProveedor=compras.idProveedor");
         $this->db->join("inventario","inventario.idCompra = compras.idCompras");
@@ -49,7 +49,7 @@ class Inventario_m extends CI_Model
         $borrado=array(
             'borradoLogico'=>1,
         );
-        $this->db->select("idProveedor,nombreInv");
+        $this->db->select("idProveedor,nombre");
         $this->db->from("proveedor");
         $this->db->where($borrado);
         $query = $this->db->get();

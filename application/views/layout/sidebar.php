@@ -43,7 +43,7 @@
 
                             <!-- Proveedor -->
                             <li>
-                                <a href="Proveedor" id="prov"><i class="fas fa-store-alt fa-fw"></i> Proveedores</a>
+                                <a href="Proveedor" id="prov"><i class="fas fa-store-alt fa-fw"></i> &nbsp; Proveedores</a>
 
                             </li>
 
@@ -118,13 +118,13 @@
 
                             <!-- Proveedor -->
                             <li>
-                                <a href="Proveedor" id="prov"><i class="fas fa-store-alt fa-fw"></i> Proveedores</a>
+                                <a href="Proveedor" id="prov"><i class="fas fa-store-alt fa-fw"></i> &nbsp; Proveedores</a>
 
                             </li>
 
                             <!-- Inventario -->
                             <li>
-                                <a href="Inventario" id="inv"><i class="fas fa-clipboard-list fa-fw"></i> Inventario</a>
+                                <a href="Inventario" id="inv"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Inventario</a>
                             </li>
 
                             <li>

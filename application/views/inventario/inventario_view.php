@@ -1,4 +1,5 @@
 <head>
+    <link rel="stylesheet" href="<?php echo base_url("resources/modal/css/component.css")?>">
     <script src="<?php echo base_url("resources/src/js/inventario/inventario.js")?>"></script>
 </head>
 <body>
@@ -12,13 +13,13 @@
 <div class="container-fluid">
     <ul class="full-box list-unstyled page-nav-tabs">
         <li>
-            <a data-toggle="modal" data-target="#agregarInventario"><i class="fas fa-plus fa-fw"></i> &nbsp; Agregar Inventario</a>
+            <a id="addInv"><i class="fas fa-plus fa-fw"></i> &nbsp; Agregar Inventario</a>
         </li>
         <li>
             <a class="active" href="#"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Inventario</a>
         </li>
         <li>
-            <a id="btnCompras"><i class="fas fa-shopping-cart"></i>&nbsp; Lista de Compras</a>
+            <a id="rest"><i class="fas fa-shopping-cart"></i>&nbsp; Lista de Compras</a>
         </li>
     </ul>
 </div>
@@ -41,25 +42,8 @@
         <th>Descrpcion</th>
         <th>Acciones</th>
         </tfoot>
-        <tbody>
-        <?php
-        foreach ($inventario as $row){
-            echo "
-                   <tr>
-                   <td>$row->nombre</td>
-                   <td>$row->precio</td>
-                   <td>$row->stock</td>
-                   <td>$row->descripcion</td>
-                   <td> 
-                   <a class=\"btn btn-outline-info btnEditar\" id='$row->idInventario'><i class=\"fas fa-marker\"></i></a>
-                   <a class=\"btn btn-outline-danger btnEliminar\" id='$row->idInventario'><i class=\"far fa-trash-alt\"></i></a>
-                   </td>
-                    ";
-        }
-        ?>
-        </tbody>
     </table>
-    </div>
+</div>
 
 </div>
 
@@ -85,23 +69,15 @@
                             <h3 style="text-align: center;font-family: serif;"> Informacion de la Compra</h3>
                             <br>
                             <div class="row mt-2">
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <input type="date" name="fecha" class="form-control" required="true">
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="text" name="cantidad" class="form-control" placeholder="Cantidad..." required="true">
                                 </div>
                             </div>
                             <div class="row mt-2">
                                 <div class="col-md-6">
-                                    <select name="poveedor" class="form-control">
-                                        +<option>Seleccione el Proveedor...</option>
-                                        <?php
-                                            foreach ($proveedor as $row){
-                                                echo "<option id='$row->idProveedor'> $row->nombreInv </option>";
+                                    <select id="selectProv" class="form-control">
+                                        <option>Seleccione el Proveedor...</option>
 
-                                            }
-                                            ?>
                                     </select>
                                 </div>
                                 <div class="col-md-6">
@@ -115,22 +91,53 @@
                             <h3 style="text-align: center;font-family: serif;"> Informacion del Producto</h3>
                             <br>
                             <div class="row mt-2">
-                                <div class="col-md-12">
-                                    <input type="text" name="nombre" class="form-control" placeholder="Nombre..." required="true">
+                                <div class="col-md-6">
+                                    <div class="col-sm">
+                                        <button style="color: #0c0c0c;font-family: times, serif; font-size:14pt; font-style:italic" class="btn btn-light" id="btn1">
+                                            <img src="<?php echo base_url("resources/images/inventario/lista.png")?>" width="30%" height="30%">
+                                            <br>
+                                            <span style="font-size:12pt;">Producto Existente</span>
+                                            <br>
+                                            <br>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="col-sm">
+                                        <button style="color: #0c0c0c;font-family: times, serif; font-size:14pt; font-style:italic" class="btn btn-light" id="btn2">
+                                            <img src="<?php echo base_url("resources/images/inventario/carrito.png")?>" width="30%" height="30%">
+                                            <br>
+                                            <span style="font-size:12pt;">Nuevo Producto</span>
+                                            <br>
+                                            <br>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row mt-2">
-                                <div class="col-md-6">
-                                    <input type="text" name="precio" class="form-control" placeholder="Precio..." required="true">
+                            <div id="p1">
+                                <div class="row mt-2">
+                                    <div class="col-md-12">
+                                        <input type="text" name="nombre" class="form-control" placeholder="Nombre..." required="true">
+                                    </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <input type="text" name="stock" class="form-control" placeholder="Stock..." required="true">
+                                <div class="row mt-2">
+                                    <div class="col-md-6">
+                                        <input type="text" name="precio" class="form-control" placeholder="Precio..." required="true">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" name="stock" class="form-control" placeholder="Stock..." required="true">
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-md-12">
+                                        <input type="textarea" name="descripcion" class="form-control" placeholder="Descripcion..." required="true">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row mt-2">
-                                <div class="col-md-12">
-                                    <input type="textarea" name="descripcion" class="form-control" placeholder="Descripcion..." required="true">
-                                </div>
+                            <div id="p2">
+                                <select id="selInv">
+
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -146,61 +153,41 @@
 </div>
 
 
-<!-- modal Compras -->
-<div class="modal fade bd-example-modal-lg" id="frmCompras" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="frmCompras">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Compras Realizadas</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Compras</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-
             <div class="modal-body">
-                <form action="#" method="post">
-                    <div class="row">
-                        <table class="table table-bordered" width="100%" cellspacing="0" id="tablaUser">
-                            <thead style="background-color: rgba(11, 23, 41 , 0.6);">
-                            <th>Producto</th>
-                            <th>Fecha</th>
-                            <th>Cantidad</th>
-                            <th>Subtotal</th>
-                            <th>Proveedor</th>
-                            </thead>
-                            <tfoot>
-                            <th>Producto</th>
-                            <th>Fecha</th>
-                            <th>Cantidad</th>
-                            <th>Subtotal</th>
-                            <th>Proveedor</th>
-                            </tfoot>
-                            <tbody>
-                            <?php
-                            foreach ($compras as $row){
-                                echo "
-                                    <tr>
-                                    <td>$row->nombreInv</td>
-                                    <td>$row->fecha</td>
-                                    <td>$row->cantidad</td>
-                                    <td>$row->subtotal</td>
-                                    <td>$row->nombre</td>
-                                ";
-                                            }
-                            ?>
-                            </tbody>
-                        </table>
-                    </div>
-
+                <table class="table table-bordered table-responsive-lg" width="100%" cellspacing="0" id="tablaCompras">
+                    <thead style="background-color: rgba(11, 23, 41 , 0.6);">
+                    <th>Producto</th>
+                    <th>Fecha</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
+                    <th>Proveedor</th>
+                    </thead>
+                    <tfoot>
+                    <th>Producto</th>
+                    <th>Fecha</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal</th>
+                    <th>Proveedor</th>
+                    </tfoot>
+                </table>
             </div>
 
-            <div class="modal-footer">
-                <p>Esta es la Lista de las Ultima Compras</p>
-            </div>
         </div>
     </div>
 </div>
 
+<div class="md-overlay"></div><!-- the overlay element -->
+<script src="<?php echo base_url("resources/modal/js/classie.js")?>"></script>
+<script src="<?php echo base_url("resources/modal/js/modalEffects.js")?>"></script>
 
 </section>
 </body>
