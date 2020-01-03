@@ -51,27 +51,50 @@ class Cotizacion_m extends CI_Model{
         $query = $this->db->get();
         return $query->result();        
     }
-    
+    //insercion a la tabla cotizacion primer paso para cotizacion
     public function insertCotizacion($data){
         $this->db->insert("cotizacion",$data);
         return $this->db->insert_id();
     }
-
+    //insercion a tabla descripcion de la cotizacion 
     public function insertarDesc($data){
         $this->db->insert("descripcion",$data);
         return $this->db->insert_id();
     }
+    //insercion a tablas detalle entre tablas descripcion y cotizacion 
     public function insertarDetalle($data){
         $this->db->insert("detallecotizacion",$data);
         return $this->db->insert_id();
     }
-
+    //Obtener datos de la tabla detalle 
     public function getDescripcion($idCotizacion, $idDesc){
         $this->db->select("idDetalle, descripcion, cantidad, precio, total");
         $this->db->from("detallecotizacion");
         $this->db->where("idCotizacion",$idCotizacion);
         $this->db->where("idDescripcion",$idDesc);
         $this->db->order_by("idDetalle","ASC");
+        $query = $this->db->get();
+        return $query->result();
+    }
+    //Funcion que actualiza los datos de la tabla descripcion dependiento de los datos de la tabla detalle
+    public function updateDescripcion($id){
+        $set = array(
+            "subtotal"=>"(SELECT SUM(total) FROM detallecotizacion WHERE idDescripcion=$id)",
+            "iva"=>"((SELECT SUM(total) FROM detallecotizacion WHERE idDescripcion=$id)*0.13)",
+            "vTotal"=>"((SELECT SUM(total) FROM detallecotizacion WHERE idDescripcion=$id)+((SELECT SUM(total) FROM detallecotizacion WHERE idDescripcion=$id)*0.13))"
+        );
+        $where = array(
+            "idDescripcion"=>$id
+        );
+        $this->db->update("descripcion",$set,$where);
+        return $this->db->affected_rows();
+    }
+
+    //Obtener datos de la tabla descripcion  
+    public function getTablaDescripcion($idDesc){
+        $this->db->select("*");
+        $this->db->from("descripcion");
+        $this->db->where("idDescripcion",$idDesc);
         $query = $this->db->get();
         return $query->result();
     }

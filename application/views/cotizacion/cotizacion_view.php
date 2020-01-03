@@ -129,9 +129,8 @@
                 <form id="frmDesc">
                     <div class="row" id='divDesc'>
                     <div class='col-md-6'><input type='text' name='desc' id='descI'class='form-control' placeholder='Descripción'/></div>
-                    <div class='col-md-2'><input type='text' name='cant' id='cantI' class='form-control' placeholder='Cantidad'/></div>
-                    <div class='col-md-2'><input type='text' name='precio' id='Precio' class="form-control" placeholder="precio"/></div>
-                    <div class='col-md-2'><input type='text' name='total' id='totalI' class='form-control' placeholder='total'/></div>
+                    <div class='col-md-3'><input type='text' name='cant' id='cantI' class='form-control' placeholder='Cantidad'/></div>
+                    <div class='col-md-3'><input type='text' name='precio' id='Precio' class="form-control" placeholder="precio"/></div>
                     </div>
                     <!-- cargar tabla de la descripcion -->
                     <div class="row mt-4">

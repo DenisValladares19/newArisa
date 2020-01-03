@@ -55,9 +55,8 @@ $(document).ready(function () {
             }
         }
     });
-    
-    $("#divDesc").hide("true");
-    
+     
+    $("#divDesc").hide('true');
     llenarEstado();
     llenarCLientes();
     llenarTipo();
@@ -85,6 +84,7 @@ $(document).ready(function () {
             }
         }
     });
+    
     let a = 0;
     $("#addDes").click(function(){
         let form = $("#formModal").serializeArray();
@@ -138,7 +138,7 @@ $(document).ready(function () {
             });
         }
     });
-    
+
    
 });
 
@@ -178,54 +178,40 @@ function llenarDescripcion(){
         type:"POST",
         dataType:"JSON",
         data:{idCotizacion,idDesc},
-        success:function(w){
-            /*var r = JSON.parse(w);
-            console.log(r);
-            */
-        },
         error:function(jqXHR,status,exception){
             console.log(status+exception);
             console.warn(jqXHR.responseText);
         }
     }).done(function (res){
-
         let data = JSON.parse(JSON.stringify(res));
         if(data!=null){
-            var tabla = "<table id='tablaDescripcion' class='table table-bordered dataTable' width='100%'><thead style='background-color: rgba(11, 23, 41 , 0.6);'><tr><th>Descripción</th><th>Cantidad</th><th>Precio</th><th>Total</th></tr></thead><tbody>";
+            var tabla = "<table id='tablaDescripcion' class='table table-bordered dataTable' width='100%'><thead style='background-color: rgba(11, 23, 41 , 0.6);'><tr><th>Descripción</th><th>Cantidad</th><th>Precio</th><th>Total</th><th>Acciones</th></tr></thead><tbody>";
             for(var i = 0;i<data.length;i++){
-                tabla += "<tr><td>"+data[i].descripcion+"</td><td>"+data[i].cantidad+"</td><td>"+data[i].precio+"</td><td>"+data[i].total+"</td></tr>";
+                tabla += "<tr><td>"+data[i].descripcion+"</td><td>"+data[i].cantidad+"</td><td>$ "+data[i].precio+"</td><td>$ "+data[i].total+"</td><td><a class='btn btn-outline-info edit' id='"+data[i].idDetalle+"'><i class='fas fa-marker'></i></a><a class='btn btn-outline-danger elimina' id='"+data[i].idDetalle+"'><i class='fas fa-trash-alt'></i></a></td></tr>";
             }
-            tabla += "</tbody><tfoot><tr><th>Descripción</th><th>Cantidad</th><th>Precio</th><th>Total</th></tr></tfoot></table>";
             $("#tablaDesc").empty();
             $("#tablaDesc").hide();
             $("#tablaDesc").append(tabla);
-            $('#tablaDescripcion').DataTable({
-                language: {
-                    "decimal": "",
-                    "emptyTable": "No hay información",
-                    "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
-                    "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
-                    "infoFiltered": "(Filtrado de  _MAX_  total entradas)",
-                    "infoPostFix": "",
-                    "thousands": ",",
-                    "lengthMenu": "Mostrar _MENU_ Entradas",
-                    "loadingRecords": "Cargando...",
-                    "processing": "Procesando...",
-                    "search": "Buscar:",
-                    "zeroRecords": "Sin resultados encontrados",
-                    "paginate": {
-                        "first": "Primero",
-                        "last": "Ultimo",
-                        "next": "Siguiente",
-                        "previous": "Anterior"
-                    }
+            let idDes = localStorage.getItem("idDesc");
+            $.ajax({
+                url:"cotizacion/getTablaDescripcion",
+                type:"POST",
+                dataType:"JSON",
+                data:{idDes},
+                success:function(res){
+                    let datos = JSON.parse(JSON.stringify(res));
+                    var tab = "<tr><td colspan='4' class='text-right'>Subtotal</td><td> $"+datos[0].subtotal+"</td></tr><tr><td colspan='4' class='text-right'>IVA</td><td>$ "+datos[0].iva+"</td></tr><tr><td colspan='4' class='text-right'>Total a pagar</td><td>$ "+datos[0].vTotal+"</td></tr></tbody></table>";
+                    $("#tablaDesc").append(tab);
                 }
             });
+            //tabla += "<tr><td colspan='4' class='text-right'>Subtotal</td><td> $"+datos[0].subtotal+"</td></tr><tr><td colspan='4' class='text-right'>IVA</td><td>$ "+datos[0].iva+"</td></tr><tr><td colspan='4' class='text-right'>Total a pagar</td><td>$ "+datos[0].vTotal+"</td></tr></tbody></table>";
+
             $("#tablaDesc").show();
         }
     });
 
 }
+
 
 function limpiar(){
     $("#descI").val('');

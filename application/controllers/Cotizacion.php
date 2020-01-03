@@ -49,7 +49,8 @@ class Cotizacion extends Padre_Desing
         $inv = $this->Cotizacion_m->getAllInventario($id);
         echo json_encode($inv);          
     }
- public function insertarCotizacion(){
+
+    public function insertarCotizacion(){
         $idCliente = $_POST["cliente"];
         $fecha = $_POST["fecha"];
         $idTipo = $_POST["tipoImprecion"];
@@ -74,7 +75,7 @@ class Cotizacion extends Padre_Desing
         $desc = $form[0]['value'];
         $cant = $form[1]['value'];
         $precio = $form[2]['value'];
-        $total = $form[3]['value'];
+        $total = $precio*$cant;
         $idCotizacion = $_POST["idCotizacion"];
          //Insercion a la tabla descCotizacion 
         $data1 = array(
@@ -102,7 +103,7 @@ class Cotizacion extends Padre_Desing
         $res = $this->Cotizacion_m->getAllCotizacion();
         echo json_encode($res);
     }
-    
+    //Obteniendo datos de la tabla detalle  
     public function getDescripcion(){
         $idCotizacion = $_POST["idCotizacion"];
         $idDesc = $_POST["idDesc"];
@@ -117,7 +118,7 @@ class Cotizacion extends Padre_Desing
         $desc = $form[0]['value'];
         $cant = $form[1]['value'];
         $precio = $form[2]['value'];
-        $total = $form[3]['value'];
+        $total = $precio*$cant;
         $idCotizacion = $_POST["idCotizacion"];
         $idDesc = $_POST["idDesc"];
 
@@ -131,7 +132,18 @@ class Cotizacion extends Padre_Desing
             "total"=>$total
         );
         $res = $this->Cotizacion_m->insertarDetalle($data2);
+        $this->Cotizacion_m->updateDescripcion($idDesc);
         echo $res;
+    }
+
+    //Obteniendo datos de la tabla detalle  
+    public function getTablaDescripcion(){
+        $idDes = $_POST["idDes"];
+        $res = $this->Cotizacion_m->getTablaDescripcion($idDes);
+        if($res!=null){
+            echo json_encode($res);
+        }
+
     }
     
 }
