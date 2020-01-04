@@ -78,15 +78,8 @@ class Cotizacion_m extends CI_Model{
     }
     //Funcion que actualiza los datos de la tabla descripcion dependiento de los datos de la tabla detalle
     public function updateDescripcion($id){
-        $set = array(
-            "subtotal"=>"(SELECT SUM(total) FROM detallecotizacion WHERE idDescripcion=$id)",
-            "iva"=>"((SELECT SUM(total) FROM detallecotizacion WHERE idDescripcion=$id)*0.13)",
-            "vTotal"=>"((SELECT SUM(total) FROM detallecotizacion WHERE idDescripcion=$id)+((SELECT SUM(total) FROM detallecotizacion WHERE idDescripcion=$id)*0.13))"
-        );
-        $where = array(
-            "idDescripcion"=>$id
-        );
-        $this->db->update("descripcion",$set,$where);
+        $query = "UPDATE descripcion SET subtotal=(SELECT SUM(total) FROM detallecotizacion WHERE idDescripcion=$id), iva=((SELECT SUM(total) FROM detallecotizacion WHERE idDescripcion=$id)*0.13), vTotal=((SELECT SUM(total) FROM detallecotizacion WHERE idDescripcion=$id)+((SELECT SUM(total) FROM detallecotizacion WHERE idDescripcion=$id)*0.13)) WHERE idDescripcion=$id";
+        $this->db->query($query);
         return $this->db->affected_rows();
     }
 
