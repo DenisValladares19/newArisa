@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="dc70b34d-f42a-49b0-bec1-cbcb24508da6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/Cotizacion.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Cotizacion.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/Inventario.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Inventario.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/Padre_Session.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Padre_Session.php" afterDir="false" />
@@ -84,6 +85,7 @@
     <session id="-102341041">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.99" value="1" />
           <entry key="project.opened" value="2" />
@@ -122,8 +124,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/cliente/cliente_view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="588" lean-forward="true" selection-start-line="588" selection-end-line="588" />
+            <state relative-caret-position="290">
+              <caret line="579" column="26" selection-start-line="579" selection-start-column="26" selection-end-line="579" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -294,16 +296,15 @@
       <workItem from="1575640896527" duration="3357000" />
       <workItem from="1575645548134" duration="4355000" />
       <workItem from="1577405957287" duration="6310000" />
-      <workItem from="1578363894258" duration="58000" />
+      <workItem from="1578363894258" duration="671000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14080000" />
+    <option name="totallyTimeSpent" value="14693000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18381241" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -481,8 +482,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/cliente/cliente_view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="588" lean-forward="true" selection-start-line="588" selection-end-line="588" />
+        <state relative-caret-position="290">
+          <caret line="579" column="26" selection-start-line="579" selection-start-column="26" selection-end-line="579" selection-end-column="26" />
         </state>
       </provider>
     </entry>
