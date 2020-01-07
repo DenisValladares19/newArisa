@@ -11,7 +11,7 @@ $(document).ready(function () {
         dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
         dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
         weekHeader: 'Sm',
-        dateFormat: 'yy/mm/dd',
+        dateFormat: 'dd/mm/yy',
         firstDay: 1,
         isRTL: false,
         showMonthAfterYear: false,
@@ -27,11 +27,17 @@ $(document).ready(function () {
     });
     
     
-    
-    
-    $("#clienteI").select2({
-        width: "100%"
+    $(".agregar").click(function(e){
+       e.preventDefault();
+       let id = $(this).attr("id");
+       $.post("cotizacion/newMaterial",
+       {id}, 
+       function(res){
+           console.log(res);
+       });
     });
+    
+    //$("#clienteI").select2();
     //Tabla Cotizacion
     $('#data').DataTable({
         language: {
@@ -56,7 +62,11 @@ $(document).ready(function () {
         }
     });
     
-    $("#divDesc").hide("true");
+    
+    $("#material").click(function(e){
+       e.preventDefault();
+       $("#modalInventario").modal("show");
+    });
     
     llenarEstado();
     llenarCLientes();
@@ -85,61 +95,7 @@ $(document).ready(function () {
             }
         }
     });
-    let a = 0;
-    $("#addDes").click(function(){
-        let form = $("#formModal").serializeArray();
-        if(a==0){
-            $.ajax({
-                url:"cotizacion/insertarCotizacion",
-                type:"POST",
-                data:form,
-                dataType:'JSON',
-                success: function(res){
-                    localStorage.setItem("idCotizacion",res);
-                }
-            });
-          $("#formModal").hide();
-          $("#divDesc").show("true");
-        }
-        a++;
-    });
-    $("#addDes").click(function(){
-        let form = $("#frmDesc").serializeArray();
-        let idCotizacion = localStorage.getItem("idCotizacion");
-        if(a===2){
-            $.ajax({
-                url:"cotizacion/insertarDesc",
-                type:"POST",
-                data:{form,idCotizacion},
-                dataType:'JSON',
-                success: function(res){
-                    localStorage.setItem("idDesc",res);
-                }
-            }).done(function(){
-                limpiar();
-                llenarDescripcion();
-            });
-        }
-    });
-
-    $("#addDes").click(function(){
-        let form = $("#frmDesc").serializeArray();
-        let idCotizacion = localStorage.getItem("idCotizacion");
-        let idDesc = localStorage.getItem("idDesc");
-        if(a>2){
-            $.ajax({
-                url:"cotizacion/insertarDescripcion",
-                type:"POST",
-                data:{form,idCotizacion,idDesc},
-                dataType:'JSON'
-            }).done(function(){
-                limpiar();
-                llenarDescripcion();
-            });
-        }
-    });
     
-   
 });
 
 
@@ -169,69 +125,3 @@ function llenarTipo(){
         }       
     });
 }
-
-function llenarDescripcion(){
-    let idCotizacion = localStorage.getItem("idCotizacion");
-    let idDesc = localStorage.getItem("idDesc");
-    $.ajax({
-        url:"cotizacion/getDescripcion",
-        type:"POST",
-        dataType:"JSON",
-        data:{idCotizacion,idDesc},
-        success:function(w){
-            /*var r = JSON.parse(w);
-            console.log(r);
-            */
-        },
-        error:function(jqXHR,status,exception){
-            console.log(status+exception);
-            console.warn(jqXHR.responseText);
-        }
-    }).done(function (res){
-
-        let data = JSON.parse(JSON.stringify(res));
-        if(data!=null){
-            var tabla = "<table id='tablaDescripcion' class='table table-bordered dataTable' width='100%'><thead style='background-color: rgba(11, 23, 41 , 0.6);'><tr><th>Descripción</th><th>Cantidad</th><th>Precio</th><th>Total</th></tr></thead><tbody>";
-            for(var i = 0;i<data.length;i++){
-                tabla += "<tr><td>"+data[i].descripcion+"</td><td>"+data[i].cantidad+"</td><td>"+data[i].precio+"</td><td>"+data[i].total+"</td></tr>";
-            }
-            tabla += "</tbody><tfoot><tr><th>Descripción</th><th>Cantidad</th><th>Precio</th><th>Total</th></tr></tfoot></table>";
-            $("#tablaDesc").empty();
-            $("#tablaDesc").hide();
-            $("#tablaDesc").append(tabla);
-            $('#tablaDescripcion').DataTable({
-                language: {
-                    "decimal": "",
-                    "emptyTable": "No hay información",
-                    "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
-                    "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
-                    "infoFiltered": "(Filtrado de  _MAX_  total entradas)",
-                    "infoPostFix": "",
-                    "thousands": ",",
-                    "lengthMenu": "Mostrar _MENU_ Entradas",
-                    "loadingRecords": "Cargando...",
-                    "processing": "Procesando...",
-                    "search": "Buscar:",
-                    "zeroRecords": "Sin resultados encontrados",
-                    "paginate": {
-                        "first": "Primero",
-                        "last": "Ultimo",
-                        "next": "Siguiente",
-                        "previous": "Anterior"
-                    }
-                }
-            });
-            $("#tablaDesc").show();
-        }
-    });
-
-}
-
-function limpiar(){
-    $("#descI").val('');
-    $("#cantI").val('');
-    $("#Precio").val('');
-    $("#totalI").val('');
-}
-
-

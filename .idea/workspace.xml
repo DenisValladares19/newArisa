@@ -3,16 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="dc70b34d-f42a-49b0-bec1-cbcb24508da6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Cotizacion.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Cotizacion.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/Inventario.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Inventario.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Padre_Session.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Padre_Session.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/Proveedor.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Proveedor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Usuario.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Usuario.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Cotizacion_m.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Cotizacion_m.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/Inventario_m.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Inventario_m.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/Proveedor_m.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Proveedor_m.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/inventario/inventario_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/inventario/inventario_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/cliente/cliente_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/cliente/cliente_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/layout/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/layout/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/layout/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/layout/sidebar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/proveedor/proveedor_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/proveedor/proveedor_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/orden/orden_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/orden/orden_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/src/js/cliente/cliente.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/src/js/cliente/cliente.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/src/js/cotizacion/cotizacion.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/src/js/cotizacion/cotizacion.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/src/js/hide/dashboard_hide.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/src/js/hide/dashboard_hide.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/src/js/inventario/inventario.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/src/js/inventario/inventario.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/src/js/proveedor/proveedor.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/src/js/proveedor/proveedor.js" afterDir="false" />
     </list>
@@ -80,7 +85,8 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.open.time.12" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.99" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -113,20 +119,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/src/js/inventario/inventario.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="118" column="22" selection-start-line="118" selection-start-column="22" selection-end-line="118" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/inventario/inventario_view.php">
+        <entry file="file://$PROJECT_DIR$/application/views/cliente/cliente_view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="159" column="74" selection-start-line="159" selection-start-column="74" selection-end-line="159" selection-end-column="74" />
+            <state relative-caret-position="443">
+              <caret line="588" lean-forward="true" selection-start-line="588" selection-end-line="588" />
             </state>
           </provider>
         </entry>
@@ -170,6 +167,7 @@
         <option value="$PROJECT_DIR$/resources/src/js/proveedor/proveedor.js" />
         <option value="$PROJECT_DIR$/resources/src/js/inventario/inventario.js" />
         <option value="$PROJECT_DIR$/application/views/inventario/inventario_view.php" />
+        <option value="$PROJECT_DIR$/application/views/cliente/cliente_view.php" />
       </list>
     </option>
   </component>
@@ -187,7 +185,7 @@
   <component name="PhpServers">
     <servers />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="10" />
     <option name="y" value="20" />
     <option name="width" value="1346" />
@@ -223,14 +221,7 @@
               <item name="newArisa" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="inventario" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="proveedor" type="462c0819:PsiDirectoryNode" />
+              <item name="cliente" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
@@ -303,17 +294,18 @@
       <workItem from="1575640896527" duration="3357000" />
       <workItem from="1575645548134" duration="4355000" />
       <workItem from="1577405957287" duration="6310000" />
+      <workItem from="1578363894258" duration="58000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14022000" />
+    <option name="totallyTimeSpent" value="14080000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18123667" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18381241" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -417,20 +409,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://F:/recu/proveedor_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" lean-forward="true" selection-end-line="277" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://F:/recu/inventario_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="59" lean-forward="true" selection-end-line="186" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://F:/recu/proveedor_view.php" />
+    <entry file="file://F:/recu/inventario_view.php" />
     <entry file="file://$PROJECT_DIR$/application/views/layout/footer.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -444,11 +424,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="126" column="113" selection-start-line="126" selection-start-column="113" selection-end-line="126" selection-end-column="113" />
-          <folding>
-            <element signature="e#1420#1426#0#HTML" expanded="true" />
-            <element signature="e#4484#4490#0#HTML" expanded="true" />
-            <element signature="e#4730#4736#0#HTML" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -470,9 +445,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="49" />
-          <folding>
-            <element signature="e#6#90#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -495,8 +467,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/src/js/inventario/inventario.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="118" column="22" selection-start-line="118" selection-start-column="22" selection-end-line="118" selection-end-column="22" />
+        <state relative-caret-position="2006">
+          <caret line="118" column="15" selection-start-line="118" selection-start-column="15" selection-end-line="118" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -504,6 +476,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="178">
           <caret line="159" column="74" selection-start-line="159" selection-start-column="74" selection-end-line="159" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/cliente/cliente_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="588" lean-forward="true" selection-start-line="588" selection-end-line="588" />
         </state>
       </provider>
     </entry>

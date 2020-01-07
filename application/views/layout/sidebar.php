@@ -43,23 +43,13 @@
 
                             <!-- Proveedor -->
                             <li>
-                                <a href="Proveedor" id="prov"><i class="fas fa-store-alt fa-fw"></i> &nbsp; Proveedores</a>
+                                <a href="Proveedor" id="prov"><i class="fas fa-store-alt fa-fw"></i> Proveedores</a>
 
                             </li>
 
 
 
-                            <li>
-                                <a href="#" class="nav-btn-submenu"><i class="fas fa-file-invoice-dollar fa-fw"></i> &nbsp; Orden de Trabajo <i class="fas fa-chevron-down"></i></a>
-                                <ul>
-                                    <li>
-                                        <a href="Orden"><i class="fas fa-plus fa-fw"></i> &nbsp; Nueva Orden de Trabajo</a>
-                                    </li>
-                                    <li>
-                                        <a href="Lista_Orden"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Ordenes de Trabajo</a>
-                                    </li>
-                                </ul>
-                            </li>
+
 
                             <li>
                                 <a href="Cotizacion" id="cot"><i class="fas  fa-user-secret fa-fw"></i> &nbsp; Cotizaciones</a>
@@ -118,35 +108,22 @@
 
                             <!-- Proveedor -->
                             <li>
-                                <a href="Proveedor" id="prov"><i class="fas fa-store-alt fa-fw"></i> &nbsp; Proveedores</a>
+                                <a href="Proveedor" id="prov"><i class="fas fa-store-alt fa-fw"></i> Proveedores</a>
 
                             </li>
 
                             <!-- Inventario -->
                             <li>
-                                <a href="Inventario" id="inv"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Inventario</a>
+                                <a href="Inventario" id="inv"><i class="fas fa-clipboard-list fa-fw"></i> Inventario</a>
                             </li>
 
                             <li>
-                                <a href="#" class="nav-btn-submenu"><i class="fas fa-file-invoice-dollar fa-fw"></i> &nbsp; Orden de Trabajo <i class="fas fa-chevron-down"></i></a>
-                                <ul>
-                                    <li>
-                                        <a href="Orden"><i class="fas fa-plus fa-fw"></i> &nbsp; Nueva Orden de Trabajo</a>
-                                    </li>
-                                    <li>
-                                        <a href="Lista_Orden"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Ordenes de Trabajo</a>
-                                    </li>
-                                </ul>
-                            </li>
+                                <a href="Orden" id="orden"><i class="fas fa-store-alt fa-fw"></i> Orden de trabajo</a>
+                            <li>
 
                             <li>
                                 <a href="Cotizacion" id="cot"><i class="fas  fa-user-secret fa-fw"></i> &nbsp; Cotizaciones</a>
                             </li>
-
-
-
-
-
 
 
 

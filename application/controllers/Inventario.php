@@ -6,8 +6,8 @@
  * Time: 08:42 PM
  */
 
-include (APPPATH."controllers/Padre_Desing.php");
-class Inventario extends Padre_Desing
+include (APPPATH."controllers/New_Padre.php");
+class Inventario extends New_Padre
 {
 
     public function __construct()
@@ -24,23 +24,11 @@ class Inventario extends Padre_Desing
         $this->load->view("layout/header",$data);
         $this->load->view("layout/sidebar");
         $this->load->view("layout/navbar");
-        $this->load->view("inventario/inventario_view");
+        $compras["compras"] = $this->Inventario_m->mostrarCompras();
+        $compras["inventario"] = $this->Inventario_m->mostrarProductos();
+        $compras["proveedor"] = $this->Inventario_m->mostrarProveedores();
+        $this->load->view("inventario/inventario_view",$compras);
         $this->load->view("layout/footer");
 
-    }
-
-    public function mostrarCompras(){
-        $res = $this->Inventario_m->mostrarCompras();
-        echo json_encode($res);
-    }
-
-    public function mostrarInv(){
-        $res = $this->Inventario_m->mostrarProductos();
-        echo json_encode($res);
-    }
-
-    public function mostrarProv(){
-        $res = $this->Inventario_m->mostrarProveedores();
-        echo json_encode($res);
     }
 }

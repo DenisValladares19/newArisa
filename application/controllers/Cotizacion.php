@@ -43,95 +43,43 @@ class Cotizacion extends Padre_Desing
         $tipo = $this->Cotizacion_m->getAllTipoImpresion();
         echo json_encode($tipo);
     }
+
+    public function getAllCotizacion(){
+        $tipo = $this->Cotizacion_m->getAllCotizaciones();
+        echo json_encode($tipo);
+    }
     
     public function  newMaterial(){
         $id = $this->input->post("id");
-        $inv = $this->Cotizacion_m->getAllInventario($id);
-        echo json_encode($inv);          
+        $band = false;
+        if(isset($_SESSION["material"])){
+           $material2 = $_SESSION["material"];
+           foreach ($material2 as $m){
+               if(!$this->$id == $m->idMaterial){
+                  $band = true;
+               }else{
+                   $m->cantidad += 1;
+                   $_SESSION["material"] = $material2;
+               }
+           }
+            
+           if (band) {
+                $inv = $this->Cotizacion_m->getAllInventario($id);
+                foreach ($inv as $ma) {
+                    $material = array(
+                        "idMaterial" => $ma->idInventario,
+                        "nombre" => $ma->nombre,
+                        "desc" => $ma->descripcion,
+                        "precio" => $ma->precio,
+                        "stock" => $ma->stock,
+                        "cantidad" => 1
+                    );
+                    $material2.array_push($material);
+                }
+                $_SESSION["material"] = $material2;
+            }
+            
+            echo json_encode($_SESSION["material"]);
+        }       
     }
- public function insertarCotizacion(){
-        $idCliente = $_POST["cliente"];
-        $fecha = $_POST["fecha"];
-        $idTipo = $_POST["tipoImprecion"];
-        $idEstado = $_POST["estado"];
-        $desc = $_POST['descripcion'];
-        $data = array(
-            "idCotizacion"=>0,
-            "idCliente"=>$idCliente,
-            "idEstado1"=>$idEstado,
-            "idTipoImpresion"=>$idTipo,
-            "fecha"=>$fecha,
-            "descripcion"=>$desc,
-            "borradoLogico"=>1
-        );
-        $res = $this->Cotizacion_m->insertCotizacion($data);
-        echo $res;
-    }
-  
-    public function insertarDesc(){
-        $form = $_POST["form"];
-        
-        $desc = $form[0]['value'];
-        $cant = $form[1]['value'];
-        $precio = $form[2]['value'];
-        $total = $form[3]['value'];
-        $idCotizacion = $_POST["idCotizacion"];
-         //Insercion a la tabla descCotizacion 
-        $data1 = array(
-            "idDescripcion"=>0,
-            "subtotal"=>$total,
-            "iva"=>($total*0.13),
-            "vTotal"=>(($total*0.13)+$total)
-        );
-        $idDesc = $this->Cotizacion_m->insertarDesc($data1);
-        echo $idDesc;
-          //Insercion a la tabla detalle 
-        $data2 = array(
-            "idDetalle"=>0,
-            "idDescripcion"=>$idDesc,
-            "idCotizacion"=>$idCotizacion,
-            "descripcion"=>$desc,
-            "cantidad"=>$cant,
-            "precio"=>$precio,
-            "total"=>$total
-        );
-        $this->Cotizacion_m->insertarDetalle($data2);
-    }
-    
-    public function getAllCotizacion(){
-        $res = $this->Cotizacion_m->getAllCotizacion();
-        echo json_encode($res);
-    }
-    
-    public function getDescripcion(){
-        $idCotizacion = $_POST["idCotizacion"];
-        $idDesc = $_POST["idDesc"];
-        $res = $this->Cotizacion_m->getDescripcion($idCotizacion,$idDesc);
-        if($res!=null){
-            echo json_encode($res);
-        }
-    }
-
-    public function insertarDescripcion(){
-        $form = $_POST["form"];
-        $desc = $form[0]['value'];
-        $cant = $form[1]['value'];
-        $precio = $form[2]['value'];
-        $total = $form[3]['value'];
-        $idCotizacion = $_POST["idCotizacion"];
-        $idDesc = $_POST["idDesc"];
-
-        $data2 = array(
-            "idDetalle"=>0,
-            "idDescripcion"=>$idDesc,
-            "idCotizacion"=>$idCotizacion,
-            "descripcion"=>$desc,
-            "cantidad"=>$cant,
-            "precio"=>$precio,
-            "total"=>$total
-        );
-        $res = $this->Cotizacion_m->insertarDetalle($data2);
-        echo $res;
-    }
-    
 }

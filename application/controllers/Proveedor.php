@@ -23,25 +23,17 @@ class Proveedor  extends Padre_Desing
         $this->load->view("layout/header",$data);
         $this->load->view("layout/sidebar");
         $this->load->view("layout/navbar");
-        $this->load->view("proveedor/proveedor_view");
+        $datos["proveedor"] = $this->Proveedor_m->getProveedores();
+        $this->load->view("proveedor/proveedor_view",$datos);
         $this->load->view("layout/footer");
-    }
 
 
-    public function mostrar(){
-        $res = $this->Proveedor_m->getProveedores();
-        echo json_encode($res);
-    }
-
-    public function mostrarEliminados(){
-        $res = $this->Proveedor_m->restProveedores();
-        echo json_encode($res);
     }
 
     public function insertar(){
         $data = array(
             'idProveedor'=>0,
-            'nombre'=>$this->input->post("txtNombre"),
+            'nombreInv'=>$this->input->post("txtNombre"),
             'empresa'=>$this->input->post("txtEmpresa"),
             'direccion'=>$this->input->post("txtDireccion"),
             'correo'=>$this->input->post("txtCorreo"),
@@ -58,10 +50,8 @@ class Proveedor  extends Padre_Desing
 
         if($res>0)
         {
-            echo json_encode($res);
         }
     }
-
 
     public function getProveedor(){
         $idProveedor = $this->input->post("id");
@@ -71,7 +61,7 @@ class Proveedor  extends Padre_Desing
 
     public function modificar(){
         $data = array(
-            'nombre'=>$this->input->post("txtNombre"),
+            'nombreInv'=>$this->input->post("txtNombre"),
             'empresa'=>$this->input->post("txtEmpresa"),
             'direccion'=>$this->input->post("txtDireccion"),
             'correo'=>$this->input->post("txtCorreo"),
@@ -102,30 +92,10 @@ class Proveedor  extends Padre_Desing
         );
 
         $set=array(
-            'borradoLogico'=>0,
+          'borradoLogico'=>0,
         );
 
         $res= $this->Proveedor_m->eliminar($set,$where);
-
-        if($res>=0)
-        {
-            header("Location: ".site_url("Proveedor"));
-        }
-
-    }
-
-    public function restaurar(){
-        $id = $this->input->post("id");
-
-        $where=array(
-            'idProveedor'=>$id,
-        );
-
-        $set=array(
-            'borradoLogico'=>1,
-        );
-
-        $res= $this->Proveedor_m->restaurar($set,$where);
 
         if($res>=0)
         {

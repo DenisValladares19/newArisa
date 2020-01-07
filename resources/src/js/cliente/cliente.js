@@ -6,7 +6,10 @@ $(document).ready(function () {
 
 
     showClients();
+
+
     $('#data').DataTable();
+
     $(document).on("click", "#agregarCliente", function () {
         $("#frmInsertarCliente").modal("show");
     })});
@@ -137,6 +140,7 @@ function showClients() {
             var html = '';
             var i;
             for(i=0; i<data.length; i++){
+
                 html+='<tr>'+
                     '<td>'+data[i].idCliente+'</td>'+
                     '<td>'+data[i].nombre+'</td>'+
@@ -147,14 +151,17 @@ function showClients() {
                     '<td>'+data[i].direccion+'</td>'+
                     '<td>'+data[i].nit+'</td>'+
                     '<td>'+data[i].registroFiscal+'</td>'+
-
                     '<td>'+
-                    '<button class="btn-info"><a href="javascript:;" data="'+data[i].idCliente+'" id="editar">Editar</a></button>'+
-                    '<button class="btn-danger"><a href="javascript:;" data="'+data[i].idCliente+'" id="eliminar">Eliminar</a></button>'+
+                    '<button class="btn-info editarC"><a href="javascript:;" data="'+data[i].idCliente+'" id="editar">Editar</a></button>'+
+                    '<button class="btn-danger eliminarC" id="eliminarB"><a href="javascript:;" data="'+data[i].idCliente+'" id="eliminar">Eliminar</a></button>'+
                     '</td>'+
                     '</tr>';
+
+
             }
+
             $('#table').html(html);
+
         },
 
         error: function () {
@@ -163,3 +170,6 @@ function showClients() {
 
     });
 }
+
+
+
