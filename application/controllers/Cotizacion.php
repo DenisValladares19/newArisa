@@ -24,8 +24,7 @@ class Cotizacion extends Padre_Desing
         $this->load->view("layout/header",$data);
         $this->load->view("layout/sidebar");
         $this->load->view("layout/navbar");
-        $tipo['inventario'] = $this->Cotizacion_m->getAllInventario();
-        $this->load->view("cotizacion/cotizacion_view",$tipo);
+        $this->load->view("cotizacion/cotizacion_view");
         $this->load->view("layout/footer");
     }
     
@@ -43,43 +42,199 @@ class Cotizacion extends Padre_Desing
         $tipo = $this->Cotizacion_m->getAllTipoImpresion();
         echo json_encode($tipo);
     }
-
-    public function getAllCotizacion(){
-        $tipo = $this->Cotizacion_m->getAllCotizaciones();
-        echo json_encode($tipo);
-    }
     
     public function  newMaterial(){
         $id = $this->input->post("id");
-        $band = false;
-        if(isset($_SESSION["material"])){
-           $material2 = $_SESSION["material"];
-           foreach ($material2 as $m){
-               if(!$this->$id == $m->idMaterial){
-                  $band = true;
-               }else{
-                   $m->cantidad += 1;
-                   $_SESSION["material"] = $material2;
-               }
-           }
-            
-           if (band) {
-                $inv = $this->Cotizacion_m->getAllInventario($id);
-                foreach ($inv as $ma) {
-                    $material = array(
-                        "idMaterial" => $ma->idInventario,
-                        "nombre" => $ma->nombre,
-                        "desc" => $ma->descripcion,
-                        "precio" => $ma->precio,
-                        "stock" => $ma->stock,
-                        "cantidad" => 1
-                    );
-                    $material2.array_push($material);
-                }
-                $_SESSION["material"] = $material2;
-            }
-            
-            echo json_encode($_SESSION["material"]);
-        }       
+        $inv = $this->Cotizacion_m->getAllInventario($id);
+        echo json_encode($inv);          
+    }
+
+    public function insertarCotizacion(){
+        $idCliente = $_POST["cliente"];
+        $fecha = $_POST["fecha"];
+        $idTipo = $_POST["tipoImprecion"];
+        $idEstado = $_POST["estado"];
+        $desc = $_POST['descripcion'];
+        $data = array(
+            "idCotizacion"=>0,
+            "idCliente"=>$idCliente,
+            "idEstado1"=>$idEstado,
+            "idTipoImpresion"=>$idTipo,
+            "fecha"=>$fecha,
+            "descripcion"=>$desc,
+            "borradoLogico"=>1
+        );
+        $res = $this->Cotizacion_m->insertCotizacion($data);
+        echo $res;
+    }
+  
+    public function insertarDesc(){
+        $form = $_POST["form"];
+        
+        $desc = $form[0]['value'];
+        $cant = $form[1]['value'];
+        $precio = $form[2]['value'];
+        $total = $precio*$cant;
+        $idCotizacion = $_POST["idCotizacion"];
+         //Insercion a la tabla descCotizacion 
+        $data1 = array(
+            "idDescripcion"=>0,
+            "subtotal"=>$total,
+            "iva"=>($total*0.13),
+            "vTotal"=>(($total*0.13)+$total)
+        );
+        $idDesc = $this->Cotizacion_m->insertarDesc($data1);
+        echo $idDesc;
+          //Insercion a la tabla detalle 
+        $data2 = array(
+            "idDetalle"=>0,
+            "idDescripcion"=>$idDesc,
+            "idCotizacion"=>$idCotizacion,
+            "descripcion"=>$desc,
+            "cantidad"=>$cant,
+            "precio"=>$precio,
+            "total"=>$total
+        );
+        $this->Cotizacion_m->insertarDetalle($data2);
+    }
+    
+    public function getAllCotizacion(){
+        $res = $this->Cotizacion_m->getAllCotizacion();
+        echo json_encode($res);
+    }
+    //Obteniendo datos de la tabla detalle  
+    public function getDescripcion(){
+        $idCotizacion = $_POST["idCotizacion"];
+        $idDesc = $_POST["idDesc"];
+        $res = $this->Cotizacion_m->getDescripcion($idCotizacion,$idDesc);
+        //Obteniendo datos de la tabla detalle  
+        $res2 = $this->Cotizacion_m->getTablaDescripcion($idDesc);
+
+        $data = array(
+            "desc"=>$res,
+            "desc2"=>$res2
+        );
+        echo json_encode($data);
+    }
+
+    public function insertarDescripcion(){
+        $form = $_POST["form"];
+        $desc = $form[0]['value'];
+        $cant = $form[1]['value'];
+        $precio = $form[2]['value'];
+        $total = $precio*$cant;
+        $idCotizacion = $_POST["idCotizacion"];
+        $idDesc = $_POST["idDesc"];
+
+        $data2 = array(
+            "idDetalle"=>0,
+            "idDescripcion"=>$idDesc,
+            "idCotizacion"=>$idCotizacion,
+            "descripcion"=>$desc,
+            "cantidad"=>$cant,
+            "precio"=>$precio,
+            "total"=>$total
+        );
+        $res = $this->Cotizacion_m->insertarDetalle($data2);
+        $this->Cotizacion_m->updateDescripcion($idDesc);
+        echo $res;
+    }
+
+    public function getDescripcionEdit(){
+        $id = $_POST["id"];
+        $res = $this->Cotizacion_m->getDescripcionEdit($id);
+        echo json_encode($res);
+    }
+
+    public function updateDescripcion(){
+        $form = $_POST["data"];
+        $desc = $form[0]['value'];
+        $cant = $form[1]['value'];
+        $precio = $form[2]['value'];
+        $idDetalle = $form[3]['value'];
+        $idDesc = $_POST["idDesc"];
+        $total = $precio*$cant;
+
+        $data = array(
+            "descripcion"=>$desc,
+            "cantidad"=>$cant,
+            "precio"=>$precio,
+            "total"=>$total
+        );
+        $where = array(
+            "idDetalle"=>$idDetalle
+        );
+
+        $res = $this->Cotizacion_m->updateDescDetalle($data,$where);
+        $this->Cotizacion_m->updateDescripcion($idDesc);
+        echo $res;
+    }
+
+    public function deleteDescDetalle(){
+        $id = $_POST["id"];
+        $idDesc = $_POST["idDesc"];
+        $this->Cotizacion_m->deleteDescDetalle($id);
+        $this->Cotizacion_m->updateDescripcion($idDesc);
+    }
+
+    public function deleteCotizacion(){
+        $id = $_POST["id"];
+        $data = array(
+            "borradoLogico"=>2
+        );
+        $where = array(
+            "idCotizacion"=>$id
+        );
+        $res = $this->Cotizacion_m->deleteCotizacion($data,$where);
+        echo $res;
+    }
+
+    public function  getCotizacion(){
+        $id = $_POST["idCotizacion"];
+        $res = $this->Cotizacion_m->getAllCotizacion($id);
+        echo json_encode($res);
+    }
+
+    public function updateCotizacion(){
+        $form = $_POST["form"];
+        $idCliente = $form[0]["value"];
+        $fecha = $form[1]["value"];
+        $idTipo = $form[2]["value"];
+        $idEstado = $form[3]["value"];
+        $desc = $form[4]["value"];
+        $idCotizacion = $_POST["idCotizacion"];
+        $data = array(
+            "idCliente"=>$idCliente,
+            "idEstado1"=>$idEstado,
+            "idTipoImpresion"=>$idTipo,
+            "fecha"=>$fecha,
+            "descripcion"=>$desc
+        );
+
+        $where = array(
+            "idCotizacion"=>$idCotizacion
+        );
+        $res = $this->Cotizacion_m->updateCotizacion($data,$where);
+        echo $res;
+    }
+
+    public function reporte(){
+        $idCotizacion = $this->input->get("c");
+        $idDesc = $this->input->get("d");
+        $res = $this->Cotizacion_m->getAllCotizacion($idCotizacion);
+        $res2 = $this->Cotizacion_m->getDescripcion($idCotizacion,$idDesc);
+        //Obteniendo datos de la tabla detalle  
+        $res3 = $this->Cotizacion_m->getTablaDescripcion($idDesc);
+
+        $data = array(
+            "desc"=>$res2,
+            "desc2"=>$res3,
+            "cot"=>$res
+        );
+        $this->load->view("cotizacion/reporte",$data);
+
+        echo "desc = ".var_dump($res2);
+        echo "desc2 = ".var_dump($res3);
+        echo "cot = ".var_dump($res);
     }
 }
