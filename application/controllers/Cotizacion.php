@@ -24,8 +24,7 @@ class Cotizacion extends Padre_Desing
         $this->load->view("layout/header",$data);
         $this->load->view("layout/sidebar");
         $this->load->view("layout/navbar");
-        $tipo['inventario'] = $this->Cotizacion_m->getAllInventario();
-        $this->load->view("cotizacion/cotizacion_view",$tipo);
+        $this->load->view("cotizacion/cotizacion_view");
         $this->load->view("layout/footer");
     }
     
@@ -108,9 +107,14 @@ class Cotizacion extends Padre_Desing
         $idCotizacion = $_POST["idCotizacion"];
         $idDesc = $_POST["idDesc"];
         $res = $this->Cotizacion_m->getDescripcion($idCotizacion,$idDesc);
-        if($res!=null){
-            echo json_encode($res);
-        }
+        //Obteniendo datos de la tabla detalle  
+        $res2 = $this->Cotizacion_m->getTablaDescripcion($idDesc);
+
+        $data = array(
+            "desc"=>$res,
+            "desc2"=>$res2
+        );
+        echo json_encode($data);
     }
 
     public function insertarDescripcion(){
@@ -136,14 +140,101 @@ class Cotizacion extends Padre_Desing
         echo $res;
     }
 
-    //Obteniendo datos de la tabla detalle  
-    public function getTablaDescripcion(){
-        $idDes = $_POST["idDes"];
-        $res = $this->Cotizacion_m->getTablaDescripcion($idDes);
-        if($res!=null){
-            echo json_encode($res);
-        }
-
+    public function getDescripcionEdit(){
+        $id = $_POST["id"];
+        $res = $this->Cotizacion_m->getDescripcionEdit($id);
+        echo json_encode($res);
     }
-    
+
+    public function updateDescripcion(){
+        $form = $_POST["data"];
+        $desc = $form[0]['value'];
+        $cant = $form[1]['value'];
+        $precio = $form[2]['value'];
+        $idDetalle = $form[3]['value'];
+        $idDesc = $_POST["idDesc"];
+        $total = $precio*$cant;
+
+        $data = array(
+            "descripcion"=>$desc,
+            "cantidad"=>$cant,
+            "precio"=>$precio,
+            "total"=>$total
+        );
+        $where = array(
+            "idDetalle"=>$idDetalle
+        );
+
+        $res = $this->Cotizacion_m->updateDescDetalle($data,$where);
+        $this->Cotizacion_m->updateDescripcion($idDesc);
+        echo $res;
+    }
+
+    public function deleteDescDetalle(){
+        $id = $_POST["id"];
+        $idDesc = $_POST["idDesc"];
+        $this->Cotizacion_m->deleteDescDetalle($id);
+        $this->Cotizacion_m->updateDescripcion($idDesc);
+    }
+
+    public function deleteCotizacion(){
+        $id = $_POST["id"];
+        $data = array(
+            "borradoLogico"=>2
+        );
+        $where = array(
+            "idCotizacion"=>$id
+        );
+        $res = $this->Cotizacion_m->deleteCotizacion($data,$where);
+        echo $res;
+    }
+
+    public function  getCotizacion(){
+        $id = $_POST["idCotizacion"];
+        $res = $this->Cotizacion_m->getAllCotizacion($id);
+        echo json_encode($res);
+    }
+
+    public function updateCotizacion(){
+        $form = $_POST["form"];
+        $idCliente = $form[0]["value"];
+        $fecha = $form[1]["value"];
+        $idTipo = $form[2]["value"];
+        $idEstado = $form[3]["value"];
+        $desc = $form[4]["value"];
+        $idCotizacion = $_POST["idCotizacion"];
+        $data = array(
+            "idCliente"=>$idCliente,
+            "idEstado1"=>$idEstado,
+            "idTipoImpresion"=>$idTipo,
+            "fecha"=>$fecha,
+            "descripcion"=>$desc
+        );
+
+        $where = array(
+            "idCotizacion"=>$idCotizacion
+        );
+        $res = $this->Cotizacion_m->updateCotizacion($data,$where);
+        echo $res;
+    }
+
+    public function reporte(){
+        $idCotizacion = $this->input->get("c");
+        $idDesc = $this->input->get("d");
+        $res = $this->Cotizacion_m->getAllCotizacion($idCotizacion);
+        $res2 = $this->Cotizacion_m->getDescripcion($idCotizacion,$idDesc);
+        //Obteniendo datos de la tabla detalle  
+        $res3 = $this->Cotizacion_m->getTablaDescripcion($idDesc);
+
+        $data = array(
+            "desc"=>$res2,
+            "desc2"=>$res3,
+            "cot"=>$res
+        );
+        $this->load->view("cotizacion/reporte",$data);
+
+        echo "desc = ".var_dump($res2);
+        echo "desc2 = ".var_dump($res3);
+        echo "cot = ".var_dump($res);
+    }
 }
