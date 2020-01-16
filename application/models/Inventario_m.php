@@ -56,4 +56,15 @@ class Inventario_m extends CI_Model
         return $query->result();
     }
 
+
+    public function mostrarProdcuto(){
+        $borrado=array(
+            'borradoLogico'=>1,
+        );
+        $this->db->select("idInventario,nombreInv");
+        $this->db->from("inventario");
+        $this->db->where($borrado);
+        $query = $this->db->get();
+        return $query->result();
+    }
 }

@@ -1,4 +1,4 @@
-<head>
+<head xmlns="http://www.w3.org/1999/html">
     <script src="<?php echo base_url("resources/src/js/inventario/inventario.js")?>"></script>
 </head>
 <body>
@@ -90,31 +90,47 @@
                         <div class="col-md-12">
                             <br>
                             <h3 style="text-align: center;font-family: serif;"> Informacion del Producto</h3>
+                            <center><h6> Productos Existentes</h6></center>
                             <br>
-                            <div class="row mt-2">
-                                <table class="table table-bordered table-responsive-lg" width="100%" cellspacing="0" id="compraExit">
-                                    <thead style="background-color: rgba(11, 23, 41 , 0.6);">
-                                    <th>Producto</th>
-                                    <th>Cantidad</th>
-                                    <th>Cantidad</th>
-                                    </thead>
-                                    <tbody>
-
-                                    </tbody>
-                                    <tfoot>
-                                    <th>Producto</th>
-                                    <th>Cantidad</th>
-                                    <th>Cantidad</th>
-                                    </tfoot>
-                                </table>
+                            <div class="row px-3">
+                                <div class="col-sm-2">  </div>
+                                <div class="col-sm-10 list1">
+                                    <div class="mb-2 row justify-content-between px-3">
+                                        <div class="mob"> <label class="text-grey mr-1">Producto</label> <select id="selectProd"></select> </div>
+                                        <div class="mob mb-2"> <label class="text-grey mr-4">Cantidad</label> <input type="number" min="1"> </div>
+                                        <div class="mt-1 cancel fa fa-times text-danger"></div>
+                                    </div>
+                                </div>
                             </div>
+                            <br>
+                            <center>
+                                <a class="btn btn-outline-success add1"><i class="fa fa-plus-circle"></i> Agregar</a>
+                            </center>
                         </div>
                     </div>
 
                     <div class="row" id="paso3">
                         <div class="col-md-12">
+                            <br>
+                            <h3 style="text-align: center;font-family: serif;"> Informacion del Producto</h3>
+                            <center><h6> Productos Nuevos</h6></center>
+                            <br>
+                            <div class="row px-3">
+                                <div class="col-sm-2">  </div>
+                                <div class="col-sm-10 list2">
+                                    <div class="mb-2 row justify-content-between px-3">
+                                        <div class="mob"> <label class="text-grey mr-2">Nombre</label><input type="text"></div>
+                                        <div class="mob mb-2"> <label class="text-grey mr-2">Cantidad</label> <input type="number" min="1"> </div>
+                                        <div class="mt-1 cancel fa fa-times text-danger"></div>
+                                        <div class="mob"> <label class="text-grey mr-2">Precio</label> <input type="text"> </div>
+                                        <div class="mb-0"> <label class="text-grey mr-2">Descripcion</label> <input type="text"> </div>
+                                        <div class="mt-1"></div>
+                                    </div>
+                                    <br>
+                                </div>
+                            </div>
                             <center>
-                                <div class="row justify-content-center"> <img src="<?php echo base_url("resources/images/inventario/exito.gif")?>" class="check"> </div>
+                                <a class="btn btn-outline-success add2"><i class="fa fa-plus-circle"></i> Agregar</a>
                             </center>
                         </div>
                     </div>
@@ -124,6 +140,7 @@
                 <button type="submit" class="btn btn-danger" data-dismiss="modal" id="cancelar">Cancelar</button>
                 <button type="submit" class="btn btn-danger" id="back">Atras</button>
                 <button type="submit" class="btn btn-success" id="next">Siguiente</button>
+                <button type="submit" class="btn btn-success" id="end">Finalizar Compra</button>
             </div>
         </div>
     </div>
