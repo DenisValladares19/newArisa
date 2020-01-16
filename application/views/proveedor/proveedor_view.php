@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="<?php echo base_url("resources/modal/css/component.css")?>">
 <script src="<?php echo base_url("resources/src/js/proveedor/proveedor.js")?>"></script>
 <body>
