@@ -21,10 +21,10 @@
     <link rel="stylesheet" href="<?php echo base_url("resources/css/all.css")?>">
 
     <!-- Sweet Alerts V8.13.0 CSS file -->
-    <link rel="stylesheet" href="<?php echo base_url("resources/css/sweetalert2.min.css")?>">
+    <link rel="stylesheet" href="<?php echo base_url("resources/sweetalert2/dist/sweetalert2.min.css")?>">
 
     <!-- Sweet Alert V8.13.0 JS file-->
-    <script src="<?php echo base_url("resources/js/sweetalert2.min.js")?>" ></script>
+    <script src="<?php echo base_url("resources/sweetalert2/dist/sweetalert2.min.js")?>" ></script>
 
     <!-- jQuery Custom Content Scroller V3.1.5 -->
     <link rel="stylesheet" href="<?php echo base_url("resources/css/jquery.mCustomScrollbar.css")?>">
