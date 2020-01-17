@@ -24,7 +24,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Insertar</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Insertar Cotización #<spam id="nCot"></spam> </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -38,24 +38,10 @@
                                <select name="cliente" id="clienteI" class="form-control-lg"></select>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">  
-                        <div class="col-md-4">
+                        <div class="col-md-4 ml-3">
                             <div class="form-group">
                                 <label>Fecha</label>
                                 <input type="text" name="fecha" id="fechaI" class="form-control" autocomplete='off' ></input>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Tipo de Impresión</label>
-                                <select name="tipoImprecion" id="tipoI" class="form-control"></select>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Estado</label>
-                                <select name="estado" id="estadoI" class="form-control"></select>
                             </div>
                         </div>
                     </div>
@@ -72,20 +58,22 @@
                             <a id="addDes" class="btn btn-success">Agregar descripcion</a>
                         </div>
                     </div>
-                <form id="frmDesc">
-                    <div class="row" id='divDesc'>
-                    <div class='col-md-6'><input type='text' name='desc' id='descI'class='form-control' placeholder='Descripción'/></div>
-                    <div class='col-md-3'><input type='text' name='cant' id='cantI' class='form-control' placeholder='Cantidad'/></div>
-                    <div class='col-md-3'><input type='text' name='precio' id='Precio' class="form-control" placeholder="precio"/></div>
+                    <div id='divDesc'>
+                        <form id="frmDesc">
+                            <div class="row">
+                                <div class='col-md-6'><input type='text' name='desc' id='descI'class='form-control' placeholder='Descripción'/></div>
+                                <div class='col-md-3'><input type='text' name='cant' id='cantI' class='form-control' placeholder='Cantidad'/></div>
+                                <div class='col-md-3'><input type='text' name='precio' id='Precio' class="form-control" placeholder="precio"/></div>
+                            </div>
+                            <!-- cargar tabla de la descripcion -->
+                            <div class="row mt-4">
+                                <div class='col-md-12'>
+                                    <div id="tablaDesc"></div>
+                                </div>
+                            </div>
+                            <button type="submit" name="btnSave" id="btnGuardar" class="btn btn-primary mt-5">Guardar Cotización</button>
+                        </form> 
                     </div>
-                    <!-- cargar tabla de la descripcion -->
-                    <div class="row mt-4">
-                        <div class='col-md-12'>
-                            <div id="tablaDesc"></div>
-                        </div>
-                    </div>
-                    <button type="submit" name="btnSave" id="btnGuardar" class="btn btn-primary mt-5">Guardar Cotización</button>
-                </form>
               </div>
             </div>
 
@@ -139,27 +127,20 @@
                                <select name="cliente" id="clienteE" class="form-control"></select>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">  
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="form-group">
                                 <label>Fecha</label>
                                 <input type="text" name="fecha" id="fechaE" class="form-control" autocomplete='off' ></input>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label>Tipo de Impresión</label>
-                                <select name="tipoImprecion" id="tipoE" class="form-control"></select>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="form-group">
                                 <label>Estado</label>
                                 <select name="estado" id="estadoE" class="form-control"></select>
                             </div>
                         </div>
                     </div>
+                    
                         <div class='row'>
                             <div class='col-md-12'>
                                 <textarea class='form-control' name='descripcion' id='descripcionE' placeholder='Descripcion corta(para Diseñador).'></textarea>

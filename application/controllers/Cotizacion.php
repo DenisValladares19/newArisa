@@ -43,34 +43,25 @@ class Cotizacion extends Padre_Desing
         echo json_encode($tipo);
     }
     
-    public function  newMaterial(){
-        $id = $this->input->post("id");
-        $inv = $this->Cotizacion_m->getAllInventario($id);
-        echo json_encode($inv);          
-    }
-
     public function insertarCotizacion(){
         $idCliente = $_POST["cliente"];
         $fecha = $_POST["fecha"];
-        $idTipo = $_POST["tipoImprecion"];
-        $idEstado = $_POST["estado"];
         $desc = $_POST['descripcion'];
         $data = array(
             "idCotizacion"=>0,
             "idCliente"=>$idCliente,
-            "idEstado1"=>$idEstado,
-            "idTipoImpresion"=>$idTipo,
+            "idEstado1"=>2,
             "fecha"=>$fecha,
             "descripcion"=>$desc,
             "borradoLogico"=>1
         );
         $res = $this->Cotizacion_m->insertCotizacion($data);
+        $this->Cotizacion_m->generarCodigo($res);
         echo $res;
     }
   
     public function insertarDesc(){
-        $form = $_POST["form"];
-        
+        $form = $_POST["form"];  
         $desc = $form[0]['value'];
         $cant = $form[1]['value'];
         $precio = $form[2]['value'];
@@ -199,14 +190,12 @@ class Cotizacion extends Padre_Desing
         $form = $_POST["form"];
         $idCliente = $form[0]["value"];
         $fecha = $form[1]["value"];
-        $idTipo = $form[2]["value"];
-        $idEstado = $form[3]["value"];
-        $desc = $form[4]["value"];
+        $idEstado = $form[2]["value"];
+        $desc = $form[3]["value"];
         $idCotizacion = $_POST["idCotizacion"];
         $data = array(
             "idCliente"=>$idCliente,
             "idEstado1"=>$idEstado,
-            "idTipoImpresion"=>$idTipo,
             "fecha"=>$fecha,
             "descripcion"=>$desc
         );
@@ -236,5 +225,23 @@ class Cotizacion extends Padre_Desing
         echo "desc = ".var_dump($res2);
         echo "desc2 = ".var_dump($res3);
         echo "cot = ".var_dump($res);
+    }
+
+    public function  updateEstado(){
+        $id = $_POST["idCotizacion"];
+
+        $data = array(
+            "idEstado1"=>1
+        );
+        $where = array(
+            "idCotizacion"=>$id
+        );
+        $res = $this->Cotizacion_m->updateEstado($data,$where);
+        echo $res;
+    }
+
+    public function getUltimoId(){
+        $res = $this->Cotizacion_m->getUltimoId();
+        echo json_encode($res);
     }
 }
