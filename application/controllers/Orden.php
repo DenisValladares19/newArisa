@@ -37,10 +37,7 @@ class Orden extends Padre_Desing
 
     public function addOrden(){
 
-        $config = array("upload_path"=> "./resources/files/uploads", "allowed_types"=>"pdf|docx");
-        $this->load->library("upload",$config);
-        if ($this->upload->do_upload("archivo")){
-            $datos= array("upload_data"=> $this->upload->data());
+
             $data = array("idOrden"=>0,
                 "idCotizacion"=>$_POST["cot"],
                 "nombre"=>$_POST["orden"],
@@ -49,14 +46,9 @@ class Orden extends Padre_Desing
                 "idMuestra"=>$_POST["muestra"],
                 "idEstado2"=>$_POST["estado"],
                 "borradoLogico"=>1,
-                "cArchivo"=> $datos["upload_data"]["file_name"]
-
 
             );
-        }
-        else{
-            echo $this->upload->display_errors();
-        }
+
 
 
         $res = $this->Orden_M->saveOrden($data);
@@ -70,41 +62,21 @@ class Orden extends Padre_Desing
     public function saveChanges(){
         $data = null;
         $id = $this->input->post('txtId');
-        $config = array("upload_path"=> "./resources/files/uploads", "allowed_types"=>"pdf|docx");
-        $this->load->library("upload",$config);
 
-        if ($this->upload->do_upload("archivoE")){
-            $registro = $this->Orden_M->captureImage($id);
-            unlink("./resources/files/uploads/".$registro->cArchivo);
-            $datos= array("upload_data"=> $this->upload->data());
+
+
             $data = array(
                 "idCotizacion"=>$_POST["cotE"],
                 "nombre"=>$_POST["ordenE"],
                 "comentarios"=>$_POST["descE"],
-                "tamaño"=>$_POST["tamañoE"],
-                "idMuestra"=>$_POST["muestraE"],
-                "idEstado2"=>$_POST["estadoE"],
-                "borradoLogico"=>1,
-                "cArchivo"=> $datos["upload_data"]["file_name"]
-            );
-            $result = $this->Orden_M->updateOrden($data,$id);
-            echo json_encode($result);
-        }
-        else{
-            $data = array(
-                "idCotizacion"=>$_POST["cotE"],
-                "nombre"=>$_POST["ordenE"],
-                "comentarios"=>$_POST["descE"],
-                "tamaño"=>$_POST["tamañoE"],
                 "idMuestra"=>$_POST["muestraE"],
                 "idEstado2"=>$_POST["estadoE"],
                 "borradoLogico"=>1,
 
-
             );
             $result = $this->Orden_M->updateOrden($data,$id);
             echo json_encode($result);
-        }
+
 
     }
 

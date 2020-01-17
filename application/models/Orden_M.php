@@ -49,6 +49,24 @@ class Orden_M extends CI_Model
         }
     }
 
+    public function getStatus($id){
+
+
+        $this->db->select('o.*,c.idCotizacion,m.idMuestra, m.url,e.idEstado2, e.nombre as nombreE');
+        $this->db->from('orden o');
+        $this->db->join("cotizacion c","o.idCotizacion = c.idCotizacion");
+        $this->db->join("muestra m","o.idMuestra = m.idMuestra");
+        $this->db->join("estado2 e","o.idEstado2 = e.idEstado2");
+        $this->db->where('o.idOrden=',$id);
+        $query = $this->db->get('orden');
+        if ($query->num_rows()>0){
+            return $query->row();
+        }
+        else{
+            return false;
+        }
+    }
+
     public function captureImage($id){
         $this->db->select("cArchivo");
         $this->db->where("idOrden",$id);

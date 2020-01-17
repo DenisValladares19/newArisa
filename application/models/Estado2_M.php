@@ -13,11 +13,102 @@ class Estado2_M extends CI_Model
         parent::__construct();
     }
 
-    public function getStatus(){
+    public function getAllStatus(){
+
+
+
+
         $query = $this->db->get('estado2');
+
 
         if ($query->num_rows()>0){
             return $query->result();
+        }
+        else{
+            return false;
+        }
+    }
+
+
+    public function getStatus(){
+
+        $this->db->select('idEstado2, nombre');
+        $this->db->from('estado2');
+        $this->db->where('idEstado2=',1);
+
+
+        $query = $this->db->get();
+
+
+        if ($query->num_rows()>0){
+            return $query->result();
+        }
+        else{
+            return false;
+        }
+    }
+
+    public function getStatus1(){
+
+        $this->db->select('idEstado2, nombre');
+        $this->db->from('estado2');
+        $this->db->where('idEstado2>',1);
+
+
+        $query = $this->db->get();
+
+
+        if ($query->num_rows()>0){
+            return $query->result();
+        }
+        else{
+            return false;
+        }
+    }
+
+    public function getStatus2(){
+
+        $this->db->select('idEstado2, nombre');
+        $this->db->from('estado2');
+        $this->db->where('idEstado2>',2);
+
+
+        $query = $this->db->get();
+
+
+        if ($query->num_rows()>0){
+            return $query->result();
+        }
+        else{
+            return false;
+        }
+    }
+
+    public function getStatus3(){
+
+        $this->db->select('idEstado2, nombre');
+        $this->db->from('estado2');
+        $this->db->where('idEstado2>',3);
+
+
+        $query = $this->db->get();
+
+
+        if ($query->num_rows()>0){
+            return $query->result();
+        }
+        else{
+            return false;
+        }
+    }
+
+
+    public function getOneStatus($id){
+
+        $this->db->where('idEstado2',$id);
+        $query = $this->db->get('estado2');
+        if ($query->num_rows()>0){
+            return $query->row();
         }
         else{
             return false;
