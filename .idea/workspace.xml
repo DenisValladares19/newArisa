@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="dc70b34d-f42a-49b0-bec1-cbcb24508da6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Inventario.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Inventario.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Inventario_m.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Inventario_m.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/inventario/inventario_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/inventario/inventario_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/src/js/inventario/inventario.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/src/js/inventario/inventario.js" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/ARISA/composer.json</pharConfigPath>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="1751750940">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.35" value="1" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="css" value="1" />
+          <entry key="js" value="19" />
+          <entry key="php" value="28" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CSS" value="1" />
+          <entry key="JavaScript" value="19" />
+          <entry key="PHP" value="28" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="js" value="234" />
+          <entry key="php" value="77" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JavaScript" value="234" />
+          <entry key="PHP" value="77" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="-102341041">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.99" value="1" />
+          <entry key="project.opened" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="js" value="14" />
+          <entry key="php" value="31" />
+          <entry key="sql" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JavaScript" value="14" />
+          <entry key="PHP" value="31" />
+          <entry key="SQL" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="js" value="603" />
+          <entry key="php" value="902" />
+          <entry key="txt" value="19" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JavaScript" value="603" />
+          <entry key="PHP" value="902" />
+          <entry key="PLAIN_TEXT" value="19" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/src/js/inventario/inventario.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="654">
+              <caret line="253" column="23" selection-start-line="253" selection-start-column="23" selection-end-line="253" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/inventario/inventario_view.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="620">
+              <caret line="128" column="40" selection-start-line="128" selection-start-column="40" selection-end-line="128" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/ARISA/application/views/rol/rol_view.php" />
+        <option value="$PROJECT_DIR$/ARISA/application/models/Rol_M.php" />
+        <option value="$PROJECT_DIR$/ARISA/application/config/config.php" />
+        <option value="$PROJECT_DIR$/ARISA/application/models/Cliente_M.php" />
+        <option value="$PROJECT_DIR$/ARISA/application/models/Muestra_M.php" />
+        <option value="$PROJECT_DIR$/ARISA/resources/src/js/usuario/usuario.js" />
+        <option value="$PROJECT_DIR$/ARISA/application/controllers/Usuario.php" />
+        <option value="$PROJECT_DIR$/ARISA/resources/src/js/cliente/cliente.js" />
+        <option value="$PROJECT_DIR$/ARISA/resources/src/js/muestra/muestra.js" />
+        <option value="$PROJECT_DIR$/ARISA/resources/src/js/rol/rol.js" />
+        <option value="$PROJECT_DIR$/ARISA/application/views/proveedor/proveedor_view.php" />
+        <option value="$PROJECT_DIR$/ARISA/resources/src/js/proveedor/proveedor.js" />
+        <option value="$PROJECT_DIR$/ARISA/application/models/Inventario_m.php" />
+        <option value="$PROJECT_DIR$/ARISA/application/views/inventario/inventario_view.php" />
+        <option value="$PROJECT_DIR$/ARISA/application/controllers/Proveedor.php" />
+        <option value="$PROJECT_DIR$/ARISA/application/models/Login_m.php" />
+        <option value="$PROJECT_DIR$/ARISA/application/models/Usuario_M.php" />
+        <option value="$PROJECT_DIR$/ARISA/application/views/login/login_view.php" />
+        <option value="$PROJECT_DIR$/application/config/config.php" />
+        <option value="$PROJECT_DIR$/resources/db/arisa.sql" />
+        <option value="F:/recu/proveedor_view.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Proveedor.php" />
+        <option value="$PROJECT_DIR$/application/models/Proveedor_m.php" />
+        <option value="$PROJECT_DIR$/application/views/layout/sidebar.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Padre_Session.php" />
+        <option value="$PROJECT_DIR$/resources/src/js/proveedor/proveedor.js" />
+        <option value="$PROJECT_DIR$/application/views/cliente/cliente_view.php" />
+        <option value="$PROJECT_DIR$/application/views/proveedor/proveedor_view.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Inventario.php" />
+        <option value="$PROJECT_DIR$/application/models/Inventario_m.php" />
+        <option value="$PROJECT_DIR$/resources/src/js/inventario/inventario.js" />
+        <option value="$PROJECT_DIR$/application/views/inventario/inventario_view.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths>
+      <path value="$PROJECT_DIR$/resources/sweetalert2/package.json" />
+    </packageJsonPaths>
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="10" />
+    <option name="y" value="20" />
+    <option name="width" value="1346" />
+    <option name="height" value="688" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="inventario" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="proveedor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="inventario" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="proveedor" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dc70b34d-f42a-49b0-bec1-cbcb24508da6" name="Default Changelist" comment="" />
+      <created>1575640894855</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1575640894855</updated>
+      <workItem from="1575640896527" duration="3357000" />
+      <workItem from="1575645548134" duration="4355000" />
+      <workItem from="1577405957287" duration="6310000" />
+      <workItem from="1578363894258" duration="671000" />
+      <workItem from="1579145287414" duration="14546000" />
+    </task>
+    <task id="LOCAL-00001" summary="Seccion de Edgard">
+      <created>1579147141544</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1579147141544</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="29239000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12793177" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" weight="0.32980332" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24659607" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" weight="0.32980332" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Seccion de Edgard" />
+    <option name="LAST_COMMIT_MESSAGE" value="Seccion de Edgard" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/ARISA/application/config/database.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/views/cotizacion/cotizacion_view.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/config/config.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/views/rol/rol_view.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/models/Cliente_M.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/resources/src/js/cotizacion/cotizacion.js" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/controllers/Login.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/resources/src/js/cliente/cliente.js" />
+    <entry file="file://$PROJECT_DIR$/ARISA/resources/src/js/rol/rol.js" />
+    <entry file="file://$PROJECT_DIR$/ARISA/resources/css/sb-admin.css" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/views/proveedor/proveedor_view.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/resources/src/js/inventario/inventario.js" />
+    <entry file="file://$PROJECT_DIR$/ARISA/resources/src/js/proveedor/proveedor.js" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/models/Inventario_m.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/views/inventario/inventario_view.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/models/Proveedor_m.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/controllers/Proveedor.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/models/Login_m.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/resources/src/js/usuario/usuario.js" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/controllers/Usuario.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/models/Usuario_M.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/models/Rol_M.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/views/login/login_view.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/views/muestra/muestra_view.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/resources/src/js/muestra/muestra.js" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/controllers/Muestra.php" />
+    <entry file="file://$PROJECT_DIR$/ARISA/application/models/Muestra_M.php" />
+    <entry file="file://$PROJECT_DIR$/application/config/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="44" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/db/arisa.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="209" column="2" lean-forward="true" selection-start-line="209" selection-start-column="2" selection-end-line="209" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Proveedor_m.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="841">
+          <caret line="71" column="1" selection-start-line="71" selection-start-column="1" selection-end-line="71" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/recu/proveedor_view.php" />
+    <entry file="file://F:/recu/inventario_view.php" />
+    <entry file="file://$PROJECT_DIR$/application/views/layout/footer.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/layout/navbar.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/layout/header.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/layout/sidebar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="126" column="113" selection-start-line="126" selection-start-column="113" selection-end-line="126" selection-end-column="113" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Padre_Session.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Proveedor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Padre_Desing.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/cliente/cliente_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="773">
+          <caret line="304" selection-start-line="304" selection-end-line="304" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/proveedor/proveedor_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="773">
+          <caret line="287" selection-start-line="287" selection-end-line="287" />
+          <folding>
+            <element signature="e#300#306#0#HTML" expanded="true" />
+            <element signature="e#515#521#0#HTML" expanded="true" />
+            <element signature="e#654#660#0#HTML" expanded="true" />
+            <element signature="n#style#0;n#thead#0;n#table#0;n#div#2;n#body#0;n#!!top" expanded="true" />
+            <element signature="e#2073#2080#1#HTML" expanded="true" />
+            <element signature="e#6714#6721#1#HTML" expanded="true" />
+            <element signature="e#11696#11703#1#HTML" expanded="true" />
+            <element signature="n#style#0;n#thead#0;n#div#1;n#div#0;n#div#0;n#div#5;n#body#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/src/js/proveedor/proveedor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1904">
+          <caret line="169" column="28" selection-start-line="169" selection-start-column="28" selection-end-line="169" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Inventario.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="46" column="31" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Inventario_m.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="688">
+          <caret line="64" column="35" selection-start-line="64" selection-start-column="35" selection-end-line="64" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/src/js/inventario/inventario.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="654">
+          <caret line="253" column="23" selection-start-line="253" selection-start-column="23" selection-end-line="253" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/inventario/inventario_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="620">
+          <caret line="128" column="40" selection-start-line="128" selection-start-column="40" selection-end-line="128" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

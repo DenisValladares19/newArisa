@@ -1,6 +1,19 @@
 <script src="<?php echo base_url("resources/src/js/cliente/cliente.js")?>"></script>
 
-<div class="row">
+  <?php $rol = $this->session->userdata('rol');
+                        if($rol=='Vendedor'){
+
+                            ?>
+
+<link rel="stylesheet type="text/css" href="<?php echo base_url("resources/src/css/dashboard_hide1.css")?>">
+
+
+<?php
+
+                        }
+
+
+?>
 
     <div class="col-md-12">
         <h1>Gestión de Clientes</h1>
@@ -30,6 +43,8 @@
         </thead>
 
         <tbody id="table">
+
+
 
         </tbody>
 
@@ -282,3 +297,8 @@
         </div>
     </div>
 </div>
+
+
+
+
+

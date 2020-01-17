@@ -97,41 +97,166 @@ function llenarTablaInv()
 function listProv(){
     $.post("Inventario/mostrarProv",{},function(res){
         var r = JSON.parse(res);
+        $("#selectProv option").remove();
+        $("#selectProv").append("<option>Elige el Proveedor</option>");
         for(var i = 0;i<r.length;i++){
             $("#selectProv").append("<option value='"+r[i].idProveedor+"'>"+r[i].nombre+"</option>");
         }
     });
 }
 
+function listProd(){
+    $.post("Inventario/mostrarProd",{},function(res){
+        var r = JSON.parse(res);
+        $("#selectProd option").remove();
+        $("#selectProd").append("<option>Elige el Producto</option>");
+        for(var i = 0;i<r.length;i++){
+            $("#selectProd").append("<option value='"+r[i].idInventario+"'>"+r[i].nombreInv+"</option>");
+        }
+    });
+}
+
+function btnNext(){
+
+    $("#cancelar").hide();
+    $("#back").show();
+
+    if($("#paso1").show()) {
+        $("#paso1").hide();
+        $("#paso2").show();
+        $("#paso3").hide();
+        $("#next").show();
+        $("#end").hide();
+
+        $(document).on("click","#next",function () {
+                $("#paso1").hide();
+                $("#paso2").hide();
+                $("#paso3").show();
+
+                $("#next").hide();
+                $("#end").show();
+
+        $(document).on("click","#back",function () {
+                btnBack();
+
+            });
+
+        });
+
+    }
+
+}
+
+function btnBack(){
+    $("#next").show();
+    $("#end").hide();
+
+    if($("#paso3").show()){
+        $("#paso1").hide();
+        $("#paso2").show();
+        $("#paso3").hide();
+
+        $("#cancelar").hide();
+        $("#back").show();
+
+
+        $(document).on("click","#back",function () {
+                $("#paso1").show();
+                $("#paso2").hide();
+                $("#paso3").hide();
+
+                $("#cancelar").show();
+                $("#back").hide();
+
+
+            $(document).on("click","#next",function () {
+               btnNext();
+
+            });
+
+        });
+
+    }
+
+
+
+
+
+}
+
+
 $(document).ready(function () {
     llenarTablaInv();
     listProv();
+    listProd();
 
     $(document).on("click","#addInv",function () {
         $("#agregarInventario").modal("show");
-    })
+
+        $("#paso1").show();
+        $("#paso2").hide();
+        $("#paso3").hide();
+
+        $("#cancelar").show();
+        $("#back").hide();
+        $("#next").show();
+        $("#end").hide();
+
+
+        $(document).on("click","#next",function () {
+            btnNext();
+
+        });
+
+        $(document).on("click","#back",function () {
+           btnBack();
+        })
+
+    });
 
     $(document).on("click","#rest",function () {
         llenarTablaCompras();
-    })
+    });
 
     $(document).on("click","#rest",function () {
         $("#frmCompras").modal("show");
-    })
+    });
 
 
-    $("#p1").hide();
-    $("#p2").hide();
 
-    $(document).on("click","#btn1",function () {
-        $("#p2").show();
-        $("#p1").hide();
-    })
 
-    $(document).on("click","#btn2",function () {
-        $("#p1").show();
-        $("#p2").hide();
-    })
 
+    $('.add1').click(function(){
+
+        $(".list1").append(
+            '<div class="mb-2 row justify-content-between px-3">\n' +
+            '<div class="mob"> <label class="text-grey mr-1">Producto</label> <select id="selectProd">'+ listProd() +'</select> </div>\n' +
+            '<div class="mob mb-2"> <label class="text-grey mr-4">Cantidad</label> <input type="number" min="1"> </div>\n' +
+            '<div class="mt-1 cancel fa fa-times text-danger"></div>\n' +
+            '</div>');
+        listProd();
+    });
+
+    $(".list1").on('click', '.cancel', function(){
+        $(this).parent().remove();
+    });
+
+    $('.add2').click(function(){
+
+        $(".list2").append(
+            '<div class="mb-2 row justify-content-between px-3">\n' +
+            '<div class="mob"><label class="text-grey mr-2">Nombre</label><input type="text"></div>\n' +
+            '<div class="mob mb-2"> <label class="text-grey mr-2">Cantidad</label> <input type="number" min="1"> </div>\n' +
+            '<div class="mt-1 cancel fa fa-times text-danger"></div>\n' +
+            '<div class="mob"> <label class="text-grey mr-2">Precio</label> <input type="text"> </div>\n' +
+            '<div class="mb-0"> <label class="text-grey mr-2">Descripcion</label> <input type="text"></div>\n' +
+            '<div class="mt-1"></div>\n' +
+            '</div><br>');
+        listProd();
+    });
+
+    $(".list2").on('click', '.cancel', function(){
+        $(this).parent().remove();
+    });
 
 })

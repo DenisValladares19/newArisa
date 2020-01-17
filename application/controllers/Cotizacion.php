@@ -43,6 +43,15 @@ class Cotizacion extends Padre_Desing
         echo json_encode($tipo);
     }
     
+<<<<<<< HEAD
+=======
+    public function  newMaterial(){
+        $id = $this->input->post("id");
+        $inv = $this->Cotizacion_m->getAllInventario($id);
+        echo json_encode($inv);          
+    }
+
+>>>>>>> d3c3d8b6e3259ca80cfffa6f0e00555b09bbc3f3
     public function insertarCotizacion(){
         $idCliente = $_POST["cliente"];
         $fecha = $_POST["fecha"];
@@ -190,12 +199,22 @@ class Cotizacion extends Padre_Desing
         $form = $_POST["form"];
         $idCliente = $form[0]["value"];
         $fecha = $form[1]["value"];
+<<<<<<< HEAD
         $idEstado = $form[2]["value"];
         $desc = $form[3]["value"];
+=======
+        $idTipo = $form[2]["value"];
+        $idEstado = $form[3]["value"];
+        $desc = $form[4]["value"];
+>>>>>>> d3c3d8b6e3259ca80cfffa6f0e00555b09bbc3f3
         $idCotizacion = $_POST["idCotizacion"];
         $data = array(
             "idCliente"=>$idCliente,
             "idEstado1"=>$idEstado,
+<<<<<<< HEAD
+=======
+            "idTipoImpresion"=>$idTipo,
+>>>>>>> d3c3d8b6e3259ca80cfffa6f0e00555b09bbc3f3
             "fecha"=>$fecha,
             "descripcion"=>$desc
         );
@@ -226,6 +245,7 @@ class Cotizacion extends Padre_Desing
         echo "desc2 = ".var_dump($res3);
         echo "cot = ".var_dump($res);
     }
+<<<<<<< HEAD
 
     public function  updateEstado(){
         $id = $_POST["idCotizacion"];
@@ -244,4 +264,6 @@ class Cotizacion extends Padre_Desing
         $res = $this->Cotizacion_m->getUltimoId();
         echo json_encode($res);
     }
+=======
+>>>>>>> d3c3d8b6e3259ca80cfffa6f0e00555b09bbc3f3
 }

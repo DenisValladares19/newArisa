@@ -1,7 +1,8 @@
 $(document).ready(function () {
 
-    var elemento = document.getElementById("usu");
-    elemento.style.display = 'none';
+    let buttons = document.getElementsByClassName("editarC").length;
+    console.log(buttons);
 
-}
-);
+    $('#editarA').hide();
+
+});

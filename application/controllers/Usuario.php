@@ -8,8 +8,8 @@
 
 
 defined("BASEPATH");
-include (APPPATH."controllers/Padre_Session.php");
-class Usuario extends Padre_Session
+include (APPPATH."controllers/New_Padre.php");
+class Usuario extends New_Padre
 {
 
     public function __construct()
