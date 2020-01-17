@@ -75,6 +75,19 @@
 
                         <div class="form-group">
                             <label>Cotización</label>
+                            <button name="cotShow" id="cotShowId" class="form-control">
+                                Agregar Cotización
+
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-column col-md-12">
+
+
+
+                        <div class="form-group">
+                            <label>Cotización</label>
                             <select name="cot" id="cotId" class="form-control">
                                 <option disabled="true">Seleccione</option>
 
@@ -82,82 +95,93 @@
                         </div>
                     </div>
 
+                    <!--
 
-                    <div class="form-column col-md-12">
-
-
-
-                        <div class="form-group">
-                            <label>Nombre de orden</label>
-                            <input type="text" name="orden" id="ordenId" class="form-control"></input>
-                        </div>
-                    </div>
-
-                    <div class="form-column col-md-12">
+                 <div class="form-column col-md-12">
 
 
 
-                        <div class="form-group">
-                            <label>Descripción de orden</label>
-                            <input type="text" name="desc" id="descId" class="form-control"></input>
-                        </div>
-                    </div>
+                     <div class="form-group">
+                         <label>Nombre de orden</label>
+                         <input type="text" name="orden" id="ordenId" class="form-control"></input>
+                     </div>
+                 </div>
 
-                    <div class="form-column col-md-12">
+                 -->
 
-
-
-                        <div class="form-group">
-                            <label>Tamaño</label>
-                            <input type="text" name="tamaño" id="tamañoId" class="form-control"></input>
-                        </div>
-                    </div>
-
-                    <div class="form-column col-md-12">
+                 <div class="form-column col-md-12">
 
 
 
-                        <div class="form-group">
-                            <label>Archivo</label>
-                            <input type="file" name="archivo" id="archivoId" class="form-control"></input>
-                        </div>
-                    </div>
+                     <div class="form-group">
+                         <label>Descripción de orden</label>
+                         <input type="text" name="desc" id="descId" class="form-control"></input>
+                     </div>
+                 </div>
 
 
-                    <div class="form-column col-md-12">
+                    <!--
 
-
-
-                        <div class="form-group">
-                            <label>Muestra</label>
-                            <select name="muestra" id="muestraId" class="form-control">
-                                <option disabled="true">Seleccione</option>
-
-                            </select>
-                        </div>
-                    </div>
-
-
-                    <div class="form-column col-md-12">
+                 <div class="form-column col-md-12">
 
 
 
-                        <div class="form-group">
-                            <label>Estado</label>
-                            <select name="estado" id="estadoId" class="form-control">
-                                <option disabled="true">Seleccione</option>
+                     <div class="form-group">
+                         <label>Tamaño</label>
+                         <input type="text" name="tamaño" id="tamañoId" class="form-control"></input>
+                     </div>
+                 </div>
 
-                            </select>
-                        </div>
-                    </div>
+                 -->
+
+                    <!--
+
+                 <div class="form-column col-md-12">
 
 
-                    <button type="submit" id="btnSaveOrdenId" name="btnSave" class="btn btn-primary">Guardar Orden</button>
-                </form>
-            </div>
 
-        </div>
-    </div>
+                     <div class="form-group">
+                         <label>Archivo</label>
+                         <input type="file" name="archivo" id="archivoId" class="form-control"></input>
+                     </div>
+                 </div>
+
+                    -->
+
+                 <div class="form-column col-md-12">
+
+
+
+                     <div class="form-group">
+                         <label>Muestra</label>
+                         <select name="muestra" id="muestraId" class="form-control">
+                             <option disabled="true">Seleccione</option>
+
+                         </select>
+                     </div>
+                 </div>
+
+
+                 <div class="form-column col-md-12">
+
+
+
+                     <div class="form-group">
+                         <label>Estado</label>
+                         <select name="estado" id="estadoId" class="form-control">
+                             <option disabled="true">Seleccione</option>
+
+                         </select>
+                     </div>
+                 </div>
+
+
+                 <button type="submit" id="btnSaveOrdenId" name="btnSave" class="btn btn-primary">Guardar Orden</button>
+             </form>
+         </div>
+
+     </div>
+ </div>
 </div>
 
 
@@ -175,10 +199,28 @@
             <div class="modal-body">
                 <form method="post" id="editFormOrden">
 
+                    <input type="text" name="txtId" value="0">
+                    <input type="text" name="txtIdEst" id="txtIdEstI">
+
                     <div class="form-column col-md-12">
 
 
-                        <input type="text" name="txtId" value="0">
+
+                        <div class="form-group">
+                            <label>Cotización</label>
+                            <button name="cotShow" id="cotShowId" class="form-control">
+                                Agregar Cotización
+
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-column col-md-12">
+
+
+
+
+
                         <div class="form-group">
                             <label>Cotización</label>
                             <select name="cotE" id="cotIdE" class="form-control">
@@ -188,7 +230,7 @@
                         </div>
                     </div>
 
-
+                    <!--
                     <div class="form-column col-md-12">
 
 
@@ -198,6 +240,8 @@
                             <input type="text" name="ordenE" id="ordenIdE" class="form-control"></input>
                         </div>
                     </div>
+
+                    -->
 
                     <div class="form-column col-md-12">
 
@@ -209,6 +253,8 @@
                         </div>
                     </div>
 
+                    <!--
+
                     <div class="form-column col-md-12">
 
 
@@ -219,6 +265,10 @@
                         </div>
                     </div>
 
+                    -->
+
+                        <!--
+
                     <div class="form-column col-md-12">
 
 
@@ -228,6 +278,8 @@
                             <input type="file" name="archivoE" id="archivoIdE" class="form-control"></input>
                         </div>
                     </div>
+
+                    -->
 
 
                     <div class="form-column col-md-12">
@@ -296,6 +348,61 @@
 
 
 
-<input type="hidden" name="txtIdname" id="txtIdText"></input>
+<input type="hidden" name="txtIdname" id="txtIdText">
+
+
+<!--Parte de cotización-->
+
+<div class="modal fade" id="modalCot" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmar Eliminación</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+
+                    <div class="table-responsive">
+
+                        <table class="table table-bordered" width="100%" cellspacing="0" id="data1">
+                            <thead style="font-weight: bold;">
+
+                            <td>Núm. Cotización</td>
+                            <td>Cliente</td>
+                            <td>Apellido</td>
+                            <td>Opciones</td>
+
+                            </thead>
+
+                            <tbody id="table1">
+
+
+
+                            </tbody>
+
+                            <tfoot>
+                            <th>Núm. Cotización</th>
+                            <th>Cliente</th>
+                            <th>Apellido</th>
+                            <th>Opciones</th>
+
+                            </tfoot>
+
+
+
+                        </table>
+
+                    </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
 
 

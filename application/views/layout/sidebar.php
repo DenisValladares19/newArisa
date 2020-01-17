@@ -125,6 +125,9 @@
                                 <a href="Cotizacion" id="cot"><i class="fas  fa-user-secret fa-fw"></i> &nbsp; Cotizaciones</a>
                             </li>
 
+                            <li>
+                                <a href="Historial" id="his"><i class="fas  fa-user-secret fa-fw"></i> Registro de actividad</a>
+                            </li>
 
 
                             <?php
