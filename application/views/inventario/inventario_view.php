@@ -87,6 +87,7 @@
                     </div>
 
                     <div class="row" id="paso2">
+                        <form id="frm">
                         <div class="col-md-12">
                             <br>
                             <h3 style="text-align: center;font-family: serif;"> Informacion del Producto</h3>
@@ -96,8 +97,8 @@
                                 <div class="col-sm-2">  </div>
                                 <div class="col-sm-10 list1">
                                     <div class="mb-2 row justify-content-between px-3">
-                                        <div class="mob"> <label class="text-grey mr-1">Producto</label> <select id="selectProd"></select> </div>
-                                        <div class="mob mb-2"> <label class="text-grey mr-4">Cantidad</label> <input type="number" min="1"> </div>
+                                        <div class="mob"> <label class="text-grey mr-1">Producto</label> <select class="selectProd" name="selectProd[]"></select> </div>
+                                        <div class="mob mb-2"> <label class="text-grey mr-4">Cantidad</label> <input type="number" min="1" name="cantidad[]"> </div>
                                         <div class="mt-1 cancel fa fa-times text-danger"></div>
                                     </div>
                                 </div>
@@ -107,6 +108,10 @@
                                 <a class="btn btn-outline-success add1"><i class="fa fa-plus-circle"></i> Agregar</a>
                             </center>
                         </div>
+                            <input type="submit" id="btn1">
+                        </form>
+                        <br><br>
+                        <p><b>Results:</b> <span id="results"></span></p>
                     </div>
 
                     <div class="row" id="paso3">
@@ -178,6 +183,10 @@
         </div>
     </div>
 </div>
+
+
+
+
 
 
 </section>

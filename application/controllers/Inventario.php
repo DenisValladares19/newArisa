@@ -48,4 +48,8 @@ class Inventario extends Padre_Desing
         $res = $this->Inventario_m->mostrarProdcuto();
         echo json_encode($res);
     }
+
+    public function prueba(){
+
+    }
 }

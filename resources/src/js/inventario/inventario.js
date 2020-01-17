@@ -108,14 +108,13 @@ function listProv(){
 function listProd(){
     $.post("Inventario/mostrarProd",{},function(res){
         var r = JSON.parse(res);
-        $("#selectProd option").remove();
-        $("#selectProd").append("<option>Elige el Producto</option>");
+        $(".selectProd option").remove();
+        $(".selectProd").append("<option>Elige el Producto</option>");
         for(var i = 0;i<r.length;i++){
-            $("#selectProd").append("<option value='"+r[i].idInventario+"'>"+r[i].nombreInv+"</option>");
+            $(".selectProd").append("<option value='"+r[i].idInventario+"'>"+r[i].nombreInv+"</option>");
         }
     });
 }
-
 function btnNext(){
 
     $("#cancelar").hide();
@@ -190,6 +189,17 @@ $(document).ready(function () {
     listProv();
     listProd();
 
+    function showValues() {
+        var fields = $( ":input" ).serializeArray();
+        $( "#results" ).empty();
+        jQuery.each( fields, function( i, field ) {
+            $( "#results" ).append( field.value + " " );
+        });
+    }
+
+    $( "select" ).change( showValues );
+    showValues();
+
     $(document).on("click","#addInv",function () {
         $("#agregarInventario").modal("show");
 
@@ -222,25 +232,35 @@ $(document).ready(function () {
         $("#frmCompras").modal("show");
     });
 
+    $(document).on("click","#end",function () {
+        var $infoCompra=new Array();
+
+        $infoCompra["fecha"]=document.getElementById("fecha").value;
+        $infoCompra["idProveedor"]=document.getElementById("selectProv").value;
+        $infoCompra["subTotal"]=document.getElementById("subTotal").value;
+
+    });
 
 
-
+//Crear el paso 2
 
     $('.add1').click(function(){
-
+        listProd();
         $(".list1").append(
             '<div class="mb-2 row justify-content-between px-3">\n' +
-            '<div class="mob"> <label class="text-grey mr-1">Producto</label> <select id="selectProd">'+ listProd() +'</select> </div>\n' +
-            '<div class="mob mb-2"> <label class="text-grey mr-4">Cantidad</label> <input type="number" min="1"> </div>\n' +
+            '<div class="mob"> <label class="text-grey mr-1">Producto</label> <select class="selectProd" name="selectProd[]"></select> </div>\n' +
+            '<div class="mob mb-2"> <label class="text-grey mr-4">Cantidad</label> <input type="number" min="1" name="cantidad[]">'  +
+            '</div>\n' +
             '<div class="mt-1 cancel fa fa-times text-danger"></div>\n' +
             '</div>');
-        listProd();
     });
 
     $(".list1").on('click', '.cancel', function(){
         $(this).parent().remove();
     });
 
+
+// Crear el paso 3
     $('.add2').click(function(){
 
         $(".list2").append(
@@ -259,4 +279,4 @@ $(document).ready(function () {
         $(this).parent().remove();
     });
 
-})
+});

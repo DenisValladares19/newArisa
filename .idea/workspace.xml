@@ -4,7 +4,6 @@
     <list default="true" id="dc70b34d-f42a-49b0-bec1-cbcb24508da6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/Inventario.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Inventario.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/Inventario_m.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Inventario_m.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/inventario/inventario_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/inventario/inventario_view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/src/js/inventario/inventario.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/src/js/inventario/inventario.js" afterDir="false" />
     </list>
@@ -71,38 +70,40 @@
     <session id="-102341041">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.39" value="1" />
           <entry key="project.open.time.99" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="js" value="14" />
-          <entry key="php" value="31" />
+          <entry key="php" value="34" />
           <entry key="sql" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JavaScript" value="14" />
-          <entry key="PHP" value="31" />
+          <entry key="PHP" value="34" />
           <entry key="SQL" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="603" />
-          <entry key="php" value="902" />
+          <entry key="js" value="1262" />
+          <entry key="php" value="1371" />
           <entry key="txt" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="603" />
-          <entry key="PHP" value="902" />
+          <entry key="HTML" value="1" />
+          <entry key="JavaScript" value="1261" />
+          <entry key="PHP" value="1371" />
           <entry key="PLAIN_TEXT" value="19" />
         </counts>
       </usages-collector>
@@ -110,20 +111,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/src/js/inventario/inventario.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="654">
-              <caret line="253" column="23" selection-start-line="253" selection-start-column="23" selection-end-line="253" selection-end-column="23" />
+            <state relative-caret-position="314">
+              <caret line="200" column="17" lean-forward="true" selection-start-line="200" selection-start-column="17" selection-end-line="200" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Inventario.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="739">
+              <caret line="52" selection-start-line="52" selection-end-line="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/inventario/inventario_view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="620">
-              <caret line="128" column="40" selection-start-line="128" selection-start-column="40" selection-end-line="128" selection-end-column="40" />
+            <state relative-caret-position="-9">
+              <caret line="76" column="2" selection-start-line="76" selection-start-column="2" selection-end-line="76" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -169,10 +179,11 @@
         <option value="$PROJECT_DIR$/resources/src/js/proveedor/proveedor.js" />
         <option value="$PROJECT_DIR$/application/views/cliente/cliente_view.php" />
         <option value="$PROJECT_DIR$/application/views/proveedor/proveedor_view.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Inventario.php" />
         <option value="$PROJECT_DIR$/application/models/Inventario_m.php" />
-        <option value="$PROJECT_DIR$/resources/src/js/inventario/inventario.js" />
+        <option value="$PROJECT_DIR$/application/controllers/Login.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Inventario.php" />
         <option value="$PROJECT_DIR$/application/views/inventario/inventario_view.php" />
+        <option value="$PROJECT_DIR$/resources/src/js/inventario/inventario.js" />
       </list>
     </option>
   </component>
@@ -238,6 +249,13 @@
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="inventario" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="login" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
@@ -319,7 +337,8 @@
       <workItem from="1575645548134" duration="4355000" />
       <workItem from="1577405957287" duration="6310000" />
       <workItem from="1578363894258" duration="671000" />
-      <workItem from="1579145287414" duration="14546000" />
+      <workItem from="1579145287414" duration="14783000" />
+      <workItem from="1579205403970" duration="14126000" />
     </task>
     <task id="LOCAL-00001" summary="Seccion de Edgard">
       <created>1579147141544</created>
@@ -328,17 +347,23 @@
       <option name="project" value="LOCAL" />
       <updated>1579147141544</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Seccion de Edgard">
+      <created>1579162212265</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1579162212265</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29239000" />
+    <option name="totallyTimeSpent" value="43602000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12793177" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12899786" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -485,16 +510,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="773">
           <caret line="287" selection-start-line="287" selection-end-line="287" />
-          <folding>
-            <element signature="e#300#306#0#HTML" expanded="true" />
-            <element signature="e#515#521#0#HTML" expanded="true" />
-            <element signature="e#654#660#0#HTML" expanded="true" />
-            <element signature="n#style#0;n#thead#0;n#table#0;n#div#2;n#body#0;n#!!top" expanded="true" />
-            <element signature="e#2073#2080#1#HTML" expanded="true" />
-            <element signature="e#6714#6721#1#HTML" expanded="true" />
-            <element signature="e#11696#11703#1#HTML" expanded="true" />
-            <element signature="n#style#0;n#thead#0;n#div#1;n#div#0;n#div#0;n#div#5;n#body#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -505,13 +520,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Inventario.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="46" column="31" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Inventario_m.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="688">
@@ -519,17 +527,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/src/js/inventario/inventario.js">
+    <entry file="file://$PROJECT_DIR$/application/controllers/Login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="654">
-          <caret line="253" column="23" selection-start-line="253" selection-start-column="23" selection-end-line="253" selection-end-column="23" />
+        <state relative-caret-position="510">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/login/login_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="50" column="87" lean-forward="true" selection-start-line="50" selection-start-column="12" selection-end-line="50" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Inventario.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="739">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/inventario/inventario_view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="128" column="40" selection-start-line="128" selection-start-column="40" selection-end-line="128" selection-end-column="40" />
+        <state relative-caret-position="-9">
+          <caret line="76" column="2" selection-start-line="76" selection-start-column="2" selection-end-line="76" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/src/js/inventario/inventario.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="200" column="17" lean-forward="true" selection-start-line="200" selection-start-column="17" selection-end-line="200" selection-end-column="17" />
         </state>
       </provider>
     </entry>
