@@ -1,7 +1,6 @@
 let a = 0;
 
 $(document).ready(function () {
-
     $.datepicker.regional['es'] = {
         closeText: 'Cerrar',
         prevText: '< Ant',
@@ -47,6 +46,13 @@ $(document).ready(function () {
     });
     
     $(document).on("click", "#agregarCliente", function () {
+        $.ajax({
+            url:"cotizacion/getUltimoId",
+            type:"POST"
+        }).done(function(res){
+            let data = JSON.parse(res);
+            $("#nCot").html(parseInt(data[0].idCotizacion)+1);
+        });
         $("#frmInsertarCliente").modal("show");
     });
 
@@ -59,7 +65,6 @@ $(document).ready(function () {
     $("#divDesc").hide('true');
     llenarEstado();
     llenarCLientes();
-    llenarTipo();
     llenarCotizacion();
     
     $(document).on("click",".editar",function(e){
@@ -86,7 +91,6 @@ $(document).ready(function () {
 
     $(document).on("click",".editarCot",function(e){
         e.preventDefault();
-        $("#modalCotizacionEditar").modal("hide");
         $("#frmEditDesc").modal("show");
         var id = $(this).attr("data-idDetalle");
         $.ajax({
@@ -228,14 +232,34 @@ $(document).ready(function () {
         }).done(function(res){
             var data = JSON.parse(res);
             if(data["desc"]!=""){
-                Swal.fire(
-                    'Descripción',
-                    'Se guardo exitosamente la cotización',
-                    'success'
-                )
-                $("#frmInsertarCliente").modal("hide");
+                
+                Swal.fire({
+                    title: 'Cotización',
+                    text: "Esta cotización esta aprobada?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si, Aprobala!'
+                  }).then((result) => {
+                    if (result.value) {
+                        $.ajax({
+                            url:"cotizacion/updateEstado",
+                            type:"POST",
+                            data:{idCotizacion:idCotizacion},
+                            error:function(jqXHR,status,exception){
+                                console.log(status+exception);
+                                console.warn(jqXHR.responseText);
+                            }
+                        }).done(function(res){
+                            llenarCotizacion();
+                        })
+                    }
+                  })
+                  $("#frmInsertarCliente").modal("hide");
                 llenarCotizacion();
                 limpiarCot();
+                
             }else{
                 var id = localStorage.getItem("idCotizacion");
                 $.ajax({
@@ -416,7 +440,6 @@ $(document).on("click",".editarC",function(e){
     $("#frmDescEditar").hide("true");
     $("#estadoE").empty();
     $("#clienteE").empty();
-    $("#tipoE").empty();
     /*$("#clienteE").select2({
         width: "100%"
     });*/
@@ -430,12 +453,6 @@ $(document).on("click",".editarC",function(e){
         var r = JSON.parse(res);   
         for(var i = 0;i<r.length;i++){
             $("#clienteE").append("<option value='"+r[i].idCliente+"'>"+r[i].nombre+" "+r[i].apellido+"</option>");
-        }       
-    });
-    $.post("cotizacion/getAllTipo",{},function(res){
-        var r = JSON.parse(res);   
-        for(var i = 0;i<r.length;i++){
-            $("#tipoE").append("<option value='"+r[i].idTipoImpresion+"'>"+r[i].nombre+" </option>");
         }       
     });
 
@@ -523,15 +540,6 @@ function llenarCLientes(){
     });
 }
 
-function llenarTipo(){
-    $.post("cotizacion/getAllTipo",{},function(res){
-        var r = JSON.parse(res);   
-        for(var i = 0;i<r.length;i++){
-            $("#tipoI").append("<option value='"+r[i].idTipoImpresion+"'>"+r[i].nombre+" </option>");
-        }       
-    });
-}
-
 function llenarDescripcion(){
     let idCotizacion = localStorage.getItem("idCotizacion");
     let idDesc = localStorage.getItem("idDesc");
@@ -603,9 +611,9 @@ function llenarCotizacion(){
         }
     }).done(function(res){
         var data = JSON.parse(JSON.stringify(res));
-        var tabla = '<table class="table table-bordered" width="100%" cellspacing="0" id="data"><thead style="background-color: rgba(11, 23, 41 , 0.6); color:white;"><td>Cliente</td><td>Tipo de Impresión</td><td>Fecha</td><td>Estado</td><td>Descripción</td><td>Total</td><td>Acciones</td></thead><tbody>';
+        var tabla = '<table class="table table-bordered" width="100%" cellspacing="0" id="data"><thead style="background-color: rgba(11, 23, 41 , 0.6); color:white;"><td>Codigo</td><td>Cliente</td><td>Fecha</td><td>Estado</td><td>Descripción</td><td>Total</td><td>Acciones</td></thead><tbody>';
         for(var i=0;i<data.length;i++){
-            tabla += "<tr><td>"+data[i].clNombre+" "+data[i].clApellido+"</td><td>"+data[i].tipo+"</td><td>"+data[i].fecha+"</td><td>"+data[i].estado+"</td><td>"+data[i].descripcion+"</td><td>"+data[i].vTotal+"</td><td><button class=' btn btn-outline-info mr-1 editarC' data-idDetalle='"+data[i].idDetalle+"' data-idCot='"+data[i].idCotizacion+"' data-idDesc='"+data[i].idDescripcion+"'><i class='fas fa-marker'></i></button><button class=' btn btn-outline-dark mr-1 printC' data-idDetalle='"+data[i].idDetalle+"' data-idCot='"+data[i].idCotizacion+"' data-idDesc='"+data[i].idDescripcion+"'><i class='fas fa-print'></i></button><button class='btn btn-outline-danger mr-1 eliminarC' data-idDetalle='"+data[i].idDetalle+"' data-idCot='"+data[i].idCotizacion+"' data-idDesc='"+data[i].idDescripcion+"'><i class='fas fa-trash-alt'></i></button></td></tr>";
+            tabla += "<tr><td>"+data[i].codigo+"</td><td>"+data[i].clNombre+" "+data[i].clApellido+"</td><td>"+data[i].fecha+"</td><td>"+data[i].estado+"</td><td>"+data[i].descripcion+"</td><td>"+data[i].vTotal+"</td><td><button class=' btn btn-outline-info mr-1 editarC' data-idDetalle='"+data[i].idDetalle+"' data-idCot='"+data[i].idCotizacion+"' data-idDesc='"+data[i].idDescripcion+"'><i class='fas fa-marker'></i></button><button class=' btn btn-outline-dark mr-1 printC' data-idDetalle='"+data[i].idDetalle+"' data-idCot='"+data[i].idCotizacion+"' data-idDesc='"+data[i].idDescripcion+"'><i class='fas fa-print'></i></button><button class='btn btn-outline-danger mr-1 eliminarC' data-idDetalle='"+data[i].idDetalle+"' data-idCot='"+data[i].idCotizacion+"' data-idDesc='"+data[i].idDescripcion+"'><i class='fas fa-trash-alt'></i></button></td></tr>";
         }
         tabla += "</tbody><tfoot style='font-weight: bold;'><td>Cliente</td><td>Tipo de Impresión</td><td>Fecha</td><td>Estado</td><td>Descripción</td><td>Total</td><td>Acciones</td></tfoot></table>";
         
@@ -655,10 +663,8 @@ function limpiarCot(){
     a = 0;
     $("#descripcionI").val("");
     $("#fechaI").val("");
-    $("#tipoI").empty();
     $("#clienteI").empty();
     $("#estadoI").empty();
-    llenarTipo();
     llenarCLientes();
     llenarEstado();
     $("#tablaDesc").empty();

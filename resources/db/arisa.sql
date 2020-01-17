@@ -103,13 +103,12 @@ borradoLogico int
 
 create table cotizacion(
 idCotizacion int primary key auto_increment,
+codigo varchar(50),
 idCliente int null,
 idEstado1 int,
-idTipoImpresion int,
 fecha date,
 descripcion text,
 borradoLogico int,
-foreign key(idTipoImpresion) references tipoImpresion(idTipoImpresion),
 foreign key(idCliente) references cliente(idCliente),
 foreign key(idEstado1) references estado1(idEstado1)
 );
