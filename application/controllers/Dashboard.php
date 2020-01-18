@@ -20,12 +20,11 @@ class Dashboard extends Padre
 
 
     public function index(){
-        $titulo="Dashboard";
-
-        $this->load->view("layout/header");
+        $data["title"] = "Dashboard";
+        $this->load->view("layout/header",$data);
         $this->load->view("layout/sidebar");
         $this->load->view("layout/navbar");
-        $this->load->view("dashboard/index_dashboard",$titulo);
+        $this->load->view("dashboard/index_dashboard");
         $this->load->view("layout/footer");
 
     }

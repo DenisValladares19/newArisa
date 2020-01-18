@@ -2,7 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc70b34d-f42a-49b0-bec1-cbcb24508da6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/dashboard/clientes.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/dashboard/cotización.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/dashboard/inventario.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/dashboard/muestra.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/dashboard/orden.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/dashboard/proveedores.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/dashboard/usuario.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/images/uploads/admin.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/dashboard/index_dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/dashboard/index_dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/layout/navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/layout/navbar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/layout/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/layout/sidebar.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,32 +80,37 @@
     <session id="-102341041">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.31" value="1" />
           <entry key="project.open.time.39" value="1" />
+          <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.99" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="jpg" value="2" />
           <entry key="js" value="14" />
-          <entry key="php" value="34" />
+          <entry key="php" value="51" />
+          <entry key="png" value="1" />
           <entry key="sql" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="Image" value="3" />
           <entry key="JavaScript" value="14" />
-          <entry key="PHP" value="34" />
+          <entry key="PHP" value="51" />
           <entry key="SQL" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="js" value="1262" />
-          <entry key="php" value="1371" />
+          <entry key="php" value="2271" />
           <entry key="txt" value="19" />
         </counts>
       </usages-collector>
@@ -100,14 +118,14 @@
         <counts>
           <entry key="HTML" value="1" />
           <entry key="JavaScript" value="1261" />
-          <entry key="PHP" value="1371" />
+          <entry key="PHP" value="2271" />
           <entry key="PLAIN_TEXT" value="19" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf />
   </component>
   <component name="FindInProjectRecents">
     <replaceStrings>
@@ -143,7 +161,6 @@
         <option value="F:/recu/proveedor_view.php" />
         <option value="$PROJECT_DIR$/application/controllers/Proveedor.php" />
         <option value="$PROJECT_DIR$/application/models/Proveedor_m.php" />
-        <option value="$PROJECT_DIR$/application/views/layout/sidebar.php" />
         <option value="$PROJECT_DIR$/application/controllers/Padre_Session.php" />
         <option value="$PROJECT_DIR$/resources/src/js/proveedor/proveedor.js" />
         <option value="$PROJECT_DIR$/application/views/cliente/cliente_view.php" />
@@ -153,6 +170,10 @@
         <option value="$PROJECT_DIR$/application/controllers/Inventario.php" />
         <option value="$PROJECT_DIR$/application/views/inventario/inventario_view.php" />
         <option value="$PROJECT_DIR$/resources/src/js/inventario/inventario.js" />
+        <option value="$PROJECT_DIR$/application/controllers/Dashboard.php" />
+        <option value="$PROJECT_DIR$/application/views/layout/navbar.php" />
+        <option value="$PROJECT_DIR$/application/views/dashboard/index_dashboard.php" />
+        <option value="$PROJECT_DIR$/application/views/layout/sidebar.php" />
       </list>
     </option>
   </component>
@@ -182,6 +203,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -198,19 +220,14 @@
               <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
               <item name="newArisa" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
               <item name="newArisa" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
@@ -224,19 +241,32 @@
               <item name="newArisa" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="proveedor" type="462c0819:PsiDirectoryNode" />
+              <item name="layout" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
               <item name="newArisa" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="uploads" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
@@ -271,7 +301,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -279,6 +308,12 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\newArisa\resources\images\dashboard" />
+      <recent name="C:\xampp\htdocs\newArisa\resources\images\uploads" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -319,6 +354,8 @@
       <workItem from="1578363894258" duration="671000" />
       <workItem from="1579145287414" duration="14783000" />
       <workItem from="1579205403970" duration="14282000" />
+      <workItem from="1579244032388" duration="165000" />
+      <workItem from="1579307799066" duration="9717000" />
     </task>
     <task id="LOCAL-00001" summary="Seccion de Edgard">
       <created>1579147141544</created>
@@ -341,16 +378,23 @@
       <option name="project" value="LOCAL" />
       <updated>1579243844376</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Seccion de Edgard">
+      <created>1579244073088</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1579244073088</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43758000" />
+    <option name="totallyTimeSpent" value="53640000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12899786" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13113007" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -362,7 +406,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32936078" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32936078" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -403,11 +447,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Seccion de Edgard" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ARISA/application/config/database.php" />
-    <entry file="file://$PROJECT_DIR$/ARISA/application/views/cotizacion/cotizacion_view.php" />
-    <entry file="file://$PROJECT_DIR$/ARISA/application/config/config.php" />
-    <entry file="file://$PROJECT_DIR$/ARISA/application/views/rol/rol_view.php" />
-    <entry file="file://$PROJECT_DIR$/ARISA/application/models/Cliente_M.php" />
     <entry file="file://$PROJECT_DIR$/ARISA/resources/src/js/cotizacion/cotizacion.js" />
     <entry file="file://$PROJECT_DIR$/ARISA/application/controllers/Login.php" />
     <entry file="file://$PROJECT_DIR$/ARISA/resources/src/js/cliente/cliente.js" />
@@ -453,38 +492,12 @@
     </entry>
     <entry file="file://F:/recu/proveedor_view.php" />
     <entry file="file://F:/recu/inventario_view.php" />
-    <entry file="file://$PROJECT_DIR$/application/views/layout/footer.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/layout/navbar.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/layout/header.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/layout/sidebar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="126" column="113" selection-start-line="126" selection-start-column="113" selection-end-line="126" selection-end-column="113" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Padre_Session.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Proveedor.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="49" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Padre_Desing.php">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/cliente/cliente_view.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -514,13 +527,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/login/login_view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
@@ -535,17 +541,111 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Padre_Desing.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Padre_Vendedor.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Padre_Session.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Usuario.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1080" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/layout/footer.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/layout/header.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Inventario.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="739">
-          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        <state relative-caret-position="337">
+          <caret line="27" column="43" lean-forward="true" selection-start-line="22" selection-start-column="8" selection-end-line="27" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/images/uploads/Brother1.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/images/uploads/perfil.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/layout/navbar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="12" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/inventario/inventario_view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
-          <caret line="76" column="2" selection-start-line="76" selection-start-column="2" selection-end-line="76" selection-end-column="2" />
+        <state relative-caret-position="493">
+          <caret line="29" column="63" lean-forward="true" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="63" />
+          <folding>
+            <element signature="n#style#0;n#thead#0;n#table#0;n#div#2;n#body#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/images/dashboard/clientes.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Proyecto-MVC/views/perfil.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="96" selection-start-line="96" selection-end-line="143" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/dashboard/index_dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="89" column="31" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="31" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#button#0;n#form#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#button#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#button#0;n#div#2;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#button#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#button#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#2;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#button#0;n#div#2;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#3;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#button#0;n#div#3;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/layout/sidebar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="84" column="50" selection-start-line="84" selection-start-column="50" selection-end-line="84" selection-end-column="50" />
         </state>
       </provider>
     </entry>
