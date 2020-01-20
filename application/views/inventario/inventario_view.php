@@ -111,7 +111,6 @@
                             <input type="submit" id="btn1">
                         </form>
                         <br><br>
-                        <p><b>Results:</b> <span id="results"></span></p>
                     </div>
 
                     <div class="row" id="paso3">

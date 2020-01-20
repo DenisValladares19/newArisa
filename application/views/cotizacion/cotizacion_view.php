@@ -38,7 +38,7 @@
                                <select name="cliente" id="clienteI" class="form-control-lg"></select>
                             </div>
                         </div>
-                        <div class="col-md-4 ml-3">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label>Fecha</label>
                                 <input type="text" name="fecha" id="fechaI" class="form-control" autocomplete='off' ></input>
