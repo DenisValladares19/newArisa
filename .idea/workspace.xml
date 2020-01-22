@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="dc70b34d-f42a-49b0-bec1-cbcb24508da6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/orden/orden_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/orden/orden_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/src/js/orden/orden.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/src/js/orden/orden.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/layout/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/layout/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/layout/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/layout/sidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/muestra/muestra_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/muestra/muestra_view.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -69,66 +70,108 @@
     <session id="-102341041">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.39" value="2" />
+          <entry key="project.open.time.47" value="1" />
+          <entry key="project.open.time.54" value="1" />
+          <entry key="project.open.time.56" value="1" />
           <entry key="project.open.time.99" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="js" value="14" />
-          <entry key="php" value="34" />
+          <entry key="js" value="19" />
+          <entry key="php" value="79" />
           <entry key="sql" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JavaScript" value="14" />
-          <entry key="PHP" value="34" />
+          <entry key="JavaScript" value="19" />
+          <entry key="PHP" value="79" />
           <entry key="SQL" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="1262" />
-          <entry key="php" value="1373" />
+          <entry key="js" value="1386" />
+          <entry key="php" value="3268" />
           <entry key="txt" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="1" />
-          <entry key="JavaScript" value="1261" />
-          <entry key="PHP" value="1373" />
+          <entry key="JavaScript" value="1385" />
+          <entry key="PHP" value="3268" />
           <entry key="PLAIN_TEXT" value="19" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.php.new.class">
+        <counts>
+          <entry key="PHP Class.type" value="8" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/src/js/orden/orden.js">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/reportes/Reporte_Orden.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="202" column="28" lean-forward="true" selection-start-line="202" selection-start-column="28" selection-end-line="202" selection-end-column="28" />
+            <state relative-caret-position="-210">
+              <caret line="22" column="48" lean-forward="true" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/orden/orden_view.php">
+        <entry file="file://$PROJECT_DIR$/application/views/reportes/Reporte_Orden_Cliente.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="38" column="24" lean-forward="true" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
+            <state relative-caret-position="148">
+              <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/reportes/Reporte_Orden_Fecha.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="207">
+              <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/reportes/Reporte_Orden_Fecha_B.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="332">
+              <caret line="57" column="36" lean-forward="true" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/layout/footer.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <replaceStrings>
@@ -141,7 +184,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ARISA/application/views/rol/rol_view.php" />
         <option value="$PROJECT_DIR$/ARISA/application/models/Rol_M.php" />
         <option value="$PROJECT_DIR$/ARISA/application/config/config.php" />
         <option value="$PROJECT_DIR$/ARISA/application/models/Cliente_M.php" />
@@ -164,7 +206,6 @@
         <option value="F:/recu/proveedor_view.php" />
         <option value="$PROJECT_DIR$/application/controllers/Proveedor.php" />
         <option value="$PROJECT_DIR$/application/models/Proveedor_m.php" />
-        <option value="$PROJECT_DIR$/application/views/layout/sidebar.php" />
         <option value="$PROJECT_DIR$/application/controllers/Padre_Session.php" />
         <option value="$PROJECT_DIR$/resources/src/js/proveedor/proveedor.js" />
         <option value="$PROJECT_DIR$/application/views/cliente/cliente_view.php" />
@@ -176,6 +217,24 @@
         <option value="$PROJECT_DIR$/resources/src/js/inventario/inventario.js" />
         <option value="$PROJECT_DIR$/application/views/orden/orden_view.php" />
         <option value="$PROJECT_DIR$/resources/src/js/orden/orden.js" />
+        <option value="$PROJECT_DIR$/application/helpers/pdf_helper.php" />
+        <option value="$PROJECT_DIR$/application/reportes/Reporte_Orden.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Reporte_Orden.php" />
+        <option value="$PROJECT_DIR$/application/models/Conexion.php" />
+        <option value="$PROJECT_DIR$/application/views/muestra/muestra_view.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Reporte.php" />
+        <option value="$PROJECT_DIR$/application/views/layout/sidebar.php" />
+        <option value="$PROJECT_DIR$/application/views/reportes/Reporte_Orden_Cliente_View.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Reporte_Orden_Cliente.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Reporte_Orden_Fecha.php" />
+        <option value="$PROJECT_DIR$/resources/src/js/reporte/reporte.js" />
+        <option value="$PROJECT_DIR$/application/views/reportes/Reporte_View.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Reporte_Orden_Fecha_B.php" />
+        <option value="$PROJECT_DIR$/application/views/reportes/Reporte_Orden_Fecha.php" />
+        <option value="$PROJECT_DIR$/application/views/reportes/Reporte_Orden_Cliente.php" />
+        <option value="$PROJECT_DIR$/application/views/reportes/Reporte_Orden.php" />
+        <option value="$PROJECT_DIR$/application/views/reportes/Reporte_Orden_Fecha_B.php" />
+        <option value="$PROJECT_DIR$/application/views/layout/footer.php" />
       </list>
     </option>
   </component>
@@ -193,7 +252,7 @@
   <component name="PhpServers">
     <servers />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="10" />
     <option name="y" value="20" />
     <option name="width" value="1346" />
@@ -205,6 +264,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -221,6 +281,12 @@
               <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
               <item name="newArisa" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -228,18 +294,19 @@
               <item name="newArisa" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="orden" type="462c0819:PsiDirectoryNode" />
+              <item name="layout" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
               <item name="newArisa" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="reportes" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -247,6 +314,12 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\newArisa\application\views\reportes" />
+      <recent name="C:\xampp\htdocs\newArisa\application\libraries" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -288,6 +361,9 @@
       <workItem from="1579145287414" duration="14783000" />
       <workItem from="1579205403970" duration="14282000" />
       <workItem from="1579270876664" duration="289000" />
+      <workItem from="1579556850356" duration="2448000" />
+      <workItem from="1579569675437" duration="11528000" />
+      <workItem from="1579656014279" duration="7590000" />
     </task>
     <task id="LOCAL-00001" summary="Seccion de Edgard">
       <created>1579147141544</created>
@@ -314,12 +390,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44047000" />
+    <option name="totallyTimeSpent" value="65613000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13086233" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1354009" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -372,31 +449,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Seccion de Edgard" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ARISA/application/config/database.php" />
-    <entry file="file://$PROJECT_DIR$/ARISA/application/views/cotizacion/cotizacion_view.php" />
-    <entry file="file://$PROJECT_DIR$/ARISA/application/config/config.php" />
-    <entry file="file://$PROJECT_DIR$/ARISA/application/views/rol/rol_view.php" />
-    <entry file="file://$PROJECT_DIR$/ARISA/application/models/Cliente_M.php" />
-    <entry file="file://$PROJECT_DIR$/ARISA/resources/src/js/cotizacion/cotizacion.js" />
-    <entry file="file://$PROJECT_DIR$/ARISA/application/controllers/Login.php" />
-    <entry file="file://$PROJECT_DIR$/ARISA/resources/src/js/cliente/cliente.js" />
-    <entry file="file://$PROJECT_DIR$/ARISA/resources/src/js/rol/rol.js" />
-    <entry file="file://$PROJECT_DIR$/ARISA/resources/css/sb-admin.css" />
-    <entry file="file://$PROJECT_DIR$/ARISA/application/views/proveedor/proveedor_view.php" />
-    <entry file="file://$PROJECT_DIR$/ARISA/resources/src/js/inventario/inventario.js" />
-    <entry file="file://$PROJECT_DIR$/ARISA/resources/src/js/proveedor/proveedor.js" />
-    <entry file="file://$PROJECT_DIR$/ARISA/application/models/Inventario_m.php" />
-    <entry file="file://$PROJECT_DIR$/ARISA/application/views/inventario/inventario_view.php" />
-    <entry file="file://$PROJECT_DIR$/ARISA/application/models/Proveedor_m.php" />
-    <entry file="file://$PROJECT_DIR$/ARISA/application/controllers/Proveedor.php" />
-    <entry file="file://$PROJECT_DIR$/ARISA/application/models/Login_m.php" />
-    <entry file="file://$PROJECT_DIR$/ARISA/resources/src/js/usuario/usuario.js" />
-    <entry file="file://$PROJECT_DIR$/ARISA/application/controllers/Usuario.php" />
-    <entry file="file://$PROJECT_DIR$/ARISA/application/models/Usuario_M.php" />
-    <entry file="file://$PROJECT_DIR$/ARISA/application/models/Rol_M.php" />
-    <entry file="file://$PROJECT_DIR$/ARISA/application/views/login/login_view.php" />
-    <entry file="file://$PROJECT_DIR$/ARISA/application/views/muestra/muestra_view.php" />
-    <entry file="file://$PROJECT_DIR$/ARISA/resources/src/js/muestra/muestra.js" />
     <entry file="file://$PROJECT_DIR$/ARISA/application/controllers/Muestra.php" />
     <entry file="file://$PROJECT_DIR$/ARISA/application/models/Muestra_M.php" />
     <entry file="file://$PROJECT_DIR$/application/config/config.php">
@@ -422,21 +474,11 @@
     </entry>
     <entry file="file://F:/recu/proveedor_view.php" />
     <entry file="file://F:/recu/inventario_view.php" />
-    <entry file="file://$PROJECT_DIR$/application/views/layout/footer.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/layout/navbar.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/layout/header.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/layout/sidebar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="126" column="113" selection-start-line="126" selection-start-column="113" selection-end-line="126" selection-end-column="113" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Padre_Session.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -483,13 +525,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/login/login_view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
@@ -518,17 +553,198 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/orden/orden_view.php">
+    <entry file="file://$PROJECT_DIR$/application/libraries/class.ezpdf.php" />
+    <entry file="file://$PROJECT_DIR$/application/helpers/pdf_helper.php" />
+    <entry file="file://$PROJECT_DIR$/application/config/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="38" column="24" lean-forward="true" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
+        <state relative-caret-position="188">
+          <caret line="38" column="57" selection-start-line="38" selection-start-column="57" selection-end-line="38" selection-end-column="57" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/reportes/Reporte_Orden.php" />
+    <entry file="file://$PROJECT_DIR$/application/models/Conexion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="12" column="56" lean-forward="true" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/cotizacion/reporte.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="15" lean-forward="true" selection-start-column="15" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Orden_M.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="20" column="65" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="27" column="53" lean-forward="true" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/src/js/historial/historial.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/src/js/muestra/muestra.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="27" lean-forward="true" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Muestra.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="29" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/muestra/muestra_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="84" lean-forward="true" selection-start-column="84" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/orden/orden_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/layout/sidebar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="125" column="56" selection-start-line="125" selection-start-column="56" selection-end-line="125" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/reportes/Reporte_Orden_Cliente_View.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="21" column="75" lean-forward="true" selection-start-line="21" selection-start-column="75" selection-end-line="21" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Orden.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Cliente.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/src/js/orden/orden.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="202" column="28" lean-forward="true" selection-start-line="202" selection-start-column="28" selection-end-line="202" selection-end-column="28" />
+        <state relative-caret-position="345">
+          <caret line="308" column="33" lean-forward="true" selection-start-line="308" selection-start-column="33" selection-end-line="308" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Reporte_Orden.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="18" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/src/js/reporte/reporte.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="43" lean-forward="true" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Reporte_Orden_Fecha_B.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="19" column="64" selection-start-line="19" selection-start-column="64" selection-end-line="19" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Reporte_Orden_Fecha.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Reporte_Orden_Cliente.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Reporte.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="24" column="51" lean-forward="true" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/reportes/Reporte_View.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="152" column="89" selection-start-line="152" selection-start-column="89" selection-end-line="152" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/reportes/Reporte_Orden_Fecha.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/reportes/Reporte_Orden_Cliente.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="13" column="22" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/reportes/Reporte_Orden.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-210">
+          <caret line="22" column="48" lean-forward="true" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/reportes/Reporte_Orden_Fecha_B.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="57" column="36" lean-forward="true" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/layout/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>

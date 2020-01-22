@@ -1,8 +1,5 @@
 
 
-
-
-
     <!-- Nav lateral -->
     <section class="full-box nav-lateral">
         <div class="full-box nav-lateral-bg show-nav-lateral"></div>
@@ -15,13 +12,6 @@
                 </figcaption>
             </figure>
             <div class="full-box nav-lateral-bar"></div>
-
-
-
-
-
-
-
 
 
 
@@ -129,6 +119,15 @@
                                 <a href="Historial" id="his"><i class="fas  fa-user-secret fa-fw"></i> Registro de actividad</a>
                             </li>
 
+                            <li>
+                                <a href="#" class="nav-btn-submenu" id="rep"><i class="fas fa-users fa-fw"></i> &nbsp Reportes <i class="fas fa-chevron-down"></i></a>
+                                <ul>
+                                    <li>
+                                        <a href="Reporte"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp Órdenes</a>
+                                    </li>
+                                </ul>
+                            </li>
+
 
                             <?php
                         }
@@ -137,15 +136,9 @@
 
                     </ul>
 
-
-
             </nav>
-
-
-
-
-
 
 
         </div>
     </section>
+
