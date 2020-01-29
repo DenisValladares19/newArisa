@@ -1,4 +1,4 @@
-<script src="<?php echo base_url("resources/src/js/muestra/muestra.js")?>"></script>
+<script src="<?php echo base_url("resources/src/js/reporte/reporte.js")?>"></script>
 
 <div class="row">
 
