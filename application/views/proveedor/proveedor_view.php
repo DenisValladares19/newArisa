@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="<?php echo base_url("resources/modal/css/component.css")?>">
 <script src="<?php echo base_url("resources/src/js/proveedor/proveedor.js")?>"></script>
 <body>
 <div class="full-box page-header">
@@ -30,7 +29,6 @@
         <th>Telefono</th>
         <th>Celular</th>
         <th>NIT</th>
-        <th>DUI</th>
         <th>N° Registro Fiscal</th>
         <th>Acciones</th>
         </thead>
@@ -42,7 +40,6 @@
         <th>Telefono</th>
         <th>Celular</th>
         <th>NIT</th>
-        <th>DUI</th>
         <th>N° Registro Fiscal</th>
         <th>Acciones</th>
         </tfoot>
@@ -65,18 +62,18 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="Proveedor/insertar" method="post">
+                <form id="frmAgregarDatos" method="post">
                     <div class="row mt-2">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Nombre del Proveedor</label>
-                                <input type="text" name="txtNombre" placeholder="Nombre..." class="form-control" required="true">
+                                <input type="text" name="txtNombre" placeholder="Nombre..." class="form-control" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Nombre de la Empresa</label>
-                                <input type="tel" name="txtEmpresa" class="form-control" placeholder="Empresa..." required="true">
+                                <input type="tel" name="txtEmpresa" class="form-control" placeholder="Empresa..." required>
                             </div>
                         </div>
                     </div>
@@ -84,7 +81,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>E-Mail</label>
-                                <input type="email" name="txtCorreo" placeholder="E-mail" class="form-control" required="true">
+                                <input type="email" name="txtCorreo" placeholder="E-mail" class="form-control" required>
                             </div>
                         </div>
                     </div>
@@ -92,7 +89,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Direccion</label>
-                                <input type="textar" name="txtDireccion" placeholder="Direccion..." class="form-control" required="true">
+                                <input type="textar" name="txtDireccion" placeholder="Direccion..." class="form-control" required>
                             </div>
                         </div>
                     </div>
@@ -100,13 +97,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Telefono</label>
-                                <input type="tel" name="txtTelefono" class="form-control" placeholder="Telefono..." required="true">
+                                <input type="tel" name="txtTelefono" class="form-control" placeholder="Telefono..." required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Celular</label>
-                                <input type="tel" name="txtCelular" class="form-control" placeholder="Celular..." required="true">
+                                <input type="tel" name="txtCelular" class="form-control" placeholder="Celular..." required>
                             </div>
                         </div>
                     </div>
@@ -114,21 +111,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>NIT</label>
-                                <input type="tel" name="txtNit" class="form-control" placeholder="NIT..." required="true">
+                                <input type="tel" name="txtNit" class="form-control" placeholder="NIT..." required>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>DUI</label>
-                                <input type="tel" name="txtDui" class="form-control" placeholder="DUI..." required="true">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mt-2">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>N° Registro Fiscal</label>
-                                <input type="tel" name="txtRegistro" class="form-control" placeholder="Registro Fiscal..." required="true">
+                                <input type="tel" name="txtRegistro" class="form-control" placeholder="Registro Fiscal..." required>
                             </div>
                         </div>
                     </div>
@@ -136,7 +125,7 @@
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                <button type="submit" class="btn btn-success btnGuardar">Guardar</button>
+                <button type="submit" class="btn btn-success btnGuardar" id="btnGuardar">Guardar</button>
             </div>
             </form>
         </div>
@@ -160,20 +149,20 @@
                 <form action="Proveedor/modificar" method="post">
                     <div class="row mt-2">
                         <div class="col-md-6">
-                            <input type="hidden" name="txtIdProveedor" id="idProveedor">
+                            <input type="hidden" name="txtIdProveedor" id="idProveedor" required>
                         </div>
                     </div>
                     <div class="row mt-2">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Nombre del Proveedor</label>
-                                <input type="text" name="txtNombre" id="txtNombreE" placeholder="Nombre..." class="form-control" required="true">
+                                <input type="text" name="txtNombre" id="txtNombreE" placeholder="Nombre..." class="form-control" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Nombre de la Empresa</label>
-                                <input type="tel" name="txtEmpresa" id="txtEmpresaE" class="form-control" placeholder="Empresa..." required="true">
+                                <input type="tel" name="txtEmpresa" id="txtEmpresaE" class="form-control" placeholder="Empresa..." required>
                             </div>
                         </div>
                     </div>
@@ -181,7 +170,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>E-Mail</label>
-                                <input type="email" name="txtCorreo"  id="txtCorreoE" placeholder="E-mail" class="form-control" required="true">
+                                <input type="email" name="txtCorreo"  id="txtCorreoE" placeholder="E-mail" class="form-control" required>
                             </div>
                         </div>
                     </div>
@@ -189,7 +178,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Direccion</label>
-                                <input type="textar" name="txtDireccion"  id="txtDireccionE" placeholder="Direccion..." class="form-control" required="true">
+                                <input type="textar" name="txtDireccion"  id="txtDireccionE" placeholder="Direccion..." class="form-control" required>
                             </div>
                         </div>
                     </div>
@@ -197,13 +186,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Telefono</label>
-                                <input type="tel" name="txtTelefono"  id="txtTelefonoE" class="form-control" placeholder="Telefono..." required="true">
+                                <input type="tel" name="txtTelefono"  id="txtTelefonoE" class="form-control" placeholder="Telefono..." required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Celular</label>
-                                <input type="tel" name="txtCelular"  id="txtCelularE" class="form-control" placeholder="Celular..." required="true">
+                                <input type="tel" name="txtCelular"  id="txtCelularE" class="form-control" placeholder="Celular..." required>
                             </div>
                         </div>
                     </div>
@@ -211,21 +200,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>NIT</label>
-                                <input type="tel" name="txtNit" id="txtNitE" class="form-control" placeholder="NIT..." required="true">
+                                <input type="tel" name="txtNit" id="txtNitE" class="form-control" placeholder="NIT..." aria-required="true"  required>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>DUI</label>
-                                <input type="tel" name="txtDui" id="txtDuiE" class="form-control" placeholder="DUI..." required="true">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mt-2">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>N° Registro Fiscal</label>
-                                <input type="tel" name="txtRegistro" id="txtRegistroE" class="form-control" placeholder="Registro Fiscal..." required="true">
+                                <input type="tel" name="txtRegistro" id="txtRegistroE" class="form-control" placeholder="Registro Fiscal..." required>
                             </div>
                         </div>
                     </div>
@@ -280,8 +261,6 @@
     <button class="btn btn-outline-secondary" id="rest">Restaurar Info. Proveedor</button>
 </div>
 <div class="md-overlay"></div><!-- the overlay element -->
-<script src="<?php echo base_url("resources/modal/js/classie.js")?>"></script>
-<script src="<?php echo base_url("resources/modal/js/modalEffects.js")?>"></script>
 
 </section>
 </body>

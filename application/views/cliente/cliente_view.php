@@ -15,22 +15,30 @@
 
 ?>
 
-    <div class="col-md-12">
-        <h1>Gestión de Clientes</h1>
-    </div>
 
-    <div class="col-md-1">
-        <div class="btn btn-primary" id="agregarCliente">Agregar</div>
-    </div>
-
+<div class="full-box page-header">
+    <h3 class="text-left">
+        <i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Clientes
+    </h3>
 
 </div>
+
+<div class="container-fluid">
+    <ul class="full-box list-unstyled page-nav-tabs">
+        <li>
+            <a id="agregarCliente"><i class="fas fa-plus fa-fw"></i> &nbsp; Agregar Cliente</a>
+        </li>
+        <li>
+            <a class="active" href="#"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Clientes</a>
+        </li>
+    </ul>
+</div>
+
 
 <div class="table-responsive">
 
     <table class="table table-bordered" width="100%" cellspacing="0" id="data">
-        <thead style="font-weight: bold;">
-            <td>ID</td>
+        <thead style="background-color: rgba(11, 23, 41 , 0.6); color: #f0f0f0">
             <td>Nombre</td>
             <td>Empresa</td>
             <td>Telefono</td>
@@ -49,7 +57,6 @@
         </tbody>
 
         <tfoot>
-        <th>ID</th>
         <th>Nombre</th>
         <th>Empresa</th>
         <th>Telefono</th>

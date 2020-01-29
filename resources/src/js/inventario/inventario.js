@@ -12,7 +12,6 @@ function llenarTablaCompras()
                     var fila ='<tr><td><div align="center">';
                     fila=fila + val.nombreInv + '</div></td><td>';
                     fila=fila + val.fecha + '</div></td><td>';
-                    fila=fila + val.cantidad + '</div></td><td>';
                     fila=fila + val.subtotal + '</div></td><td>';
                     fila=fila + val.nombre + '</td>';
                     fila = fila + '</td></tr>';
@@ -108,97 +107,56 @@ function listProv(){
 function listProd(){
     $.post("Inventario/mostrarProd",{},function(res){
         var r = JSON.parse(res);
-        $(".selectProd option").remove();
-        $(".selectProd").append("<option>Elige el Producto</option>");
+        $("#selectProd option").remove();
+        $("#selectProd").append("<option>Elige el Producto</option>");
         for(var i = 0;i<r.length;i++){
-            $(".selectProd").append("<option value='"+r[i].idInventario+"'>"+r[i].nombreInv+"</option>");
+            $("#selectProd").append("<option value='"+r[i].idInventario+"'>"+r[i].nombreInv+"</option>");
         }
     });
 }
-function btnNext(){
 
-    $("#cancelar").hide();
-    $("#back").show();
-
-    if($("#paso1").show()) {
-        $("#paso1").hide();
-        $("#paso2").show();
-        $("#paso3").hide();
-        $("#next").show();
-        $("#end").hide();
-
-        $(document).on("click","#next",function () {
-                $("#paso1").hide();
-                $("#paso2").hide();
-                $("#paso3").show();
-
-                $("#next").hide();
-                $("#end").show();
-
-        $(document).on("click","#back",function () {
-                btnBack();
-
-            });
-
-        });
-
-    }
-
-}
-
-function btnBack(){
-    $("#next").show();
-    $("#end").hide();
-
-    if($("#paso3").show()){
-        $("#paso1").hide();
-        $("#paso2").show();
-        $("#paso3").hide();
-
-        $("#cancelar").hide();
-        $("#back").show();
-
-
-        $(document).on("click","#back",function () {
-                $("#paso1").show();
-                $("#paso2").hide();
-                $("#paso3").hide();
-
-                $("#cancelar").show();
-                $("#back").hide();
-
-
-            $(document).on("click","#next",function () {
-               btnNext();
-
-            });
-
-        });
-
-    }
-
-
-
-
-
-}
 
 
 $(document).ready(function () {
+
+    $.datepicker.regional['es'] = {
+        closeText: 'Cerrar',
+        prevText: '< Ant',
+        nextText: 'Sig >',
+        currentText: 'Hoy',
+        monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+        monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+        dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+        dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+        dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sá'],
+        weekHeader: 'Sm',
+        dateFormat: 'yy/mm/dd',
+        firstDay: 1,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: ''
+    };
+    $.datepicker.setDefaults($.datepicker.regional['es']);
+    $(function () {
+        $("#fecha").datepicker();
+    });
+
     llenarTablaInv();
     listProv();
     listProd();
 
-    function showValues() {
-        var fields = $( ":input" ).serializeArray();
-        $( "#results" ).empty();
-        jQuery.each( fields, function( i, field ) {
-            $( "#results" ).append( field.value + " " );
-        });
-    }
 
-    $( "select" ).change( showValues );
-    showValues();
+
+    $(document).on("click","#rest",function () {
+        llenarTablaCompras();
+        $("#frmCompras").modal("show");
+    });
+
+    $(document).on("click",".add1",function () {
+        $("#agregarInventario").modal("hide");
+        $("#addEx").modal("show");
+
+    });
 
     $(document).on("click","#addInv",function () {
         $("#agregarInventario").modal("show");
@@ -208,75 +166,63 @@ $(document).ready(function () {
         $("#paso3").hide();
 
         $("#cancelar").show();
-        $("#back").hide();
         $("#next").show();
         $("#end").hide();
 
-
-        $(document).on("click","#next",function () {
-            btnNext();
-
         });
 
-        $(document).on("click","#back",function () {
-           btnBack();
+
+    $(document).on("click","#next",function () {
+        event.preventDefault();
+        var datos = $("#frmCompra").serializeArray();
+        $.ajax({
+            url:"Inventario/insertarCompras",
+            type:"POST",
+            data: datos
+        }).done(function (res) {
+            localStorage.setItem("idCompra",res);
+
+            $("#cancelar").hide();
+            if($("#paso1").show()) {
+                $("#paso1").hide();
+                $("#paso2").show();
+                $("#paso3").hide();
+                $("#next").show();
+                $("#end").hide();
+
+            }
+
         })
 
     });
 
-    $(document).on("click","#rest",function () {
-        llenarTablaCompras();
-    });
 
-    $(document).on("click","#rest",function () {
-        $("#frmCompras").modal("show");
-    });
-
-    $(document).on("click","#end",function () {
-        var $infoCompra=new Array();
-
-        $infoCompra["fecha"]=document.getElementById("fecha").value;
-        $infoCompra["idProveedor"]=document.getElementById("selectProv").value;
-        $infoCompra["subTotal"]=document.getElementById("subTotal").value;
-
-    });
-
-
-//Crear el paso 2
-
-    $('.add1').click(function(){
-        listProd();
-        $(".list1").append(
-            '<div class="mb-2 row justify-content-between px-3">\n' +
-            '<div class="mob"> <label class="text-grey mr-1">Producto</label> <select class="selectProd" name="selectProd[]"></select> </div>\n' +
-            '<div class="mob mb-2"> <label class="text-grey mr-4">Cantidad</label> <input type="number" min="1" name="cantidad[]">'  +
-            '</div>\n' +
-            '<div class="mt-1 cancel fa fa-times text-danger"></div>\n' +
-            '</div>');
-    });
-
-    $(".list1").on('click', '.cancel', function(){
-        $(this).parent().remove();
-    });
+     $(document).on("click","#addExistentes",function () {
+            event.preventDefault();
+            var datosEx = $("#frmEx").serializeArray();
+            let idCompra = localStorage.getItem("idCompra");
+            $.ajax({
+                url:"Inventario/insertarDetalle",
+                type:"POST",
+                data: {datosEx,idCompra},
+            }).done(function (res) {
+                    localStorage.setItem("idDetalle",res);
+                $("#agregarInventario").modal("show");
+                $("#addEx").modal("hide");
+            })
+     });
 
 
-// Crear el paso 3
-    $('.add2').click(function(){
 
-        $(".list2").append(
-            '<div class="mb-2 row justify-content-between px-3">\n' +
-            '<div class="mob"><label class="text-grey mr-2">Nombre</label><input type="text"></div>\n' +
-            '<div class="mob mb-2"> <label class="text-grey mr-2">Cantidad</label> <input type="number" min="1"> </div>\n' +
-            '<div class="mt-1 cancel fa fa-times text-danger"></div>\n' +
-            '<div class="mob"> <label class="text-grey mr-2">Precio</label> <input type="text"> </div>\n' +
-            '<div class="mb-0"> <label class="text-grey mr-2">Descripcion</label> <input type="text"></div>\n' +
-            '<div class="mt-1"></div>\n' +
-            '</div><br>');
-        listProd();
-    });
 
-    $(".list2").on('click', '.cancel', function(){
-        $(this).parent().remove();
-    });
+    }); //.Ready
 
-});
+
+/* $(document).on("click","#next",function () {
+               $("#paso1").hide();
+               $("#paso2").hide();
+               $("#paso3").show();
+
+               $("#next").hide();
+               $("#end").show();
+           });*/

@@ -41,24 +41,23 @@ class Proveedor  extends Padre_Desing
     public function insertar(){
         $data = array(
             'idProveedor'=>0,
-            'nombre'=>$this->input->post("txtNombre"),
-            'empresa'=>$this->input->post("txtEmpresa"),
-            'direccion'=>$this->input->post("txtDireccion"),
-            'correo'=>$this->input->post("txtCorreo"),
-            'telefono'=>$this->input->post("txtTelefono"),
-            'celular'=>$this->input->post("txtCelular"),
-            'nit'=>$this->input->post("txtNit"),
-            'dui'=>$this->input->post("txtDui"),
-            'registroFiscal'=>$this->input->post("txtRegistro"),
+            'nombre'=>$_POST["txtNombre"],
+            'empresa'=>$_POST["txtEmpresa"],
+            'direccion'=>$_POST["txtDireccion"],
+            'correo'=>$_POST["txtCorreo"],
+            'telefono'=>$_POST["txtTelefono"],
+            'celular'=>$_POST["txtCelular"],
+            'nit'=>$_POST["txtNit"],
+            'registroFiscal'=>$_POST["txtRegistro"],
             'borradoLogico'=>1,
         );
 
         $res = $this->Proveedor_m->agregar($data);
-        header("Location: ".site_url("Proveedor"));
+
 
         if($res>0)
         {
-            echo json_encode($res);
+            header("Location: ".site_url("Proveedor"));
         }
     }
 
@@ -78,7 +77,6 @@ class Proveedor  extends Padre_Desing
             'telefono'=>$this->input->post("txtTelefono"),
             'celular'=>$this->input->post("txtCelular"),
             'nit'=>$this->input->post("txtNit"),
-            'dui'=>$this->input->post("txtDui"),
             'registroFiscal'=>$this->input->post("txtRegistro"),
         );
 

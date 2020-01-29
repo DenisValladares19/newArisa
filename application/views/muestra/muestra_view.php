@@ -1,50 +1,51 @@
-<script src="<?php echo base_url("resources/src/js/reporte/reporte.js")?>"></script>
+<script src="<?php echo base_url("resources/src/js/muestra/muestra.js")?>"></script>
 
-<div class="row">
 
-    <div class="col-md-12">
-        <h1>Gestión de Muestras</h1>
-    </div>
-
-    <div class="col-md-1">
-        <div class="btn btn-primary" id="agregarCliente">Agregar</div>
-    </div>
-
+<div class="full-box page-header">
+    <h3 class="text-left">
+        <i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Muestras
+    </h3>
 
 </div>
 
-<div class="table-responsive">
+<div class="container-fluid">
+    <ul class="full-box list-unstyled page-nav-tabs">
+        <li>
+            <a id="agregarMuestra"><i class="fas fa-plus fa-fw"></i> &nbsp; Agregar Muestra</a>
+        </li>
+        <li>
+            <a class="active" href="#"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Muestras</a>
+        </li>
+    </ul>
+</div>
 
+<div class="table-responsive">
     <table class="table table-bordered" width="100%" cellspacing="0" id="data">
-        <thead style="font-weight: bold;">
-        <td>ID</td>
+        <thead style="background-color: rgba(11, 23, 41 , 0.6); color: #f0f0f0">
+        <td>Cotizacion</td>
         <td>Estado</td>
+        <td>Fecha</td>
         <td>URL</td>
         <td>Comentarios</td>
         <td>Opciones</td>
         </thead>
-
         <tbody id="table">
-
         </tbody>
-
         <tfoot>
-        <td>ID</td>
+        <td>Cotizacion</td>
         <th>Estado</th>
+        <td>Cotizacion</td>
         <th>URL</th>
         <th>Comentarios</th>
         <th>Opciones</th>
-
         </tfoot>
-
     </table>
-
 </div>
 
 
 
 <!-- Modal -->
-<div class="modal fade" id="frmInsertarCliente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="frmInsertarMuestra" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -54,57 +55,31 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="post" id="frmSampleId">
+                <form method="post" id="frmInsertar">
 
                     <div class="form-column col-md-12">
-
-
-
                         <div class="form-group">
-                            <label>Estado</label>
-                            <label>Rol</label>
-                            <select name="estado" id="estadoId" class="form-control">
-                                <option disabled="true">Seleccione</option>
-
+                            <label>Cotizacion</label>
+                            <select name="cotizacion" id="cotizacion" class="form-control">
                             </select>
-
                         </div>
                     </div>
 
-
                     <div class="form-column col-md-12">
-
-
-
                         <div class="form-group">
-                            <label>URL de Archivo</label>
-                            <input type="file" name="muestra" id="muestraId" class="form-control"></input>
+                            <label>URL de Archivo (.docx)</label>
+                            <input type="file" name="muestra" id="muestraId" class="form-control">
                         </div>
                     </div>
 
-
-
                     <div class="form-column col-md-12">
-
-
-
                         <div class="form-group">
                             <label>Comentarios</label>
-                            <input type="text" name="coment" id="comentId" class="form-control"></input>
+                            <input type="text" name="coment" id="comentId" class="form-control">
                         </div>
                     </div>
 
-                    <div class="form-column col-md-12">
-
-
-
-                        <div class="form-group">
-                            <label>Fecha de Expedición</label>
-                            <input type="date" name="fecha" id="fechaId" class="form-control"></input>
-                        </div>
-                    </div>
-
-                    <button type="submit" name="btnSave" id="btnSaveSampleId" class="btn btn-primary">Guardar Muestra</button>
+                    <button type="submit" name="btnSave" id="btnGuardar" class="btn btn-primary">Guardar Muestra</button>
                 </form>
             </div>
 
@@ -126,34 +101,32 @@
             <div class="modal-body">
                 <form method="post" id="frmSampleIdEdit">
 
+                    <input type="hidden" name="txtId" id="txtIdText">
+
+
                     <div class="form-column col-md-12">
-
-
-
                         <div class="form-group">
-                            <label>Estado</label>
-                            <input type="hidden" name="txtId" value="0">
-                            <input type="text" name="estadoE" id="estadoIdE" class="form-control"></input>
+                            <label>Cotizacion</label>
+                            <select name="cotizacionE" id="cotizacionE" class="form-control">
+                            </select>
                         </div>
                     </div>
 
+                    <div class="form-column col-md-12">
+                        <div class="form-group">
+                            <label>Estado</label>
+                            <select name="estadoE" id="estadoIdE" class="form-control">
+                            </select>
+                        </div>
+                    </div>
 
                     <div class="form-column col-md-12">
-
-
-
                         <div class="form-group">
                             <label>URL de Archivo</label>
                             <input type="file" name="muestraE" id="muestraIdE" class="form-control"></input>
                         </div>
                     </div>
-
-
-
                     <div class="form-column col-md-12">
-
-
-
                         <div class="form-group">
                             <label>Comentarios</label>
                             <input type="text" name="comentE" id="comentIdE" class="form-control"></input>

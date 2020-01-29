@@ -25,24 +25,28 @@
     }
 </script>
 
-<div class="row">
+<div class="full-box page-header">
+    <h3 class="text-left">
+        <i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Usuarios
+    </h3>
 
-    <div class="col-md-12">
-        <h1>Gestión de Usuarios</h1>
-    </div>
+</div>
 
-    <div class="col-md-1">
-        <div class="btn btn-primary" id="agregarCliente">Agregar</div>
-    </div>
-
-
+<div class="container-fluid">
+    <ul class="full-box list-unstyled page-nav-tabs">
+        <li>
+            <a id="agregarCliente"><i class="fas fa-plus fa-fw"></i> &nbsp; Agregar Usuario</a>
+        </li>
+        <li>
+            <a class="active" href="#"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Usuarios</a>
+        </li>
+    </ul>
 </div>
 
 <div class="table-responsive">
 
     <table class="table table-bordered" width="100%" cellspacing="0" id="data">
-        <thead style="font-weight: bold;">
-        <td>ID</td>
+        <thead style="background-color: rgba(11, 23, 41 , 0.6); color: #f0f0f0">
         <td>Username</td>
         <td>Correo</td>
         <td>Profile Picture</td>
@@ -54,7 +58,6 @@
         </tbody>
 
         <tfoot>
-        <td>ID</td>
         <th>Username</th>
         <th>Correo</th>
         <th>Profile Picture</th>

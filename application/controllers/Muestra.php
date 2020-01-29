@@ -29,22 +29,23 @@ class Muestra extends Padre_Vendedor
 
     }
 
-    public function showSamples(){
-        $result = $this->Muestra_M->getSamples();
+    public function llenar(){
+        $result = $this->Muestra_M->llenar();
         echo json_encode($result);
     }
 
-    public function addSample(){
+    public function Agregar(){
 
         $config = array("upload_path"=> "./resources/files/uploads", "allowed_types"=>"docx|pdf|png|jpg");
         $this->load->library("upload",$config);
         if ($this->upload->do_upload("muestra")){
             $datos= array("upload_data"=> $this->upload->data());
-            $newDate = date("Y-m-d",strtotime($_POST['fecha']));
+            $newDate = date("Y-m-d");
             $data = array("idMuestra"=>0,
-                "idEstado1"=>$_POST["estado"],
+                "idEstado1"=>2,
                 "comentarios"=>$_POST["coment"],
                 "fecha"=>$newDate,
+                "idCotizacion"=>$_POST["cotizacion"],
                 "borradoLogico"=>1,
                 "url"=> $datos["upload_data"]["file_name"]
 
@@ -55,9 +56,11 @@ class Muestra extends Padre_Vendedor
             echo $this->upload->display_errors();
         }
 
-
-        $res = $this->Muestra_M->saveSample($data);
+        $res = $this->Muestra_M->insertar($data);
+        echo json_encode($res);
     }
+
+
 
     public function updateSample(){
         $result = $this->Muestra_M->editSample();
@@ -76,6 +79,7 @@ class Muestra extends Padre_Vendedor
             $datos= array("upload_data"=> $this->upload->data());
             $data = array(
                 "idEstado1"=>$_POST["estadoE"],
+                "idCotizacion"=>$_POST["cotizacionE"],
                 "comentarios"=>$_POST["comentE"],
                 "url"=> $datos["upload_data"]["file_name"]
             );
@@ -107,6 +111,17 @@ class Muestra extends Padre_Vendedor
     }
 
 
+    public function mostrarCotiz(){
+        $res = $this->Muestra_M->mostrarCotizacion();
+        echo json_encode($res);
+    }
+
+    public function mostrarEstado1(){
+        $res = $this->Muestra_M->mostrarEstado1();
+        echo json_encode($res);
+    }
+
+
     public function eraseSample(){
         $id = $this->input->get('idMuestra');
         $registro = $this->Muestra_M->captureFile($id);
@@ -117,6 +132,24 @@ class Muestra extends Padre_Vendedor
         );
         $result = $this->Muestra_M->deleteSample($id, $data);
         echo json_encode($result);
+    }
+
+
+    public function  modificarEstado(){
+        $id = $_POST["id"];
+
+        $set = array(
+            "idEstado2"=>1
+        );
+        $where = array(
+            "idMuestra"=>$id
+        );
+        $res = $this->Muestra_M->modificarEstado($set,$where);
+
+        if($res>=0)
+        {
+            header("Location: ".site_url("Muestra"));
+        }
     }
 
 }

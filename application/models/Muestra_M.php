@@ -14,10 +14,11 @@ class Muestra_M extends CI_Model
         parent::__construct();
     }
 
-    public function getSamples(){
-        $this->db->select('m.*,e.nombre');
+    public function llenar(){
+        $this->db->select('m.*,e.nombre,c.codigo');
         $this->db->from('muestra m');
         $this->db->join("estado1 e","m.idEstado1 = e.idEstado1");
+        $this->db->join("cotizacion c","m.idCotizacion = c.idCotizacion");
         $this->db->where('m.borradoLogico!=',0);
 
         $query = $this->db->get();
@@ -30,7 +31,7 @@ class Muestra_M extends CI_Model
         }
     }
 
-    public function saveSample($data){
+    public function insertar($data){
         $this->db->insert('muestra', $data);
         return $this->db->insert_id();
     }
@@ -82,6 +83,34 @@ class Muestra_M extends CI_Model
         else{
             return false;
         }
+    }
+
+    public function mostrarCotizacion(){
+        $borrado=array(
+            'borradoLogico'=>1,
+        );
+        $this->db->select("idCotizacion,codigo");
+        $this->db->from("cotizacion");
+        $this->db->where($borrado);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function mostrarEstado1(){
+        $borrado=array(
+            'borradoLogico'=>1,
+        );
+        $this->db->select("idEstado1,nombre");
+        $this->db->from("estado1");
+        $this->db->where($borrado);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+
+    public function modificarEstado($set,$where){
+        $this->db->update("muestra",$set,$where);
+        return $this->db->affected_rows();
     }
 
 }

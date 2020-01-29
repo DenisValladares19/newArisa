@@ -49,7 +49,35 @@ class Inventario extends Padre_Desing
         echo json_encode($res);
     }
 
-    public function prueba(){
+    public function insertarCompras(){
+            $data = array(
+                'idCompras'=>0,
+                'fecha'=>$_POST["fecha"],
+                'subtotal'=>$_POST["subtotal"],
+                'idProveedor'=>$_POST["selectProv"],
+                'borradoLogico'=>1,
+            );
 
+            $res = $this->Inventario_m->agregarCompras($data);
+            echo json_encode($res);
     }
+
+
+    public function insertarDetalle(){
+        $data = array(
+            'idDetalleInvCompra'=>0,
+            'idCompra'=>$_POST["idCompra"],
+            'idInventario'=>$_POST["selectProd"],
+            'cantidad'=>$_POST["cantidad"],
+            'borradoLogico'=>1,
+        );
+
+        $res = $this->Inventario_m->agregarDetalle($data);
+        echo json_encode($res);
+    }
+
+
+
+
+
 }

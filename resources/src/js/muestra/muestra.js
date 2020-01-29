@@ -1,18 +1,112 @@
+function LlenarTabla() {
+    $.ajax({
+        type: 'POST',
+        url: 'Muestra/llenar',
+        async: false,
+        dataType: 'json',
+        success: function (data) {
+            var html = '';
+            var i;
+            for(i=0; i<data.length; i++){
+                html+='<tr>'+
+                    '<td>'+data[i].codigo+'</td>'+
+                    '<td>'+data[i].nombre+'</td>'+
+                    '<td>'+data[i].fecha+'</td>'+
+                    '<td>'+data[i].url+'</td>'+
+                    '<td>'+data[i].comentarios+'</td>'+
+                    '<td>'+
+                    '<a class="btn btn-outline-info"  href="javascript:;" data="'+data[i].idMuestra+'" id="editar" ><i class="fas fa-marker"></i></a>\n' +
+                    '<a class="btn btn-outline-danger" href="javascript:;" data="'+data[i].idMuestra+'" id="eliminar"><i class="far fa-trash-alt"></i></a>\n'+
+                    '<a class="btn btn-outline-dark" href="javascript:;" data="'+data[i].idMuestra+'" id="download"><i class="fas fa-cloud-download-alt"></i></a>\n'+
+                    '</td>'+
+                    '</tr>';
+                '</tr>';
+
+            }
+            $('#table').html(html);
+            $("#data").dataTable({
+                bLengthChange: false,
+                language: {
+                    "decimal": "",
+                    "emptyTable": "No hay información",
+                    "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                    "infoEmpty": "Mostrando 0 a 0 de 0 Entradas",
+                    "infoFiltered": "(Filtrado de  _MAX_  total entradas)",
+                    "infoPostFix": "",
+                    "thousands": ",",
+                    "lengthMenu": "Mostrar _MENU_ Entradas",
+                    "loadingRecords": "Cargando...",
+                    "processing": "Procesando...",
+                    "search": "Buscar:",
+                    "zeroRecords": "Sin resultados encontrados",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Ultimo",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                }
+            });
+        },
+
+        error: function () {
+            alert('Could not show data from database');
+        }
+
+    });
+}
+
+
+function agregarCot(){
+    $.post("Muestra/mostrarCotiz",{},function(res){
+        var r = JSON.parse(res);
+        $("#cotizacion option").remove();
+        $("#cotizacion").append("<option>Elige la Cotizacion</option>");
+        for(var i = 0;i<r.length;i++){
+            $("#cotizacion").append("<option value='"+r[i].idCotizacion+"'>"+r[i].codigo+"</option>");
+        }
+    });
+}
+
+function modificarCot(){
+    $.post("Muestra/mostrarCotiz",{},function(res){
+        var r = JSON.parse(res);
+        $("#cotizacionE option").remove();
+        for(var i = 0;i<r.length;i++){
+            $("#cotizacionE").append("<option value='"+r[i].idCotizacion+"'>"+r[i].codigo+"</option>");
+        }
+    });
+}
+
+function modificarEstado(){
+    $.post("Muestra/mostrarEstado1",{},function(res){
+        var r = JSON.parse(res);
+        $("#estadoIdE option").remove();
+        for(var i = 0;i<r.length;i++){
+            $("#estadoIdE").append("<option value='"+r[i].idEstado1+"'>"+r[i].nombre+"</option>");
+        }
+    });
+}
+
+
+
+
+
 $(document).ready(function () {
+    LlenarTabla();
 
-    showSamples();
-    $('#data').DataTable();
-    $(document).on("click", "#agregarCliente", function () {
-        $("#frmInsertarCliente").modal("show");
-    })});
+    $(document).on("click", "#agregarMuestra", function () {
+        $("#frmInsertarMuestra").modal("show");
+        agregarCot();
+    })
 
 
-$(document).on('click','#btnSaveSampleId',function(){
+$(document).on('click','#btnGuardar',function(){
     event.preventDefault();
-    var formData = new FormData($("#frmSampleId")[0]);
+    var formData = new FormData($("#frmInsertar")[0]);
 
     $.ajax({
-        url: BASE_URL+'index.php/Muestra/addSample',
+        url: 'Muestra/agregar',
         type: 'post',
         data: formData,
         cache: false,
@@ -20,21 +114,47 @@ $(document).on('click','#btnSaveSampleId',function(){
         processData: false
 
     })
-        .done(function() {
+        .done(function(res) {
 
-            $("#frmInsertarCliente").modal("hide");
-            $('#frmSampleId')[0].reset();
-            showSamples();
-            alert("Muestra agregada con éxito");
+            localStorage.setItem("idM",res);
+
+
+            Swal.fire({
+                title: 'Aprobar la Cotización?',
+                text: "De lo contrario esta permanecerá No Aprobada",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si,Aprobar!',
+                confirmButtonText: 'No!'
+            }).then((result) => {
+                if (result.value) {
+
+                let id = localStorage.getItem("idM");
+                $.ajax({
+                    url: 'Muestra/modificarEstado',
+                    type: 'post',
+                    data: id,
+                    cache: false,
+                    contentType: false,
+                    processData: false
+
+                })
+            }
+        })
+
+
 
         })
         .fail(function() {
             alert("ocurrio un error");
         });
-
 });
 
 $(document).on('click','#editar',function () {
+    modificarCot();
+    modificarEstado();
 
     var id = $(this).attr('data');
     $("#frmEditarMuestra").modal("show");
@@ -47,11 +167,12 @@ $(document).on('click','#editar',function () {
         async: false,
         dataType: 'json',
         success:function (data) {
-            $('input[name=estadoE]').val(data.idEstado1);
+            $('#cotizacionE').val(data.idCotizacion);
+            $('#estadoIdE').val(data.idEstado1);
             $('input[name=comentE]').val(data.comentarios);
 
 
-            $('input[name=txtId]').val(data.idMuestra);
+            $('#txtIdText').val(data.idMuestra);
         },
         error:function () {
             alert('Could not edit data');
@@ -62,9 +183,10 @@ $(document).on('click','#editar',function () {
 
 $(document).on('click','#btnEditSampleId',function(){
     event.preventDefault();
-    var formData = new FormData($("#frmSampleIdEdit")[0]);
+    var formData = $("#frmSampleIdEdit").serializeArray();
+
     $.ajax({
-        url: BASE_URL+'index.php/Muestra/saveChanges',
+        url: 'Muestra/saveChanges',
         type: 'post',
         data: formData,
         cache: false,
@@ -85,10 +207,6 @@ $(document).on('click','#btnEditSampleId',function(){
 
 });
 
-$(document).on('click','#btnDeleteId',function(){
-    event.preventDefault();
-
-});
 
 $(document).on('click','#eliminar',function(){
     event.preventDefault();
@@ -140,47 +258,4 @@ $(document).on('click','#download',function () {
 
 });
 
-
-
-function showSamples() {
-    $.ajax({
-        type: 'POST',
-        url: BASE_URL+'index.php/Muestra/showSamples',
-        async: false,
-        dataType: 'json',
-        success: function (data) {
-            var html = '';
-            var i;
-            for(i=0; i<data.length; i++){
-                html+='<tr>'+
-                    '<td>'+data[i].idMuestra+'</td>'+
-                    '<td>'+data[i].nombre+'</td>'+
-                    '<td>'+data[i].url+'</td>'+
-                    '<td>'+data[i].comentarios+'</td>'+
-                    '<td>'+
-                    '<button class="btn-info"><a href="javascript:;" data="'+data[i].idMuestra+'" id="editar">Editar</a></button>'+
-                    '<button class="btn-danger"><a href="javascript:;" data="'+data[i].idMuestra+'" id="eliminar">Eliminar</a></button>'+
-                    '<button class="btn-success"><a href="javascript:;" data="'+data[i].idMuestra+'" id="download">Descargar</a></button>'+
-                    '</td>'+
-                    '</tr>';
-            }
-            $('#table').html(html);
-        },
-
-        error: function () {
-            alert('Could not show data from database');
-        }
-
-    });
-}
-
-
-
-
-$.post(BASE_URL+'index.php/Estado1/showStatus',
-    function (data) {
-        var rol = JSON.parse(data);
-        $.each(rol,function (i,item) {
-            $('#estadoId').append('<option value="'+item.idEstado1+'">'+item.nombre+'</option>');
-        });
-    });
+});

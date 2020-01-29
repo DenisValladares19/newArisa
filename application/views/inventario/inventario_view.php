@@ -64,91 +64,139 @@
             <div class="modal-body">
                     <div class="row" id="paso1">
                             <div class="col-md-12">
+                                <form id="frmCompra" method="post">
                                 <br>
                                 <h3 style="text-align: center;font-family: serif;"> Informacion de la Compra</h3>
                                 <br>
                                 <div class="row mt-2">
                                     <div class="col-md-12">
-                                        <input type="date" name="fecha" id="fecha" class="form-control" required="true">
+                                        <input type="text" name="fecha" id="fecha" placeholder="Fecha..." class="form-control" required="true">
                                     </div>
                                 </div>
                                 <div class="row mt-2">
                                     <div class="col-md-6">
-                                        <select id="selectProv" class="form-control">
+                                        <select id="selectProv" class="form-control" name="selectProv">
                                             <option>Seleccione el Proveedor...</option>
-
                                         </select>
                                     </div>
                                     <div class="col-md-6">
                                         <input type="text" name="subtotal" class="form-control" placeholder="Subtotal..." id="subTotal" required="true">
                                     </div>
                                 </div>
+                                </form>
                             </div>
                     </div>
 
                     <div class="row" id="paso2">
-                        <form id="frm">
                         <div class="col-md-12">
+                            <form id="frmExistentes">
                             <br>
                             <h3 style="text-align: center;font-family: serif;"> Informacion del Producto</h3>
                             <center><h6> Productos Existentes</h6></center>
                             <br>
-                            <div class="row px-3">
-                                <div class="col-sm-2">  </div>
-                                <div class="col-sm-10 list1">
-                                    <div class="mb-2 row justify-content-between px-3">
-                                        <div class="mob"> <label class="text-grey mr-1">Producto</label> <select class="selectProd" name="selectProd[]"></select> </div>
-                                        <div class="mob mb-2"> <label class="text-grey mr-4">Cantidad</label> <input type="number" min="1" name="cantidad[]"> </div>
-                                        <div class="mt-1 cancel fa fa-times text-danger"></div>
-                                    </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                <center>
+                                    <a class="btn btn-outline-success add1"><i class="fa fa-plus-circle"></i> Agregar</a>
+                                </center>
                                 </div>
                             </div>
-                            <br>
-                            <center>
-                                <a class="btn btn-outline-success add1"><i class="fa fa-plus-circle"></i> Agregar</a>
-                            </center>
+                            </form>
                         </div>
-                            <input type="submit" id="btn1">
-                        </form>
-                        <br><br>
                     </div>
 
                     <div class="row" id="paso3">
                         <div class="col-md-12">
-                            <br>
-                            <h3 style="text-align: center;font-family: serif;"> Informacion del Producto</h3>
-                            <center><h6> Productos Nuevos</h6></center>
-                            <br>
-                            <div class="row px-3">
-                                <div class="col-sm-2">  </div>
-                                <div class="col-sm-10 list2">
-                                    <div class="mb-2 row justify-content-between px-3">
-                                        <div class="mob"> <label class="text-grey mr-2">Nombre</label><input type="text"></div>
-                                        <div class="mob mb-2"> <label class="text-grey mr-2">Cantidad</label> <input type="number" min="1"> </div>
-                                        <div class="mt-1 cancel fa fa-times text-danger"></div>
-                                        <div class="mob"> <label class="text-grey mr-2">Precio</label> <input type="text"> </div>
-                                        <div class="mb-0"> <label class="text-grey mr-2">Descripcion</label> <input type="text"> </div>
-                                        <div class="mt-1"></div>
+                            <form id="frmExistentes">
+                                <br>
+                                <h3 style="text-align: center;font-family: serif;"> Informacion del Producto</h3>
+                                <center><h6> Productos Nuevos</h6></center>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <center>
+                                            <a class="btn btn-outline-success add2"><i class="fa fa-plus-circle"></i> Agregar</a>
+                                        </center>
                                     </div>
-                                    <br>
                                 </div>
-                            </div>
-                            <center>
-                                <a class="btn btn-outline-success add2"><i class="fa fa-plus-circle"></i> Agregar</a>
-                            </center>
+                            </form>
                         </div>
                     </div>
 
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-danger" data-dismiss="modal" id="cancelar">Cancelar</button>
-                <button type="submit" class="btn btn-danger" id="back">Atras</button>
                 <button type="submit" class="btn btn-success" id="next">Siguiente</button>
                 <button type="submit" class="btn btn-success" id="end">Finalizar Compra</button>
             </div>
         </div>
     </div>
 </div>
+
+
+
+<!-- Productos Existentes -->
+<div class="modal fade" id="addEx" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Producto Existente</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="frmEx" method="post">
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <select id="selectProd"  name="selectProd" class="form-control"></select>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" placeholder="Cantidad..." name="cantidad">
+                    </div>
+                </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="addExistentes">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="frmCompras">
@@ -165,14 +213,12 @@
                     <thead style="background-color: rgba(11, 23, 41 , 0.6);">
                     <th>Producto</th>
                     <th>Fecha</th>
-                    <th>Cantidad</th>
                     <th>Subtotal</th>
                     <th>Proveedor</th>
                     </thead>
                     <tfoot>
                     <th>Producto</th>
                     <th>Fecha</th>
-                    <th>Cantidad</th>
                     <th>Subtotal</th>
                     <th>Proveedor</th>
                     </tfoot>
@@ -182,38 +228,6 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
 </section>
 </body>
 </html>
-
-
-<!--
-<div class="col-md-6">
-    <div class="col-sm">
-        <button style="color: #0c0c0c;font-family: times, serif; font-size:14pt; font-style:italic" class="btn btn-light" id="btn1">
-            <img src="<?php echo base_url("resources/images/inventario/lista.png")?>" width="30%" height="30%">
-            <br>
-            <span style="font-size:12pt;">Producto Existente</span>
-            <br>
-            <br>
-        </button>
-    </div>
-</div>
-<div class="col-md-6">
-    <div class="col-sm">
-        <button style="color: #0c0c0c;font-family: times, serif; font-size:14pt; font-style:italic" class="btn btn-light" id="btn2">
-            <img src="<?php echo base_url("resources/images/inventario/carrito.png")?>" width="30%" height="30%">
-            <br>
-            <span style="font-size:12pt;">Nuevo Producto</span>
-            <br>
-            <br>
-        </button>
-    </div>
-</div>
--->

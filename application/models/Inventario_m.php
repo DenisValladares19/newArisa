@@ -19,7 +19,7 @@ class Inventario_m extends CI_Model
         $borrado=array(
             'compras.borradoLogico'=>1,
         );
-        $this->db->select("compras.idCompras,compras.fecha,compras.cantidad,compras.subtotal,proveedor.nombre,inventario.nombreInv");
+        $this->db->select("compras.idCompras,compras.fecha,compras.subtotal,proveedor.nombre,inventario.nombreInv");
         $this->db->from("compras");
         $this->db->join("proveedor","inventario.nombre proveedor.idProveedor=compras.idProveedor");
         $this->db->join("inventario","inventario.idCompra = compras.idCompras");
@@ -66,5 +66,17 @@ class Inventario_m extends CI_Model
         $this->db->where($borrado);
         $query = $this->db->get();
         return $query->result();
+    }
+
+
+    //Metodo para Agregar Registro
+    public function agregarCompras($data){
+        $this->db->insert("compras",$data);
+        return $this->db->insert_id();
+    }
+
+    public function agregarDetalle($data){
+        $this->db->insert("detalleinvcompra",$data);
+        return $this->db->insert_id();
     }
 }

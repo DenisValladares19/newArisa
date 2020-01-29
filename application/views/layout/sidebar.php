@@ -33,7 +33,7 @@
 
                             <!-- Proveedor -->
                             <li>
-                                <a href="Proveedor" id="prov"><i class="fas fa-store-alt fa-fw"></i> Proveedores</a>
+                                <a href="Proveedor" id="prov"><i class="fas fa-store-alt fa-fw"></i> &nbsp; Proveedores</a>
 
                             </li>
 
@@ -76,15 +76,26 @@
                             </li>
 
                             <li>
-                                <a href="#" class="nav-btn-submenu" id="usu"><i class="fas fa-users fa-fw"></i> &nbsp; Usuarios <i class="fas fa-chevron-down"></i></a>
-                                <ul>
-                                    <li>
-                                        <a href="Rol"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp Rol</a>
-                                    </li>
-                                    <li>
-                                        <a href="Usuario"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Usuario</a>
-                                    </li>
-                                </ul>
+                                <a href="Usuario" id="dash"><i class="fas fa-user-tie"></i> &nbsp; &nbsp;Usuario</a>
+                            </li>
+
+                            <li>
+                                <a href="Cliente" id="cli"><i class="fas fa-users fa-fw"></i> &nbsp; Clientes</a>
+                            </li>
+
+                            <!-- Proveedor -->
+                            <li>
+                                <a href="Proveedor" id="prov"><i class="fas fa-store-alt fa-fw"></i> &nbsp; Proveedores</a>
+
+                            </li>
+
+                            <!-- Inventario -->
+                            <li>
+                                <a href="Inventario" id="inv"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Inventario</a>
+                            </li>
+
+                            <li>
+                                <a href="Cotizacion" id="cot"><i class="fas  fa-user-secret fa-fw"></i> &nbsp; Cotizaciones</a>
                             </li>
 
                             <li>
@@ -92,38 +103,18 @@
                             </li>
 
                             <li>
-                                <a href="Cliente" id="cli"><i class="fas fa-users fa-fw"></i> &nbsp; Clientes</a>
-
-                            </li>
-
-                            <!-- Proveedor -->
+                                <a href="Orden" id="orden"><i class="fas fa-store-alt fa-fw"></i> &nbsp; Orden de trabajo</a>
                             <li>
-                                <a href="Proveedor" id="prov"><i class="fas fa-store-alt fa-fw"></i> Proveedores</a>
 
-                            </li>
-
-                            <!-- Inventario -->
                             <li>
-                                <a href="Inventario" id="inv"><i class="fas fa-clipboard-list fa-fw"></i> Inventario</a>
+                                <a href="Historial" id="his"><i class="fas  fa-user-secret fa-fw"></i> &nbsp; Registro de actividad</a>
                             </li>
 
                             <li>
-                                <a href="Orden" id="orden"><i class="fas fa-store-alt fa-fw"></i> Orden de trabajo</a>
-                            <li>
-
-                            <li>
-                                <a href="Cotizacion" id="cot"><i class="fas  fa-user-secret fa-fw"></i> &nbsp; Cotizaciones</a>
-                            </li>
-
-                            <li>
-                                <a href="Historial" id="his"><i class="fas  fa-user-secret fa-fw"></i> Registro de actividad</a>
-                            </li>
-
-                            <li>
-                                <a href="#" class="nav-btn-submenu" id="rep"><i class="fas fa-users fa-fw"></i> &nbsp Reportes <i class="fas fa-chevron-down"></i></a>
+                                <a href="#" class="nav-btn-submenu" id="rep"><i class="fas fa-users fa-fw"></i> &nbsp; Reportes <i class="fas fa-chevron-down"></i></a>
                                 <ul>
                                     <li>
-                                        <a href="Reporte"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp Órdenes</a>
+                                        <a href="Reporte"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Órdenes</a>
                                     </li>
                                 </ul>
                             </li>

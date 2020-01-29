@@ -127,18 +127,41 @@ function showUsers() {
             var i;
             for(i=0; i<data.length; i++){
                 html+='<tr>'+
-                    '<td>'+data[i].idUser+'</td>'+
                     '<td>'+data[i].nombre+'</td>'+
                     '<td>'+data[i].correo+'</td>'+
                     '<td> <img style="width: 100px; height: 100px;" src="../resources/images/uploads/'+data[i].image+'"></td>'+
                     '<td>'+
-                    '<button class="btn-info"><a href="javascript:;" data="'+data[i].idUser+'" id="editar">Editar</a></button>'+
-                    '<button class="btn-danger"><a href="javascript:;" data="'+data[i].idUser+'" id="eliminar">Eliminar</a></button>'+
+                    '<a class="btn btn-outline-info btnEditar" href="javascript:;" data="'+data[i].idUser+'" id="editar"><i class="fas fa-marker"></i></a>\n' +
+                    '<a class="btn btn-outline-danger btnEliminar"href="javascript:;" data="'+data[i].idUser+'" id="eliminar"><i class="far fa-trash-alt"></i></a>'+
                     '</td>'+
                     '</tr>';
             }
             $('#table').html(html);
+            $("#data").dataTable({
+                bLengthChange: false,
+                language: {
+                    "decimal": "",
+                    "emptyTable": "No hay información",
+                    "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                    "infoEmpty": "Mostrando 0 a 0 de 0 Entradas",
+                    "infoFiltered": "(Filtrado de  _MAX_  total entradas)",
+                    "infoPostFix": "",
+                    "thousands": ",",
+                    "lengthMenu": "Mostrar _MENU_ Entradas",
+                    "loadingRecords": "Cargando...",
+                    "processing": "Procesando...",
+                    "search": "Buscar:",
+                    "zeroRecords": "Sin resultados encontrados",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Ultimo",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                }
+            });
         },
+
 
         error: function () {
             alert('Could not show data from database');
@@ -146,6 +169,7 @@ function showUsers() {
 
     });
 }
+
 
 //Método para listar roles
 

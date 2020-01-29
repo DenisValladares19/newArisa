@@ -142,7 +142,6 @@ function showClients() {
             for(i=0; i<data.length; i++){
 
                 html+='<tr>'+
-                    '<td>'+data[i].idCliente+'</td>'+
                     '<td>'+data[i].nombre+'</td>'+
                     '<td>'+data[i].empresa+'</td>'+
                     '<td>'+data[i].telefono+'</td>'+
@@ -152,15 +151,37 @@ function showClients() {
                     '<td>'+data[i].nit+'</td>'+
                     '<td>'+data[i].registroFiscal+'</td>'+
                     '<td>'+
-                    '<button class="btn-info editarC"><a href="javascript:;" data="'+data[i].idCliente+'" id="editar">Editar</a></button>'+
-                    '<button class="btn-danger eliminarC" id="eliminarB"><a href="javascript:;" data="'+data[i].idCliente+'" id="eliminar">Eliminar</a></button>'+
+                    '<a class="btn btn-outline-info editarC" href="javascript:;" data="'+data[i].idCliente+'" id="editar"><i class="fas fa-marker"></i></a>\n' +
+                    '<a class="btn btn-outline-danger eliminarC" href="javascript:;" data="\'+data[i].idCliente+\'" id="eliminar" ><i class="far fa-trash-alt"></i></a>'+
                     '</td>'+
                     '</tr>';
-
 
             }
 
             $('#table').html(html);
+            $("#data").dataTable({
+                bLengthChange: false,
+                language: {
+                    "decimal": "",
+                    "emptyTable": "No hay información",
+                    "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                    "infoEmpty": "Mostrando 0 a 0 de 0 Entradas",
+                    "infoFiltered": "(Filtrado de  _MAX_  total entradas)",
+                    "infoPostFix": "",
+                    "thousands": ",",
+                    "lengthMenu": "Mostrar _MENU_ Entradas",
+                    "loadingRecords": "Cargando...",
+                    "processing": "Procesando...",
+                    "search": "Buscar:",
+                    "zeroRecords": "Sin resultados encontrados",
+                    "paginate": {
+                        "first": "Primero",
+                        "last": "Ultimo",
+                        "next": "Siguiente",
+                        "previous": "Anterior"
+                    }
+                }
+            });
 
         },
 

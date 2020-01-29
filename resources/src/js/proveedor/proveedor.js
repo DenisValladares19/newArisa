@@ -17,10 +17,9 @@ function llenarTabla()
                     fila=fila + val.telefono + '</div></td><td>';
                     fila=fila + val.celular + '</div></td><td width="10%">';
                     fila=fila + val.nit + '</div></td><td width="8%">';
-                    fila=fila + val.dui + '</div></td><td>';
                     fila=fila + val.registroFiscal + '</td>';
                     fila = fila +  '<td> <a class="btn btn-outline-info btnEditar" id="'+val.idProveedor+'"><i class="fas fa-marker"></i></a>\n' +
-                        '                     <a class="btn btn-outline-danger btnEliminar"id="'+val.idProveedor+'"><i class="far fa-trash-alt"></i></a>';
+                        '<a class="btn btn-outline-danger btnEliminar"id="'+val.idProveedor+'"><i class="far fa-trash-alt"></i></a>';
                     fila = fila + '</td></tr>';
                     $("#dataProveedor tbody").append(fila);
                 });
@@ -53,6 +52,7 @@ function llenarTabla()
 
 function llenarTablaRecuperacion()
 {
+
     $.ajax(
         {
             url:"Proveedor/mostrarEliminados",
@@ -108,7 +108,24 @@ $(document).ready(function () {
         $("#frmAgregar").modal("show");
     })
 
-    $(document).on("click",".btnEditar",function () {
+    $(document).on("click", "#btnGuardar", function () {
+        event.preventDefault();
+        var datos = $("#frmAgregarDatos").serializeArray();
+        $.ajax({
+            url:"Proveedor/insertar",
+            type:"POST",
+            data: datos
+        }).done(function(){
+            Swal.fire(
+                'Proveedor Ingresado con Exito!',
+                'La informacion se mistrará en la tabla principal!',
+                'success'
+            )
+        });
+        llenarTabla();
+    });
+
+    $(document).on("click",".btnEditar",function ()  {
 
         var id= $(this).attr("id");
 
@@ -128,7 +145,6 @@ $(document).ready(function () {
                 $("#txtTelefonoE").val(datos[0].telefono);
                 $("#txtCelularE").val(datos[0].celular);
                 $("#txtNitE").val(datos[0].nit);
-                $("#txtDuiE").val(datos[0].dui);
                 $("#txtRegistroE").val(datos[0].registroFiscal);
 
             })
@@ -173,15 +189,15 @@ $(document).ready(function () {
                         toast.addEventListener('mouseenter', Swal.stopTimer)
                         toast.addEventListener('mouseleave', Swal.resumeTimer)
                     }
-                })
+                });
 
                 Toast.fire({
                     icon: 'success',
                     title: 'Proveedor Eliminado con Exito'
-                })
+                });
                 llenarTabla();
             }
-        })
+        });
 
     })
 
@@ -229,7 +245,7 @@ $(document).ready(function () {
                         toast.addEventListener('mouseenter', Swal.stopTimer)
                         toast.addEventListener('mouseleave', Swal.resumeTimer)
                     }
-                })
+                });
 
                 Toast.fire({
                     icon: 'success',
