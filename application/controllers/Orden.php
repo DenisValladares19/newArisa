@@ -40,9 +40,7 @@ class Orden extends Padre_Desing
 
             $data = array("idOrden"=>0,
                 "idCotizacion"=>$_POST["cot"],
-                "nombre"=>$_POST["orden"],
                 "comentarios"=>$_POST["desc"],
-                "tamaño"=>$_POST["tamaño"],
                 "idMuestra"=>$_POST["muestra"],
                 "idEstado2"=>$_POST["estado"],
                 "borradoLogico"=>1,

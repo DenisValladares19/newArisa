@@ -19,10 +19,7 @@
         <thead style="font-weight: bold;">
         <td>Núm. Orden</td>
         <td>Núm. Cotización</td>
-        <td>Nombre</td>
         <td>Comentarios</td>
-        <td>Tamaño</td>
-        <td>Archivo</td>
         <td>Muestra</td>
         <td>Estado</td>
         <td>Acciones</td>
@@ -37,11 +34,8 @@
 
         <tfoot>
         <th>Núm. Orden</th>
-        <th>Nombre</th>
-        <th>Nombre</th>
+        <th>Núm. Cotización</th>
         <th>Comentarios</th>
-        <th>Tamaño</th>
-        <th>Archivo</th>
         <th>Muestra</th>
         <th>Estado</th>
         <th>Acciones</th>
@@ -199,8 +193,8 @@
             <div class="modal-body">
                 <form method="post" id="editFormOrden">
 
-                    <input type="text" name="txtId" value="0">
-                    <input type="text" name="txtIdEst" id="txtIdEstI">
+                    <input type="hidden" name="txtId" value="0">
+                    <input type="hidden" name="txtIdEst" id="txtIdEstI">
 
                     <div class="form-column col-md-12">
 

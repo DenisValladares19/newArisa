@@ -193,10 +193,7 @@ function showOrden() {
                 html+='<tr>'+
                     '<td>'+data[i].idOrden+'</td>'+
                     '<td>'+data[i].idCotizacion+'</td>'+
-                    '<td>'+data[i].nombre+'</td>'+
                     '<td>'+data[i].comentarios+'</td>'+
-                    '<td>'+data[i].tamaño+'</td>'+
-                    '<td>'+data[i].cArchivo+'</td>'+
                     '<td>'+data[i].url+'</td>'+
                     '<td>'+data[i].nombreE+'</td>'+
                     '<td>'+
