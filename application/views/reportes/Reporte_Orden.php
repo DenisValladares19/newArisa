@@ -10,7 +10,12 @@ class PDF extends FPDF
 
         // Select Arial bold 15
         $this->SetFont('Arial','B',15);
-        $this->Cell(180,10,utf8_decode('Reporte de órdenes'),1,0,'C');
+        $this->Image('./fpdf/Print.png',10,10,-300);
+        $this->Ln(10);
+        $this->Cell(180,10,utf8_decode('ORDEN DE TRABAJO'),0,0,'C');
+        $this->SetLineWidth(4);
+        $this->Line(75,10,3000, 0);
+
         // Line break
         $this->Ln(10);
         // Move to the right

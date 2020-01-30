@@ -252,7 +252,7 @@ $.post(BASE_URL+'index.php/cotizacion/getAllCotizacion',
         });
     });
 
-$.post(BASE_URL+'index.php/muestra/showSamples',
+$.post(BASE_URL+'index.php/muestra/llenar',
     function (data) {
         var muestra = JSON.parse(data);
         $.each(muestra,function (i,item) {
@@ -260,7 +260,7 @@ $.post(BASE_URL+'index.php/muestra/showSamples',
         });
     });
 
-$.post(BASE_URL+'index.php/muestra/showSamples',
+$.post(BASE_URL+'index.php/muestra/llenar',
     function (data) {
         var muestra = JSON.parse(data);
         $.each(muestra,function (i,item) {

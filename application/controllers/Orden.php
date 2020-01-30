@@ -7,6 +7,7 @@
  */
 
 include (APPPATH."controllers/Padre_Desing.php");
+date_default_timezone_set('America/El_Salvador');
 class Orden extends Padre_Desing
 {
 
@@ -37,12 +38,13 @@ class Orden extends Padre_Desing
 
     public function addOrden(){
 
-
+            $fechaA = date('Y-m-d');
             $data = array("idOrden"=>0,
                 "idCotizacion"=>$_POST["cot"],
                 "comentarios"=>$_POST["desc"],
                 "idMuestra"=>$_POST["muestra"],
                 "idEstado2"=>$_POST["estado"],
+                "fecha"=>$fechaA,
                 "borradoLogico"=>1,
 
             );

@@ -183,8 +183,8 @@ $(document).on('click','#editar',function () {
 
 $(document).on('click','#btnEditSampleId',function(){
     event.preventDefault();
-    var formData = $("#frmSampleIdEdit").serializeArray();
 
+    var formData = new FormData($("#frmSampleIdEdit")[0]);
     $.ajax({
         url: 'Muestra/saveChanges',
         type: 'post',
@@ -197,8 +197,9 @@ $(document).on('click','#btnEditSampleId',function(){
 
             $("#frmEditarMuestra").modal("hide");
             $('#frmSampleIdEdit')[0].reset();
-            showSamples();
+
             alert("Muestra modificada con éxito");
+            LlenarTabla();
 
         })
         .fail(function() {
@@ -223,7 +224,7 @@ $(document).on('click','#eliminar',function(){
             dataType: 'json',
             success:function (response) {
                 $("#deleteModal").modal("hide");
-                showSamples();
+                LlenarTabla();
                 alert("Muestra eliminada con éxito");
             },
             error:function () {
