@@ -234,6 +234,10 @@ insert into tipoImpresion values
 (2,"digital",1,1),
 (3,"offset",5,1);
 
+alter table orden add column idCotizacion int not null;
+alter table orden add column fecha date not null;
+
+alter table orden add CONSTRAINT fk_Cot FOREIGN KEY (idCotizacion) REFERENCES cotizacion (idCotizacion) on DELETE no ACTION on UPDATE CASCADE;
 
 
 insert into cliente values
