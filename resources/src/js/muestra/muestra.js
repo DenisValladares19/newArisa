@@ -87,10 +87,6 @@ function modificarEstado(){
     });
 }
 
-
-
-
-
 $(document).ready(function () {
     LlenarTabla();
 
