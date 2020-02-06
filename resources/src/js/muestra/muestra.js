@@ -150,7 +150,7 @@ $(document).on('click','#btnGuardar',function(){
                             onOpen: (toast) => {
                             toast.addEventListener('mouseenter', Swal.stopTimer)
                             toast.addEventListener('mouseleave', Swal.resumeTimer)
-                            LlenarTabla();
+                            LlenarTabla(); 
                     }
                     })
 
