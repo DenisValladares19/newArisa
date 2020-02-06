@@ -99,6 +99,23 @@
                                 <center>
                                     <a class="btn btn-outline-success add1"><i class="fa fa-plus-circle"></i> Agregar</a>
                                 </center>
+
+
+                                    <!-- Content here-->
+                                    <div class="container-fluid">
+                                        <table class="table table-bordered" width="100%" cellspacing="0" id="tablaEx">
+                                            <thead style="background-color: rgba(11, 23, 41 , 0.6);">
+                                            <th>Nombres del Producto</th>
+                                            <th>Cantidad</th>
+                                            <th>Acciones</th>
+                                            </thead>
+                                            <tfoot>
+                                            <th>Nombres del Producto</th>
+                                            <th>Cantidad</th>
+                                            <th>Acciones</th>
+                                            </tfoot>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                             </form>
@@ -152,7 +169,7 @@
                         <select id="selectProd"  name="selectProd" class="form-control"></select>
                     </div>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" placeholder="Cantidad..." name="cantidad">
+                        <input type="text" class="form-control" placeholder="Cantidad..." name="cantidad" id="cantidad">
                     </div>
                 </div>
                 </form>
@@ -164,6 +181,36 @@
     </div>
 </div>
 
+
+
+<!-- Editar Productos Existentes -->
+<div class="modal fade" id="EditarEx" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Producto Existente</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="frmEx" method="post">
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <select id="selectProdE"  name="selectProdE" class="form-control"></select>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Cantidad..." name="cantidadE" id="cantidadE">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="addExistentes">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 

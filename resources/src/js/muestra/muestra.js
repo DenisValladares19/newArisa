@@ -136,7 +136,7 @@ $(document).on('click','#btnGuardar',function(){
                 $.ajax({
                     url: 'Muestra/modificarEstado',
                     type: 'post',
-                    data: idM,
+                    data: {idM:idM},
                     cache: false,
                     contentType: false,
                     processData: false

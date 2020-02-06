@@ -104,6 +104,17 @@ function listProv(){
     });
 }
 
+function listProvEditarEx(){
+    $.post("Inventario/mostrarProv",{},function(res){
+        var r = JSON.parse(res);
+        $("#selectProdE option").remove();
+        $("#selectProdE").append("<option>Elige el Proveedor</option>");
+        for(var i = 0;i<r.length;i++){
+            $("#selectProdE").append("<option value='"+r[i].idProveedor+"'>"+r[i].nombre+"</option>");
+        }
+    });
+}
+
 function listProd(){
     $.post("Inventario/mostrarProd",{},function(res){
         var r = JSON.parse(res);
@@ -115,6 +126,61 @@ function listProd(){
     });
 }
 
+
+function llenarTablaEx()
+{
+    let idCompra = localStorage.getItem("idCompra");
+    $.ajax(
+        {
+            url:"Inventario/mostrarExt",
+            type: "POST",
+            data: {idCompra},
+            success:function (res) {
+                let data = JSON.parse(res);
+                if(data!=null){
+                    $("#tablaEx").show();
+                    $("#tablaEx").dataTable().fnDestroy();
+                    $("#tablaEx tbody tr").remove();
+                    $.each(data, function (key,val) {
+                        var fila ='<tr><td><div align="center">';
+                        fila=fila + val.idInventario + '</div></td><td>';
+                        fila=fila + val.cantidad + '</div></td>';
+                        fila = fila +  '<td> <a class="btn btn-outline-info btnEditarEx" id="'+val.idDetalleInvCompra+'"><i class="fas fa-marker"></i></a>\n' +
+                            '                     <a class="btn btn-outline-danger btnEliminarEx"id="'+val.idDetalleInvCompra+'"><i class="far fa-trash-alt"></i></a>';
+                        fila = fila + '</td></tr>';
+                        $("#tablaEx tbody").append(fila);
+                    });
+                    $("#tablaEx").dataTable({
+                        bLengthChange: false,
+                        language: {
+                            "decimal": "",
+                            "emptyTable": "No hay información",
+                            "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                            "infoEmpty": "Mostrando 0 a 0 de 0 Entradas",
+                            "infoFiltered": "(Filtrado de  _MAX_  total entradas)",
+                            "infoPostFix": "",
+                            "thousands": ",",
+                            "lengthMenu": "Mostrar _MENU_ Entradas",
+                            "loadingRecords": "Cargando...",
+                            "processing": "Procesando...",
+                            "search": "Buscar:",
+                            "zeroRecords": "Sin resultados encontrados",
+                            "paginate": {
+                                "first": "Primero",
+                                "last": "Ultimo",
+                                "next": "Siguiente",
+                                "previous": "Anterior"
+                            }
+                        }
+                    });
+                }
+                else{
+                    $("#tablaEx").hide();
+                }
+
+            },
+        });
+}
 
 
 $(document).ready(function () {
@@ -144,7 +210,7 @@ $(document).ready(function () {
     llenarTablaInv();
     listProv();
     listProd();
-
+    $("#tablaEx").hide();
 
 
     $(document).on("click","#rest",function () {
@@ -209,8 +275,34 @@ $(document).ready(function () {
                     localStorage.setItem("idDetalle",res);
                 $("#agregarInventario").modal("show");
                 $("#addEx").modal("hide");
+                $('#frmEx')[0].reset();
+                llenarTablaEx();
             })
      });
+
+
+    $(document).on("click",".btnEditarEx",function ()  {
+        listProvEditarEx();
+        var id= $(this).attr("id");
+
+        $.ajax({
+            url: "Inventario/mostrarEx",
+            type: "post",
+            data: {id: id}
+        })
+            .done(function (data) {
+
+                var datos = JSON.parse(data);
+                $("#selectProdE").val(datos[0].idProveedor);
+                $("#cantidadE").val(datos[0].cantidad);
+
+            })
+            .fail(function () {
+
+            })
+        $("#EditarEx").modal("show");
+
+    })
 
 
 
