@@ -1,28 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="<?php echo base_url("resources/css/bootstrap.min.css")?>">
-    <title>Reporte</title>
-</head>
-<body>
-    <div class="container mt-5">
-        <table class="table">
-            <thead>
-                <th>Descripcion</th>
-                <th>Cantidad</th>
-                <th>Precio</th>
-                <th>Total</th>
-            </thead>
-        </table>
-        <pre>
-        <?php 
-            echo var_dump($desc);
-        ?>
-        </pre>
-        
-    </div>
-</body>
-</html>
+<?php
+ob_start();
+require_once('application/views/cotizacion/reporte_view.php');
+$html = ob_get_clean();
+
+require_once('vendor/autoload.php');
+
+use Spipu\Html2Pdf\Html2Pdf;
+
+$html2pdf = new Html2Pdf("P","A4","es",true,"UTF-8",array(7,5,5,5));
+$html2pdf->writeHTML($html);
+$html2pdf->output("cotizacion.pdf","I");
+
+?>

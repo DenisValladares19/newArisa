@@ -127,18 +127,19 @@ $(document).on('click','#btnGuardar',function(){
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Si,Aprobar!',
-                confirmButtonText: 'No!'
+                cancelButtonText: 'No!'
             }).then((result) => {
                 if (result.value) {
 
                 let id = localStorage.getItem("idM");
+                console.log(id);
                 $.ajax({
                     url: 'Muestra/modificarEstado',
-                    type: 'post',
-                    data: id,
-                    cache: false,
-                    contentType: false,
-                    processData: false
+                    type: 'POST',
+                    data: {id},
+                    success: function(res){
+                        console.log(res);
+                    }
 
                 })
             }

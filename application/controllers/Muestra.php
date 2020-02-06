@@ -48,16 +48,13 @@ class Muestra extends Padre_Vendedor
                 "idCotizacion"=>$_POST["cotizacion"],
                 "borradoLogico"=>1,
                 "url"=> $datos["upload_data"]["file_name"]
-
-
             );
+            $res = $this->Muestra_M->insertar($data);
+            echo json_encode($res);
         }
         else{
             echo $this->upload->display_errors();
         }
-
-        $res = $this->Muestra_M->insertar($data);
-        echo json_encode($res);
     }
 
 
@@ -138,7 +135,7 @@ class Muestra extends Padre_Vendedor
     public function  modificarEstado(){
         $id = $_POST["id"];
 
-        $set = array(
+        /*$set = array(
             "idEstado2"=>1
         );
         $where = array(
@@ -149,7 +146,8 @@ class Muestra extends Padre_Vendedor
         if($res>=0)
         {
             header("Location: ".site_url("Muestra"));
-        }
+        }*/
+        echo var_dump($_POST);
     }
 
 }
