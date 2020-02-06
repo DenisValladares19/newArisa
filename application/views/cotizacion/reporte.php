@@ -2,7 +2,7 @@
 ob_start();
 require_once('application/views/cotizacion/reporte_view.php');
 $html = ob_get_clean();
-
+ob_end_clean();
 require_once('vendor/autoload.php');
 
 use Spipu\Html2Pdf\Html2Pdf;
