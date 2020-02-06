@@ -36,11 +36,8 @@ class Muestra extends Padre_Vendedor
 
     public function Agregar(){
 
-        $config = array("upload_path"=> "./resources/files/uploads", "allowed_types"=>"docx|pdf|png|jpg");
+        $config = array("upload_path"=> "./resources/files/uploads", "allowed_types"=>"doc|docx|pdf|png|jpg");
         $this->load->library("upload",$config);
-        $p = $_POST['muestra'];
-        $p1 = $_POST['coment'];
-        $p2 = $_POST['coment'];
         if ($this->upload->do_upload("muestra")){
             $datos= array("upload_data"=> $this->upload->data());
             $newDate = date("Y-m-d");
@@ -50,6 +47,7 @@ class Muestra extends Padre_Vendedor
                 "fecha"=>$newDate,
                 "idCotizacion"=>$_POST["cotizacion"],
                 "borradoLogico"=>1,
+                "idEstado2"=>1,
                 "url"=> $datos["upload_data"]["file_name"]
             );
             $res = $this->Muestra_M->insertar($data);
@@ -57,10 +55,6 @@ class Muestra extends Padre_Vendedor
         }
         else{
             echo $this->upload->display_errors();
-            echo var_dump($p);
-            echo var_dump($p1);
-            echo var_dump($p2);
-
         }
     }
 
@@ -140,9 +134,8 @@ class Muestra extends Padre_Vendedor
 
 
     public function  modificarEstado(){
-
-        /*$set = array(
-            "idEstado2"=>1
+        $set = array(
+            "idEstado1"=>1
         );
         $where = array(
             'idMuestra'=>$_POST["idM"]
@@ -151,9 +144,11 @@ class Muestra extends Padre_Vendedor
 
         if($res>=0)
         {
-            header("Location: ".site_url("Muestra"));
-        }*/
-        echo var_dump($_POST);
+            echo 'si se modifico!';
+            //header("Location: ".site_url("Muestra"));
+        }else{
+            echo 'no se modifico';
+        }
     }
 
 }

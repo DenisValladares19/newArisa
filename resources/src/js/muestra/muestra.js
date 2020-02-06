@@ -4,7 +4,7 @@ function LlenarTabla() {
         url: 'Muestra/llenar',
         async: false,
         dataType: 'json',
-        success: function (data) {
+        success: function (data) { 
             var html = '';
             var i;
             for(i=0; i<data.length; i++){
@@ -24,7 +24,7 @@ function LlenarTabla() {
 
             }
             $('#table').html(html);
-            $("#data").dataTable({
+            $("#tabla").dataTable({
                 bLengthChange: false,
                 language: {
                     "decimal": "",
@@ -46,13 +46,12 @@ function LlenarTabla() {
                         "previous": "Anterior"
                     }
                 }
-            });
+            });       
         },
 
         error: function () {
             alert('Could not show data from database');
-        }
-
+        }      
     });
 }
 
@@ -120,7 +119,7 @@ $(document).on('click','#btnGuardar',function(){
 
 
             Swal.fire({
-                title: 'Aprobar la Cotización?',
+                title: 'Aprobar la Muestra!!!!!!!!!!!!!!',
                 text: "De lo contrario esta permanecerá No Aprobada",
                 icon: 'warning',
                 showCancelButton: true,
@@ -135,14 +134,13 @@ $(document).on('click','#btnGuardar',function(){
 
                 $.ajax({
                     url: 'Muestra/modificarEstado',
-                    type: 'post',
+                    type: 'POST',
                     data: {idM:idM},
-                    cache: false,
-                    contentType: false,
-                    processData: false
-
-                })
-                    .done(function () {
+                    error:function(jqXHR,status,exception){
+                    console.log(status+exception);
+                    console.warn(jqXHR.responseText);
+                    }
+                }).done(function () {
                         const Toast = Swal.mixin({
                             toast: true,
                             position: 'top-end',
@@ -152,6 +150,7 @@ $(document).on('click','#btnGuardar',function(){
                             onOpen: (toast) => {
                             toast.addEventListener('mouseenter', Swal.stopTimer)
                             toast.addEventListener('mouseleave', Swal.resumeTimer)
+                            LlenarTabla();
                     }
                     })
 
@@ -166,7 +165,7 @@ $(document).on('click','#btnGuardar',function(){
             }
 
         })
-            llenarTabla();
+            LlenarTabla();
             $("#frmInsertarMuestra").modal("hide");
             $('#frmInsertar')[0].reset();
 

@@ -20,7 +20,7 @@
 </div>
 
 <div class="table-responsive">
-    <table class="table table-bordered" width="100%" cellspacing="0" id="data">
+    <table class="table table-bordered" width="100%" cellspacing="0" id="tabla">
         <thead style="background-color: rgba(11, 23, 41 , 0.6); color: #f0f0f0">
         <td>Cotizacion</td>
         <td>Estado</td>
