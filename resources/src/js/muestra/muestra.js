@@ -106,7 +106,7 @@ $(document).on('click','#btnGuardar',function(){
     var formData = new FormData($("#frmInsertar")[0]);
 
     $.ajax({
-        url: 'Muestra/agregar',
+        url: 'Muestra/Agregar',
         type: 'post',
         data: formData,
         cache: false,
@@ -127,24 +127,48 @@ $(document).on('click','#btnGuardar',function(){
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Si,Aprobar!',
-                confirmButtonText: 'No!'
+                cancelButtonText: 'No!'
             }).then((result) => {
                 if (result.value) {
 
-                let id = localStorage.getItem("idM");
+                let idM = localStorage.getItem("idM");
+
                 $.ajax({
                     url: 'Muestra/modificarEstado',
                     type: 'post',
-                    data: id,
+                    data: idM,
                     cache: false,
                     contentType: false,
                     processData: false
 
                 })
+                    .done(function () {
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                            onOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                    })
+
+                        Toast.fire({
+                            icon: 'success',
+                            title: 'Muestra Aprobada con Exito'
+                        })
+                        LlenarTabla();
+                        $("#frmInsertarMuestra").modal("hide");
+                        $('#frmInsertar')[0].reset();
+                    })
             }
+
         })
-
-
+            llenarTabla();
+            $("#frmInsertarMuestra").modal("hide");
+            $('#frmInsertar')[0].reset();
 
         })
         .fail(function() {

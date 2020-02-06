@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="dc70b34d-f42a-49b0-bec1-cbcb24508da6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/reportes/Reporte_Orden.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/reportes/Reporte_Orden.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/reportes/Reporte_View.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/reportes/Reporte_View.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/src/js/reporte/reporte.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/src/js/reporte/reporte.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Muestra.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Muestra.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/src/js/muestra/muestra.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/src/js/muestra/muestra.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -84,35 +83,35 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="jpg" value="2" />
-          <entry key="js" value="42" />
-          <entry key="php" value="106" />
+          <entry key="js" value="45" />
+          <entry key="php" value="109" />
           <entry key="png" value="1" />
-          <entry key="sql" value="4" />
+          <entry key="sql" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="3" />
-          <entry key="JavaScript" value="42" />
-          <entry key="PHP" value="106" />
-          <entry key="SQL" value="4" />
+          <entry key="JavaScript" value="45" />
+          <entry key="PHP" value="109" />
+          <entry key="SQL" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="2326" />
-          <entry key="php" value="4589" />
-          <entry key="sql" value="16" />
+          <entry key="js" value="2429" />
+          <entry key="php" value="4591" />
+          <entry key="sql" value="29" />
           <entry key="txt" value="19" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="1" />
-          <entry key="JavaScript" value="2325" />
-          <entry key="PHP" value="4589" />
+          <entry key="JavaScript" value="2428" />
+          <entry key="PHP" value="4591" />
           <entry key="PLAIN_TEXT" value="19" />
-          <entry key="SQL" value="16" />
+          <entry key="SQL" value="29" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.class">
@@ -124,20 +123,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/src/js/muestra/muestra.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="603">
-              <caret line="137" column="26" selection-start-line="137" selection-start-column="26" selection-end-line="137" selection-end-column="26" />
+            <state relative-caret-position="527">
+              <caret line="171" column="12" selection-start-line="171" selection-start-column="12" selection-end-line="171" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/src/js/cotizacion/cotizacion.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="619">
+              <caret line="257" column="20" lean-forward="true" selection-start-line="257" selection-start-column="20" selection-end-line="257" selection-end-column="20" />
+              <folding>
+                <element signature="n#style#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#tfoot#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/Muestra.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1742">
-              <caret line="138" column="24" selection-start-line="138" selection-start-column="24" selection-end-line="138" selection-end-column="24" />
+            <state relative-caret-position="603">
+              <caret line="150" column="22" selection-start-line="150" selection-start-column="22" selection-end-line="150" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Proveedor.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="43" column="42" lean-forward="true" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -210,12 +233,9 @@
         <option value="$PROJECT_DIR$/resources/src/js/usuario/usuario.js" />
         <option value="$PROJECT_DIR$/application/views/cliente/cliente_view.php" />
         <option value="$PROJECT_DIR$/resources/src/js/cliente/cliente.js" />
-        <option value="$PROJECT_DIR$/resources/db/arisa.sql" />
         <option value="$PROJECT_DIR$/application/views/muestra/muestra_view.php" />
         <option value="$PROJECT_DIR$/application/models/Muestra_M.php" />
         <option value="$PROJECT_DIR$/resources/src/js/proveedor/proveedor.js" />
-        <option value="$PROJECT_DIR$/application/controllers/Muestra.php" />
-        <option value="$PROJECT_DIR$/resources/src/js/muestra/muestra.js" />
         <option value="$PROJECT_DIR$/resources/src/js/orden/orden.js" />
         <option value="$PROJECT_DIR$/application/models/Orden_M.php" />
         <option value="$PROJECT_DIR$/application/controllers/Orden.php" />
@@ -224,6 +244,9 @@
         <option value="$PROJECT_DIR$/application/views/reportes/Reporte_View.php" />
         <option value="$PROJECT_DIR$/application/controllers/Reporte_Orden_Detalle.php" />
         <option value="$PROJECT_DIR$/application/views/reportes/Reporte_Orden.php" />
+        <option value="$PROJECT_DIR$/resources/db/arisa.sql" />
+        <option value="$PROJECT_DIR$/application/controllers/Muestra.php" />
+        <option value="$PROJECT_DIR$/resources/src/js/muestra/muestra.js" />
       </list>
     </option>
   </component>
@@ -280,13 +303,6 @@
             <path>
               <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
               <item name="newArisa" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="reportes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -308,7 +324,7 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="orden" type="462c0819:PsiDirectoryNode" />
+              <item name="cotizacion" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
@@ -316,7 +332,7 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="reporte" type="462c0819:PsiDirectoryNode" />
+              <item name="inventario" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -417,13 +433,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73771000" />
+    <option name="totallyTimeSpent" value="75598000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2153518" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21748401" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -567,23 +583,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="501">
           <caret line="139" column="34" lean-forward="true" selection-start-line="139" selection-start-column="34" selection-end-line="139" selection-end-column="34" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#td#2;n#tr#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/src/js/cliente/cliente.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="154" column="64" selection-start-line="154" selection-start-column="64" selection-end-line="154" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/db/arisa.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="136" column="41" selection-start-line="136" selection-start-column="41" selection-end-line="136" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -619,29 +618,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="57" column="51" selection-start-line="57" selection-start-column="40" selection-end-line="57" selection-end-column="51" />
-          <folding>
-            <element signature="e#3787#3794#1#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Proveedor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2165">
-          <caret line="346" column="2" selection-start-line="346" selection-start-column="2" selection-end-line="346" selection-end-column="2" />
-          <folding>
-            <element signature="n#style#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tfoot#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/src/js/inventario/inventario.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="202" column="60" lean-forward="true" selection-start-line="202" selection-start-column="12" selection-end-line="202" selection-end-column="60" />
         </state>
       </provider>
     </entry>
@@ -649,27 +625,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="82">
           <caret line="127" column="53" selection-start-line="127" selection-start-column="53" selection-end-line="127" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/src/js/cotizacion/cotizacion.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="402" column="15" lean-forward="true" selection-start-line="402" selection-start-column="15" selection-end-line="402" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/src/js/muestra/muestra.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="603">
-          <caret line="137" column="26" selection-start-line="137" selection-start-column="26" selection-end-line="137" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Muestra_M.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="728">
-          <caret line="111" column="34" selection-start-line="111" selection-start-column="34" selection-end-line="111" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -760,10 +715,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/db/arisa.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="151" column="19" selection-start-line="151" selection-start-column="19" selection-end-line="151" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Muestra_M.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="728">
+          <caret line="111" column="34" selection-start-line="111" selection-start-column="34" selection-end-line="111" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/src/js/inventario/inventario.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1266">
+          <caret line="202" column="60" lean-forward="true" selection-start-line="202" selection-start-column="12" selection-end-line="202" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Proveedor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="43" column="42" lean-forward="true" selection-start-line="43" selection-start-column="12" selection-end-line="43" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Muestra.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1742">
-          <caret line="138" column="24" selection-start-line="138" selection-start-column="24" selection-end-line="138" selection-end-column="24" />
+        <state relative-caret-position="603">
+          <caret line="150" column="22" selection-start-line="150" selection-start-column="22" selection-end-line="150" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/src/js/cotizacion/cotizacion.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="619">
+          <caret line="257" column="20" lean-forward="true" selection-start-line="257" selection-start-column="20" selection-end-line="257" selection-end-column="20" />
+          <folding>
+            <element signature="n#style#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#tfoot#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/src/js/muestra/muestra.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="171" column="12" selection-start-line="171" selection-start-column="12" selection-end-line="171" selection-end-column="12" />
         </state>
       </provider>
     </entry>

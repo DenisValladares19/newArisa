@@ -143,13 +143,12 @@ class Muestra extends Padre_Vendedor
 
 
     public function  modificarEstado(){
-        $id = $_POST["id"];
 
         $set = array(
-            "idEstado2"=>1
+            "idEstado1"=>1
         );
         $where = array(
-            "idMuestra"=>$id
+            'idMuestra'=>$_POST["idM"]
         );
         $res = $this->Muestra_M->modificarEstado($set,$where);
 
