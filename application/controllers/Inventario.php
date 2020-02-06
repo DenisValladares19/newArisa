@@ -64,15 +64,33 @@ class Inventario extends Padre_Desing
 
 
     public function insertarDetalle(){
+        $form = $_POST["datosEx"];
         $data = array(
             'idDetalleInvCompra'=>0,
             'idCompra'=>$_POST["idCompra"],
-            'idInventario'=>$_POST["selectProd"],
-            'cantidad'=>$_POST["cantidad"],
+            'idInventario'=>$form[0]['value'],
+            'cantidad'=>$form[1]['value'],
             'borradoLogico'=>1,
         );
 
         $res = $this->Inventario_m->agregarDetalle($data);
+        echo json_encode($res);
+    }
+
+
+
+    //Obteniendo datos de la tabla detalle a la Hora de Insertar
+    public function mostrarExt(){
+        $idCompra = $_POST["idCompra"];
+        $res = $this->Inventario_m->mostrarExt($idCompra);
+
+        echo json_encode($res);
+    }
+
+    //Obteniendo datos de la tabla detalle a la Hora de Editar
+    public function mostrarEx(){
+        $id = $_POST["id"];
+        $res = $this->Inventario_m->mostrarEx($id);
         echo json_encode($res);
     }
 

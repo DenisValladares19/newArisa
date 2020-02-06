@@ -17,6 +17,10 @@ $(document).ready(function () {
         $("#reporteFIModal").modal("show");
     });
 
+    $(document).on("click", "#reporteOrden", function () {
+        $("#reporteOrdenModal").modal("show");
+    });
+
 
 
 });
@@ -28,5 +32,14 @@ $.post(BASE_URL + 'index.php/cliente/showClients',
         var status = JSON.parse(data);
         $.each(status, function (i, item) {
             $('#clienteId').append('<option value="' + item.idCliente + '">' + item.nombre + ' ' +item.apellido+'</option>');
+        });
+    });
+
+$('#OrdenId').empty().append('Seleccione');
+$.post(BASE_URL + 'index.php/orden/showOrdenes',
+    function (data) {
+        var status = JSON.parse(data);
+        $.each(status, function (i, item) {
+            $('#OrdenId').append('<option value="' + item.idCotizacion + '">' + item.idOrden +'</option>');
         });
     });

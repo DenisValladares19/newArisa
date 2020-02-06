@@ -106,7 +106,7 @@ $(document).on('click','#btnGuardar',function(){
     var formData = new FormData($("#frmInsertar")[0]);
 
     $.ajax({
-        url: 'Muestra/agregar',
+        url: 'Muestra/Agregar',
         type: 'post',
         data: formData,
         cache: false,
@@ -131,21 +131,44 @@ $(document).on('click','#btnGuardar',function(){
             }).then((result) => {
                 if (result.value) {
 
-                let id = localStorage.getItem("idM");
-                console.log(id);
+                let idM = localStorage.getItem("idM");
+
                 $.ajax({
                     url: 'Muestra/modificarEstado',
-                    type: 'POST',
-                    data: {id},
-                    success: function(res){
-                        console.log(res);
-                    }
+                    type: 'post',
+                    data: {idM:idM},
+                    cache: false,
+                    contentType: false,
+                    processData: false
 
                 })
+                    .done(function () {
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                            onOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                    })
+
+                        Toast.fire({
+                            icon: 'success',
+                            title: 'Muestra Aprobada con Exito'
+                        })
+                        LlenarTabla();
+                        $("#frmInsertarMuestra").modal("hide");
+                        $('#frmInsertar')[0].reset();
+                    })
             }
+
         })
-
-
+            llenarTabla();
+            $("#frmInsertarMuestra").modal("hide");
+            $('#frmInsertar')[0].reset();
 
         })
         .fail(function() {
@@ -184,8 +207,8 @@ $(document).on('click','#editar',function () {
 
 $(document).on('click','#btnEditSampleId',function(){
     event.preventDefault();
-    var formData = $("#frmSampleIdEdit").serializeArray();
 
+    var formData = new FormData($("#frmSampleIdEdit")[0]);
     $.ajax({
         url: 'Muestra/saveChanges',
         type: 'post',
@@ -198,8 +221,9 @@ $(document).on('click','#btnEditSampleId',function(){
 
             $("#frmEditarMuestra").modal("hide");
             $('#frmSampleIdEdit')[0].reset();
-            showSamples();
+
             alert("Muestra modificada con éxito");
+            LlenarTabla();
 
         })
         .fail(function() {
@@ -224,7 +248,7 @@ $(document).on('click','#eliminar',function(){
             dataType: 'json',
             success:function (response) {
                 $("#deleteModal").modal("hide");
-                showSamples();
+                LlenarTabla();
                 alert("Muestra eliminada con éxito");
             },
             error:function () {
