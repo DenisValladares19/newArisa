@@ -70,14 +70,14 @@ class Proveedor  extends Padre_Desing
 
     public function modificar(){
         $data = array(
-            'nombre'=>$this->input->post("txtNombre"),
-            'empresa'=>$this->input->post("txtEmpresa"),
-            'direccion'=>$this->input->post("txtDireccion"),
-            'correo'=>$this->input->post("txtCorreo"),
-            'telefono'=>$this->input->post("txtTelefono"),
-            'celular'=>$this->input->post("txtCelular"),
-            'nit'=>$this->input->post("txtNit"),
-            'registroFiscal'=>$this->input->post("txtRegistro"),
+            'nombre'=>$this->input->post("txtNombreE"),
+            'empresa'=>$this->input->post("txtEmpresaE"),
+            'direccion'=>$this->input->post("txtDireccionE"),
+            'correo'=>$this->input->post("txtCorreoE"),
+            'telefono'=>$this->input->post("txtTelefonoE"),
+            'celular'=>$this->input->post("txtCelularE"),
+            'nit'=>$this->input->post("txtNitE"),
+            'registroFiscal'=>$this->input->post("txtRegistroE"),
         );
 
         $id=array(

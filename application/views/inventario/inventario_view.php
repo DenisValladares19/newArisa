@@ -134,6 +134,26 @@
                                         <center>
                                             <a class="btn btn-outline-success add2"><i class="fa fa-plus-circle"></i> Agregar</a>
                                         </center>
+
+                                        <!-- Content here-->
+                                        <div class="container-fluid">
+                                            <table class="table table-bordered" width="100%" cellspacing="0" id="tablaNew">
+                                                <thead style="background-color: rgba(11, 23, 41 , 0.6);">
+                                                <th>Nombres del Producto</th>
+                                                <th>Cantidad</th>
+                                                <th>Precio</th>
+                                                <th>Descripcion</th>
+                                                <th>Acciones</th>
+                                                </thead>
+                                                <tfoot>
+                                                <th>Nombres del Producto</th>
+                                                <th>Cantidad</th>
+                                                <th>Precio</th>
+                                                <th>Descripcion</th>
+                                                <th>Acciones</th>
+                                                </tfoot>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
@@ -143,7 +163,8 @@
             </div>
             <div class="modal-footer">
                 <button type="submit" class="btn btn-danger" data-dismiss="modal" id="cancelar">Cancelar</button>
-                <button type="submit" class="btn btn-success" id="next">Siguiente</button>
+                <button type="submit" class="btn btn-success" id="next1">Siguiente</button>
+                <button type="submit" class="btn btn-success" id="next2">Siguiente</button>
                 <button type="submit" class="btn btn-success" id="end">Finalizar Compra</button>
             </div>
         </div>
@@ -175,6 +196,7 @@
                 </form>
             </div>
             <div class="modal-footer">
+                <button type="submit" class="btn btn-danger" data-dismiss="modal" id="cancelarAddEx">Cancelar</button>
                 <button type="button" class="btn btn-primary" id="addExistentes">Guardar</button>
             </div>
         </div>
@@ -197,6 +219,11 @@
                 <form id="frmExEdit" method="post">
                     <div class="row mt-2">
                         <div class="col-md-6">
+                            <input type="hidden" name="txtIdExit" id="txtIdExit" required>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
                             <select id="selectProdE"  name="selectProdE" class="form-control"></select>
                         </div>
                         <div class="col-md-6">
@@ -206,7 +233,47 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="addExistentes">Guardar</button>
+                <button type="submit" class="btn btn-danger" data-dismiss="modal" id="cancelarEditEx">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="editarExistentes">Editar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Productos Nuevos -->
+<div class="modal fade" id="addNew" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Producto Nuevo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="frmNew" method="post">
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Nombre..." name="nombreNuevo" id="nombreNuevo">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Precio..." name="precioNuevo" id="precioNuevo">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Cantidad..." name="cantNuevo" id="cantNuevo">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Descripcion..." name="descNuevo" id="descNuevo">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger" data-dismiss="modal" id="cancelarAddNew">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="addNuevos">Guardar</button>
             </div>
         </div>
     </div>
@@ -214,7 +281,48 @@
 
 
 
-
+<!-- Editar Productos Nuevos -->
+<div class="modal fade" id="editarNew" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Producto Nuevo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="frmNewEdit" method="post">
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <input type="hidden" name="txtIdNew" id="txtIdNew" required>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Nombre..." name="nombreNuevoE" id="nombreNuevoE">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Precio..." name="precioNuevoE" id="precioNuevoE">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Cantidad..." name="cantNuevoE" id="cantNuevoE">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Descripcion..." name="descNuevoE" id="descNuevoE">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger" data-dismiss="modal" id="cancelarAddNew">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="editNuevos">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 

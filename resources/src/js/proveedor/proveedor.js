@@ -122,6 +122,8 @@ $(document).ready(function () {
                 'success'
             )
         });
+        $("#frmAgregar").modal("hide");
+        $('#frmAgregarDatos')[0].reset();
         llenarTabla();
     });
 
@@ -156,6 +158,36 @@ $(document).ready(function () {
     })
 
 
+    $(document).on("click", "#btnGuardarEdit", function () {
+        event.preventDefault();
+        var datos = $("#frmEdit").serializeArray();
+        $.ajax({
+            url:"Proveedor/modificar",
+            type:"POST",
+            data: datos
+        }).done(function(){
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 4000,
+                timerProgressBar: true,
+                onOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+        })
+
+            Toast.fire({
+                icon: 'success',
+                title: 'Proveedor Modificado con Exito'
+            });
+        });
+        $("#frmModicicar").modal("hide");
+        $('#frmEdit')[0].reset();
+        llenarTabla();
+    });
+
 
     $(document).on("click",".btnEliminar",function () {
 
@@ -189,7 +221,7 @@ $(document).ready(function () {
                         toast.addEventListener('mouseenter', Swal.stopTimer)
                         toast.addEventListener('mouseleave', Swal.resumeTimer)
                     }
-                });
+                })
 
                 Toast.fire({
                     icon: 'success',

@@ -54,7 +54,7 @@ class Muestra extends Padre_Vendedor
             echo json_encode($res);
         }
         else{
-            echo $this->upload->display_errors();
+            //echo $this->upload->display_errors();
         }
     }
 

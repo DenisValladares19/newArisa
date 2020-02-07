@@ -115,7 +115,7 @@ $(document).on('click','#btnGuardar',function(){
 
 
             Swal.fire({
-                title: 'Aprobar la Muestra!!!!!!!!!!!!!!',
+                title: '¿Aprobar la Muestra?',
                 text: "De lo contrario esta permanecerá No Aprobada",
                 icon: 'warning',
                 showCancelButton: true,
@@ -187,7 +187,8 @@ $(document).on('click','#editar',function () {
         dataType: 'json',
         success:function (data) {
             $('#cotizacionE').val(data.idCotizacion);
-            $('#estadoIdE').val(data.idEstado1);
+            $('#muestraIdE').val(data.url);
+            $('#estadoIdE').val(parseInt(data.idEstado1));
             $('input[name=comentE]').val(data.comentarios);
 
 

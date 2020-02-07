@@ -105,4 +105,62 @@ class Inventario_m extends CI_Model
         return $query->result();
     }
 
+    //Metodo para Modificar Info. Registro Ex.
+    public function modificarEx($data,$where)
+    {
+        $this->db->update("detalleinvcompra",$data,$where);
+        return $this->db->affected_rows();
+    }
+
+    //Metodo para Ocultar el Registro Ex.
+    public function eliminarEx($where)
+    {
+        $this->db->delete("detalleinvcompra",$where);
+        return $this->db->affected_rows();
+    }
+
+
+
+    //Mostrar Productos Nuevos
+    public function mostrarNew($idCompra){
+        $compra=array(
+            'idCompra'=>$idCompra,
+        );
+        $this->db->select("*");
+        $this->db->from("inventario");
+        $this->db->where($compra);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    //Mostrar Productos Nuevos Editar
+    public function mostrarNuevo($id){
+        $inv=array(
+            'idInventario'=>$id,
+        );
+        $this->db->select("*");
+        $this->db->from("inventario");
+        $this->db->where($inv);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function agregarNuevo($data){
+        $this->db->insert("inventario",$data);
+        return $this->db->insert_id();
+    }
+
+    //Metodo para Modificar Info. Registro New.
+    public function modifiicarNuevo($data,$where)
+    {
+        $this->db->update("inventario",$data,$where);
+        return $this->db->affected_rows();
+    }
+
+    //Metodo para Ocultar el Registro New.
+    public function eliminarNew($where)
+    {
+        $this->db->delete("inventario",$where);
+        return $this->db->affected_rows();
+    }
 }

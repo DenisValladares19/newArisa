@@ -95,7 +95,85 @@ class Inventario extends Padre_Desing
     }
 
 
+    public function modifiicarDetalle(){
+        $data = array(
+            'idInventario'=>$_POST["selectProdE"],
+            'cantidad'=>$_POST["cantidadE"],
+        );
+        $where=array(
+            'idDetalleInvCompra'=>$_POST["txtIdExit"],
+        );
+
+        $res = $this->Inventario_m->modificarEx($data,$where);
+        echo json_encode($res);
+    }
+
+    public function eliminarEx(){
+        $where=array(
+            'idDetalleInvCompra'=>$_POST["id"],
+        );
+
+        $res = $this->Inventario_m->eliminarEx($where);
+        echo json_encode($res);
+    }
 
 
+
+
+
+    //Obteniendo datos de la tabla Inventario a la Hora de Insertar
+    public function mostrarNew(){
+        $idCompra = $_POST["idCompra"];
+        $res = $this->Inventario_m->mostrarNew($idCompra);
+
+        echo json_encode($res);
+    }
+
+    //Obteniendo datos de la tabla Inventario a la Hora de Editar
+    public function mostrarNuevo(){
+        $id = $_POST["id"];
+        $res = $this->Inventario_m->mostrarNuevo($id);
+        echo json_encode($res);
+    }
+
+    public function insertarNuevo(){
+        $form = $_POST["datosNew"];
+        $data = array(
+            'nombreInv'=>$form[0]['value'],
+            'precio'=>$form[1]['value'],
+            'stock'=>$form[2]['value'],
+            'descripcion'=>$form[3]['value'],
+            'idCompra'=>$_POST["idCompra"],
+            'borradoLogico'=>1,
+        );
+
+        $res = $this->Inventario_m->agregarNuevo($data);
+        echo json_encode($res);
+    }
+
+    public function modifiicarNuevo(){
+        $data = array(
+            'nombreInv'=>$_POST["nombreNuevoE"],
+            'precio'=>$_POST["precioNuevoE"],
+            'stock'=>$_POST["cantNuevoE"],
+            'descripcion'=>$_POST["descNuevoE"],
+            'borradoLogico'=>1,
+        );
+        $where=array(
+            'idInventario'=>$_POST["txtIdNew"],
+        );
+
+        $res = $this->Inventario_m->modifiicarNuevo($data,$where);
+        echo json_encode($res);
+    }
+
+    public function eliminarNew(){
+        $where=array(
+            'idInventario'=>$_POST["id"],
+        );
+
+        $res = $this->Inventario_m->eliminarNew($where);
+        echo json_encode($res);
+    }
 
 }
