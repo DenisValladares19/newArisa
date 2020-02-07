@@ -515,10 +515,9 @@ $(document).on("click","#btnNext",function(e){
 });
 
 $(document).on("click",".printC",function(e){
-    var idCotizacion = $(this).attr("data-idCot");
-    var idDesc = $(this).attr("data-idDesc");
-    window.open("cotizacion/reporte?c="+idCotizacion+"?d="+idDesc,"_back");
-
+    let idCotizacion = $(this).attr("data-idCot");
+    let idDesc = $(this).attr("data-idDesc");
+    window.open("cotizacion/reporte?c="+idCotizacion+"&d="+idDesc,"_back");
 });
 
 

@@ -216,15 +216,11 @@ class Cotizacion extends Padre_Desing
         $res3 = $this->Cotizacion_m->getTablaDescripcion($idDesc);
 
         $data = array(
-            "desc"=>$res2,
+            "desc"=>$res2, 
             "desc2"=>$res3,
             "cot"=>$res
         );
         $this->load->view("cotizacion/reporte",$data);
-
-        echo "desc = ".var_dump($res2);
-        echo "desc2 = ".var_dump($res3);
-        echo "cot = ".var_dump($res);
     }
 
     public function  updateEstado(){
