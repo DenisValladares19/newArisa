@@ -104,16 +104,6 @@ function listProv(){
     });
 }
 
-function listProvEditarEx(){
-    $.post("Inventario/mostrarProv",{},function(res){
-        var r = JSON.parse(res);
-        $("#selectProdE option").remove();
-        $("#selectProdE").append("<option>Elige el Proveedor</option>");
-        for(var i = 0;i<r.length;i++){
-            $("#selectProdE").append("<option value='"+r[i].idProveedor+"'>"+r[i].nombre+"</option>");
-        }
-    });
-}
 
 function listProd(){
     $.post("Inventario/mostrarProd",{},function(res){
@@ -122,6 +112,18 @@ function listProd(){
         $("#selectProd").append("<option>Elige el Producto</option>");
         for(var i = 0;i<r.length;i++){
             $("#selectProd").append("<option value='"+r[i].idInventario+"'>"+r[i].nombreInv+"</option>");
+        }
+    });
+}
+
+
+function listProvEditarEx(){
+    $.post("Inventario/mostrarProd",{},function(res){
+        var r = JSON.parse(res);
+        $("#selectProdE option").remove();
+        $("#selectProdE").append("<option>Elige el Producto</option>");
+        for(var i = 0;i<r.length;i++){
+            $("#selectProdE").append("<option value='"+r[i].idInventario+"'>"+r[i].nombreInv+"</option>");
         }
     });
 }
@@ -210,6 +212,7 @@ $(document).ready(function () {
     llenarTablaInv();
     listProv();
     listProd();
+
     $("#tablaEx").hide();
 
 
@@ -282,7 +285,7 @@ $(document).ready(function () {
 
 
     $(document).on("click",".btnEditarEx",function ()  {
-        listProvEditarEx();
+
         var id= $(this).attr("id");
 
         $.ajax({
@@ -293,7 +296,8 @@ $(document).ready(function () {
             .done(function (data) {
 
                 var datos = JSON.parse(data);
-                $("#selectProdE").val(datos[0].idProveedor);
+                listProvEditarEx();
+                $("#selectProdE").val(datos[0].idInventario);
                 $("#cantidadE").val(datos[0].cantidad);
 
             })
