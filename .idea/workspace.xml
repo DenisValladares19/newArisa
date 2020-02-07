@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dc70b34d-f42a-49b0-bec1-cbcb24508da6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/src/js/inventario/inventario.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/src/js/inventario/inventario.js" afterDir="false" />
+    <list default="true" id="dc70b34d-f42a-49b0-bec1-cbcb24508da6" name="Default Changelist" comment="Seccion de Edgard">
+      <change beforePath="$PROJECT_DIR$/resources/files/uploads/Francisco.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/files/uploads/Francisco1.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/files/uploads/Francisco2.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/files/uploads/Francisco3.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/files/uploads/Francisco4.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/files/uploads/Francisco6.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/files/uploads/Francisco8.docx" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -186,6 +191,7 @@
     </replaceStrings>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -416,7 +422,7 @@
       <workItem from="1579205403970" duration="14282000" />
       <workItem from="1579244032388" duration="165000" />
       <workItem from="1579307799066" duration="9717000" />
-      <workItem from="1581042258970" duration="2020000" />
+      <workItem from="1581042258970" duration="2202000" />
     </task>
     <task id="LOCAL-00001" summary="Seccion de Edgard">
       <created>1579147141544</created>
@@ -467,15 +473,21 @@
       <option name="project" value="LOCAL" />
       <updated>1580975410906</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Seccion de Edgard">
+      <created>1581046315776</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1581046315776</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86864000" />
+    <option name="totallyTimeSpent" value="87046000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2196162" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
