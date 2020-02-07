@@ -51,7 +51,7 @@ date_default_timezone_set('America/El_Salvador');
 $newDate = date("d-m-Y");
 $pdf->SetMargins(3,1,1);
 $pdf->Cell(33,3,utf8_decode('       NÚMERO'),0);
-$pdf->Cell(40,10,utf8_decode($fila[9]),1,'','C');
+$pdf->Cell(40,10,utf8_decode($fila[8]),1,'','C');
 $pdf->Cell(30,3,utf8_decode('         FECHA'),0);
 $pdf->Cell(40,10,utf8_decode($newDate),1,'','C');
 $pdf->Cell(20,3,utf8_decode('         N°:'),0);

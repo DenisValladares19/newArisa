@@ -3,15 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="dc70b34d-f42a-49b0-bec1-cbcb24508da6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Inventario.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Inventario.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Muestra.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Muestra.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Proveedor.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Proveedor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/Inventario_m.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Inventario_m.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/inventario/inventario_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/inventario/inventario_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/proveedor/proveedor_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/proveedor/proveedor_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/src/js/inventario/inventario.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/src/js/inventario/inventario.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/src/js/muestra/muestra.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/src/js/muestra/muestra.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/src/js/proveedor/proveedor.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/src/js/proveedor/proveedor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Cotizacion.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Cotizacion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/reportes/Reporte_Orden.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/reportes/Reporte_Orden.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,23 +69,23 @@
     <session id="-102341041">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.31" value="1" />
-          <entry key="project.open.time.39" value="1" />
+          <entry key="project.open.time.39" value="2" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.70" value="1" />
           <entry key="project.open.time.98" value="1" />
           <entry key="project.open.time.99" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.opened" value="8" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="jpg" value="2" />
-          <entry key="js" value="55" />
-          <entry key="php" value="133" />
+          <entry key="js" value="56" />
+          <entry key="php" value="136" />
           <entry key="png" value="1" />
           <entry key="sql" value="6" />
         </counts>
@@ -100,15 +93,15 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="3" />
-          <entry key="JavaScript" value="55" />
-          <entry key="PHP" value="133" />
+          <entry key="JavaScript" value="56" />
+          <entry key="PHP" value="136" />
           <entry key="SQL" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="3139" />
-          <entry key="php" value="5634" />
+          <entry key="js" value="3146" />
+          <entry key="php" value="5668" />
           <entry key="sql" value="29" />
           <entry key="txt" value="19" />
         </counts>
@@ -116,8 +109,8 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="1" />
-          <entry key="JavaScript" value="3138" />
-          <entry key="PHP" value="5634" />
+          <entry key="JavaScript" value="3145" />
+          <entry key="PHP" value="5668" />
           <entry key="PLAIN_TEXT" value="19" />
           <entry key="SQL" value="29" />
         </counts>
@@ -131,38 +124,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/src/js/inventario/inventario.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="606">
-              <caret line="497" column="40" selection-start-line="497" selection-start-column="29" selection-end-line="497" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/inventario/inventario_view.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="93">
-              <caret line="284" column="37" selection-start-line="284" selection-start-column="28" selection-end-line="284" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/controllers/Inventario.php">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Cotizacion.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="569">
-              <caret line="162" column="25" selection-start-line="162" selection-start-column="25" selection-end-line="162" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/Inventario_m.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="807">
-              <caret line="162" column="37" selection-start-line="162" selection-start-column="37" selection-end-line="162" selection-end-column="37" />
+            <state relative-caret-position="399">
+              <caret line="87" column="12" lean-forward="true" selection-start-line="87" selection-start-column="12" selection-end-line="87" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -228,12 +194,9 @@
         <option value="$PROJECT_DIR$/application/models/Orden_M.php" />
         <option value="$PROJECT_DIR$/application/controllers/Orden.php" />
         <option value="$PROJECT_DIR$/application/views/reportes/Reporte_Orden_View.php" />
-        <option value="$PROJECT_DIR$/resources/src/js/reporte/reporte.js" />
         <option value="$PROJECT_DIR$/application/views/reportes/Reporte_View.php" />
         <option value="$PROJECT_DIR$/application/controllers/Reporte_Orden_Detalle.php" />
-        <option value="$PROJECT_DIR$/application/views/reportes/Reporte_Orden.php" />
         <option value="$PROJECT_DIR$/resources/db/arisa.sql" />
-        <option value="$PROJECT_DIR$/application/controllers/Cotizacion.php" />
         <option value="$PROJECT_DIR$/application/views/proveedor/proveedor_view.php" />
         <option value="$PROJECT_DIR$/application/controllers/Proveedor.php" />
         <option value="$PROJECT_DIR$/resources/src/js/proveedor/proveedor.js" />
@@ -243,6 +206,9 @@
         <option value="$PROJECT_DIR$/resources/src/js/inventario/inventario.js" />
         <option value="$PROJECT_DIR$/application/models/Inventario_m.php" />
         <option value="$PROJECT_DIR$/application/controllers/Inventario.php" />
+        <option value="$PROJECT_DIR$/application/views/reportes/Reporte_Orden.php" />
+        <option value="$PROJECT_DIR$/resources/src/js/reporte/reporte.js" />
+        <option value="$PROJECT_DIR$/application/controllers/Cotizacion.php" />
       </list>
     </option>
   </component>
@@ -326,58 +292,14 @@
             <path>
               <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
               <item name="newArisa" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="reportes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
               <item name="newArisa" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="files" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="cotizacion" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="inventario" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="muestra" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="proveedor" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -440,6 +362,7 @@
       <workItem from="1579244032388" duration="165000" />
       <workItem from="1579307799066" duration="9717000" />
       <workItem from="1581042258970" duration="12604000" />
+      <workItem from="1581110865030" duration="1879000" />
     </task>
     <task id="LOCAL-00001" summary="Seccion de Edgard">
       <created>1579147141544</created>
@@ -508,13 +431,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97448000" />
+    <option name="totallyTimeSpent" value="99327000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2196162" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22314675" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -700,13 +622,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/src/js/reporte/reporte.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="42" column="77" selection-start-line="42" selection-start-column="77" selection-end-line="42" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/reportes/Reporte_View.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
@@ -739,13 +654,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="151" column="19" selection-start-line="151" selection-start-column="19" selection-end-line="151" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Cotizacion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="102" lean-forward="true" selection-start-line="102" selection-end-line="106" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -821,29 +729,57 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/inventario/inventario_view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
+        <state relative-caret-position="4828">
           <caret line="284" column="37" selection-start-line="284" selection-start-column="28" selection-end-line="284" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/src/js/inventario/inventario.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="497" column="40" selection-start-line="497" selection-start-column="29" selection-end-line="497" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Inventario_m.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="807">
+        <state relative-caret-position="2669">
           <caret line="162" column="37" selection-start-line="162" selection-start-column="37" selection-end-line="162" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/src/js/inventario/inventario.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8449">
+          <caret line="497" column="40" selection-start-line="497" selection-start-column="29" selection-end-line="497" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Reporte_Orden_Detalle.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/reportes/Reporte_Orden.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="63" lean-forward="true" selection-start-line="63" selection-end-line="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/src/js/reporte/reporte.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="38" column="48" lean-forward="true" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Inventario.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569">
-          <caret line="162" column="25" selection-start-line="162" selection-start-column="25" selection-end-line="162" selection-end-column="25" />
+        <state relative-caret-position="205">
+          <caret line="143" column="39" lean-forward="true" selection-start-line="143" selection-start-column="39" selection-end-line="143" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Cotizacion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="87" column="12" lean-forward="true" selection-start-line="87" selection-start-column="12" selection-end-line="87" selection-end-column="30" />
         </state>
       </provider>
     </entry>
