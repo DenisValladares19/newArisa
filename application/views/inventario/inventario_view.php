@@ -194,7 +194,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="frmEx" method="post">
+                <form id="frmExEdit" method="post">
                     <div class="row mt-2">
                         <div class="col-md-6">
                             <select id="selectProdE"  name="selectProdE" class="form-control"></select>

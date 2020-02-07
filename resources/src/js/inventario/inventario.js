@@ -145,7 +145,7 @@ function llenarTablaEx()
                     $("#tablaEx tbody tr").remove();
                     $.each(data, function (key,val) {
                         var fila ='<tr><td><div align="center">';
-                        fila=fila + val.idInventario + '</div></td><td>';
+                        fila=fila + val.nombreInv + '</div></td><td>';
                         fila=fila + val.cantidad + '</div></td>';
                         fila = fila +  '<td> <a class="btn btn-outline-info btnEditarEx" id="'+val.idDetalleInvCompra+'"><i class="fas fa-marker"></i></a>\n' +
                             '                     <a class="btn btn-outline-danger btnEliminarEx"id="'+val.idDetalleInvCompra+'"><i class="far fa-trash-alt"></i></a>';
@@ -212,6 +212,7 @@ $(document).ready(function () {
     llenarTablaInv();
     listProv();
     listProd();
+    listProvEditarEx();
 
     $("#tablaEx").hide();
 
@@ -268,7 +269,7 @@ $(document).ready(function () {
 
      $(document).on("click","#addExistentes",function () {
             event.preventDefault();
-            var datosEx = $("#frmEx").serializeArray();
+            var datosEx = $("#frmExEdit").serializeArray();
             let idCompra = localStorage.getItem("idCompra");
             $.ajax({
                 url:"Inventario/insertarDetalle",
@@ -294,12 +295,11 @@ $(document).ready(function () {
             data: {id: id}
         })
             .done(function (data) {
-
+                
                 var datos = JSON.parse(data);
-                listProvEditarEx();
-                $("#selectProdE").val(datos[0].idInventario);
+               
+                $("#selectProdE").val(parseInt(datos[0].idInventario));
                 $("#cantidadE").val(datos[0].cantidad);
-
             })
             .fail(function () {
 

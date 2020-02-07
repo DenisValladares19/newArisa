@@ -82,22 +82,12 @@ class Inventario_m extends CI_Model
 
 //Obteniendo datos de la tabla detalle a la Hora de Insertar
     public function mostrarExt($idCompra){
-       /* $compra=array(
-            'idCompra'=>$idCompra,
+       $compra=array(
+            'd.idCompra'=>$idCompra,
         );
-        $this->db->select("d.cantidad,i.nombreInv");
+        $this->db->select("d.idDetalleInvCompra, d.cantidad, i.nombreInv");
         $this->db->from("detalleinvcompra d");
         $this->db->join("inventario i","d.idInventario = i.idInventario");
-        $this->db->where($compra);
-        $query = $this->db->get();
-        return $query->result();
-        */
-
-        $compra=array(
-            'idCompra'=>$idCompra,
-        );
-        $this->db->select("*");
-        $this->db->from("detalleinvcompra");
         $this->db->where($compra);
         $query = $this->db->get();
         return $query->result();
