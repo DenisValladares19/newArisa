@@ -160,18 +160,20 @@ foreign key(idEstado2) references estado2(idEstado2)
 
 create table detalleMaterial(
 idDetalleMaterial int primary key auto_increment,
-idInventario int,
 idOrden int,
+idInventario int,
 cantidad int,
 foreign key(idInventario) references inventario(idInventario),
 foreign key(idOrden) references orden(idOrden)
 );
 
 create table desperdicio(
-idMaterialUsado int primary key auto_increment,
+idDesperdicio int primary key auto_increment,
 idOrden int,
+idInventario int,
 cantidad int,
 comentario varchar(50) not null,
+foreign key(idInventario) references inventario(idInventario),
 foreign key(idOrden) references orden(idOrden)
 );
 

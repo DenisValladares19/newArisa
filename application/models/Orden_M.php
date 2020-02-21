@@ -167,10 +167,82 @@ class Orden_M extends CI_Model
             return $query->result();
     }
 
+    //Obteniendo datos de la tabla detalle a la Hora de Editar
+    public function mostrarUt($id){
+        $idDetalle=array(
+            'idDetalleMaterial'=>$id,
+        );
+        $this->db->select("*");
+        $this->db->from("detallematerial");
+        $this->db->where($idDetalle);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
 
     public function insertarUtilizado($data){
         $this->db->insert("detallematerial",$data);
         return $this->db->insert_id();
     }
 
+    //Metodo para Modificar Info. Registro Utilizado.
+    public function modifiicarUtilizados($data,$where)
+    {
+        $this->db->update("detallematerial",$data,$where);
+        return $this->db->affected_rows();
+    }
+
+    //Metodo para Ocultar el Registro Utilizado.
+    public function eliminarUtilizado($where)
+    {
+        $this->db->delete("detallematerial",$where);
+        return $this->db->affected_rows();
+    }
+
+
+
+
+    public function MostrarDesp($id){
+        $compra=array(
+            'd.idOrden'=>$id,
+        );
+        $this->db->select("d.idDesperdicio,d.comentario, d.cantidad, i.nombreInv");
+        $this->db->from("desperdicio d");
+        $this->db->join("inventario i","d.idInventario = i.idInventario");
+        $this->db->where($compra);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    //Obteniendo datos de la tabla detalle a la Hora de Editar
+    public function mostrarDespe($id){
+        $idDetalle=array(
+            'idDesperdicio'=>$id,
+        );
+        $this->db->select("*");
+        $this->db->from("desperdicio");
+        $this->db->where($idDetalle);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+
+    public function insertarDesp($data){
+        $this->db->insert("desperdicio",$data);
+        return $this->db->insert_id();
+    }
+
+    //Metodo para Modificar Info. Registro Utilizado.
+    public function modifiicarDesp($data,$where)
+    {
+        $this->db->update("desperdicio",$data,$where);
+        return $this->db->affected_rows();
+    }
+
+    //Metodo para Ocultar el Registro Utilizado.
+    public function eliminarDesp($where)
+    {
+        $this->db->delete("desperdicio",$where);
+        return $this->db->affected_rows();
+    }
 }
