@@ -1,4 +1,4 @@
-function llenarTablaCompras()
+﻿function llenarTablaCompras()
 {
     $.ajax(
         {
@@ -139,8 +139,8 @@ function llenarTablaEx()
             data: {idCompra},
             success:function (res) {
                 let data = JSON.parse(res);
-                if(data!=null){
-                    $("#tablaEx").show();
+                if(data!=""){
+                    $("#tabla2").show();
                     $("#tablaEx").dataTable().fnDestroy();
                     $("#tablaEx tbody tr").remove();
                     $.each(data, function (key,val) {
@@ -177,7 +177,7 @@ function llenarTablaEx()
                     });
                 }
                 else{
-                    $("#tablaEx").hide();
+                    $("#tabla2").hide();
                 }
 
             },
@@ -194,8 +194,8 @@ function llenarTablaNew()
             data: {idCompra},
             success:function (res) {
                 let data = JSON.parse(res);
-                if(data!=null){
-                    $("#tablaNew").show();
+                if(data!=""){
+                    $("#tabla1").show();
                     $("#tablaNew").dataTable().fnDestroy();
                     $("#tablaNew tbody tr").remove();
                     $.each(data, function (key,val) {
@@ -234,7 +234,7 @@ function llenarTablaNew()
                     });
                 }
                 else{
-                    $("#tablaNew").hide();
+                    $("#tabla1").hide();
                 }
 
             },
@@ -272,7 +272,8 @@ $(document).ready(function () {
     listProd();
     listProvEditarEx();
 
-    $("#tablaEx").hide();
+    $("#tabla1").hide();
+    $("#tabla2").hide();
     $("#next1").show();
     $("#next2").hide();
 
@@ -284,6 +285,16 @@ $(document).ready(function () {
     $(document).on("click",".add1",function () {
         $("#agregarInventario").modal("hide");
         $("#addEx").modal("show");
+
+    });
+
+$(document).on("click","#end",function () {
+        $("#agregarInventario").modal("hide");
+        Swal.fire(
+             'Compra',
+              'Se guardo exitosamente',
+              'success'
+                      );
 
     });
 

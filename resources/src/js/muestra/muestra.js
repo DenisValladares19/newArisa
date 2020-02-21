@@ -23,8 +23,8 @@ function LlenarTabla() {
                 '</tr>';
 
             }
-            $('#table').html(html);
-            $("#tabla").dataTable({
+            $('#table').append(html);
+            /*$("#tabla").dataTable({
                 bLengthChange: false,
                 language: {
                     "decimal": "",
@@ -46,7 +46,7 @@ function LlenarTabla() {
                         "previous": "Anterior"
                     }
                 }
-            });       
+            });     */ 
         },
 
         error: function () {
@@ -89,6 +89,9 @@ function modificarEstado(){
 
 $(document).ready(function () {
     LlenarTabla();
+     modificarCot();
+    modificarEstado();
+    
 
     $(document).on("click", "#agregarMuestra", function () {
         $("#frmInsertarMuestra").modal("show");
@@ -172,8 +175,7 @@ $(document).on('click','#btnGuardar',function(){
 });
 
 $(document).on('click','#editar',function () {
-    modificarCot();
-    modificarEstado();
+   
 
     var id = $(this).attr('data');
     $("#frmEditarMuestra").modal("show");

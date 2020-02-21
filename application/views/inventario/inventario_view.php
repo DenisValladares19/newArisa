@@ -89,7 +89,6 @@
 
                     <div class="row" id="paso2">
                         <div class="col-md-12">
-                            <form id="frmExistentes">
                             <br>
                             <h3 style="text-align: center;font-family: serif;"> Informacion del Producto</h3>
                             <center><h6> Productos Existentes</h6></center>
@@ -102,7 +101,7 @@
 
 
                                     <!-- Content here-->
-                                    <div class="container-fluid">
+                                    <div class="container-fluid" id="tabla2">
                                         <table class="table table-bordered" width="100%" cellspacing="0" id="tablaEx">
                                             <thead style="background-color: rgba(11, 23, 41 , 0.6);">
                                             <th>Nombres del Producto</th>
@@ -118,13 +117,11 @@
                                     </div>
                                 </div>
                             </div>
-                            </form>
                         </div>
                     </div>
 
                     <div class="row" id="paso3">
                         <div class="col-md-12">
-                            <form id="frmExistentes">
                                 <br>
                                 <h3 style="text-align: center;font-family: serif;"> Informacion del Producto</h3>
                                 <center><h6> Productos Nuevos</h6></center>
@@ -134,9 +131,9 @@
                                         <center>
                                             <a class="btn btn-outline-success add2"><i class="fa fa-plus-circle"></i> Agregar</a>
                                         </center>
-
+                                    
                                         <!-- Content here-->
-                                        <div class="container-fluid">
+                                        <div class="container-fluid" id="tabla1">
                                             <table class="table table-bordered" width="100%" cellspacing="0" id="tablaNew">
                                                 <thead style="background-color: rgba(11, 23, 41 , 0.6);">
                                                 <th>Nombres del Producto</th>
@@ -156,7 +153,6 @@
                                         </div>
                                     </div>
                                 </div>
-                            </form>
                         </div>
                     </div>
 
