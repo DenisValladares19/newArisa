@@ -140,7 +140,7 @@ function llenarTablaEx()
             success:function (res) {
                 let data = JSON.parse(res);
                 if(data!=""){
-                    $("#tabla2").show();
+                    $("#tablaEx").show();
                     $("#tablaEx").dataTable().fnDestroy();
                     $("#tablaEx tbody tr").remove();
                     $.each(data, function (key,val) {
@@ -195,7 +195,7 @@ function llenarTablaNew()
             success:function (res) {
                 let data = JSON.parse(res);
                 if(data!=""){
-                    $("#tabla1").show();
+                    $("#tablaNew").show();
                     $("#tablaNew").dataTable().fnDestroy();
                     $("#tablaNew tbody tr").remove();
                     $.each(data, function (key,val) {

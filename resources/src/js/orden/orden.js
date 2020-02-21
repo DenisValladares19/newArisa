@@ -67,10 +67,175 @@ function llenarMuestra(){
         });
 }
 
+
+function listProd(){
+    $.post("Inventario/mostrarProd",{},function(res){
+        var r = JSON.parse(res);
+        $("#selectProd option").remove();
+        $("#selectProd").append("<option>Elige el Producto</option>");
+        for(var i = 0;i<r.length;i++){
+            $("#selectProd").append("<option value='"+r[i].idInventario+"'>"+r[i].nombreInv+"</option>");
+        }
+    });
+}
+
+function listProvEditarUtilizados(){
+    $.post("Inventario/mostrarProd",{},function(res){
+        var r = JSON.parse(res);
+        $("#selectProdE option").remove();
+        $("#selectProdE").append("<option>Elige el Producto</option>");
+        for(var i = 0;i<r.length;i++){
+            $("#selectProdE").append("<option value='"+r[i].idInventario+"'>"+r[i].nombreInv+"</option>");
+        }
+    });
+}
+
+function listProdDesp(){
+    $.post("Inventario/mostrarProd",{},function(res){
+        var r = JSON.parse(res);
+        $("#selectProdD option").remove();
+        $("#selectProdD").append("<option>Elige el Producto</option>");
+        for(var i = 0;i<r.length;i++){
+            $("#selectProdD").append("<option value='"+r[i].idInventario+"'>"+r[i].nombreInv+"</option>");
+        }
+    });
+}
+
+function listProvEditarDesp(){
+    $.post("Inventario/mostrarProd",{},function(res){
+        var r = JSON.parse(res);
+        $("#selectProdDE option").remove();
+        $("#selectProdDE").append("<option>Elige el Producto</option>");
+        for(var i = 0;i<r.length;i++){
+            $("#selectProdDE").append("<option value='"+r[i].idInventario+"'>"+r[i].nombreInv+"</option>");
+        }
+    });
+}
+
+
+
+function llenarTablaUtilizados()
+{
+    let idOrden = localStorage.getItem("idOrden");
+    $.ajax(
+        {
+            url:"Orden/MostrarUtilizados",
+            type: "POST",
+            data: {idOrden},
+            success:function (res) {
+                let data = JSON.parse(res);
+                if(data!=""){
+                    $("#tablaUtilizados").show();
+                    $("#tablaUtilizados").dataTable().fnDestroy();
+                    $("#tablaUtilizados tbody tr").remove();
+                    $.each(data, function (key,val) {
+                        var fila ='<tr><td><div align="center">';
+                        fila=fila + val.nombreInv + '</div></td><td>';
+                        fila=fila + val.cantidad + '</div></td>';
+                        fila = fila +  '<td> <a class="btn btn-outline-info btnEditarUtilizados" id="'+val.idDetalleMaterial+'"><i class="fas fa-marker"></i></a>\n' +
+                            '                     <a class="btn btn-outline-danger btnEliminarUtilizados" id="'+val.idDetalleMaterial+'"><i class="far fa-trash-alt"></i></a>';
+                        fila = fila + '</td></tr>';
+                        $("#tablaUtilizados tbody").append(fila);
+                    });
+                    $("#tablaUtilizados").dataTable({
+                        bLengthChange: false,
+                        language: {
+                            "decimal": "",
+                            "emptyTable": "No hay información",
+                            "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                            "infoEmpty": "Mostrando 0 a 0 de 0 Entradas",
+                            "infoFiltered": "(Filtrado de  _MAX_  total entradas)",
+                            "infoPostFix": "",
+                            "thousands": ",",
+                            "lengthMenu": "Mostrar _MENU_ Entradas",
+                            "loadingRecords": "Cargando...",
+                            "processing": "Procesando...",
+                            "search": "Buscar:",
+                            "zeroRecords": "Sin resultados encontrados",
+                            "paginate": {
+                                "first": "Primero",
+                                "last": "Ultimo",
+                                "next": "Siguiente",
+                                "previous": "Anterior"
+                            }
+                        }
+                    });
+                }
+                else{
+                    $("#tablaUtilizados").hide();
+                }
+
+            },
+        });
+}
+
+
+function llenarTablaDesp()
+{
+    let idOrden = localStorage.getItem("idOrden");
+    $.ajax(
+        {
+            url:"Orden/MostrarDesp",
+            type: "POST",
+            data: {idOrden},
+            success:function (res) {
+                let data = JSON.parse(res);
+                if(data!=""){
+                    $("#tablaDesp").show();
+                    $("#tablaDesp").dataTable().fnDestroy();
+                    $("#tablaDesp tbody tr").remove();
+                    $.each(data, function (key,val) {
+                        var fila ='<tr><td><div align="center">';
+                        fila=fila + val.nombreInv + '</div></td><td>';
+                        fila=fila + val.cantidad + '</div></td>';
+                        fila=fila + val.comentario + '</div></td>';
+                        fila = fila +  '<td> <a class="btn btn-outline-info btnEditarDesp" id="'+val.idDesperdicio+'"><i class="fas fa-marker"></i></a>\n' +
+                            '                     <a class="btn btn-outline-danger btnEliminarDesp" id="'+val.idDesperdicio+'"><i class="far fa-trash-alt"></i></a>';
+                        fila = fila + '</td></tr>';
+                        $("#tablaDesp tbody").append(fila);
+                    });
+                    $("#tablaDesp").dataTable({
+                        bLengthChange: false,
+                        language: {
+                            "decimal": "",
+                            "emptyTable": "No hay información",
+                            "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                            "infoEmpty": "Mostrando 0 a 0 de 0 Entradas",
+                            "infoFiltered": "(Filtrado de  _MAX_  total entradas)",
+                            "infoPostFix": "",
+                            "thousands": ",",
+                            "lengthMenu": "Mostrar _MENU_ Entradas",
+                            "loadingRecords": "Cargando...",
+                            "processing": "Procesando...",
+                            "search": "Buscar:",
+                            "zeroRecords": "Sin resultados encontrados",
+                            "paginate": {
+                                "first": "Primero",
+                                "last": "Ultimo",
+                                "next": "Siguiente",
+                                "previous": "Anterior"
+                            }
+                        }
+                    });
+                }
+                else{
+                    $("#tablaDesp").hide();
+                }
+
+            },
+        });
+}
+
+
+
 $(document).ready(function () {
     showOrden();
     statusLoad();
     listaCliente();
+    listProvEditarUtilizados();
+    listProvEditarDesp();
+    $("#tablaUtilizados").hide();
+
     $('#data1').DataTable();
     $("#data").dataTable({
         bLengthChange: false,
@@ -108,7 +273,208 @@ $(document).ready(function () {
     $(document).on("click", "#agregarOrden", function () {
         $('#frmOrden')[0].reset();
         $("#frmInsertarOrden").modal("show");
+    });
+
+
+    $(document).on("click", ".add1", function () {
+
+        $("#prodUt").modal("show");
+        $('#frmUtilizados')[0].reset();
+        listProd();
     })
+
+
+    $(document).on("click","#addUtilizados",function () {
+        event.preventDefault();
+        var datosEx = $("#frmUtilizados").serializeArray();
+        let idOrden = localStorage.getItem("idOrden");
+        $.ajax({
+            url:"Orden/insertarUtilizado",
+            type:"POST",
+            data: {datosEx,idOrden},
+        }).done(function (res) {
+            localStorage.setItem("idDetalle",res);
+            $("#prodUtilizados").modal("show");
+            $("#prodUt").modal("hide");
+            $('#frmUtilizados')[0].reset();
+            llenarTablaUtilizados();
+        })
+    });
+
+
+
+    $(document).on("click",".btnEditarUtilizados",function ()  {
+
+        var id= $(this).attr("id");
+
+        $.ajax({
+            url: "Orden/mostrarUt",
+            type: "post",
+            data: {id: id}
+        })
+            .done(function (data) {
+
+                var datos = JSON.parse(data);
+                $("#txtIdExit").val(datos[0].idDetalleMaterial);
+                $("#selectProdE").val(parseInt(datos[0].idInventario));
+                $("#cantidadE").val(datos[0].cantidad);
+            })
+            .fail(function () {
+
+            })
+        $("#EditarUtilizados").modal("show");
+
+
+    });
+
+
+    $(document).on("click","#editarUtilizados",function () {
+        event.preventDefault();
+        var datosEx = $("#frmUtilizadosEdit").serializeArray();
+        $.ajax({
+            url:"Orden/modifiicarUtilizados",
+            type:"POST",
+            data: datosEx,
+        }).done(function (res) {
+            $("#prodUtilizados").modal("show");
+            $("#EditarUtilizados").modal("hide");
+            $('#frmUtilizados')[0].reset();
+            llenarTablaUtilizados();
+        })
+    });
+
+
+
+    $(document).on("click",".btnEliminarUtilizados",function ()  {
+
+        var id= $(this).attr("id");
+
+        $.ajax({
+            url: "Orden/eliminarUtilizado",
+            type: "post",
+            data: {id: id}
+        })
+            .done(function (data) {
+
+                llenarTablaUtilizados();
+            })
+            .fail(function () {
+
+            })
+        llenarTablaUtilizados();
+    });
+
+
+
+    $(document).on("click", "#next", function () {
+        $("#prodUtilizados").modal("hide");
+        $("#prodDesp").modal("show");
+        llenarTablaDesp();
+    });
+
+
+    $(document).on("click", ".add2", function () {
+
+        $("#insertarDesp").modal("show");
+        $('#frmDesp')[0].reset();
+        listProdDesp();
+    })
+
+
+    $(document).on("click","#addDesp",function () {
+        event.preventDefault();
+        var datosDesp = $("#frmDesp").serializeArray();
+        let idOrden = localStorage.getItem("idOrden");
+        $.ajax({
+            url:"Orden/insertarDesp",
+            type:"POST",
+            data: {datosDesp,idOrden},
+        }).done(function (res) {
+            localStorage.setItem("idDetalle",res);
+            $("#prodDesp").modal("show");
+            $("#insertarDesp").modal("hide");
+            $('#frmDesp')[0].reset();
+            llenarTablaDesp();
+        })
+    });
+
+
+
+
+    $(document).on("click",".btnEditarDesp",function ()  {
+
+        var id= $(this).attr("id");
+
+        $.ajax({
+            url: "Orden/mostrarDespe",
+            type: "post",
+            data: {id: id}
+        })
+            .done(function (data) {
+
+                var datos = JSON.parse(data);
+                $("#txtIdExitD").val(datos[0].idDesperdicio);
+                $("#selectProdDE").val(parseInt(datos[0].idInventario));
+                $("#cantidadDE").val(datos[0].cantidad);
+                $("#comentarioDE").val(datos[0].comentario);
+            })
+            .fail(function () {
+
+            })
+        $("#EditarDesp").modal("show");
+
+
+    });
+
+
+    $(document).on("click","#editarDesp",function () {
+        event.preventDefault();
+        var datosEx = $("#frmDespEdit").serializeArray();
+        $.ajax({
+            url:"Orden/modifiicarDesp",
+            type:"POST",
+            data: datosEx,
+        }).done(function (res) {
+            $("#EditarDesp").modal("hide");
+            $("#prodDesp").modal("show");
+            $('#frmDespEdit')[0].reset();
+            llenarTablaDesp();
+        })
+        llenarTablaDesp();
+    });
+
+
+
+    $(document).on("click",".btnEliminarDesp",function ()  {
+
+        var id= $(this).attr("id");
+
+        $.ajax({
+            url: "Orden/eliminarDesp",
+            type: "post",
+            data: {id: id}
+        })
+            .done(function (data) {
+
+                llenarTablaDesp();
+            })
+            .fail(function () {
+
+            })
+        llenarTablaDesp();
+    });
+
+
+
+
+
+
+
+
+
+
+
+
 
         });
 
@@ -141,7 +507,7 @@ $(document).on('click','#btnSaveOrdenId',function(){
     })
         .done(function() {
 
-            $("#frmInsertarCliente").modal("hide");
+            $("#frmInsertarOrden").modal("hide");
             $('#frmOrden')[0].reset();
             showOrden();
 
@@ -157,6 +523,7 @@ $(document).on('click','#btnSaveOrdenId',function(){
 $(document).on('click','#editar',function () {
 
     var id = $(this).attr('data');
+    localStorage.setItem("idOrden",id);
     $("#frmEditarOrden").modal("show");
 
     $.ajax({
@@ -232,9 +599,18 @@ $(document).on('click','#btnEditOrdenId',function(){
         .done(function() {
 
             $("#frmEditarOrden").modal("hide");
-            $('#editFormOrden')[0].reset();
             history(formData);
             showOrden();
+
+
+            var estado=$("#estadoIdE").val();
+
+            if(estado==3){
+                llenarTablaUtilizados();
+                $("#prodUtilizados").modal("show");
+                $('#frmUtilizados')[0].reset();
+
+            }
 
 
         })

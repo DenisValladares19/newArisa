@@ -123,4 +123,111 @@ class Orden extends Padre_Desing
         echo json_encode($res);
     }
 
+
+    public function MostrarUtilizados(){
+        $id=$_POST["idOrden"];
+        $res = $this->Orden_M->MostrarUtilizados($id);
+        echo json_encode($res);
+    }
+
+    //Obteniendo datos de la tabla Utilizados a la Hora de Editar
+    public function mostrarUt(){
+        $id = $_POST["id"];
+        $res = $this->Orden_M->mostrarUt($id);
+        echo json_encode($res);
+    }
+
+
+
+    public function insertarUtilizado(){
+        $form = $_POST["datosEx"];
+        $data = array(
+            'idDetalleMaterial'=>0,
+            'idOrden'=>$_POST["idOrden"],
+            'idInventario'=>$form[0]['value'],
+            'cantidad'=>$form[1]['value'],
+        );
+
+        $res = $this->Orden_M->insertarUtilizado($data);
+        echo json_encode($res);
+    }
+
+    public function modifiicarUtilizados(){
+        $data = array(
+            'idInventario'=>$_POST["selectProdE"],
+            'cantidad'=>$_POST["cantidadE"],
+        );
+        $where=array(
+            'idDetalleMaterial'=>$_POST["txtIdExit"],
+        );
+
+        $res = $this->Orden_M->modifiicarUtilizados($data,$where);
+        echo json_encode($res);
+    }
+
+    public function eliminarUtilizado(){
+        $where=array(
+            'idDetalleMaterial'=>$_POST["id"],
+        );
+
+        $res = $this->Orden_M->eliminarUtilizado($where);
+        echo json_encode($res);
+    }
+
+
+
+
+
+    public function MostrarDesp(){
+        $id=$_POST["idOrden"];
+        $res = $this->Orden_M->MostrarDesp($id);
+        echo json_encode($res);
+    }
+
+    //Obteniendo datos de la tabla Desperdicio a la Hora de Editar
+    public function mostrarDespe(){
+        $id = $_POST["id"];
+        $res = $this->Orden_M->mostrarDespe($id);
+        echo json_encode($res);
+    }
+
+
+
+    public function insertarDesp(){
+        $form = $_POST["datosDesp"];
+        $data = array(
+            'idDesperdicio'=>0,
+            'idOrden'=>$_POST["idOrden"],
+            'idInventario'=>$form[0]['value'],
+            'cantidad'=>$form[1]['value'],
+            'comentario'=>$form[2]['value'],
+        );
+
+        $res = $this->Orden_M->insertarDesp($data);
+        echo json_encode($res);
+    }
+
+    public function modifiicarDesp(){
+        $data = array(
+            'idInventario'=>$_POST["selectProdDE"],
+            'cantidad'=>$_POST["cantidadDE"],
+            'comentario'=>$_POST["comentarioDE"],
+        );
+        $where=array(
+            'idDesperdicio'=>$_POST["txtIdExit"],
+        );
+
+        $res = $this->Orden_M->modifiicarDesp($data,$where);
+        echo json_encode($res);
+    }
+
+    public function eliminarDesp(){
+        $where=array(
+            'idDesperdicio'=>$_POST["id"],
+        );
+
+        $res = $this->Orden_M->eliminarDesp($where);
+        echo json_encode($res);
+    }
+
 }

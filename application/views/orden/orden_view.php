@@ -271,4 +271,235 @@
 </div>
 
 
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="prodUtilizados">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Producto Utilizado</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12">
+                    <center>
+                        <a class="btn btn-outline-success add1"><i class="fa fa-plus-circle"></i> Agregar</a>
+                    </center>
 
+                    <!-- Content here-->
+                    <div class="container-fluid">
+                        <table class="table table-bordered" width="100%" cellspacing="0" id="tablaUtilizados">
+                            <thead style="background-color: rgba(11, 23, 41 , 0.6);">
+                            <th>Nombres del Producto</th>
+                            <th>Cantidad</th>
+                            <th>Acciones</th>
+                            </thead>
+                            <tfoot>
+                            <th>Nombres del Producto</th>
+                            <th>Cantidad</th>
+                            <th>Acciones</th>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="next">Siguiente</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Productos Utilizados -->
+<div class="modal fade" id="prodUt" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Producto Utilizados</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="frmUtilizados" method="post">
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <select id="selectProd"  name="selectProd" class="form-control"></select>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Cantidad..." name="cantidad" id="cantidad">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger" data-dismiss="modal" id="cancelarAddEx">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="addUtilizados">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Editar Productos Utilizados -->
+<div class="modal fade" id="EditarUtilizados" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Producto Utilizados</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="frmUtilizadosEdit" method="post">
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <input type="hidden" name="txtIdExit" id="txtIdExit" required>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <select id="selectProdE"  name="selectProdE" class="form-control"></select>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Cantidad..." name="cantidadE" id="cantidadE">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger" data-dismiss="modal" id="cancelarEditEx">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="editarUtilizados">Editar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="prodDesp">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Producto Desperdiciado</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12">
+                    <center>
+                        <a class="btn btn-outline-success add2"><i class="fa fa-plus-circle"></i> Agregar</a>
+                    </center>
+
+                    <!-- Content here-->
+                    <div class="container-fluid">
+                        <table class="table table-bordered" width="100%" cellspacing="0" id="tablaDesp">
+                            <thead style="background-color: rgba(11, 23, 41 , 0.6);">
+                            <th>Nombres del Producto</th>
+                            <th>Cantidad</th>
+                            <th>Explicacion</th>
+                            <th>Acciones</th>
+                            </thead>
+                            <tfoot>
+                            <th>Nombres del Producto</th>
+                            <th>Cantidad</th>
+                            <th>Explicacion</th>
+                            <th>Acciones</th>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Productos Desperdiciado -->
+<div class="modal fade" id="insertarDesp" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Producto Utilizados</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="frmDesp" method="post">
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <select id="selectProdD"  name="selectProdD" class="form-control"></select>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Cantidad..." name="cantidadD" id="cantidadD">
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <input type="text" class="form-control" placeholder="¿Porque?..." name="comentarioD" id="comentarioD">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger" data-dismiss="modal" id="cancelarAddEx">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="addDesp">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Editar Productos Desperdiciado -->
+<div class="modal fade" id="EditarDesp" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Producto Utilizados</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="frmDespEdit" method="post">
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <input type="hidden" name="txtIdExit" id="txtIdExitD" required>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <select id="selectProdDE"  name="selectProdDE" class="form-control"></select>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Cantidad..." name="cantidadDE" id="cantidadDE">
+                        </div>
+                    </div>
+
+                <div class="row mt-2">
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" placeholder="¿Porque?..." name="comentarioDE" id="comentarioDE">
+                    </div>
+                </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger" data-dismiss="modal" id="cancelarEditEx">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="editarDesp">Editar</button>
+            </div>
+        </div>
+    </div>
+</div>
