@@ -5,12 +5,34 @@ $(document).ready(function () {
     showOrden();
     statusLoad();
     $('#data1').DataTable();
-    $('#data').DataTable();
+    $("#data").dataTable({
+        bLengthChange: false,
+        language: {
+            "decimal": "",
+            "emptyTable": "No hay información",
+            "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+            "infoEmpty": "Mostrando 0 a 0 de 0 Entradas",
+            "infoFiltered": "(Filtrado de  _MAX_  total entradas)",
+            "infoPostFix": "",
+            "thousands": ",",
+            "lengthMenu": "Mostrar _MENU_ Entradas",
+            "loadingRecords": "Cargando...",
+            "processing": "Procesando...",
+            "search": "Buscar:",
+            "zeroRecords": "Sin resultados encontrados",
+            "paginate": {
+                "first": "Primero",
+                "last": "Ultimo",
+                "next": "Siguiente",
+                "previous": "Anterior"
+            }
+        }
+    });
 
 
 
     $(document).on("click", "#agregarOrden", function () {
-        $("#frmInsertarCliente").modal("show");
+        $("#frmInsertarOrden").modal("show");
 
     })
 
@@ -197,9 +219,8 @@ function showOrden() {
                     '<td>'+data[i].url+'</td>'+
                     '<td>'+data[i].nombreE+'</td>'+
                     '<td>'+
-                    '<button class="btn-info"><a href="javascript:;" data="'+data[i].idOrden+'" id="editar">Editar</a></button>'+
-                    '<button class="btn-danger"><a href="javascript:;" data="'+data[i].idOrden+'" id="eliminar">Eliminar</a></button>'+
-                    '<button class="btn-success"><a href="javascript:;" data="'+data[i].idOrden+'" id="download">Descargar</a></button>'+
+                    '<a class="btn btn-outline-info" href="javascript:;" data="'+data[i].idOrden+'" id="editar"><i class="fas fa-marker"></i></a>\n' +
+                    '<a class="btn btn-outline-danger  href="javascript:;" data="\'+data[i].idOrden+\'" id="eliminar"><i class="far fa-trash-alt"></i></a>'+
                     '</td>'+
                     '</tr>';
             }
@@ -212,6 +233,8 @@ function showOrden() {
 
     });
 }
+
+
 
 function history(formData) {
 

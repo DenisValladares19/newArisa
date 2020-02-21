@@ -1,22 +1,24 @@
 <script src="<?php echo base_url("resources/src/js/historial/historial.js")?>"></script>
 
-<div class="row">
+<div class="full-box page-header">
+    <h3 class="text-left">
+        <i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Registro de Actividades
+    </h3>
 
-    <div class="col-md-12">
-        <h1>Gestión de Roles</h1>
-    </div>
+</div>
 
-    <div class="col-md-1">
-        <div class="btn btn-primary" id="agregarRol">Agregar</div>
-    </div>
-
-
+<div class="container-fluid">
+    <ul class="full-box list-unstyled page-nav-tabs">
+        <li>
+            <a class="active" href="#"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Actividades</a>
+        </li>
+    </ul>
 </div>
 
 <div class="table-responsive">
 
     <table class="table table-bordered" width="100%" cellspacing="0" id="data">
-        <thead style="font-weight: bold;">
+        <thead style="background-color: rgba(11, 23, 41 , 0.6); color: #f0f0f0">
         <td>Historial</td>
         </thead>
 

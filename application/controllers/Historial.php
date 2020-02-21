@@ -55,7 +55,7 @@ class Historial extends New_Padre
             $user = $this->session->userdata('nombre');
 
             $data = array("idH" => 0,
-                "descripcion" => 'El usuario ' . $user . ' ha realizado una modificación en el estado de la orden ' . $idOrden .
+                "descripcion" => 'El usuario: ' . $user . ' ha realizado una modificación en el estado de la orden N° ' . $idOrden .
                     ', de ' . $nameStatus . ' a ' . $estado,
                 "fecha" => $fecha,
                 "hora" => $hora

@@ -1,22 +1,27 @@
 <script src="<?php echo base_url("resources/src/js/orden/orden.js")?>"></script>
 
-<div class="row">
+<div class="full-box page-header">
+    <h3 class="text-left">
+        <i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Orden de Trabajo
+    </h3>
 
-    <div class="col-md-12">
-        <h1>Gestión de órdenes de trabajo</h1>
-    </div>
+</div>
 
-    <div class="col-md-1">
-        <div class="btn btn-primary" id="agregarOrden">Agregar</div>
-    </div>
-
-
+<div class="container-fluid">
+    <ul class="full-box list-unstyled page-nav-tabs">
+        <li>
+            <a id="agregarOrden"><i class="fas fa-plus fa-fw"></i> &nbsp; Agregar Orden de Trabajo</a>
+        </li>
+        <li>
+            <a class="active" href="#"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Ordenes de Trabajo</a>
+        </li>
+    </ul>
 </div>
 
 <div class="table-responsive">
 
     <table class="table table-bordered" width="100%" cellspacing="0" id="data">
-        <thead style="font-weight: bold;">
+        <thead style="background-color: rgba(11, 23, 41 , 0.6); color: #f0f0f0">
         <td>Núm. Orden</td>
         <td>Núm. Cotización</td>
         <td>Comentarios</td>
@@ -51,7 +56,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="frmInsertarCliente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="frmInsertarOrden" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -62,7 +67,6 @@
             </div>
             <div class="modal-body">
                 <form method="post" id="frmOrden">
-
                     <div class="form-column col-md-12">
 
 
