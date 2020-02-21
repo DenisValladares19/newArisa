@@ -176,4 +176,58 @@ class Inventario extends Padre_Desing
         echo json_encode($res);
     }
 
+
+
+
+
+
+    //Metodos para Aumentar Inventario
+
+
+    //Metodo que trae todos los Productos seleccionados
+    public function mostrarProdCompra(){
+        $idCompra=$_POST["idCompra"];
+        $res = $this->Inventario_m->mostrarProdCompra($idCompra);
+        echo json_encode($res);
+    }
+
+
+    //Metodo que Trae la Existencia de X Producto
+    public function existencia(){
+        $id=$_POST["idInventario"];
+        $res = $this->Inventario_m->existencia($id);
+        echo json_encode($res);
+    }
+
+    //Metodo guarda la Existencia en el Detalle
+    public function guardarExistencia(){
+        $idC=$_POST["idCompra"];
+        $id=$_POST["idInventario"];
+        $cant=$_POST["cantidad"];
+        $data=array(
+            'cantAnterior'=>$cant,
+        );
+        $where=array(
+            'idCompra'=>$idC,
+            'idInventario'=>$id,
+        );
+        $res = $this->Inventario_m->guardarExistencia($data,$where);
+        echo json_encode($res);
+    }
+
+    //Metodo Aumentar Stock
+    public function aumentarStock(){
+        $id=$_POST["idInventario"];
+        $cant=$_POST["cantidad"];
+        $data=array(
+            'stock'=>$cant,
+        );
+        $where=array(
+            'idInventario'=>$id,
+        );
+        $res = $this->Inventario_m->aumentarStock($data,$where);
+        echo json_encode($res);
+    }
+
+
 }
