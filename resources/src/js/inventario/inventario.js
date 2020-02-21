@@ -293,14 +293,35 @@ $(document).on("click","#end",function () {
     $.ajax({
         url:"inventario/mostrarProdCompra",
         type:"POST",
-        data: {idCompra:idCompra},
-        success:function(res){
-            let data = JSON.parse(res);
+        data: {idCompra:idCompra}
+        }).done(function(res){
+            const data = JSON.parse(res);
             for(let i=0;i<data.length;i++){
-                console.log(data[i].idInventario);
+                $.ajax({
+                    url:"inventario/existencia",
+                    type:"POST",
+                    data: {idInventario:data[i].idInventario}
+                }).done(function(res){
+                    let data = JSON.parse(res);
+                    $.ajax({
+                        url:"inventario/guardarExistencia",
+                        type:"POST",
+                        data:{idCompra:data[i].idCompra,
+                            idInventario:data[i].idInventario,
+                            cantidad:data[i].cantidad}
+                    }).done(function(){
+                        $.ajax({
+                            url:"inventario/aumentarStock",
+                            type:"POST",
+                            data:{idInventario:data[i].idInventario,
+                                 cantidad:data[i].cantidad}
+                        }).done(function(){
+                                
+                        })
+                    })
+                })
             }
-        }
-    })
+        })   
 });
 
     $(document).on("click","#addInv",function () {
