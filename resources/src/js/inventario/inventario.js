@@ -289,14 +289,19 @@ $(document).ready(function () {
     });
 
 $(document).on("click","#end",function () {
-        $("#agregarInventario").modal("hide");
-        Swal.fire(
-             'Compra',
-              'Se guardo exitosamente',
-              'success'
-                      );
-
-    });
+    let idCompra = localStorage.getItem("idCompra");
+    $.ajax({
+        url:"inventario/mostrarProdCompra",
+        type:"POST",
+        data: {idCompra:idCompra},
+        success:function(res){
+            let data = JSON.parse(res);
+            for(let i=0;i<data.length;i++){
+                console.log(data[i].idInventario);
+            }
+        }
+    })
+});
 
     $(document).on("click","#addInv",function () {
         $("#agregarInventario").modal("show");
