@@ -77,7 +77,7 @@ class Orden_M extends CI_Model
     }
 
     public function captureImage($id){
-        $this->db->select("cArchivo");
+        $this->db->select("url");
         $this->db->where("idOrden",$id);
         $this->db->from("orden");
         $result = $this->db->get();

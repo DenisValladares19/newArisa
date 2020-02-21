@@ -59,7 +59,7 @@ idDetalleInvCompra int primary key auto_increment,
 idCompra int,
 idInventario int,
 cantidad int,
-borradoLogico int,
+cantAnterior int,
 foreign key(idCompra) references compras(idCompras),
 foreign key(idInventario) references inventario(idInventario)
 );
@@ -162,10 +162,19 @@ create table detalleMaterial(
 idDetalleMaterial int primary key auto_increment,
 idInventario int,
 idOrden int,
-borradoLogico int,
+cantidad int,
 foreign key(idInventario) references inventario(idInventario),
 foreign key(idOrden) references orden(idOrden)
 );
+
+create table desperdicio(
+idMaterialUsado int primary key auto_increment,
+idOrden int,
+cantidad int,
+comentario varchar(50) not null,
+foreign key(idOrden) references orden(idOrden)
+);
+
 
 create table tipofactura(
 idFactura int primary key auto_increment,
@@ -192,6 +201,9 @@ create table historial
 descripcion varchar(200) not null,
 fecha varchar(50) not null,
 hora varchar(50) not null);
+
+
+
 
 
 /* INSERCIONES */

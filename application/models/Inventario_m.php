@@ -163,4 +163,50 @@ class Inventario_m extends CI_Model
         $this->db->delete("inventario",$where);
         return $this->db->affected_rows();
     }
+
+
+
+
+    //Metodos para Aumentar Inventario
+
+
+    //Metodo que trae todos los Productos seleccionados
+    public function mostrarProdCompra($idCompra){
+        $borrado=array(
+            'borradoLogico'=>1,
+        );
+        $this->db->select("*");
+        $this->db->from("detalleinvcompra");
+        $this->db->where($borrado);
+        if($idCompra!=null){
+            $this->db->where("idCompra",$idCompra);
+        }
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    //Sacar Existencia
+    public function existencia($id){
+        $this->db->select("stock");
+        $this->db->from("inventario");
+        if($id!=null){
+            $this->db->where("idInventario",$id);
+        }
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    //Metodo para guardar Existencia
+    public function guardarExistencia($data,$where)
+    {
+        $this->db->update("detalleinvcompra",$data,$where);
+        return $this->db->affected_rows();
+    }
+
+    //Metodo para Aumentar Stock
+    public function aumentarStock($data,$where)
+    {
+        $this->db->update("inventario",$data,$where);
+        return $this->db->affected_rows();
+    }
 }
