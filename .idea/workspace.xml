@@ -3,10 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="dc70b34d-f42a-49b0-bec1-cbcb24508da6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Historial.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Historial.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/historial/historial_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/historial/historial_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Orden.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Orden.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Estado2_M.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Estado2_M.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/Orden_M.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Orden_M.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/orden/orden_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/orden/orden_view.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/src/js/historial/historial.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/src/js/historial/historial.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/src/js/orden/orden.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/src/js/orden/orden.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -89,8 +89,8 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="jpg" value="2" />
-          <entry key="js" value="65" />
-          <entry key="php" value="149" />
+          <entry key="js" value="68" />
+          <entry key="php" value="160" />
           <entry key="png" value="1" />
           <entry key="sql" value="6" />
         </counts>
@@ -98,15 +98,15 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="3" />
-          <entry key="JavaScript" value="65" />
-          <entry key="PHP" value="149" />
+          <entry key="JavaScript" value="68" />
+          <entry key="PHP" value="160" />
           <entry key="SQL" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="3312" />
-          <entry key="php" value="6011" />
+          <entry key="js" value="3812" />
+          <entry key="php" value="6709" />
           <entry key="sql" value="29" />
           <entry key="txt" value="19" />
         </counts>
@@ -114,8 +114,8 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="1" />
-          <entry key="JavaScript" value="3311" />
-          <entry key="PHP" value="6011" />
+          <entry key="JavaScript" value="3811" />
+          <entry key="PHP" value="6709" />
           <entry key="PLAIN_TEXT" value="19" />
           <entry key="SQL" value="29" />
         </counts>
@@ -132,8 +132,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/orden/orden_view.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="58" column="44" selection-start-line="58" selection-start-column="28" selection-end-line="58" selection-end-column="44" />
+            <state relative-caret-position="393">
+              <caret line="150" column="39" selection-start-line="150" selection-start-column="33" selection-end-line="150" selection-end-column="39" />
               <folding>
                 <element signature="n#style#0;n#thead#0;n#table#0;n#div#2;n#!!top" expanded="true" />
               </folding>
@@ -141,11 +141,65 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/src/js/orden/orden.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="34" column="28" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
+            <state relative-caret-position="348">
+              <caret line="174" column="51" selection-start-line="174" selection-start-column="51" selection-end-line="174" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Estado2.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="18" selection-start-line="18" selection-end-line="21" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/Estado2_M.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="595">
+              <caret line="64" column="31" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Orden.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="263">
+              <caret line="71" column="40" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/Orden_M.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="552">
+              <caret line="56" selection-start-line="56" selection-end-line="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/Inventario_m.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="36" column="10" lean-forward="true" selection-start-line="34" selection-start-column="7" selection-end-line="36" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Inventario.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="331">
+              <caret line="44" column="5" lean-forward="true" selection-start-line="41" selection-start-column="4" selection-end-line="44" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -177,8 +231,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ARISA/application/controllers/Usuario.php" />
-        <option value="$PROJECT_DIR$/ARISA/resources/src/js/cliente/cliente.js" />
         <option value="$PROJECT_DIR$/ARISA/resources/src/js/muestra/muestra.js" />
         <option value="$PROJECT_DIR$/ARISA/resources/src/js/rol/rol.js" />
         <option value="$PROJECT_DIR$/ARISA/application/views/proveedor/proveedor_view.php" />
@@ -203,8 +255,6 @@
         <option value="$PROJECT_DIR$/resources/src/js/cliente/cliente.js" />
         <option value="$PROJECT_DIR$/application/views/muestra/muestra_view.php" />
         <option value="$PROJECT_DIR$/application/models/Muestra_M.php" />
-        <option value="$PROJECT_DIR$/application/models/Orden_M.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Orden.php" />
         <option value="$PROJECT_DIR$/application/views/reportes/Reporte_Orden_View.php" />
         <option value="$PROJECT_DIR$/application/views/reportes/Reporte_View.php" />
         <option value="$PROJECT_DIR$/application/controllers/Reporte_Orden_Detalle.php" />
@@ -226,8 +276,12 @@
         <option value="$PROJECT_DIR$/application/views/historial/historial_view.php" />
         <option value="$PROJECT_DIR$/resources/src/js/historial/historial.js" />
         <option value="$PROJECT_DIR$/application/controllers/Historial.php" />
-        <option value="$PROJECT_DIR$/application/views/orden/orden_view.php" />
+        <option value="$PROJECT_DIR$/application/models/Orden_M.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Estado2.php" />
         <option value="$PROJECT_DIR$/resources/src/js/orden/orden.js" />
+        <option value="$PROJECT_DIR$/application/views/orden/orden_view.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Orden.php" />
+        <option value="$PROJECT_DIR$/application/models/Estado2_M.php" />
       </list>
     </option>
   </component>
@@ -298,7 +352,7 @@
               <item name="newArisa" type="462c0819:PsiDirectoryNode" />
               <item name="application" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="orden" type="462c0819:PsiDirectoryNode" />
+              <item name="inventario" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
@@ -324,15 +378,7 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="cliente" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="historial" type="462c0819:PsiDirectoryNode" />
+              <item name="inventario" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
@@ -478,17 +524,23 @@
       <option name="project" value="LOCAL" />
       <updated>1582246309360</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Seccion de Edgard">
+      <created>1582247912780</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1582247912780</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110944000" />
+    <option name="totallyTimeSpent" value="120260000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2217484" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18550107" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -510,7 +562,7 @@
       <window_info anchor="right" id="Database" order="3" weight="0.32980332" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21748401" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2217484" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -543,27 +595,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Seccion de Edgard" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/controllers/Padre_Vendedor.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Padre_Session.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Usuario.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1080" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/layout/footer.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/layout/header.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/images/uploads/Brother1.jpg" />
     <entry file="file://$PROJECT_DIR$/resources/images/uploads/perfil.jpg" />
     <entry file="file://$PROJECT_DIR$/application/controllers/Dashboard.php">
@@ -607,13 +638,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Historial_M.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Orden.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="27" column="43" lean-forward="true" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/reportes/Reporte_Orden_Cliente_View.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -713,20 +737,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Inventario_m.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2669">
-          <caret line="162" column="37" selection-start-line="162" selection-start-column="37" selection-end-line="162" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/src/js/inventario/inventario.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8449">
-          <caret line="497" column="40" selection-start-line="497" selection-start-column="29" selection-end-line="497" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Reporte_Orden_Detalle.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -738,13 +748,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="358">
           <caret line="38" column="48" lean-forward="true" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Inventario.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="143" column="39" lean-forward="true" selection-start-line="143" selection-start-column="39" selection-end-line="143" selection-end-column="39" />
         </state>
       </provider>
     </entry>
@@ -811,13 +814,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/inventario/inventario_view.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" selection-start-line="29" selection-end-line="29" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/src/js/cliente/cliente.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="457">
@@ -846,20 +842,82 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Inventario.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="44" column="5" lean-forward="true" selection-start-line="41" selection-start-column="4" selection-end-line="44" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/inventario/inventario_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="164" column="15" lean-forward="true" selection-start-line="164" selection-start-column="15" selection-end-line="164" selection-end-column="113" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Orden_M.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/src/js/inventario/inventario.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="51" column="25" lean-forward="true" selection-start-line="51" selection-start-column="25" selection-end-line="51" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Estado1.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Estado1_M.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Inventario_m.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="36" column="10" lean-forward="true" selection-start-line="34" selection-start-column="7" selection-end-line="36" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/src/js/orden/orden.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="174" column="51" selection-start-line="174" selection-start-column="51" selection-end-line="174" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Estado2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="18" selection-start-line="18" selection-end-line="21" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Estado2_M.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="64" column="31" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/orden/orden_view.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="58" column="44" selection-start-line="58" selection-start-column="28" selection-end-line="58" selection-end-column="44" />
+        <state relative-caret-position="393">
+          <caret line="150" column="39" selection-start-line="150" selection-start-column="33" selection-end-line="150" selection-end-column="39" />
           <folding>
             <element signature="n#style#0;n#thead#0;n#table#0;n#div#2;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/src/js/orden/orden.js">
+    <entry file="file://$PROJECT_DIR$/application/controllers/Orden.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="34" column="28" selection-start-line="34" selection-start-column="28" selection-end-line="34" selection-end-column="28" />
+        <state relative-caret-position="263">
+          <caret line="71" column="40" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
         </state>
       </provider>
     </entry>

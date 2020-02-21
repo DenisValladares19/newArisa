@@ -40,9 +40,9 @@ class Orden extends Padre_Desing
 
             $fechaA = date('Y-m-d');
             $data = array("idOrden"=>0,
-                "idCotizacion"=>$_POST["cot"],
+                "idCotizacion"=>$_POST["idCotiz"],
                 "comentarios"=>$_POST["desc"],
-                "idMuestra"=>$_POST["muestra"],
+                "idMuestra"=>$_POST["idMuestra"],
                 "idEstado2"=>$_POST["estado"],
                 "fecha"=>$fechaA,
                 "borradoLogico"=>1,
@@ -66,10 +66,10 @@ class Orden extends Padre_Desing
 
 
             $data = array(
-                "idCotizacion"=>$_POST["cotE"],
+                "idCotizacion"=>$_POST["idC"],
                 "nombre"=>$_POST["ordenE"],
                 "comentarios"=>$_POST["descE"],
-                "idMuestra"=>$_POST["muestraE"],
+                "idMuestra"=>$_POST["idM"],
                 "idEstado2"=>$_POST["estadoE"],
                 "borradoLogico"=>1,
 
@@ -101,6 +101,26 @@ class Orden extends Padre_Desing
 
 
         force_download('./resources/files/uploads/'.$result->cArchivo,null);
+    }
+
+
+
+    public function mostrarCliente(){
+        $res = $this->Orden_M->mostrarCliente();
+        echo json_encode($res);
+    }
+
+
+    public function mostrarCotiz(){
+        $id=$_POST["idCliente"];
+        $res = $this->Orden_M->mostrarCotiz($id);
+        echo json_encode($res);
+    }
+
+    public function mostrarMuestra(){
+        $id=$_POST["idCotiz"];
+        $res = $this->Orden_M->mostrarMuestra($id);
+        echo json_encode($res);
     }
 
 }
