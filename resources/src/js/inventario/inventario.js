@@ -140,6 +140,7 @@ function llenarTablaEx()
             success:function (res) {
                 let data = JSON.parse(res);
                 if(data!=""){
+                    $("#tabla2").show();
                     $("#tablaEx").show();
                     $("#tablaEx").dataTable().fnDestroy();
                     $("#tablaEx tbody tr").remove();
@@ -195,6 +196,7 @@ function llenarTablaNew()
             success:function (res) {
                 let data = JSON.parse(res);
                 if(data!=""){
+
                     $("#tablaNew").show();
                     $("#tablaNew").dataTable().fnDestroy();
                     $("#tablaNew tbody tr").remove();
@@ -298,28 +300,19 @@ $(document).on("click","#end",function () {
             const data = JSON.parse(res);
             for(let i=0;i<data.length;i++){
                 $.ajax({
-                    url:"inventario/existencia",
+                    url:"inventario/actualizarStock",
                     type:"POST",
-                    data: {idInventario:data[i].idInventario}
+                    data:{idCompra:idCompra, idInventario:data[i].idInventario}
                 }).done(function(res){
-                    let data = JSON.parse(res);
-                    $.ajax({
-                        url:"inventario/guardarExistencia",
-                        type:"POST",
-                        data:{idCompra:data[i].idCompra,
-                            idInventario:data[i].idInventario,
-                            cantidad:data[i].cantidad}
-                    }).done(function(){
-                        $.ajax({
-                            url:"inventario/aumentarStock",
-                            type:"POST",
-                            data:{idInventario:data[i].idInventario,
-                                 cantidad:data[i].cantidad}
-                        }).done(function(){
-                                
-                        })
-                    })
-                })
+                    Swal.fire(
+                        'Inventario',
+                        'Compra Registrada Exitosamente!',
+                        'success'
+                      );
+                    llenarTablaInv();
+                    llenarTablaCompras();
+                    $("#agregarInventario").modal("hide");
+                });
             }
         })   
 });

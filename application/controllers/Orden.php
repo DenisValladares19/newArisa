@@ -230,4 +230,10 @@ class Orden extends Padre_Desing
         echo json_encode($res);
     }
 
+    public function disminuirStock(){
+        $idInv = $_POST["idInventario"];
+        $cant = $_POST["cantidad"];
+        $this->Orden_M->disminuirStock($idInv,$cant);
+    }
+
 }

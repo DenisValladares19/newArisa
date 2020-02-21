@@ -24,7 +24,7 @@ class Inventario_m extends CI_Model
         $this->db->join("proveedor","inventario.nombre proveedor.idProveedor=compras.idProveedor");
         $this->db->join("inventario","inventario.idCompra = compras.idCompras");
         $this->db->where($borrado);
-        $this->db->order_by("compras.fecha", "desc");
+        $this->db->order_by("compras.fecha", "ASC");
         $this->db->limit("10");
         $query = $this->db->get();
         return $query->result();
@@ -172,12 +172,8 @@ class Inventario_m extends CI_Model
 
     //Metodo que trae todos los Productos seleccionados
     public function mostrarProdCompra($idCompra){
-        $borrado=array(
-            'borradoLogico'=>1,
-        );
         $this->db->select("*");
         $this->db->from("detalleinvcompra");
-        $this->db->where($borrado);
         if($idCompra!=null){
             $this->db->where("idCompra",$idCompra);
         }
@@ -207,6 +203,15 @@ class Inventario_m extends CI_Model
     public function aumentarStock($data,$where)
     {
         $this->db->update("inventario",$data,$where);
+        return $this->db->affected_rows();
+    }
+
+    // metodo actualizar stock 
+    public function actualizarStock($idCompra, $idInventario){
+        $query = "UPDATE detalleinvcompra SET cantAnterior=(SELECT stock FROM inventario WHERE idInventario=$idInventario) WHERE idCompra=$idCompra";
+        $query2 = "UPDATE inventario SET stock=(SELECT (d.cantidad + d.cantAnterior) FROM detalleinvcompra d WHERE d.idInventario= inventario.idInventario AND d.idCompra=$idCompra) WHERE idInventario=$idInventario";
+        $this->db->query($query);
+        $this->db->query($query2);
         return $this->db->affected_rows();
     }
 }

@@ -420,7 +420,11 @@
                     </div>
                 </div>
             </div>
-
+    <div class="modal-footer">
+    <button type="submit" class="btn btn-danger" data-dismiss="modal" id="cancelarAddEx">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="endDesp">Guardar</button>
+    
+    </div>
         </div>
     </div>
 </div>

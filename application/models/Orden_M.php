@@ -159,7 +159,7 @@ class Orden_M extends CI_Model
             $compra=array(
                 'd.idOrden'=>$id,
             );
-            $this->db->select("d.idDetalleMaterial, d.cantidad, i.nombreInv");
+            $this->db->select("d.idDetalleMaterial, d.idInventario, d.cantidad, i.nombreInv");
             $this->db->from("detallematerial d");
             $this->db->join("inventario i","d.idInventario = i.idInventario");
             $this->db->where($compra);
@@ -243,6 +243,12 @@ class Orden_M extends CI_Model
     public function eliminarDesp($where)
     {
         $this->db->delete("desperdicio",$where);
+        return $this->db->affected_rows();
+    }
+
+    public function disminuirStock($id, $cant){
+        $query = "UPDATE inventario SET stock=(SELECT (stock-$cant)) WHERE idInventario=$id";
+        $this->db->query($query);
         return $this->db->affected_rows();
     }
 }

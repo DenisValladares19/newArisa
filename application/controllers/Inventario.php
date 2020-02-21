@@ -69,8 +69,7 @@ class Inventario extends Padre_Desing
             'idDetalleInvCompra'=>0,
             'idCompra'=>$_POST["idCompra"],
             'idInventario'=>$form[0]['value'],
-            'cantidad'=>$form[1]['value'],
-            'borradoLogico'=>1,
+            'cantidad'=>$form[1]['value']
         );
 
         $res = $this->Inventario_m->agregarDetalle($data);
@@ -191,7 +190,7 @@ class Inventario extends Padre_Desing
         echo json_encode($res);
     }
 
-
+/*
     //Metodo que Trae la Existencia de X Producto
     public function existencia(){
         $id=$_POST["idInventario"];
@@ -227,7 +226,16 @@ class Inventario extends Padre_Desing
         );
         $res = $this->Inventario_m->aumentarStock($data,$where);
         echo json_encode($res);
+    }*/
+
+    //nuevo metodo de actualizar inventario 
+    public function actualizarStock(){
+        $idCompra = $_POST["idCompra"];
+        $idInventario = $_POST["idInventario"];
+       // echo var_dump($_POST);
+        $this->Inventario_m->actualizarStock($idCompra,$idInventario);
     }
+
 
 
 }

@@ -187,7 +187,7 @@ function llenarTablaDesp()
                     $.each(data, function (key,val) {
                         var fila ='<tr><td><div align="center">';
                         fila=fila + val.nombreInv + '</div></td><td>';
-                        fila=fila + val.cantidad + '</div></td>';
+                        fila=fila + val.cantidad + '</div></td><td>';
                         fila=fila + val.comentario + '</div></td>';
                         fila = fila +  '<td> <a class="btn btn-outline-info btnEditarDesp" id="'+val.idDesperdicio+'"><i class="fas fa-marker"></i></a>\n' +
                             '                     <a class="btn btn-outline-danger btnEliminarDesp" id="'+val.idDesperdicio+'"><i class="far fa-trash-alt"></i></a>';
@@ -397,6 +397,36 @@ $(document).ready(function () {
             llenarTablaDesp();
         })
     });
+
+
+
+
+    $(document).on("click","#endDesp", function(e){
+        e.preventDefault();
+        let idOrden = localStorage.getItem("idOrden");
+        $.ajax({
+            url:"orden/MostrarUtilizados",
+            type:"POST",
+            data:{idOrden:idOrden}
+        }).done(function(res){
+            let data = JSON.parse(res);
+            for(let i=0;i<data.length;i++){
+                $.ajax({
+                    url:"orden/disminuirStock",
+                    type:"POST",
+                    data:{idInventario:data[i].idInventario,cantidad:data[i].cantidad}
+                }).done(function(res){
+                    swal.fire(
+                        "Orden de Trabajo",
+                        "Se guardo exitosamente!",
+                        "success"
+                    );
+                    showOrden();
+                    $("#prodDesp").modal("hide");
+                })
+            }
+        })
+    })
 
 
 
