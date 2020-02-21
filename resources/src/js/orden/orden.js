@@ -67,10 +67,85 @@ function llenarMuestra(){
         });
 }
 
+
+function listProd(){
+    $.post("Inventario/mostrarProd",{},function(res){
+        var r = JSON.parse(res);
+        $("#selectProd option").remove();
+        $("#selectProd").append("<option>Elige el Producto</option>");
+        for(var i = 0;i<r.length;i++){
+            $("#selectProd").append("<option value='"+r[i].idInventario+"'>"+r[i].nombreInv+"</option>");
+        }
+    });
+}
+
+
+
+
+function llenarTablaUtilizados()
+{
+    let idOrden = localStorage.getItem("idOrden");
+    $.ajax(
+        {
+            url:"Orden/MostrarUtilizados",
+            type: "POST",
+            data: {idOrden},
+            success:function (res) {
+                let data = JSON.parse(res);
+                if(data!=""){
+                    $("#tablaUtilizados").show();
+                    $("#tablaUtilizados").dataTable().fnDestroy();
+                    $("#tablaUtilizados tbody tr").remove();
+                    $.each(data, function (key,val) {
+                        var fila ='<tr><td><div align="center">';
+                        fila=fila + val.nombreInv + '</div></td><td>';
+                        fila=fila + val.cantidad + '</div></td>';
+                        fila = fila +  '<td> <a class="btn btn-outline-info btnEditarEx" id="'+val.idDetalleInvCompra+'"><i class="fas fa-marker"></i></a>\n' +
+                            '                     <a class="btn btn-outline-danger btnEliminarEx"id="'+val.idDetalleInvCompra+'"><i class="far fa-trash-alt"></i></a>';
+                        fila = fila + '</td></tr>';
+                        $("#tablaUtilizados tbody").append(fila);
+                    });
+                    $("#tablaUtilizados").dataTable({
+                        bLengthChange: false,
+                        language: {
+                            "decimal": "",
+                            "emptyTable": "No hay información",
+                            "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                            "infoEmpty": "Mostrando 0 a 0 de 0 Entradas",
+                            "infoFiltered": "(Filtrado de  _MAX_  total entradas)",
+                            "infoPostFix": "",
+                            "thousands": ",",
+                            "lengthMenu": "Mostrar _MENU_ Entradas",
+                            "loadingRecords": "Cargando...",
+                            "processing": "Procesando...",
+                            "search": "Buscar:",
+                            "zeroRecords": "Sin resultados encontrados",
+                            "paginate": {
+                                "first": "Primero",
+                                "last": "Ultimo",
+                                "next": "Siguiente",
+                                "previous": "Anterior"
+                            }
+                        }
+                    });
+                }
+                else{
+                    $("#tablaUtilizados").hide();
+                }
+
+            },
+        });
+}
+
+
+
+
 $(document).ready(function () {
     showOrden();
     statusLoad();
     listaCliente();
+    $("#tablaUtilizados").hide();
+
     $('#data1').DataTable();
     $("#data").dataTable({
         bLengthChange: false,
@@ -108,7 +183,58 @@ $(document).ready(function () {
     $(document).on("click", "#agregarOrden", function () {
         $('#frmOrden')[0].reset();
         $("#frmInsertarOrden").modal("show");
+    });
+
+
+    $(document).on("click", ".add1", function () {
+
+        $("#prodUt").modal("show");
+        $('#frmUtilizados')[0].reset();
+        listProd();
     })
+
+
+    $(document).on("click","#addUtilizados",function () {
+        event.preventDefault();
+        var datosEx = $("#frmUtilizados").serializeArray();
+        let idOrden = localStorage.getItem("idOrden");
+        $.ajax({
+            url:"Orden/insertarUtilizado",
+            type:"POST",
+            data: {datosEx,idOrden},
+        }).done(function (res) {
+            localStorage.setItem("idDetalle",res);
+            $("#prodUtilizados").modal("show");
+            $("#prodUt").modal("hide");
+            $('#frmUtilizados')[0].reset();
+            llenarTablaUtilizados();
+        })
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         });
 
@@ -141,7 +267,7 @@ $(document).on('click','#btnSaveOrdenId',function(){
     })
         .done(function() {
 
-            $("#frmInsertarCliente").modal("hide");
+            $("#frmInsertarOrden").modal("hide");
             $('#frmOrden')[0].reset();
             showOrden();
 
@@ -157,6 +283,7 @@ $(document).on('click','#btnSaveOrdenId',function(){
 $(document).on('click','#editar',function () {
 
     var id = $(this).attr('data');
+    localStorage.setItem("idOrden",id);
     $("#frmEditarOrden").modal("show");
 
     $.ajax({
@@ -232,9 +359,18 @@ $(document).on('click','#btnEditOrdenId',function(){
         .done(function() {
 
             $("#frmEditarOrden").modal("hide");
-            $('#editFormOrden')[0].reset();
             history(formData);
             showOrden();
+
+
+            var estado=$("#estadoIdE").val();
+
+            if(estado==3){
+                llenarTablaUtilizados();
+                $("#prodUtilizados").modal("show");
+                $('#frmUtilizados')[0].reset();
+
+            }
 
 
         })

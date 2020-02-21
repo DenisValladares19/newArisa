@@ -123,4 +123,26 @@ class Orden extends Padre_Desing
         echo json_encode($res);
     }
 
+
+    public function MostrarUtilizados(){
+        $id=$_POST["idOrden"];
+        $res = $this->Orden_M->MostrarUtilizados($id);
+        echo json_encode($res);
+    }
+
+
+
+    public function insertarUtilizado(){
+        $form = $_POST["datosEx"];
+        $data = array(
+            'idDetalleMaterial'=>0,
+            'idOrden'=>$_POST["idOrden"],
+            'idInventario'=>$form[0]['value'],
+            'cantidad'=>$form[1]['value'],
+        );
+
+        $res = $this->Orden_M->insertarUtilizado($data);
+        echo json_encode($res);
+    }
+
 }

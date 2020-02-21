@@ -154,4 +154,23 @@ class Orden_M extends CI_Model
         return $query->result();
     }
 
+
+    public function MostrarUtilizados($id){
+            $compra=array(
+                'd.idOrden'=>$id,
+            );
+            $this->db->select("d.idDetalleMaterial, d.cantidad, i.nombreInv");
+            $this->db->from("detallematerial d");
+            $this->db->join("inventario i","d.idInventario = i.idInventario");
+            $this->db->where($compra);
+            $query = $this->db->get();
+            return $query->result();
+    }
+
+
+    public function insertarUtilizado($data){
+        $this->db->insert("detallematerial",$data);
+        return $this->db->insert_id();
+    }
+
 }

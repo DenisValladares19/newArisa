@@ -139,7 +139,7 @@ function llenarTablaEx()
             data: {idCompra},
             success:function (res) {
                 let data = JSON.parse(res);
-                if(data!=null){
+                if(data!=""){
                     $("#tablaEx").show();
                     $("#tablaEx").dataTable().fnDestroy();
                     $("#tablaEx tbody tr").remove();
@@ -194,7 +194,7 @@ function llenarTablaNew()
             data: {idCompra},
             success:function (res) {
                 let data = JSON.parse(res);
-                if(data!=null){
+                if(data!=""){
                     $("#tablaNew").show();
                     $("#tablaNew").dataTable().fnDestroy();
                     $("#tablaNew tbody tr").remove();
