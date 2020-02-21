@@ -1,4 +1,4 @@
-<head xmlns="http://www.w3.org/1999/html">
+<head>
     <script src="<?php echo base_url("resources/src/js/inventario/inventario.js")?>"></script>
 </head>
 <body>

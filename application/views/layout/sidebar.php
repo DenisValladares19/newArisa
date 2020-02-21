@@ -85,7 +85,7 @@
 
                             <!-- Proveedor -->
                             <li>
-                                <a href="Proveedor" id="prov"><i class="fas fa-store-alt fa-fw"></i> &nbsp; Proveedores</a>
+                                <a href="Proveedor" id="prov"><i class="fas fa-users-cog"></i> &nbsp; Proveedores</a>
 
                             </li>
 
@@ -95,11 +95,11 @@
                             </li>
 
                             <li>
-                                <a href="Cotizacion" id="cot"><i class="fas  fa-user-secret fa-fw"></i> &nbsp; Cotizaciones</a>
+                                <a href="Cotizacion" id="cot"><i class="fas fa-hand-holding-usd"></i>&nbsp; Cotizaciones</a>
                             </li>
 
                             <li>
-                                <a href="Muestra" id="mues"><i class="fas  fa-user-secret fa-fw"></i> &nbsp; Muestra</a>
+                                <a href="Muestra" id="mues"><i class="fas fa-cloud-upload-alt"></i> &nbsp; Muestra</a>
                             </li>
 
                             <li>
@@ -107,11 +107,11 @@
                             <li>
 
                             <li>
-                                <a href="Historial" id="his"><i class="fas  fa-user-secret fa-fw"></i> &nbsp; Registro de actividad</a>
+                                <a href="Historial" id="his"><i class="fas fa-list-ul"></i> &nbsp; Registro de actividad</a>
                             </li>
 
                             <li>
-                                <a href="#" class="nav-btn-submenu" id="rep"><i class="fas fa-users fa-fw"></i> &nbsp; Reportes <i class="fas fa-chevron-down"></i></a>
+                                <a href="#" class="nav-btn-submenu" id="rep"><i class="fas fa-file-signature"></i> &nbsp; Reportes <i class="fas fa-chevron-down"></i></a>
                                 <ul>
                                     <li>
                                         <a href="Reporte"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Órdenes</a>

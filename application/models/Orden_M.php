@@ -15,7 +15,7 @@ class Orden_M extends CI_Model
     }
 
     public function getOrdenes(){
-        $this->db->select('o.*,c.idCotizacion,m.idMuestra, m.url, e.nombre as nombreE');
+        $this->db->select('o.*,c.codigo,m.idMuestra, m.url, e.nombre as nombreE');
         $this->db->from('orden o');
         $this->db->join("cotizacion c","o.idCotizacion = c.idCotizacion");
         $this->db->join("muestra m","o.idMuestra = m.idMuestra");
@@ -39,7 +39,14 @@ class Orden_M extends CI_Model
 
     public function editOrden(){
         $id = $this->input->get("idOrden");
-        $this->db->where('idOrden',$id);
+
+        $this->db->select('o.*,c.codigo,m.idMuestra, m.url, e.nombre as nombreE');
+        $this->db->from('orden o');
+        $this->db->join("cotizacion c","o.idCotizacion = c.idCotizacion");
+        $this->db->join("muestra m","o.idMuestra = m.idMuestra");
+        $this->db->join("estado2 e","o.idEstado2 = e.idEstado2");
+        $this->db->where('o.borradoLogico!=',0);
+        $this->db->where('o.idOrden=',$id);
         $query = $this->db->get('orden');
         if ($query->num_rows()>0){
             return $query->row();
@@ -47,16 +54,18 @@ class Orden_M extends CI_Model
         else{
             return false;
         }
+
     }
 
     public function getStatus($id){
 
 
-        $this->db->select('o.*,c.idCotizacion,m.idMuestra, m.url,e.idEstado2, e.nombre as nombreE');
+        $this->db->select('o.*,c.codigo,m.idMuestra, m.url, e.nombre as nombreE');
         $this->db->from('orden o');
         $this->db->join("cotizacion c","o.idCotizacion = c.idCotizacion");
         $this->db->join("muestra m","o.idMuestra = m.idMuestra");
         $this->db->join("estado2 e","o.idEstado2 = e.idEstado2");
+        $this->db->where('o.borradoLogico!=',0);
         $this->db->where('o.idOrden=',$id);
         $query = $this->db->get('orden');
         if ($query->num_rows()>0){
@@ -103,6 +112,46 @@ class Orden_M extends CI_Model
         else{
             return false;
         }
+    }
+
+    public function mostrarCliente(){
+        $borrado=array(
+            'borradoLogico'=>1,
+        );
+        $this->db->select("idCliente,nombre,apellido");
+        $this->db->from("cliente");
+        $this->db->where($borrado);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function mostrarCotiz($id){
+        $borrado=array(
+            'borradoLogico'=>1,
+        );
+        $this->db->select("idCotizacion,codigo");
+        $this->db->from("cotizacion");
+        $this->db->where($borrado);
+        if($id!=null){
+            $this->db->where("idCliente",$id);
+        }
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function mostrarMuestra($id){
+        $borrado=array(
+            'borradoLogico'=>1,
+            'idEstado1'=>1,
+        );
+        $this->db->select("idMuestra,url");
+        $this->db->from("muestra");
+        $this->db->where($borrado);
+        if($id!=null){
+            $this->db->where("idCotizacion",$id);
+        }
+        $query = $this->db->get();
+        return $query->result();
     }
 
 }

@@ -23,30 +23,8 @@ function LlenarTabla() {
                 '</tr>';
 
             }
-            $('#table').append(html);
-            /*$("#tabla").dataTable({
-                bLengthChange: false,
-                language: {
-                    "decimal": "",
-                    "emptyTable": "No hay información",
-                    "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
-                    "infoEmpty": "Mostrando 0 a 0 de 0 Entradas",
-                    "infoFiltered": "(Filtrado de  _MAX_  total entradas)",
-                    "infoPostFix": "",
-                    "thousands": ",",
-                    "lengthMenu": "Mostrar _MENU_ Entradas",
-                    "loadingRecords": "Cargando...",
-                    "processing": "Procesando...",
-                    "search": "Buscar:",
-                    "zeroRecords": "Sin resultados encontrados",
-                    "paginate": {
-                        "first": "Primero",
-                        "last": "Ultimo",
-                        "next": "Siguiente",
-                        "previous": "Anterior"
-                    }
-                }
-            });     */ 
+            $('#table').html(html);
+
         },
 
         error: function () {
@@ -80,18 +58,42 @@ function modificarCot(){
 function modificarEstado(){
     $.post("Muestra/mostrarEstado1",{},function(res){
         var r = JSON.parse(res);
-        $("#estadoIdE option").remove();
+        $('#estadoIdE').empty();
         for(var i = 0;i<r.length;i++){
             $("#estadoIdE").append("<option value='"+r[i].idEstado1+"'>"+r[i].nombre+"</option>");
         }
     });
 }
 
+
+
 $(document).ready(function () {
     LlenarTabla();
-     modificarCot();
     modificarEstado();
-    
+    $("#tabla").dataTable({
+        bLengthChange: false,
+        language: {
+            "decimal": "",
+            "emptyTable": "No hay información",
+            "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+            "infoEmpty": "Mostrando 0 a 0 de 0 Entradas",
+            "infoFiltered": "(Filtrado de  _MAX_  total entradas)",
+            "infoPostFix": "",
+            "thousands": ",",
+            "lengthMenu": "Mostrar _MENU_ Entradas",
+            "loadingRecords": "Cargando...",
+            "processing": "Procesando...",
+            "search": "Buscar:",
+            "zeroRecords": "Sin resultados encontrados",
+            "paginate": {
+                "first": "Primero",
+                "last": "Ultimo",
+                "next": "Siguiente",
+                "previous": "Anterior"
+            }
+        }
+    });
+});
 
     $(document).on("click", "#agregarMuestra", function () {
         $("#frmInsertarMuestra").modal("show");
@@ -149,7 +151,7 @@ $(document).on('click','#btnGuardar',function(){
                             onOpen: (toast) => {
                             toast.addEventListener('mouseenter', Swal.stopTimer)
                             toast.addEventListener('mouseleave', Swal.resumeTimer)
-                            LlenarTabla(); 
+                         LlenarTabla();
                     }
                     })
 
@@ -157,25 +159,30 @@ $(document).on('click','#btnGuardar',function(){
                             icon: 'success',
                             title: 'Muestra Aprobada con Exito'
                         })
-                        LlenarTabla();
+
                         $("#frmInsertarMuestra").modal("hide");
                         $('#frmInsertar')[0].reset();
+                         LlenarTabla();
                     })
             }
 
         })
-            LlenarTabla();
+
             $("#frmInsertarMuestra").modal("hide");
             $('#frmInsertar')[0].reset();
-
+            LlenarTabla();
         })
         .fail(function() {
             alert("ocurrio un error");
         });
+
+
+
 });
 
 $(document).on('click','#editar',function () {
-   
+    modificarCot();
+
 
     var id = $(this).attr('data');
     $("#frmEditarMuestra").modal("show");
@@ -188,13 +195,14 @@ $(document).on('click','#editar',function () {
         async: false,
         dataType: 'json',
         success:function (data) {
+
             $('#cotizacionE').val(data.idCotizacion);
-            $('#muestraIdE').val(data.url);
-            $('#estadoIdE').val(parseInt(data.idEstado1));
+            $('select[name=estadoE]').val(data.idEstado1);
             $('input[name=comentE]').val(data.comentarios);
 
 
             $('#txtIdText').val(data.idMuestra);
+
         },
         error:function () {
             alert('Could not edit data');
@@ -281,4 +289,3 @@ $(document).on('click','#download',function () {
 
 });
 
-});

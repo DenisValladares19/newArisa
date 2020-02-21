@@ -51,7 +51,7 @@ date_default_timezone_set('America/El_Salvador');
 $newDate = date("d-m-Y");
 $pdf->SetMargins(3,1,1);
 $pdf->Cell(33,3,utf8_decode('       NÚMERO'),0);
-$pdf->Cell(40,10,utf8_decode($fila[9]),1,'','C');
+$pdf->Cell(40,10,utf8_decode($fila[8]),1,'','C');
 $pdf->Cell(30,3,utf8_decode('         FECHA'),0);
 $pdf->Cell(40,10,utf8_decode($newDate),1,'','C');
 $pdf->Cell(20,3,utf8_decode('         N°:'),0);
@@ -78,19 +78,26 @@ $pdf->Cell(40,3,utf8_decode('                ORDEN:'),0);
 $pdf->Ln(5);
 $pdf->Cell(40,10,utf8_decode('             '),0);
 
-while($data=mysqli_fetch_array($query)){
 
-    $pdf->Cell(26,10,utf8_decode($data['cantidad']),1,'','C');
-    $pdf->Cell(129,10,utf8_decode($data['descripcion']),1,'','C');
-    $pdf->Ln(10);
-    $pdf->Cell(40,10,utf8_decode('             '),0);
+while($data=mysqli_fetch_array($query)) {
+
+
+        $pdf->Cell(26, 10, utf8_decode($data['cantidad']), 1, '', 'C');
+        $pdf->Cell(129, 10, utf8_decode($data['descripcion']), 1, '', 'C');
+        $pdf->Ln(10);
+        $pdf->Cell(40, 10, utf8_decode('             '), 0);
 
 }
 
+$pdf->Ln(10);
+$pdf->Cell(40,3,utf8_decode('           FECHA DE'),0);
+$pdf->Cell(50,10,utf8_decode('            '),1);
 
-
-
-
-
+$pdf->Cell(40,3,utf8_decode('              '),0,'','C');
+$pdf->Cell(65,10,utf8_decode('                      '),1);
+$pdf->Ln(5);
+$pdf->Cell(40,3,utf8_decode('           ENTREGA:'),0);
+$pdf->Cell(50,3,utf8_decode('               '),0,'','C');
+$pdf->Cell(40,3,utf8_decode('           AUTORIZA:    '),0,'','C');
 $pdf->Output();
 ?>

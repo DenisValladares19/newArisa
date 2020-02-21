@@ -84,7 +84,8 @@ class Cotizacion extends Padre_Desing
             "descripcion"=>$desc,
             "cantidad"=>$cant,
             "precio"=>$precio,
-            "total"=>$total
+            "total"=>$total,
+            "borradoLogico"=>1
         );
         $this->Cotizacion_m->insertarDetalle($data2);
     }

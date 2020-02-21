@@ -1,24 +1,28 @@
 <script src="<?php echo base_url("resources/src/js/orden/orden.js")?>"></script>
 
-<div class="row">
+<div class="full-box page-header">
+    <h3 class="text-left">
+        <i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Orden de Trabajo
+    </h3>
 
-    <div class="col-md-12">
-        <h1>Gestión de órdenes de trabajo</h1>
-    </div>
+</div>
 
-    <div class="col-md-1">
-        <div class="btn btn-primary" id="agregarOrden">Agregar</div>
-    </div>
-
-
+<div class="container-fluid">
+    <ul class="full-box list-unstyled page-nav-tabs">
+        <li>
+            <a id="agregarOrden"><i class="fas fa-plus fa-fw"></i> &nbsp; Agregar Orden de Trabajo</a>
+        </li>
+        <li>
+            <a class="active" href="#"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Ordenes de Trabajo</a>
+        </li>
+    </ul>
 </div>
 
 <div class="table-responsive">
 
     <table class="table table-bordered" width="100%" cellspacing="0" id="data">
-        <thead style="font-weight: bold;">
-        <td>Núm. Orden</td>
-        <td>Núm. Cotización</td>
+        <thead style="background-color: rgba(11, 23, 41 , 0.6); color: #f0f0f0">
+        <td>Cotización</td>
         <td>Comentarios</td>
         <td>Muestra</td>
         <td>Estado</td>
@@ -33,8 +37,7 @@
         </tbody>
 
         <tfoot>
-        <th>Núm. Orden</th>
-        <th>Núm. Cotización</th>
+        <th>Cotización</th>
         <th>Comentarios</th>
         <th>Muestra</th>
         <th>Estado</th>
@@ -51,7 +54,7 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="frmInsertarCliente" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="frmInsertarOrden" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -64,102 +67,40 @@
                 <form method="post" id="frmOrden">
 
                     <div class="form-column col-md-12">
-
-
-
                         <div class="form-group">
-                            <label>Cotización</label>
-                            <button name="cotShow" id="cotShowId" class="form-control">
-                                Agregar Cotización
-
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="form-column col-md-12">
-
-
-
-                        <div class="form-group">
-                            <label>Cotización</label>
-                            <select name="cot" id="cotId" class="form-control">
-                                <option disabled="true">Seleccione</option>
-
+                            <label>Cliente</label>
+                            <select name="idCliente" id="idCliente" class="form-control">
                             </select>
                         </div>
                     </div>
 
-                    <!--
+                    <div class="form-column col-md-12">
+                        <div class="form-group">
+                            <label>Cotización</label>
+                            <select name="idCotiz" id="idCotiz" class="form-control">
+                            </select>
+                        </div>
+                    </div>
+
 
                  <div class="form-column col-md-12">
-
-
-
-                     <div class="form-group">
-                         <label>Nombre de orden</label>
-                         <input type="text" name="orden" id="ordenId" class="form-control"></input>
-                     </div>
-                 </div>
-
-                 -->
-
-                 <div class="form-column col-md-12">
-
-
-
-                     <div class="form-group">
-                         <label>Descripción de orden</label>
-                         <input type="text" name="desc" id="descId" class="form-control"></input>
-                     </div>
-                 </div>
-
-
-                    <!--
-
-                 <div class="form-column col-md-12">
-
-
-
-                     <div class="form-group">
-                         <label>Tamaño</label>
-                         <input type="text" name="tamaño" id="tamañoId" class="form-control"></input>
-                     </div>
-                 </div>
-
-                 -->
-
-                    <!--
-
-                 <div class="form-column col-md-12">
-
-
-
-                     <div class="form-group">
-                         <label>Archivo</label>
-                         <input type="file" name="archivo" id="archivoId" class="form-control"></input>
-                     </div>
-                 </div>
-
-                    -->
-
-                 <div class="form-column col-md-12">
-
-
-
                      <div class="form-group">
                          <label>Muestra</label>
-                         <select name="muestra" id="muestraId" class="form-control">
-                             <option disabled="true">Seleccione</option>
-
+                         <select name="idMuestra" id="idMuestra" class="form-control">
                          </select>
                      </div>
                  </div>
 
+                    <div class="form-column col-md-12">
+                        <div class="form-group">
+                            <label>Descripción de orden</label>
+                            <input type="text" name="desc" id="descId" class="form-control"></input>
+                        </div>
+                    </div>
 
-                 <div class="form-column col-md-12">
 
 
-
+                    <div class="form-column col-md-12">
                      <div class="form-group">
                          <label>Estado</label>
                          <select name="estado" id="estadoId" class="form-control">
@@ -170,10 +111,13 @@
                  </div>
 
 
-                 <button type="submit" id="btnSaveOrdenId" name="btnSave" class="btn btn-primary">Guardar Orden</button>
-             </form>
-         </div>
 
+         </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger" data-dismiss="modal" id="cancelar">Cancelar</button>
+                <button type="submit" id="btnSaveOrdenId" name="btnSave" class="btn btn-primary">Guardar Orden</button>
+                </form>
+            </div>
      </div>
  </div>
 </div>
@@ -196,50 +140,23 @@
                     <input type="hidden" name="txtId" value="0">
                     <input type="hidden" name="txtIdEst" id="txtIdEstI">
 
+                    <input type="hidden" name="idC" value="0">
                     <div class="form-column col-md-12">
-
-
-
                         <div class="form-group">
                             <label>Cotización</label>
-                            <button name="cotShow" id="cotShowId" class="form-control">
-                                Agregar Cotización
-
-                            </button>
+                            <input name="idCotizE" id="idCotizE" class="form-control" disabled="true">
                         </div>
                     </div>
 
+                    <input type="hidden" name="idM" value="0">
                     <div class="form-column col-md-12">
-
-
-
-
-
                         <div class="form-group">
-                            <label>Cotización</label>
-                            <select name="cotE" id="cotIdE" class="form-control">
-                                <option disabled="true">Seleccione</option>
-
-                            </select>
+                            <label>Muestra</label>
+                            <input name="idMuestraE" id="idMuestraE" class="form-control" disabled="true">
                         </div>
                     </div>
 
-                    <!--
                     <div class="form-column col-md-12">
-
-
-
-                        <div class="form-group">
-                            <label>Nombre de orden</label>
-                            <input type="text" name="ordenE" id="ordenIdE" class="form-control"></input>
-                        </div>
-                    </div>
-
-                    -->
-
-                    <div class="form-column col-md-12">
-
-
 
                         <div class="form-group">
                             <label>Descripción de orden</label>
@@ -247,53 +164,8 @@
                         </div>
                     </div>
 
-                    <!--
 
                     <div class="form-column col-md-12">
-
-
-
-                        <div class="form-group">
-                            <label>Tamaño</label>
-                            <input type="text" name="tamañoE" id="tamañoIdE" class="form-control"></input>
-                        </div>
-                    </div>
-
-                    -->
-
-                        <!--
-
-                    <div class="form-column col-md-12">
-
-
-
-                        <div class="form-group">
-                            <label>Archivo</label>
-                            <input type="file" name="archivoE" id="archivoIdE" class="form-control"></input>
-                        </div>
-                    </div>
-
-                    -->
-
-
-                    <div class="form-column col-md-12">
-
-
-
-                        <div class="form-group">
-                            <label>Muestra</label>
-                            <select name="muestraE" id="muestraIdE" class="form-control">
-                                <option disabled="true">Seleccione</option>
-
-                            </select>
-                        </div>
-                    </div>
-
-
-                    <div class="form-column col-md-12">
-
-
-
                         <div class="form-group">
                             <label>Estado</label>
                             <select name="estadoE" id="estadoIdE" class="form-control">

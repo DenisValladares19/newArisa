@@ -1,16 +1,21 @@
 <script src="<?php echo base_url("resources/src/js/cotizacion/cotizacion.js")?>"></script>
 
-<div class="row">
+<div class="full-box page-header">
+    <h3 class="text-left">
+        <i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Cotización
+    </h3>
 
-    <div class="col-md-12">
-        <h1>Gestión de Cotizaciones</h1>
-    </div>
+</div>
 
-    <div class="col-md-1">
-        <div class="btn btn-primary" id="agregarCliente">Agregar</div>
-    </div>
-
-
+<div class="container-fluid">
+    <ul class="full-box list-unstyled page-nav-tabs">
+        <li>
+            <a id="agregarCliente"><i class="fas fa-plus fa-fw"></i> &nbsp; Agregar Cotización</a>
+        </li>
+        <li>
+            <a class="active" href="#"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Cotizaciónes</a>
+        </li>
+    </ul>
 </div>
 
 <div class="table-responsive" id="tablaCot">

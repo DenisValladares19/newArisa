@@ -1,17 +1,113 @@
+function listaCliente(){
+    $.post("Orden/mostrarCliente",{},function(res){
+        var r = JSON.parse(res);
+        $("#idCliente option").remove();
+        $("#idCliente").append("<option>Elige el Cliente</option>");
+        for(var i = 0;i<r.length;i++){
+            $("#idCliente").append("<option value='"+r[i].idCliente+"'>"+r[i].nombre+" "+r[i].apellido+"</option>");
+        }
+    });
+}
 
+function llenarCotiz(){
+
+    var idCliente = $("#idCliente").val();
+
+    $.ajax(
+        {
+            url:"Orden/mostrarCotiz",
+            type: "POST",
+            data: {idCliente},
+            dataType: "JSON",
+            success:function (r) {
+                if(r!="")
+                {
+                    $("#idCotiz option").remove();
+                    $("#idCotiz").append("<option>Elige la Cotizacion</option>");
+                    for(var i = 0;i<r.length;i++){
+                        $("#idCotiz").append("<option value='"+r[i].idCotizacion+"'>"+r[i].codigo+"</option>");
+                    }
+                }
+                else
+                {
+                    $("#idCotiz option").remove();
+                    $("#idCotiz").append("<option>Este Cliente no tiene Ninguna Cotizacion</option>");
+                }
+
+            },
+        });
+}
+
+function llenarMuestra(){
+
+    var idCotiz = $("#idCotiz").val();
+
+    $.ajax(
+        {
+            url:"Orden/mostrarMuestra",
+            type: "POST",
+            data: {idCotiz},
+            dataType: "JSON",
+            success:function (r) {
+                if(r!="")
+                {
+                    $("#idMuestra option").remove();
+                    $("#idMuestra").append("<option>Elige la Muestra</option>");
+                    for(var i = 0;i<r.length;i++){
+                        $("#idMuestra").append("<option value='"+r[i].idMuestra+"'>"+r[i].url+"</option>");
+                    }
+                }
+                else
+                {
+                    $("#idMuestra option").remove();
+                    $("#idMuestra").append("<option>Este Cotizacion no tiene Ninguna Muestra</option>");
+                }
+
+            },
+        });
+}
 
 $(document).ready(function () {
-
     showOrden();
     statusLoad();
+    listaCliente();
     $('#data1').DataTable();
-    $('#data').DataTable();
+    $("#data").dataTable({
+        bLengthChange: false,
+        language: {
+            "decimal": "",
+            "emptyTable": "No hay información",
+            "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+            "infoEmpty": "Mostrando 0 a 0 de 0 Entradas",
+            "infoFiltered": "(Filtrado de  _MAX_  total entradas)",
+            "infoPostFix": "",
+            "thousands": ",",
+            "lengthMenu": "Mostrar _MENU_ Entradas",
+            "loadingRecords": "Cargando...",
+            "processing": "Procesando...",
+            "search": "Buscar:",
+            "zeroRecords": "Sin resultados encontrados",
+            "paginate": {
+                "first": "Primero",
+                "last": "Ultimo",
+                "next": "Siguiente",
+                "previous": "Anterior"
+            }
+        }
+    });
 
+    $("#idCliente").change(function () {
+        llenarCotiz();
+    });
+
+    $("#idCotiz").change(function () {
+        llenarMuestra();
+    });
 
 
     $(document).on("click", "#agregarOrden", function () {
-        $("#frmInsertarCliente").modal("show");
-
+        $('#frmOrden')[0].reset();
+        $("#frmInsertarOrden").modal("show");
     })
 
         });
@@ -71,11 +167,13 @@ $(document).on('click','#editar',function () {
         async: false,
         dataType: 'json',
         success:function (data) {
-            $('select[name=cotE]').val(data.idCotizacion);
+            $('input[name=idC]').val(data.idCotizacion);
+            $('input[name=idCotizE]').val(data.codigo);
             $('input[name=ordenE]').val(data.nombre);
             $('input[name=descE]').val(data.comentarios);
             $('input[name=tamañoE]').val(data.tamaño);
-            $('select[name=muestraE]').val(data.idMuestra);
+            $('input[name=idM]').val(data.idMuestra);
+            $('input[name=idMuestraE]').val(data.url);
             $('select[name=estadoE]').val(data.idEstado2);
 
             $('input[name=txtId]').val(data.idOrden);
@@ -191,15 +289,13 @@ function showOrden() {
             var i;
             for(i=0; i<data.length; i++){
                 html+='<tr>'+
-                    '<td>'+data[i].idOrden+'</td>'+
-                    '<td>'+data[i].idCotizacion+'</td>'+
+                    '<td>'+data[i].codigo+'</td>'+
                     '<td>'+data[i].comentarios+'</td>'+
                     '<td>'+data[i].url+'</td>'+
                     '<td>'+data[i].nombreE+'</td>'+
                     '<td>'+
-                    '<button class="btn-info"><a href="javascript:;" data="'+data[i].idOrden+'" id="editar">Editar</a></button>'+
-                    '<button class="btn-danger"><a href="javascript:;" data="'+data[i].idOrden+'" id="eliminar">Eliminar</a></button>'+
-                    '<button class="btn-success"><a href="javascript:;" data="'+data[i].idOrden+'" id="download">Descargar</a></button>'+
+                    '<a class="btn btn-outline-info" href="javascript:;" data="'+data[i].idOrden+'" id="editar"><i class="fas fa-marker"></i></a>\n' +
+                    '<a class="btn btn-outline-danger  href="javascript:;" data="\'+data[i].idOrden+\'" id="eliminar"><i class="far fa-trash-alt"></i></a>'+
                     '</td>'+
                     '</tr>';
             }
@@ -212,6 +308,8 @@ function showOrden() {
 
     });
 }
+
+
 
 function history(formData) {
 
@@ -340,7 +438,7 @@ function llenarCotizacion(){
             var i;
             for(i=0; i<data1.length; i++){
                 html+='<tr>'+
-                    '<td>'+data1[i].idCotizacion+'</td>'+
+                    '<td>'+data1[i].codigo+'</td>'+
                     '<td>'+data1[i].clNombre+'</td>'+
                     '<td>'+data1[i].clApellido+'</td>'+
                     '<td>'+

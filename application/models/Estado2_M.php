@@ -14,11 +14,16 @@ class Estado2_M extends CI_Model
     }
 
     public function getAllStatus(){
+        $where=array(
+            'idEstado2>'=>0,
+            'idEstado2<'=>3,
+        );
 
+        $this->db->select('idEstado2, nombre');
+        $this->db->from('estado2');
+        $this->db->where($where);
 
-
-
-        $query = $this->db->get('estado2');
+        $query = $this->db->get();
 
 
         if ($query->num_rows()>0){
@@ -36,7 +41,6 @@ class Estado2_M extends CI_Model
         $this->db->from('estado2');
         $this->db->where('idEstado2=',1);
 
-
         $query = $this->db->get();
 
 
@@ -50,9 +54,15 @@ class Estado2_M extends CI_Model
 
     public function getStatus1(){
 
+        $where=array(
+            'idEstado2>'=>1,
+            'idEstado2<'=>4,
+        );
+
+
         $this->db->select('idEstado2, nombre');
         $this->db->from('estado2');
-        $this->db->where('idEstado2>',1);
+        $this->db->where($where);
 
 
         $query = $this->db->get();
