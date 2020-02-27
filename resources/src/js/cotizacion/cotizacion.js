@@ -67,9 +67,37 @@ $(document).ready(function () {
     llenarCLientes();
     llenarCotizacion();
     
+    /*$(document).on("click",".editar",function(e){
+        e.preventDefault();
+        $("#frmEditDesc").modal("show");
+        var id = $(this).attr("data-idDetalle");
+        $.ajax({
+            url:"cotizacion/getDescripcionEdit",
+            type:"POST",
+            dataType:"JSON",
+            data:{id:id},
+            error:function(jqXHR,status,exception){
+                console.log(status+exception);
+                console.warn(jqXHR.responseText);
+            }
+        }).done(function(res){
+            var data = JSON.parse(JSON.stringify(res));
+            $("#descE").val(data[0].descripcion);
+            $("#cantE").val(data[0].cantidad);
+            $("#PrecioE").val(data[0].precio);
+            $("#idDescE").val(data[0].idDetalle);
+        });
+    });*/
+
     $(document).on("click",".editar",function(e){
         e.preventDefault();
-        $("#frmEditDesc").modal("show");
+        let modal = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode;
+        if(modal.getAttribute("role") === "dialog"){
+            $("#frmEditDesc").modal("show");
+            $(`#${modal.getAttribute("id")}`).modal("hide");
+            localStorage.setItem("idModal", modal.getAttribute("id"));
+        
+        
         var id = $(this).attr("data-idDetalle");
         $.ajax({
             url:"cotizacion/getDescripcionEdit",
@@ -87,28 +115,7 @@ $(document).ready(function () {
             $("#PrecioE").val(data[0].precio);
             $("#idDescE").val(data[0].idDetalle);
         });
-    });
-
-    $(document).on("click",".editarCot",function(e){
-        e.preventDefault();
-        $("#frmEditDesc").modal("show");
-        var id = $(this).attr("data-idDetalle");
-        $.ajax({
-            url:"cotizacion/getDescripcionEdit",
-            type:"POST",
-            dataType:"JSON",
-            data:{id:id},
-            error:function(jqXHR,status,exception){
-                console.log(status+exception);
-                console.warn(jqXHR.responseText);
-            }
-        }).done(function(res){
-            var data = JSON.parse(JSON.stringify(res));
-            $("#descE").val(data[0].descripcion);
-            $("#cantE").val(data[0].cantidad);
-            $("#PrecioE").val(data[0].precio);
-            $("#idDescE").val(data[0].idDetalle);
-        });
+    }
     });
 
     $(document).on("click","#btnGuardarE",function(e){
@@ -142,7 +149,7 @@ $(document).ready(function () {
                       )
                       llenarDescripcion2();
                       $("#frmEditDesc").modal("hide");
-                      $("#modalCotizacionEditar").modal("show"); 
+                      $(`#${localStorage.getItem("idModal")}`).modal("show"); 
                 })
             }
           })
@@ -586,7 +593,7 @@ function llenarDescripcion2(){
             if(data["desc"]!=""){
                 var tabla = "<table id='tablaDescripcion' class='table table-bordered dataTable' width='100%'><thead style='background-color: rgba(11, 23, 41 , 0.6);'><tr><th>Descripción</th><th>Cantidad</th><th>Precio</th><th>Total</th><th>Acciones</th></tr></thead><tbody>";
                 for(var i = 0;i<data["desc"].length;i++){
-                    tabla += "<tr><td>"+data["desc"][i].descripcion+"</td><td>"+data["desc"][i].cantidad+"</td><td>$ "+data["desc"][i].precio+"</td><td>$ "+data["desc"][i].total+"</td><td><button class='btn btn-outline-info mr-1 editarCot' data-idDetalle='"+data["desc"][i].idDetalle+"'><i class='fas fa-marker'></i></button><button class='btn btn-outline-danger eliminarCot' data-idDetalle='"+data["desc"][i].idDetalle+"'><i class='fas fa-trash-alt'></i></button></td></tr>";
+                    tabla += "<tr><td>"+data["desc"][i].descripcion+"</td><td>"+data["desc"][i].cantidad+"</td><td>$ "+data["desc"][i].precio+"</td><td>$ "+data["desc"][i].total+"</td><td><button class='btn btn-outline-info mr-1 editar' data-idDetalle='"+data["desc"][i].idDetalle+"'><i class='fas fa-marker'></i></button><button class='btn btn-outline-danger eliminarCot' data-idDetalle='"+data["desc"][i].idDetalle+"'><i class='fas fa-trash-alt'></i></button></td></tr>";
                 }
                 tabla += "<tr><td colspan='4' class='text-right'>Subtotal</td><td> $"+data["desc2"][0].subtotal+"</td></tr><tr><td colspan='4' class='text-right'>IVA</td><td>$ "+data["desc2"][0].iva+"</td></tr><tr><td colspan='4' class='text-right'>Total a pagar</td><td>$ "+data["desc2"][0].vTotal+"</td></tr></tbody></table>";
             }
@@ -671,5 +678,19 @@ function limpiarCot(){
     $("#divDesc").hide("true");
 }
 
+function validarCampo(event){
+    let element = event.target.parentNode.parentNode.parentNode.childNodes;
+    let elementSpan = element[7].childNodes[1].childNodes[1];
+    element[1].childNodes[0].childNodes[0].maxLength = 100;
+
+    if(event.target.value === ""){
+        elementSpan.innerHTML = 0;
+    }else{
+        elementSpan.innerHTML = event.target.value.length;
+        if(event.target.value.length >= 100){
+            alert("Has sobrepasado el limite permitido")
+        }
+    }
+}
 
 

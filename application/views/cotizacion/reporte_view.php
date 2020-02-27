@@ -68,8 +68,8 @@
     <?php 
         function fechaToSpanish($fecha){
             setlocale(LC_TIME, "spanish");
-            $fecha = str_replace("/", "-", $fecha);
-            $nueva = date("d-m-Y", strtotime($fecha));
+            $fecha2 = str_replace("/", "-", $fecha);
+            $nueva = date("d-m-Y", strtotime($fecha2));
             $nuevaFecha = strftime("%A, %d de %B de %Y", strtotime($nueva));
             return $nuevaFecha;
         }
@@ -77,7 +77,7 @@
     <div class="contenedor">
         <img src="<?php echo base_url('resources/images/reporte/helloPrint.jpg');?>">
         <br>
-        <p class="b">Fecha: <?php echo (fechaToSpanish($cot[0]->fecha));?><br>
+        <p class="b">Fecha: <?php echo fechaToSpanish($cot[0]->fecha);?><br>
             </p>
         <p class="a">Señor(a): <br>
         <?php echo $cot[0]->clNombre?> <?php echo $cot[0]->clApellido?>

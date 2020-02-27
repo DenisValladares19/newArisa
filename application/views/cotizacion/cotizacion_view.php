@@ -66,9 +66,12 @@
                     <div id='divDesc'>
                         <form id="frmDesc">
                             <div class="row">
-                                <div class='col-md-6'><input type='text' name='desc' id='descI'class='form-control' placeholder='Descripción'/></div>
+                                <div class='col-md-6'><input type='text' name='desc' id='descI'class='form-control' onKeyup="validarCampo(event)"  placeholder='Descripción'/></div>
                                 <div class='col-md-3'><input type='text' name='cant' id='cantI' class='form-control' placeholder='Cantidad'/></div>
                                 <div class='col-md-3'><input type='text' name='precio' id='Precio' class="form-control" placeholder="precio"/></div>
+                                <div class="col-md-6" id="caracter">
+                            <p style="color:red;">Numero de caracteres (<span id="nCaracter">0</span> - 100)</p>
+                        </div>
                             </div>
                             <!-- cargar tabla de la descripcion -->
                             <div class="row mt-4">
@@ -98,9 +101,12 @@
             <div class="modal-body">
                 <form id="frmDescE">
                     <div class="row" id='divDesc'>
-                    <div class='col-md-6'><input type='text' name='desc' id='descE'class='form-control' placeholder='Descripción'/></div>
+                    <div class='col-md-6'><input type='text' name='desc' id='descE'class='form-control desc' onKeyup="validarCampo(event)"  placeholder='Descripción'/></div>
                     <div class='col-md-3'><input type='text' name='cant' id='cantE' class='form-control' placeholder='Cantidad'/></div>
                     <div class='col-md-3'><input type='text' name='precio' id='PrecioE' class="form-control" placeholder="precio"/></div>
+                    <div class="col-md-6" id="caracter">
+                            <p style="color:red;">Numero de caracteres (<span id="nCaracter">0</span> - 100)</p>
+                        </div>
                     <input type="hidden" id="idDescE" name="idDetalle"/>
                     </div>
                     <div class="modal-footer">
@@ -159,25 +165,33 @@
                     </div>
                 </form>
                 <form id="frmDescEditar">
+                <div class="nada">
                 <div class="row"> 
                         <div class="col-md-12"><br>
                             <a id="addDesEdit" class="btn btn-success">Agregar descripcion</a>
                         </div>
                     </div>
                     <div class="row" id='divDescEditar'>
-                    <div class='col-md-6'><input type='text' name='desc' id='descEdit'class='form-control' placeholder='Descripción'/></div>
+                    <div class='col-md-6'><input type='text' name='desc' id='descEdit'class='form-control desc' onKeyup="validarCampo(event)" placeholder='Descripción'/></div>
                     <div class='col-md-3'><input type='text' name='cant' id='cantEdit' class='form-control' placeholder='Cantidad'/></div>
                     <div class='col-md-3'><input type='text' name='precio' id='PrecioEdit' class="form-control" placeholder="precio"/></div>
+                    <div class="col-md-6" id="caracter">
+                            <p style="color:red;">Numero de caracteres (<span id="nCaracter">0</span> - 100)</p>
+                        </div>
                     </div>
+>
                     <!-- cargar tabla de la descripcion -->
-                    <div class="row mt-4">
+                    <div class="row mt-1">
                         <div class='col-md-12'>
                             <div id="tablaDescEditar"></div>
                         </div>
                     </div>
                     <button type="submit" name="btnSave" id="btnGuardarEdit" class="btn btn-primary mt-5">Guardar Cotización</button>
+                    </div>
                 </form>
               </div>
             </div>
         </div>
     </div>
+
+    
