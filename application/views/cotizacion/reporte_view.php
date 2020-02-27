@@ -63,6 +63,13 @@
             font-size:11pt;
         }
     </style>
+
+    <script>
+        var element =document.getElementById("fecha");
+        element.addEventListener("onload", function(){
+          element.innerHTML = "algo";  
+        })
+    </script>
 </head>
 <body>
     <?php 
@@ -77,7 +84,7 @@
     <div class="contenedor">
         <img src="<?php echo base_url('resources/images/reporte/helloPrint.jpg');?>">
         <br>
-        <p class="b">Fecha: <?php echo fechaToSpanish($cot[0]->fecha);?><br>
+        <p class="b" id="fecha">Fecha: <?php echo fechaToSpanish($cot[0]->fecha);?><br>
             </p>
         <p class="a">Señor(a): <br>
         <?php echo $cot[0]->clNombre?> <?php echo $cot[0]->clApellido?>
@@ -91,9 +98,8 @@
     <table cellspacing="0">
         <tr class="cabecera">
             <td style="width:7%;">ITEM</td>
-            <td style="width:45%;">DESCRIPCIÓN</td>
+            <td style="width:54%;">DESCRIPCIÓN</td>
             <td style="width:10%; font-size: 9pt;">CANTIDAD</td>
-            <td style="width:10%; font-size: 9pt;">UNIDAD</td>
             <td style="width:12%; font-size: 9pt;">PRECIO UNIT</td>
             <td style="width:10%; border-right:2px;">TOTAL</td>
         </tr>
@@ -101,23 +107,21 @@
             for($i=0;$i<count($desc);$i++){
         ?>
         <tr class="cuerpo">
-            <td style="width:7%; text-align:center;"><?= ($i+1)?></td>
-            <td style="width:45%; padding-left:5px;"><?= $desc[$i]->descripcion?></td>
+            <td style="width:7%; text-align:center; height:25px;"><?= ($i+1)?></td>
+            <td style="width:54%; padding-left:5px;"><?= $desc[$i]->descripcion?></td>
             <td style="width:10%; text-align:center;"><?= $desc[$i]->cantidad?></td>
-            <td style="width:10%; text-align:center;">UNIDAD</td>
             <td style="width:12%; text-align:center;">$ <?= number_format($desc[$i]->precio,2)?></td>
             <td style="width:10%; border-right:2px; text-align:center;">$ <?= number_format($desc[$i]->total,2)?></td>
         </tr>
         <?php
             }
-            $leng = (9-count($desc));
+            $leng = (7-count($desc));
 
             for($i=0;$i<$leng;$i++){
         ?>
                 <tr class="cuerpo">
-                    <td style="width:7%; text-align:center;"><?= ($i+(count($desc)+1))?></td>
-                    <td style="width:45%; padding-left:5px;"></td>
-                    <td style="width:10%; text-align:center;"></td>
+                    <td style="width:7%; text-align:center; height:25px;"><?= ($i+(count($desc)+1))?></td>
+                    <td style="width:54%; padding-left:5px;"></td>
                     <td style="width:10%; text-align:center;"></td>
                     <td style="width:12%; text-align:center;"></td>
                     <td style="width:10%; border-right:2px; text-align:center;"></td>
@@ -125,34 +129,23 @@
         <?php
             }
         ?>
-        <tr class="pie">
-            <td style="width:7%; text-align:center; border-left:2px;"></td>
-            <td style="width:45%; padding-left:5px; font-size:10pt;"></td>
-            <td style="width:10%; text-align:center;"></td>
-            <td style="width:10%; text-align:center;"></td>
-            <td style="width:12%; text-align:center; font-size:10pt; border-left:2px; border-bottom:2px;">GRAN TOTAL</td>
-            <td style="width:10%; border-right:2px; text-align:center; font-size:11pt; border-left:2px; border-bottom:2px;">$</td>
-        </tr>
         <tr  class="pie">
             <td style="width:7%; text-align:center; border-left:2px;"></td>
-            <td style="width:45%; padding-left:5px; font-size:10pt;"><b>A CONSIDERAR: PRECIOS NO INCLUYEN IVA</b></td>
-            <td style="width:10%; text-align:center;"></td>
+            <td style="width:54%; padding-left:5px; font-size:10pt;"></td>
             <td style="width:10%; text-align:center;"></td>
             <td style="width:12%; text-align:center; font-size:10pt; border-left:2px; border-bottom:2px;">SUBTOTAL</td>
             <td style="width:10%; border-right:2px; text-align:center; font-size:11pt; border-left:2px; border-bottom:2px;">$ <?= number_format($desc2[0]->subtotal,2)?></td>
         </tr>
         <tr class="pie">
             <td style="width:7%; text-align:center; border-left:2px;"></td>
-            <td style="width:45%; padding-left:5px; font-size:10pt;"></td>
-            <td style="width:10%; text-align:center;"></td>
+            <td style="width:54%; padding-left:5px; font-size:10pt;"><b>A CONSIDERAR: PRECIOS NO INCLUYEN IVA</b></td>
             <td style="width:10%; text-align:center;"></td>
             <td style="width:12%; text-align:center; font-size:10pt; border-left:2px; border-bottom:2px;">IVA(13%)</td>
             <td style="width:10%; border-right:2px; text-align:center; font-size:11pt; border-left:2px; border-bottom:2px;">$ <?= number_format($desc2[0]->iva,2)?></td>
         </tr>
         <tr class="pie">
             <td style="width:7%; text-align:center; border-left:2px; border-bottom:2px;"></td>
-            <td style="width:45%; padding-left:5px; border-bottom:2px;"></td>
-            <td style="width:10%; text-align:center; border-bottom:2px;"></td>
+            <td style="width:54%; padding-left:5px; border-bottom:2px;"></td>
             <td style="width:10%; text-align:center; border-bottom:2px;"></td>
             <td style="width:12%; text-align:center; font-size:10pt; border-left:2px; border-bottom:2px; background-color:#A3A8A8;">VALOR TOTAL</td>
             <td style="width:10%; border-right:2px; text-align:center; font-size:11pt; border-left:2px; border-bottom:2px;  background-color:#A3A8A8;">$ <?= number_format($desc2[0]->vTotal,2)?></td>
