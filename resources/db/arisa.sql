@@ -38,9 +38,7 @@ create table compras(
 idCompras int primary key auto_increment,
 fecha date,
 subtotal double,
-idProveedor int,
-borradoLogico int,
-foreign key(idProveedor) references proveedor(idProveedor)
+borradoLogico int
 );
 
 create table inventario(
@@ -49,9 +47,9 @@ nombreInv varchar(50),
 precio double,
 stock int,
 descripcion varchar(50),
-idCompra int,
+idProveedor int,
 borradoLogico int,
-foreign key(idCompra) references compras(idCompras)
+foreign key(idProveedor) references proveedor(idProveedor)
 );
 
 create table detalleInvCompra(
@@ -219,19 +217,19 @@ insert into usuario values
 (1,"Admin","admin@mail.com",sha1("12345"),"admin.jpg",1,1);
 
 insert into proveedor values
-(1,"Juan Carlos","Telecom S.A de C.V","2328-9887","0315-141280-120-2","MELM8305281H0","7364-2157","juan@mail.com","San Julian",1),
-(2,"Rocio Alejandra","Freund S.A de C.V","2200-9367","0585-100694-100-1","LSJM8305281M2","7995-2097","rocio@mail.com","San Salvador",1);
+(1,"Guillermo Jandres","Telecom S.A de C.V","2328-9887","0315-141280-120-2","MELM8305281H0","7364-2157","juan@mail.com","San Julian",1),
+(2,"Nelson Ortiz","Freund S.A de C.V","2200-9367","0585-100694-100-1","LSJM8305281M2","7995-2097","rocio@mail.com","San Salvador",1);
 
 
 insert into compras values
-(1,"2019-11-11",273.5,1,1),
-(2,"2019-11-14",159.8,1,1),
-(3,"2019-11-15",886.9,2,1);
+(1,"2019-11-11",273.5,1),
+(2,"2019-11-14",159.8,1),
+(3,"2019-11-15",886.9,2);
 
 insert into inventario values
 (1,"Producto X",29.99,10,"Descripcion del Producto X",1,1),
 (2,"Producto Y",17.99,10,"Descripcion del Producto Y",2,1),
-(3,"Producto Z",92.99,10,"Descripcion del Producto Z",3,1);
+(3,"Producto Z",92.99,10,"Descripcion del Producto Z",2,1);
 
 insert into estado2 values
 (1,"En Espera",1),

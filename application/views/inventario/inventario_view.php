@@ -18,7 +18,7 @@
             <a class="active" href="#"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de Inventario</a>
         </li>
         <li>
-            <a id="rest"><i class="fas fa-shopping-cart"></i>&nbsp; Lista de Compras</a>
+            <a id="compras"><i class="fas fa-shopping-cart"></i>&nbsp; Lista de Compras</a>
         </li>
     </ul>
 </div>
@@ -29,15 +29,19 @@
     <table class="table table-bordered" width="100%" cellspacing="0" id="tablaProd">
         <thead style="background-color: rgba(11, 23, 41 , 0.6);">
         <th>Nombres del Producto</th>
-        <th>Precio Venta</th>
+        <th>Nombres del Proveedor</th>
         <th>Stock</th>
+        <th>Precio Unitario</th>
+        <th>Total</th>
         <th>Descrpcion</th>
         <th>Acciones</th>
         </thead>
         <tfoot>
         <th>Nombres del Producto</th>
-        <th>Precio Venta</th>
+        <th>Nombres del Proveedor</th>
         <th>Stock</th>
+        <th>Precio Unitario</th>
+        <th>Total</th>
         <th>Descrpcion</th>
         <th>Acciones</th>
         </tfoot>
@@ -102,12 +106,15 @@
 
                                     <!-- Content here-->
                                     <div class="container-fluid" id="tabla2">
-                                        <table class="table table-bordered" width="100%" cellspacing="0" id="tablaEx">
+                                        <table class="table table-borderede" width="100%" cellspacing="0" id="tablaEx">
                                             <thead style="background-color: rgba(11, 23, 41 , 0.6);">
                                             <th>Nombres del Producto</th>
                                             <th>Cantidad</th>
                                             <th>Acciones</th>
                                             </thead>
+                                            <tbody>
+
+                                            </tbody>
                                             <tfoot>
                                             <th>Nombres del Producto</th>
                                             <th>Cantidad</th>
@@ -137,13 +144,17 @@
                                             <table class="table table-bordered" width="100%" cellspacing="0" id="tablaNew">
                                                 <thead style="background-color: rgba(11, 23, 41 , 0.6);">
                                                 <th>Nombres del Producto</th>
+                                                <th>Precio Unitario</th>
                                                 <th>Cantidad</th>
-                                                <th>Precio</th>
                                                 <th>Descripcion</th>
                                                 <th>Acciones</th>
                                                 </thead>
+                                                <tbody>
+
+                                                </tbody>
                                                 <tfoot>
                                                 <th>Nombres del Producto</th>
+                                                <th>Precio Unitario</th>
                                                 <th>Cantidad</th>
                                                 <th>Precio</th>
                                                 <th>Descripcion</th>
@@ -254,7 +265,7 @@
                             <input type="text" class="form-control" placeholder="Nombre..." name="nombreNuevo" id="nombreNuevo">
                         </div>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" placeholder="Precio..." name="precioNuevo" id="precioNuevo">
+                            <input type="text" class="form-control" placeholder="Precio Unitario..." name="precioNuevo" id="precioNuevo">
                         </div>
                     </div>
                     <div class="row mt-2">
@@ -299,7 +310,7 @@
                             <input type="text" class="form-control" placeholder="Nombre..." name="nombreNuevoE" id="nombreNuevoE">
                         </div>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" placeholder="Precio..." name="precioNuevoE" id="precioNuevoE">
+                            <input type="text" class="form-control" placeholder="Precio Unitario..." name="precioNuevoE" id="precioNuevoE">
                         </div>
                     </div>
                     <div class="row mt-2">

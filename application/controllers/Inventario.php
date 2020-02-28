@@ -45,7 +45,14 @@ class Inventario extends Padre_Desing
     }
 
     public function mostrarProd(){
-        $res = $this->Inventario_m->mostrarProdcuto();
+        $id=$_POST["idProveedor"];
+        $res = $this->Inventario_m->mostrarProdcuto($id);
+        echo json_encode($res);
+    }
+
+    public function mostrarProdEdit(){
+        $id=$_POST["idProveedor"];
+        $res = $this->Inventario_m->mostrarProdcuto($id);
         echo json_encode($res);
     }
 
@@ -54,7 +61,6 @@ class Inventario extends Padre_Desing
                 'idCompras'=>0,
                 'fecha'=>$_POST["fecha"],
                 'subtotal'=>$_POST["subtotal"],
-                'idProveedor'=>$_POST["selectProv"],
                 'borradoLogico'=>1,
             );
 
@@ -63,8 +69,28 @@ class Inventario extends Padre_Desing
     }
 
 
+//Este metodo verifica si existen productos de X Proveedor
+    public function validarProdExi(){
+        $id=$_POST["idProveedor"];
+        $res = $this->Inventario_m->validarProdExi($id);
+        echo json_encode($res);
+    }
+
+
+
     public function insertarDetalle(){
         $form = $_POST["datosEx"];
+
+        $cantidad=$form[1]['value'];
+        $idCompra=$_POST["idCompra"];
+        $idInv=$form[0]['value'];
+
+
+        $dataV = array(
+            'idCompra'=>$_POST["idCompra"],
+            'idInventario'=>$form[0]['value']
+        );
+
         $data = array(
             'idDetalleInvCompra'=>0,
             'idCompra'=>$_POST["idCompra"],
@@ -72,8 +98,21 @@ class Inventario extends Padre_Desing
             'cantidad'=>$form[1]['value']
         );
 
-        $res = $this->Inventario_m->agregarDetalle($data);
-        echo json_encode($res);
+
+
+        $resV = $this->Inventario_m->validarDetalle($dataV);
+
+        if($resV==true)
+            {
+            $res = $this->Inventario_m->agregarDetalle2($cantidad,$idInv,$idCompra);
+            echo json_encode($res);
+            }
+        else
+            {
+            $res = $this->Inventario_m->agregarDetalle($data);
+            echo json_encode($res);
+            }
+
     }
 
 
@@ -122,8 +161,8 @@ class Inventario extends Padre_Desing
 
     //Obteniendo datos de la tabla Inventario a la Hora de Insertar
     public function mostrarNew(){
-        $idCompra = $_POST["idCompra"];
-        $res = $this->Inventario_m->mostrarNew($idCompra);
+        $idProveedor = $_POST["idProveedor"];
+        $res = $this->Inventario_m->mostrarNew($idProveedor);
 
         echo json_encode($res);
     }
@@ -142,7 +181,7 @@ class Inventario extends Padre_Desing
             'precio'=>$form[1]['value'],
             'stock'=>$form[2]['value'],
             'descripcion'=>$form[3]['value'],
-            'idCompra'=>$_POST["idCompra"],
+            'idProveedor'=>$_POST["idProveedor"],
             'borradoLogico'=>1,
         );
 
@@ -190,43 +229,6 @@ class Inventario extends Padre_Desing
         echo json_encode($res);
     }
 
-/*
-    //Metodo que Trae la Existencia de X Producto
-    public function existencia(){
-        $id=$_POST["idInventario"];
-        $res = $this->Inventario_m->existencia($id);
-        echo json_encode($res);
-    }
-
-    //Metodo guarda la Existencia en el Detalle
-    public function guardarExistencia(){
-        $idC=$_POST["idCompra"];
-        $id=$_POST["idInventario"];
-        $cant=$_POST["cantidad"];
-        $data=array(
-            'cantAnterior'=>$cant,
-        );
-        $where=array(
-            'idCompra'=>$idC,
-            'idInventario'=>$id,
-        );
-        $res = $this->Inventario_m->guardarExistencia($data,$where);
-        echo json_encode($res);
-    }
-
-    //Metodo Aumentar Stock
-    public function aumentarStock(){
-        $id=$_POST["idInventario"];
-        $cant=$_POST["cantidad"];
-        $data=array(
-            'stock'=>$cant,
-        );
-        $where=array(
-            'idInventario'=>$id,
-        );
-        $res = $this->Inventario_m->aumentarStock($data,$where);
-        echo json_encode($res);
-    }*/
 
     //nuevo metodo de actualizar inventario 
     public function actualizarStock(){

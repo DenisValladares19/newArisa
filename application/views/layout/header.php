@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title><?php echo $title?></title>
+    <link rel="icon" type="image/png" href="<?php echo base_url("resources/images/icon/Arisa.ico")?>" />
 
     <script src="<?php echo base_url("resources/js/jquery-3.4.1.min.js")?>" ></script>
     <title>Home</title>

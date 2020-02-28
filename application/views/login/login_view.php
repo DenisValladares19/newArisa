@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <title>Login</title>
+    <title>Inicio de Sesion</title>
 
+    <link rel="icon" type="image/png" href="<?php echo base_url("resources/images/icon/Arisa.ico")?>" />
     <!-- Normalize V8.0.1 -->
     <link rel="stylesheet" href="<?php echo base_url("resources/css/normalize.css")?>">
 
@@ -28,37 +29,77 @@
 
     <!-- General Styles -->
     <link rel="stylesheet" href="<?php echo base_url("resources/css/style.css")?>">
+
+
+    <link rel="stylesheet" href="<?php echo base_url("resources/src/css/login/main.css")?>">
+    <link rel="stylesheet" href="<?php echo base_url("resources/src/css/login/util.css")?>">
 </head>
 <body>
 
-<div class="login-container">
-    <div class="login-content">
-        <p class="text-center">
-            <i class="fas fa-user-circle fa-5x"></i>
-        </p>
-        <p class="text-center">
-            Inicia sesión con tu cuenta
-        </p>
-        <form action="Login/login" method="post">
-            <div class="form-group">
-                <label for="UserName" class="bmd-label-floating"><i class="fas fa-user-secret"></i> &nbsp; Usuario</label>
-                <input type="text" class="form-control" id="UserName" name="user" maxlength="35">
+
+
+
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100">
+            <div class="login100-pic js-tilt" data-tilt>
+                <img src="<?php echo base_url("resources/images/uploads/Arisa.png")?>">
             </div>
-            <div class="form-group">
-                <label for="UserPassword" class="bmd-label-floating"><i class="fas fa-key"></i> &nbsp; Contraseña</label>
-                <input type="password" class="form-control" id="UserPassword" name="pass" maxlength="200">
-            </div>
-            <input type="submit" value="Login" name="btnLogin" class="btn btn-primary">
-        </form>
+
+            <form class="login100-form validate-form" action="Login/login" method="post">
+					<span class="login100-form-title">
+						Inicio de Sesion
+					</span>
+
+                <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                    <input class="input100" type="text" id="UserName" name="user" placeholder="Nombre de Usuario">
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                    <input class="input100" type="password" id="UserPassword" name="pass" placeholder="Contraseña...">
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+                </div>
+
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn">
+                       Iniciar Sesion
+                    </button>
+                </div>
+
+                <div class="text-center p-t-12">
+						<span class="txt1">
+
+						</span>
+                    <a class="txt2" href="#">
+
+                    </a>
+                </div>
+
+                <div class="text-center p-t-136">
+                    <a class="txt2" href="#">
+                        Arisa Consulting S.A de C.V
+                        <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
-
 
 <!--=============================================
 =            Include JavaScript files           =
 ==============================================-->
 <!-- jQuery V3.4.1 -->
 <script src="<?php echo base_url("resources/js/jquery-3.4.1.min.js")?>" ></script>
+
+<script src="<?php echo base_url("resources/js/external/jquery/tilt.jquery.min.js")?>" ></script>
 
 <!-- popper -->
 <script src="<?php echo base_url("resources/js/popper.min.js")?>" ></script>

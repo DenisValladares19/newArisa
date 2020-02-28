@@ -65,4 +65,22 @@ class Cliente_M extends CI_Model
         }
     }
 
+    //Metodo para Restaurar Info.
+    public function restClientes(){
+        $borrado=array(
+            'borradoLogico'=>0,
+        );
+        $this->db->select("*");
+        $this->db->from("cliente");
+        $this->db->where($borrado);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    //Metodo para Mostrar el Registro que estaba Oculto
+    public function restaurar($set,$where)
+    {
+        $this->db->update("cliente",$set,$where);
+        return $this->db->affected_rows();
+    }
 }

@@ -1,44 +1,53 @@
 $(document).ready(function () {
 
-
-
-
-
-
     showClients();
+});
 
 
-    $('#data').DataTable();
-
-    $(document).on("click", "#agregarCliente", function () {
-        $("#frmInsertarCliente").modal("show");
-    })});
-
+$(document).on("click", "#agregarCliente", function () {
+    $("#frmInsertarCliente").modal("show");
+})
 
 $(document).on('click','#btnSaveId',function(){
     event.preventDefault();
     var data = $('#frmCliente').serialize();
     $.ajax({
-        url: BASE_URL+'index.php/Cliente/addClient',
+        url: 'Cliente/addClient',
         type: 'post',
         data: data,
     })
         .done(function() {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 4000,
+                timerProgressBar: true,
+                onOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+        })
+
+            Toast.fire({
+                icon: 'success',
+                title: 'Información Insertada con Exito!'
+            })
 
             $("#frmInsertarCliente").modal("hide");
             $('#frmCliente')[0].reset();
             showClients();
-            alert("Cliente Agregado con éxito");
 
         })
         .fail(function() {
-            alert("ocurrio un error");
+            Swal.fire(
+                'Cliente!',
+                'Error al momento de Insertar la Información!',
+                'error'
+            )
         });
 
 });
-
-
-
 
 
 
@@ -56,6 +65,7 @@ $(document).on('click','#editar',function () {
         dataType: 'json',
         success:function (data) {
             $('input[name=nombreE]').val(data.nombre);
+            $('input[name=apellidoE]').val(data.apellido);
             $('input[name=empresaE]').val(data.empresa);
             $('input[name=telefonoE]').val(data.telefono);
             $('input[name=telefonoCE]').val(data.celular);
@@ -66,7 +76,11 @@ $(document).on('click','#editar',function () {
             $('input[name=idCliente]').val(data.idCliente);
         },
         error:function () {
-            alert('Could not edit data');
+            Swal.fire(
+                'Cliente!',
+                'Error en la Comunicación con la Base de Datos!',
+                'error'
+            )
         }
     })
 
@@ -76,24 +90,56 @@ $(document).on('click','#editar',function () {
 
 $(document).on('click','#btnEditId',function(){
     event.preventDefault();
-    var data = $('#frmEditar').serialize();
-    $.ajax({
-        url: BASE_URL+'index.php/Cliente/saveChanges',
-        type: 'post',
-        data: data,
-    })
-        .done(function() {
+    Swal.fire({
+        title: 'Está seguro de Editar la Información?',
+        text: "¡No podrás revertir esto!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, editarlo'
+    }).then((result) => {
+        if (result.value)
+    {
 
-            $("#frmEditarCliente").modal("hide");
-            $('#frmEditar')[0].reset();
-            showClients();
-            alert("Cliente modificado con éxito");
-
+        var data = $('#frmEditar').serialize();
+        $.ajax({
+            url: BASE_URL + 'index.php/Cliente/saveChanges',
+            type: 'post',
+            data: data,
         })
-        .fail(function() {
-            alert("ocurrio un error");
-        });
+            .done(function () {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 4000,
+                    timerProgressBar: true,
+                    onOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+            })
 
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Información Modificada con Exito!'
+                })
+
+                $("#frmEditarCliente").modal("hide");
+                $('#frmEditar')[0].reset();
+                showClients();
+
+            })
+            .fail(function () {
+                Swal.fire(
+                    'Cliente!',
+                    'Error al momento de Editar la Información!',
+                    'error'
+                )
+            });
+    }
+})
 });
 
 $(document).on('click','#btnDeleteId',function(){
@@ -103,32 +149,166 @@ $(document).on('click','#btnDeleteId',function(){
 
 $(document).on('click','#eliminar',function(){
     event.preventDefault();
+    Swal.fire({
+        title: 'Está seguro de Eliminar la Información?',
+        text: "¡Pueda que esta Información se Oculte de está Seccion!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si,eliminarlo'
+    }).then((result) => {
+        if (result.value) {
+
     var id = $(this).attr('data');
-    $("#deleteModal").modal("show");
-    $("#btnDeleteId").unbind().click(function () {
         $.ajax({
             type: 'ajax',
             method: 'get',
             async: false,
-            url: BASE_URL+'index.php/Cliente/eraseClient',
+            url: 'Cliente/eraseClient',
             data:{idCliente:id},
             dataType: 'json',
-            success:function (response) {
-                $("#deleteModal").modal("hide");
+            success:function () {
+
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 4000,
+                    timerProgressBar: true,
+                    onOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+            })
+
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Información Eliminada con Exito!'
+                })
                 showClients();
-                alert("Cliente eliminado con éxito");
             },
             error:function () {
-                alert('Error al eliminar');
+                Swal.fire(
+                    'Cliente!',
+                    'Error al momento de Eliminar la Información!',
+                    'error'
+                )
             }
         })
-    })
 
+    }
+})
 });
 
+$(document).on("click","#rest",function () {
+    $("#modalRecu").modal("show");
+    llenarTablaRecuperacion();
+})
+
+
+$(document).on("click",".btnRest",function () {
+    $("#modalRecu").hide();
+
+    Swal.fire({
+        title: '¿Estás seguro de Recuperar la Info. del Cliente?',
+        text: "Esta Info. se mostrará en la Tabla Principal",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Si, Recuperárla!'
+    }).then((result) => {
+        if (result.value) {
+
+        var id= $(this).attr("id");
+
+        $.ajax({
+            url: "Cliente/restaurar",
+            type: "post",
+            data: {id: id}
+        })
+
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 4000,
+            timerProgressBar: true,
+            onOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+    });
+
+        Toast.fire({
+            icon: 'success',
+            title: 'Cliente Recuperado con Exito'
+        })
+        showClients();
+        llenarTablaRecuperacion();
+        $("#modalRecu").modal("hide");
+    }
+        else{
+        $("#modalRecu").modal("show");
+    }
+})
+
+})
 
 
 
+
+function llenarTablaRecuperacion()
+{
+
+    $.ajax(
+        {
+            url:"Cliente/mostrarEliminados",
+            type: "POST",
+            dataType: "JSON",
+            success:function (data) {
+                $("#dataClienteRest").dataTable().fnDestroy();
+                $("#dataClienteRest tbody tr").remove();
+                $.each(data, function (key,val) {
+                    var fila ='<tr><td><div align="center">';
+                    fila=fila + val.nombre + '</div></td><td>';
+                    fila=fila + val.apellido + '</div></td><td>';
+                    fila=fila + val.empresa + '</div></td><td>';
+                    fila=fila + val.direccion + '</div></td><td>';
+                    fila=fila + val.correo + '</div></td><td>';
+                    fila=fila + val.registroFiscal + '</td>';
+                    fila = fila +  '<td> <a class="btn btn-outline-info btnRest" id="'+val.idCliente+'"><i class="fas fa-trash-restore"></i></a>';
+                    fila = fila + '</td></tr>';
+                    $("#dataClienteRest tbody").append(fila);
+                });
+                $("#dataClienteRest").dataTable({
+                    bLengthChange: false,
+                    language: {
+                        "decimal": "",
+                        "emptyTable": "No hay información",
+                        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                        "infoEmpty": "Mostrando 0 a 0 de 0 Entradas",
+                        "infoFiltered": "(Filtrado de  _MAX_  total entradas)",
+                        "infoPostFix": "",
+                        "thousands": ",",
+                        "lengthMenu": "Mostrar _MENU_ Entradas",
+                        "loadingRecords": "Cargando...",
+                        "processing": "Procesando...",
+                        "search": "Buscar:",
+                        "zeroRecords": "Sin resultados encontrados",
+                        "paginate": {
+                            "first": "Primero",
+                            "last": "Ultimo",
+                            "next": "Siguiente",
+                            "previous": "Anterior"
+                        }
+                    }
+                });
+            },
+        });
+}
 
 function showClients() {
     $.ajax({
@@ -136,30 +316,26 @@ function showClients() {
         url: BASE_URL+'index.php/Cliente/showClients',
         async: false,
         dataType: 'json',
-        success: function (data) {
-            var html = '';
-            var i;
-            for(i=0; i<data.length; i++){
-
-                html+='<tr>'+
-                    '<td>'+data[i].nombre+'</td>'+
-                    '<td>'+data[i].empresa+'</td>'+
-                    '<td>'+data[i].telefono+'</td>'+
-                    '<td>'+data[i].celular+'</td>'+
-                    '<td>'+data[i].correo+'</td>'+
-                    '<td>'+data[i].direccion+'</td>'+
-                    '<td>'+data[i].nit+'</td>'+
-                    '<td>'+data[i].registroFiscal+'</td>'+
-                    '<td>'+
-                    '<a class="btn btn-outline-info editarC" href="javascript:;" data="'+data[i].idCliente+'" id="editar"><i class="fas fa-marker"></i></a>\n' +
-                    '<a class="btn btn-outline-danger eliminarC" href="javascript:;" data="\'+data[i].idCliente+\'" id="eliminar" ><i class="far fa-trash-alt"></i></a>'+
-                    '</td>'+
-                    '</tr>';
-
-            }
-
-            $('#table').html(html);
-            $("#data").dataTable({
+        success:function (data) {
+            $("#dataCliente").dataTable().fnDestroy();
+            $("#dataCliente tbody tr").remove();
+            $.each(data, function (key,val) {
+                var fila ='<tr><td><div>';
+                fila=fila + val.nombre + '</div></td><td>';
+                fila=fila + val.apellido + '</div></td><td width="10%">';
+                fila=fila + val.empresa + '</div></td><td>';
+                fila=fila + val.telefono + '</div></td><td>';
+                fila=fila + val.celular + '</div></td><td>';
+                fila=fila + val.correo + '</div></td><td>';
+                fila=fila + val.direccion + '</div></td><td width="10%">';
+                fila=fila + val.nit + '</div></td><td>';
+                fila=fila + val.registroFiscal + '</td>';
+                fila = fila +  '<td> <a class="btn btn-outline-info editarC" href="javascript:;" data="'+val.idCliente+'" id="editar"><i class="fas fa-marker"></i></a>\n' +
+                    '<a class="btn btn-outline-danger eliminarC" href="javascript:;" data="'+val.idCliente+'" id="eliminar" ><i class="far fa-trash-alt"></i></a>';
+                fila = fila + '</td></tr>';
+                $("#dataCliente tbody").append(fila);
+            });
+            $("#dataCliente").dataTable({
                 bLengthChange: false,
                 language: {
                     "decimal": "",
@@ -182,15 +358,16 @@ function showClients() {
                     }
                 }
             });
-
         },
 
         error: function () {
-            alert('Could not show data from database');
+            Swal.fire(
+                'Cliente!',
+                'Error en la Comunicación con la Base de Datos!',
+                'error'
+            )
         }
 
     });
 }
-
-
 

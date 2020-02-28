@@ -33,10 +33,11 @@ class Inventario_m extends CI_Model
 
     public function mostrarProductos($id = null){
         $borrado=array(
-            'borradoLogico'=>1,
+            'i.borradoLogico'=>1,
         );
-        $this->db->select("*");
-        $this->db->from("inventario");
+        $this->db->select("i.nombreInv,i.precio,i.stock,i.descripcion,p.nombre");
+        $this->db->from("inventario i");
+        $this->db->join("proveedor p","i.idProveedor=p  .idProveedor");
         $this->db->where($borrado);
         if($id!=null){
             $this->db->where("idInventario",$id);
@@ -57,9 +58,42 @@ class Inventario_m extends CI_Model
     }
 
 
-    public function mostrarProdcuto(){
+    //Este metodo verifica si existen productos de X Proveedor
+    public function validarProdExi($id){
+        $this->db->select("*");
+        $this->db->where("idProveedor",$id);
+        $this->db->from("inventario");
+        $query = $this->db->get();
+
+        if ($query->num_rows()>0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+
+    //Este metodo verifica si existe producto en detalle
+    public function validarDetalle($dataV){
+        $this->db->select("*");
+        $this->db->where($dataV);
+        $this->db->from("detalleinvcompra");
+        $query = $this->db->get();
+
+        if ($query->num_rows()>0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+
+    public function mostrarProdcuto($id){
         $borrado=array(
             'borradoLogico'=>1,
+            'idProveedor'=>$id,
         );
         $this->db->select("idInventario,nombreInv");
         $this->db->from("inventario");
@@ -77,6 +111,12 @@ class Inventario_m extends CI_Model
 
     public function agregarDetalle($data){
         $this->db->insert("detalleinvcompra",$data);
+        return $this->db->insert_id();
+    }
+
+    public function agregarDetalle2($cantidad,$idInv,$idCompra){
+        $query = "update detalleinvcompra d set cantidad=(select (d.cantidad+$cantidad) where d.idCompra=$idCompra and d.idInventario=$idInv) WHERE d.idCompra=$idCompra and d.idInventario=$idInv";
+        $this->db->query($query);
         return $this->db->insert_id();
     }
 
@@ -122,9 +162,9 @@ class Inventario_m extends CI_Model
 
 
     //Mostrar Productos Nuevos
-    public function mostrarNew($idCompra){
+    public function mostrarNew($idProveedor){
         $compra=array(
-            'idCompra'=>$idCompra,
+            'idProveedor'=>$idProveedor,
         );
         $this->db->select("*");
         $this->db->from("inventario");
@@ -215,3 +255,4 @@ class Inventario_m extends CI_Model
         return $this->db->affected_rows();
     }
 }
+

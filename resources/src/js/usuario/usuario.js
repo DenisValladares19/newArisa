@@ -1,18 +1,57 @@
 $(document).ready(function () {
 
     showUsers();
-    $('#data').DataTable();
-    $(document).on("click", "#agregarCliente", function () {
-        $("#frmInsertarCliente").modal("show");
-    })});
 
+    $("#error").hide();
+
+    $("#nombres").change(function () {
+        validarUsuario();
+    });
+
+
+});
+
+
+function validarUsuario(){
+    var usuario = $("#nombres").val();
+
+    $.ajax(
+        {
+            url:"Usuario/validarUsuario",
+            type: "POST",
+            data: {usuario},
+            dataType: "JSON",
+            success:function (r) {
+                if(r==false)
+                {
+                    $("#error").hide();
+                }
+                else
+                {
+                    $("#error").show();
+
+                }
+
+            },
+        });
+}
+
+
+
+
+
+
+
+$(document).on("click", "#agregarCliente", function () {
+    $("#frmInsertarCliente").modal("show");
+});
 
 $(document).on('click','#btnSaveUserId',function(){
     event.preventDefault();
     var formData = new FormData($("#frmUserId")[0]);
 
     $.ajax({
-        url: BASE_URL+'index.php/Usuario/addUser',
+        url: 'Usuario/addUser',
         type: 'post',
         data: formData,
         cache: false,
@@ -21,6 +60,21 @@ $(document).on('click','#btnSaveUserId',function(){
 
     })
         .done(function() {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 4000,
+                timerProgressBar: true,
+                onOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+        })
+            Toast.fire({
+                icon: 'success',
+                title: 'Información Insertada Correctamente'
+            })
 
             $("#frmInsertarCliente").modal("hide");
             $('#frmUserId')[0].reset();
@@ -28,7 +82,11 @@ $(document).on('click','#btnSaveUserId',function(){
 
         })
         .fail(function() {
-            alert("ocurrio un error");
+            Swal.fire(
+                'Usuario!',
+                'Error en el Intentó de Inserción de Información',
+                'error'
+            )
         });
 
 });
@@ -41,7 +99,7 @@ $(document).on('click','#editar',function () {
     $.ajax({
         type:'ajax',
         method: 'get',
-        url: BASE_URL+'index.php/Usuario/updateUser',
+        url: 'Usuario/updateUser',
         data: {idUser:id},
         async: false,
         dataType: 'json',
@@ -50,11 +108,15 @@ $(document).on('click','#editar',function () {
             $('input[name=emailE]').val(data.correo);
             $('input[name=passE]').val(data.pass);
             $('select[name=rolE]').val(data.idRol);
-
+            $('#imagenEId').val('<img="../resources/images/uploads/'+data.image+'">');
             $('input[name=txtId]').val(data.idUser);
         },
         error:function () {
-            alert('Could not edit data');
+            Swal.fire(
+                'Usuario!',
+                'Error en la Comunicación con la Base de Datos',
+                'error'
+            )
         }
     })
 
@@ -63,9 +125,20 @@ $(document).on('click','#editar',function () {
 
 $(document).on('click','#btnEditUserId',function(){
     event.preventDefault();
+    Swal.fire({
+        title: 'Está seguro de Editar la Información?',
+        text: "¡No podrás revertir esto!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, editarlo'
+    }).then((result) => {
+        if (result.value) {
+
     var formData = new FormData($("#frmUserIdEdit")[0]);
     $.ajax({
-        url: BASE_URL+'index.php/Usuario/saveChanges',
+        url: 'Usuario/saveChanges',
         type: 'post',
         data: formData,
         cache: false,
@@ -73,6 +146,21 @@ $(document).on('click','#btnEditUserId',function(){
         processData: false
     })
         .done(function() {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 4000,
+                timerProgressBar: true,
+                onOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+        })
+            Toast.fire({
+                icon: 'success',
+                title: 'Información Editada Correctamente'
+            })
 
             $("#frmEditarUsuario").modal("hide");
             $('#frmUserIdEdit')[0].reset();
@@ -80,9 +168,14 @@ $(document).on('click','#btnEditUserId',function(){
 
         })
         .fail(function() {
-            alert("ocurrio un error");
+            Swal.fire(
+                'Usuario!',
+                'Error en el Intentó de Editar la Información',
+                'error'
+            )
         });
-
+    }
+})
 });
 
 $(document).on('click','#btnDeleteId',function(){
@@ -92,52 +185,78 @@ $(document).on('click','#btnDeleteId',function(){
 
 $(document).on('click','#eliminar',function(){
     event.preventDefault();
+    Swal.fire({
+        title: 'Está seguro de Eliminar la Información?',
+        text: "¡Pueda que esta Información se Oculte de está Seccion!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si,eliminarlo'
+    }).then((result) => {
+        if (result.value) {
+
     var id = $(this).attr('data');
-    $("#deleteModal").modal("show");
-    $("#btnDeleteId").unbind().click(function () {
         $.ajax({
             type: 'ajax',
             method: 'get',
             async: false,
-            url: BASE_URL+'index.php/Usuario/eraseUser',
+            url: 'Usuario/eraseUser',
             data:{idUser:id},
             cache:false,
             dataType: 'json',
-            success:function (response) {
-                $("#deleteModal").modal("hide");
+            success:function () {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 4000,
+                    timerProgressBar: true,
+                    onOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+            })
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Información eliminada Correctamente'
+                })
+
                 showUsers();
             },
             error:function () {
-                $("#deleteModal").modal("hide");
+                Swal.fire(
+                    'Usuario!',
+                    'Error en el intento de Eliminar la Información',
+                    'error'
+                )
                 showUsers();
             }
         })
-    })
-
+    }
+})
 });
 
 function showUsers() {
     $.ajax({
         type: 'POST',
-        url: BASE_URL+'index.php/Usuario/showUsers',
+        url: 'Usuario/showUsers',
         async: false,
         dataType: 'json',
-        success: function (data) {
-            var html = '';
-            var i;
-            for(i=0; i<data.length; i++){
-                html+='<tr>'+
-                    '<td>'+data[i].nombre+'</td>'+
-                    '<td>'+data[i].correo+'</td>'+
-                    '<td> <img style="width: 100px; height: 100px;" src="../resources/images/uploads/'+data[i].image+'"></td>'+
-                    '<td>'+
-                    '<a class="btn btn-outline-info btnEditar" href="javascript:;" data="'+data[i].idUser+'" id="editar"><i class="fas fa-marker"></i></a>\n' +
-                    '<a class="btn btn-outline-danger btnEliminar"href="javascript:;" data="'+data[i].idUser+'" id="eliminar"><i class="far fa-trash-alt"></i></a>'+
-                    '</td>'+
-                    '</tr>';
-            }
-            $('#table').html(html);
-            $("#data").dataTable({
+        success:function (data) {
+            $("#dataUsuario").dataTable().fnDestroy();
+            $("#dataUsuario tbody tr").remove();
+            $.each(data, function (key,val) {
+                var fila ='<tr><td width="15%"><div>';
+                fila=fila + val.nombre + '</div></td><td>';
+                fila=fila + val.correo + '</div></td>';
+                fila = fila +  '<td>  <img style="width: 100px; height: 100px;" src="../resources/images/uploads/'+val.image+'"></td>';
+                fila = fila +  '<td> <a class="btn btn-outline-info btnEditar" href="javascript:;" data="'+val.idUser+'" id="editar"><i class="fas fa-marker"></i></a>\n' +
+                    '<a class="btn btn-outline-danger btnEliminar"href="javascript:;" data="'+val.idUser+'" id="eliminar"><i class="far fa-trash-alt"></i></a>';
+                fila = fila + '</td></tr>';
+                $("#dataUsuario tbody").append(fila);
+            });
+            $("#dataUsuario").dataTable({
                 bLengthChange: false,
                 language: {
                     "decimal": "",
@@ -161,10 +280,12 @@ function showUsers() {
                 }
             });
         },
-
-
         error: function () {
-            alert('Could not show data from database');
+            Swal.fire(
+                'Usuario!',
+                'Error en la Comunicación con la Base de Datos',
+                'error'
+            )
         }
 
     });
@@ -199,9 +320,5 @@ $('#rolId').change(function () {
         alert(id)
     });
 });
-
-
-
-
 
 

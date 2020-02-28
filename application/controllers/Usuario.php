@@ -30,6 +30,12 @@ class Usuario extends New_Padre
 
     }
 
+    public function validarUsuario(){
+        $usuario=&$_POST["usuario"];
+        $r = $this->Usuario_M->validarUsuario($usuario);
+        echo json_encode($r);
+    }
+
     public function showUsers(){
         $result = $this->Usuario_M->getUsers();
         echo json_encode($result);

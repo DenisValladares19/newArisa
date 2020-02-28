@@ -74,4 +74,19 @@ class Usuario_M extends CI_Model
         }
     }
 
+
+    public function validarUsuario($user){
+        $this->db->select("*");
+        $this->db->where("nombre",$user);
+        $this->db->from("usuario");
+        $query = $this->db->get();
+
+        if ($query->num_rows()>0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 }

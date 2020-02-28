@@ -35,6 +35,7 @@ class Cliente extends CI_Controller
     public function addClient(){
         $data = array("idCliente"=>0,
             "nombre"=>$_POST["nombre"],
+            "apellido"=>$_POST["apellido"],
             "empresa"=>$_POST["empresa"],
             "telefono"=>$_POST["telefono"],
             "celular"=>$_POST["telefonoC"],
@@ -58,6 +59,7 @@ class Cliente extends CI_Controller
         $id = $_POST["idCliente"];
         $data = array(
             "nombre"=>$_POST["nombreE"],
+            "apellido"=>$_POST["apellidoE"],
             "empresa"=>$_POST["empresaE"],
             "telefono"=>$_POST["telefonoE"],
             "celular"=>$_POST["telefonoCE"],
@@ -80,5 +82,33 @@ class Cliente extends CI_Controller
         $result = $this->Cliente_M->deleteClient($id, $data);
         echo json_encode($result);
     }
+
+
+
+    public function mostrarEliminados(){
+        $res = $this->Cliente_M->restClientes();
+        echo json_encode($res);
+    }
+
+    public function restaurar(){
+        $id = $this->input->post("id");
+
+        $where=array(
+            'idCliente'=>$id,
+        );
+
+        $set=array(
+            'borradoLogico'=>1,
+        );
+
+        $res= $this->Cliente_M->restaurar($set,$where);
+
+        if($res>=0)
+        {
+            header("Location: ".site_url("Cliente"));
+        }
+
+    }
+
 
 }

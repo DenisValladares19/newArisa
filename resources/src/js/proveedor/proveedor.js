@@ -160,6 +160,17 @@ $(document).ready(function () {
 
     $(document).on("click", "#btnGuardarEdit", function () {
         event.preventDefault();
+        Swal.fire({
+            title: 'Está seguro de Editar la Información?',
+            text: "¡No podrás revertir esto!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, editarlo'
+        }).then((result) => {
+            if (result.value) {
+
         var datos = $("#frmEdit").serializeArray();
         $.ajax({
             url:"Proveedor/modificar",
@@ -186,6 +197,9 @@ $(document).ready(function () {
         $("#frmModicicar").modal("hide");
         $('#frmEdit')[0].reset();
         llenarTabla();
+
+        }
+    })
     });
 
 
@@ -235,10 +249,6 @@ $(document).ready(function () {
 
     $(document).on("click","#rest",function () {
         $("#modalRecu").modal("show");
-    })
-
-
-    $(document).on("click","#rest",function () {
         llenarTablaRecuperacion();
     })
 
@@ -285,10 +295,10 @@ $(document).ready(function () {
                 })
                 llenarTabla();
                 llenarTablaRecuperacion();
-                $("#modalRecu").show();
+            $("#modalRecu").modal("hide");
             }
             else{
-                $("#modalRecu").show();
+            $("#modalRecu").modal("show");
             }
         })
 

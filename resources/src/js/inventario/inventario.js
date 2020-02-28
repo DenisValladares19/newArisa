@@ -57,8 +57,10 @@ function llenarTablaInv()
                 $.each(data, function (key,val) {
                     var fila ='<tr><td><div align="center">';
                     fila=fila + val.nombreInv + '</div></td><td>';
-                    fila=fila + val.precio + '</div></td><td>';
+                    fila=fila + val.nombre + '</div></td><td>';
                     fila=fila + val.stock + '</div></td><td>';
+                    fila=fila + val.precio + '</div></td><td>';
+                    fila=fila + val.precio*val.stock + '</div></td><td>';
                     fila=fila + val.descripcion + '</div></td>';
                     fila = fila +  '<td> <a class="btn btn-outline-info btnEditar" id="'+val.idInventario+'"><i class="fas fa-marker"></i></a>\n' +
                         '                     <a class="btn btn-outline-danger btnEliminar"id="'+val.idInventario+'"><i class="far fa-trash-alt"></i></a>';
@@ -106,7 +108,8 @@ function listProv(){
 
 
 function listProd(){
-    $.post("Inventario/mostrarProd",{},function(res){
+    let idP = localStorage.getItem("idProveedor");
+    $.post("Inventario/mostrarProd",{idProveedor:idP},function(res){
         var r = JSON.parse(res);
         $("#selectProd option").remove();
         $("#selectProd").append("<option>Elige el Producto</option>");
@@ -118,12 +121,13 @@ function listProd(){
 
 
 function listProvEditarEx(){
-    $.post("Inventario/mostrarProd",{},function(res){
-        var r = JSON.parse(res);
+    let idP = localStorage.getItem("idProveedor");
+    $.post("Inventario/mostrarProdEdit",{idProveedor:idP},function(res){
+        var d = JSON.parse(res);
         $("#selectProdE option").remove();
         $("#selectProdE").append("<option>Elige el Producto</option>");
-        for(var i = 0;i<r.length;i++){
-            $("#selectProdE").append("<option value='"+r[i].idInventario+"'>"+r[i].nombreInv+"</option>");
+        for(var i = 0;i<d.length;i++){
+            $("#selectProdE").append("<option value='"+d[i].idInventario+"'>"+d[i].nombreInv+"</option>");
         }
     });
 }
@@ -187,16 +191,16 @@ function llenarTablaEx()
 
 function llenarTablaNew()
 {
-    let idCompra = localStorage.getItem("idCompra");
+    let idP = localStorage.getItem("idProveedor");
     $.ajax(
         {
             url:"Inventario/mostrarNew",
             type: "POST",
-            data: {idCompra},
-            success:function (res) {
-                let data = JSON.parse(res);
+            data: {idProveedor:idP},
+            success:function (r) {
+                let data = JSON.parse(r);
                 if(data!=""){
-
+                    $("#tabla1").show();
                     $("#tablaNew").show();
                     $("#tablaNew").dataTable().fnDestroy();
                     $("#tablaNew tbody tr").remove();
@@ -206,8 +210,8 @@ function llenarTablaNew()
                         fila=fila + val.precio + '</div></td><td>';
                         fila=fila + val.stock + '</div></td><td>';
                         fila=fila + val.descripcion + '</div></td>';
-                        fila = fila +  '<td> <a class="btn btn-outline-info btnEditarNew" id="'+val.idInventario+'"><i class="fas fa-marker"></i></a>\n' +
-                            '                     <a class="btn btn-outline-danger btnEliminarNew"id="'+val.idInventario+'"><i class="far fa-trash-alt"></i></a>';
+                        fila = fila +  '<td> <a class="btn btn-outline-info btnEditarEx" id="'+val.idInventario+'"><i class="fas fa-marker"></i></a>\n' +
+                            '                     <a class="btn btn-outline-danger btnEliminarEx"id="'+val.idInventario+'"><i class="far fa-trash-alt"></i></a>';
                         fila = fila + '</td></tr>';
                         $("#tablaNew tbody").append(fila);
                     });
@@ -279,43 +283,11 @@ $(document).ready(function () {
     $("#next1").show();
     $("#next2").hide();
 
-    $(document).on("click","#rest",function () {
+    $(document).on("click","#compras",function () {
         llenarTablaCompras();
         $("#frmCompras").modal("show");
     });
 
-    $(document).on("click",".add1",function () {
-        $("#agregarInventario").modal("hide");
-        $("#addEx").modal("show");
-
-    });
-
-$(document).on("click","#end",function () {
-    let idCompra = localStorage.getItem("idCompra");
-    $.ajax({
-        url:"inventario/mostrarProdCompra",
-        type:"POST",
-        data: {idCompra:idCompra}
-        }).done(function(res){
-            const data = JSON.parse(res);
-            for(let i=0;i<data.length;i++){
-                $.ajax({
-                    url:"inventario/actualizarStock",
-                    type:"POST",
-                    data:{idCompra:idCompra, idInventario:data[i].idInventario}
-                }).done(function(res){
-                    Swal.fire(
-                        'Inventario',
-                        'Compra Registrada Exitosamente!',
-                        'success'
-                      );
-                    llenarTablaInv();
-                    llenarTablaCompras();
-                    $("#agregarInventario").modal("hide");
-                });
-            }
-        })   
-});
 
     $(document).on("click","#addInv",function () {
         $("#agregarInventario").modal("show");
@@ -334,30 +306,63 @@ $(document).on("click","#end",function () {
     $(document).on("click","#next1",function () {
         event.preventDefault();
         var datos = $("#frmCompra").serializeArray();
+        var proveedor= $("#selectProv").val();
+        localStorage.setItem("idProveedor",proveedor);
         $.ajax({
             url:"Inventario/insertarCompras",
             type:"POST",
             data: datos
         }).done(function (res) {
             localStorage.setItem("idCompra",res);
+            let idProveedor = localStorage.getItem("idProveedor");
 
-            $("#cancelar").hide();
-            if($("#paso1").show()) {
-                $("#paso1").hide();
-                $("#paso2").show();
-                $("#paso3").hide();
-                $("#next1").hide();
-                $("#next2").show();
-                $("#end").hide();
+            $.ajax({
+                url:"Inventario/validarProdExi",
+                type:"POST",
+                data: {idProveedor:idProveedor}
+            }).done(function (r) {
+                let re = JSON.parse(r);
+                if(re==true) {
+                    listProd();
+                    listProvEditarEx();
 
-            }
+                    $("#cancelar").hide();
+
+                    $("#paso1").hide();
+                    $("#paso2").show();
+                    $("#paso3").hide();
+
+                    $("#next1").hide();
+                    $("#next2").show();
+                    $("#end").hide();
+
+                }
+                else if(re==false){
+                    $("#paso1").hide();
+                    $("#paso2").hide();
+                    $("#paso3").show();
+
+                    $("#next1").hide();
+                    $("#next2").hide();
+                    $("#end").show();
+
+                }
+            })
+
 
         })
 
     });
 
+    $(document).on("click",".add1",function () {
+        $("#agregarInventario").modal("hide");
+        $("#addEx").modal("show");
+
+    });
+
 
     //CRUD PRODUCTOS EXISTENTES
+
 
      $(document).on("click","#addExistentes",function () {
             event.preventDefault();
@@ -462,11 +467,11 @@ $(document).on("click","#end",function () {
     $(document).on("click","#addNuevos",function () {
         event.preventDefault();
         var datosNew = $("#frmNew").serializeArray();
-        let idCompra = localStorage.getItem("idCompra");
+        let idProveedor = localStorage.getItem("idProveedor");
         $.ajax({
             url:"Inventario/insertarNuevo",
             type:"POST",
-            data: {datosNew,idCompra},
+            data: {datosNew,idProveedor},
         }).done(function (res) {
             localStorage.setItem("idDetalle",res);
             $("#agregarInventario").modal("show");
@@ -541,7 +546,32 @@ $(document).on("click","#end",function () {
 
 
 
-
+    $(document).on("click","#end",function () {
+        let idCompra = localStorage.getItem("idCompra");
+        $.ajax({
+            url:"inventario/mostrarProdCompra",
+            type:"POST",
+            data: {idCompra:idCompra}
+        }).done(function(res){
+            const data = JSON.parse(res);
+            for(let i=0;i<data.length;i++){
+                $.ajax({
+                    url:"inventario/actualizarStock",
+                    type:"POST",
+                    data:{idCompra:idCompra, idInventario:data[i].idInventario}
+                }).done(function(res){
+                    Swal.fire(
+                        'Inventario',
+                        'Compra Registrada Exitosamente!',
+                        'success'
+                    );
+                    llenarTablaInv();
+                    llenarTablaCompras();
+                    $("#agregarInventario").modal("hide");
+                });
+            }
+        })
+    });
 
 
 
