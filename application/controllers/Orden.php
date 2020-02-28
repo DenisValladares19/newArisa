@@ -236,4 +236,19 @@ class Orden extends Padre_Desing
         $this->Orden_M->disminuirStock($idInv,$cant);
     }
 
+    public function print(){
+        $idOrden = $_GET["o"];
+        $idCotizacion = $_GET["d"];
+
+        $orden = $this->Orden_M->print($idOrden);
+        $detalle = $this->Orden_M->printDetalle($idCotizacion);
+
+        $data = array(
+            "orden"=> $orden,
+            "detalle"=>$detalle
+        );
+
+        $this->load->view("orden/reporte",$data);
+    }
+
 }

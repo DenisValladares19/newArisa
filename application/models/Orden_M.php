@@ -251,4 +251,24 @@ class Orden_M extends CI_Model
         $this->db->query($query);
         return $this->db->affected_rows();
     }
+
+    public function print($id){
+        //$query = "SELECT o.*, c.codigo, cl.nombre AS nomCliente, cl.apellido AS apeCliente  FROM orden o JOIN cotizacion c ON o.idCotizacion = c.idCotizacion JOIN cliente cl ON c.idCliente = cl.idCliente WHERE o.borradoLogico !=0 AND O.idOrden=$id";
+        
+        $this->db->select("o.*, c.codigo, cl.nombre AS nomCliente, cl.apellido AS apeCliente");
+        $this->db->from("orden o");
+        $this->db->join("cotizacion c", "o.idCotizacion = c.idCotizacion");
+        $this->db->join("cliente cl", "c.idCliente = cl.idCliente");
+        $this->db->where("o.borradoLogico !=0 AND O.idOrden=$id");
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function printDetalle($id){
+        $this->db->select("*");
+        $this->db->from("detalleCotizacion");
+        $this->db->where(" idCotizacion=$id ");
+        $query = $this->db->get();
+        return $query->result();
+    }
 }
