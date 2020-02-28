@@ -28,9 +28,9 @@
         <div class="btn btn-primary" id="reporteRF">Órdenes por rango de fechas</div>
     </div>
 
-    <div class="col-md-1">
+    <!--<div class="col-md-1">
         <div class="btn btn-primary" id="reporteOrden">Seleccionar orden</div>
-    </div>
+    </div>-->
 
 </div>
 

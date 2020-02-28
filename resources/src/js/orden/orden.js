@@ -700,8 +700,8 @@ function showOrden() {
                     '<td>'+data[i].url+'</td>'+
                     '<td>'+data[i].nombreE+'</td>'+
                     '<td>'+
-                    '<a class="btn btn-outline-info" href="javascript:;" data="'+data[i].idOrden+'" id="editar"><i class="fas fa-marker"></i></a>\n' +
-                    '<a class="btn btn-outline-danger  href="javascript:;" data="\'+data[i].idOrden+\'" id="eliminar"><i class="far fa-trash-alt"></i></a>'+
+                    '<button class="btn btn-outline-info" href="javascript:;" data="'+data[i].idOrden+'" id="editar"><i class="fas fa-marker"></i></button>\n' +
+                    '<button class="btn btn-outline-dark mr-1" onClick="print('+data[i].idOrden+', '+data[i].idCotizacion+')" ><i class="fas fa-print"></i></button><button class="btn btn-outline-danger  href="javascript:;" data="\'+data[i].idOrden+\'" id="eliminar"><i class="fas fa-trash-alt"></i></button>'+
                     '</td>'+
                     '</tr>';
             }
@@ -871,3 +871,9 @@ $(document).on('click','#select',function(){
     console.log(id);
 });
 
+
+
+///// Codigo agregado por Denis XD
+function print(idOrden, idCotizacion){
+    window.open("orden/print?o="+idOrden+"&d="+idCotizacion,"_back");
+}
