@@ -60,7 +60,7 @@ function llenarTablaInv()
                     fila=fila + val.nombre + '</div></td><td>';
                     fila=fila + val.stock + '</div></td><td>';
                     fila=fila + val.precio + '</div></td><td>';
-                    fila=fila + val.precio*val.stock + '</div></td><td>';
+                    fila=fila + (val.precio*val.stock).toFixed(2) + '</div></td><td>';
                     fila=fila + val.descripcion + '</div></td>';
                     fila = fila +  '<td> <a class="btn btn-outline-info btnEditar" id="'+val.idInventario+'"><i class="fas fa-marker"></i></a>\n' +
                         '                     <a class="btn btn-outline-danger btnEliminar"id="'+val.idInventario+'"><i class="far fa-trash-alt"></i></a>';
@@ -191,30 +191,52 @@ function llenarTablaEx()
 
 function llenarTablaNew()
 {
-    let idP = localStorage.getItem("idProveedor");
+    let idDetalle = localStorage.getItem("idDetalle");
     $.ajax(
         {
             url:"Inventario/mostrarNew",
             type: "POST",
-            data: {idProveedor:idP},
+            data: {idDetalle:idDetalle},
             success:function (r) {
                 let data = JSON.parse(r);
+                console.log(data)
                 if(data!=""){
+                    
+                    let fila = `<table class="table table-bordered" width="100%" cellspacing="0" id="tablaNew">
+                    <thead style="background-color: rgba(11, 23, 41 , 0.6);">
+                    <th>Nombres del Producto</th>
+                    <th>Precio Unitario</th>
+                    <th>Cantidad</th>
+                    <th>Descripcion</th>
+                    <th>Acciones</th>
+                    </thead>
+                    <tbody>`;
+                    for(let i=0;i<data.length;i++){
+                        fila+= `
+                            <tr>
+                            <td><div align="center">${data[i].nombreInv}</div></td>
+                            <td><div>${data[i].precio}</div></td>
+                            <td><div>${data[i].stock}</div></td>
+                            <td><div>${data[i].descripcion}</div></td>
+                            <td> <a class="btn btn-outline-info btnEditarEx" id="${data[i].idInventario}"><i class="fas fa-marker"></i></a>
+                            <a class="btn btn-outline-danger btnEliminarEx" id="${data[i].idInventario}"><i class="far fa-trash-alt"></i></a>
+                            </td></tr>
+                        `;
+                    }
+                    fila+= ` </tbody>
+                    <tfoot>
+                    <th>Nombres del Producto</th>
+                    <th>Precio Unitario</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Descripcion</th>
+                    <th>Acciones</th>
+                    </tfoot>
+                </table>`;
+                    $("#tablaNew").empty();
+                    $("#tabla1").append(fila);
                     $("#tabla1").show();
-                    $("#tablaNew").show();
-                    $("#tablaNew").dataTable().fnDestroy();
-                    $("#tablaNew tbody tr").remove();
-                    $.each(data, function (key,val) {
-                        var fila ='<tr><td><div align="center">';
-                        fila=fila + val.nombreInv + '</div></td><td>';
-                        fila=fila + val.precio + '</div></td><td>';
-                        fila=fila + val.stock + '</div></td><td>';
-                        fila=fila + val.descripcion + '</div></td>';
-                        fila = fila +  '<td> <a class="btn btn-outline-info btnEditarEx" id="'+val.idInventario+'"><i class="fas fa-marker"></i></a>\n' +
-                            '                     <a class="btn btn-outline-danger btnEliminarEx"id="'+val.idInventario+'"><i class="far fa-trash-alt"></i></a>';
-                        fila = fila + '</td></tr>';
-                        $("#tablaNew tbody").append(fila);
-                    });
+                    
                     $("#tablaNew").dataTable({
                         bLengthChange: false,
                         language: {
@@ -473,7 +495,15 @@ $(document).ready(function () {
             type:"POST",
             data: {datosNew,idProveedor},
         }).done(function (res) {
-            localStorage.setItem("idDetalle",res);
+            if(!localStorage.getItem("idDetalle")){
+                let nuevos = [`${res}`];
+                localStorage.setItem("idDetalle", nuevos)
+            }else{
+                let arreglo = localStorage.getItem("idDetalle");
+                arreglo.push(`${res}`);
+                localStorage.setItem("idDetalle", arreglo);
+            }
+            
             $("#agregarInventario").modal("show");
             $("#addNew").modal("hide");
             $('#frmNew')[0].reset();

@@ -162,15 +162,18 @@ class Inventario_m extends CI_Model
 
 
     //Mostrar Productos Nuevos
-    public function mostrarNew($idProveedor){
-        $compra=array(
-            'idProveedor'=>$idProveedor,
-        );
-        $this->db->select("*");
-        $this->db->from("inventario");
-        $this->db->where($compra);
-        $query = $this->db->get();
-        return $query->result();
+    public function mostrarNew($idDetalle){
+        $arreglo¡;
+        for($i=0;$i<count($idDetalle);$i++){
+            $this->db->select("*");
+            $this->db->from("inventario");
+            $this->db->where("idInventario",$idDetalle[$i]);
+            $query = $this->db->get();
+            $arreglo = array(
+                "data"=>$query->result()
+            );
+        }
+        return $arreglo;
     }
 
     //Mostrar Productos Nuevos Editar

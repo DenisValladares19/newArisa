@@ -141,26 +141,9 @@
                                     
                                         <!-- Content here-->
                                         <div class="container-fluid" id="tabla1">
-                                            <table class="table table-bordered" width="100%" cellspacing="0" id="tablaNew">
-                                                <thead style="background-color: rgba(11, 23, 41 , 0.6);">
-                                                <th>Nombres del Producto</th>
-                                                <th>Precio Unitario</th>
-                                                <th>Cantidad</th>
-                                                <th>Descripcion</th>
-                                                <th>Acciones</th>
-                                                </thead>
-                                                <tbody>
+                                            
 
-                                                </tbody>
-                                                <tfoot>
-                                                <th>Nombres del Producto</th>
-                                                <th>Precio Unitario</th>
-                                                <th>Cantidad</th>
-                                                <th>Precio</th>
-                                                <th>Descripcion</th>
-                                                <th>Acciones</th>
-                                                </tfoot>
-                                            </table>
+                                               
                                         </div>
                                     </div>
                                 </div>

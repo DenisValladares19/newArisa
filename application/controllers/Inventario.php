@@ -161,8 +161,8 @@ class Inventario extends Padre_Desing
 
     //Obteniendo datos de la tabla Inventario a la Hora de Insertar
     public function mostrarNew(){
-        $idProveedor = $_POST["idProveedor"];
-        $res = $this->Inventario_m->mostrarNew($idProveedor);
+        $idDetalle = $_POST["idDetalle"];
+        $res = $this->Inventario_m->mostrarNew($idDetalle);
 
         echo json_encode($res);
     }
