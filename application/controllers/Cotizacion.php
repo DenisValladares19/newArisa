@@ -64,8 +64,8 @@ class Cotizacion extends Padre_Desing
         $form = $_POST["form"];  
         $desc = $form[0]['value'];
         $cant = $form[1]['value'];
-        $precio = $form[2]['value'];
-        $total = $precio*$cant;
+        $total = $form[2]['value'];
+        $precio = $total/$cant;
         $idCotizacion = $_POST["idCotizacion"];
          //Insercion a la tabla descCotizacion 
         $data1 = array(
@@ -113,8 +113,8 @@ class Cotizacion extends Padre_Desing
         $form = $_POST["form"];
         $desc = $form[0]['value'];
         $cant = $form[1]['value'];
-        $precio = $form[2]['value'];
-        $total = $precio*$cant;
+        $total = $form[2]['value'];
+        $precio = $total/$cant;
         $idCotizacion = $_POST["idCotizacion"];
         $idDesc = $_POST["idDesc"];
 
@@ -142,10 +142,10 @@ class Cotizacion extends Padre_Desing
         $form = $_POST["data"];
         $desc = $form[0]['value'];
         $cant = $form[1]['value'];
-        $precio = $form[2]['value'];
+        $total = $form[2]['value'];
         $idDetalle = $form[3]['value'];
         $idDesc = $_POST["idDesc"];
-        $total = $precio*$cant;
+        $precio = $total/$cant;
 
         $data = array(
             "descripcion"=>$desc,

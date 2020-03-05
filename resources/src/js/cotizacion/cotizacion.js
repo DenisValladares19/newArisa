@@ -112,7 +112,7 @@ $(document).ready(function () {
             var data = JSON.parse(JSON.stringify(res));
             $("#descE").val(data[0].descripcion);
             $("#cantE").val(data[0].cantidad);
-            $("#PrecioE").val(data[0].precio);
+            $("#totalE").val(data[0].total);
             $("#idDescE").val(data[0].idDetalle);
         });
     }
@@ -240,7 +240,7 @@ $(document).ready(function () {
             var data = JSON.parse(res);
             if(data["desc"]!=""){
                 
-                Swal.fire({
+                /*Swal.fire({
                     title: 'Cotización',
                     text: "Esta cotización esta aprobada?",
                     icon: 'warning',
@@ -262,7 +262,7 @@ $(document).ready(function () {
                             llenarCotizacion();
                         })
                     }
-                  })
+                  })*/
                   $("#frmInsertarCliente").modal("hide");
                 llenarCotizacion();
                 limpiarCot();
@@ -656,13 +656,13 @@ function llenarCotizacion(){
 function limpiar(){
     $("#descI").val('');
     $("#cantI").val('');
-    $("#Precio").val('');
+    $("#total").val('');
 }
 
 function limpiar2(){
     $("#descEdit").val('');
     $("#cantEdit").val('');
-    $("#PrecioEdit").val('');
+    $("#totalEdit").val('');
 }
 
 function limpiarCot(){

@@ -68,7 +68,7 @@
                             <div class="row">
                                 <div class='col-md-6'><input type='text' name='desc' id='descI'class='form-control' onKeyup="validarCampo(event)"  placeholder='Descripción'/></div>
                                 <div class='col-md-3'><input type='text' name='cant' id='cantI' class='form-control' placeholder='Cantidad'/></div>
-                                <div class='col-md-3'><input type='text' name='precio' id='Precio' class="form-control" placeholder="precio"/></div>
+                                <div class='col-md-3'><input type='text' name='total' id='totalI' class="form-control" placeholder="Total"/></div>
                                 <div class="col-md-6" id="caracter">
                             <p style="color:red;">Numero de caracteres (<span id="nCaracter">0</span> - 100)</p>
                         </div>
@@ -103,7 +103,7 @@
                     <div class="row" id='divDesc'>
                     <div class='col-md-6'><input type='text' name='desc' id='descE'class='form-control desc' onKeyup="validarCampo(event)"  placeholder='Descripción'/></div>
                     <div class='col-md-3'><input type='text' name='cant' id='cantE' class='form-control' placeholder='Cantidad'/></div>
-                    <div class='col-md-3'><input type='text' name='precio' id='PrecioE' class="form-control" placeholder="precio"/></div>
+                    <div class='col-md-3'><input type='text' name='total' id='totalE' class="form-control" placeholder="Total"/></div>
                     <div class="col-md-6" id="caracter">
                             <p style="color:red;">Numero de caracteres (<span id="nCaracter">0</span> - 100)</p>
                         </div>
@@ -174,7 +174,7 @@
                     <div class="row" id='divDescEditar'>
                     <div class='col-md-6'><input type='text' name='desc' id='descEdit'class='form-control desc' onKeyup="validarCampo(event)" placeholder='Descripción'/></div>
                     <div class='col-md-3'><input type='text' name='cant' id='cantEdit' class='form-control' placeholder='Cantidad'/></div>
-                    <div class='col-md-3'><input type='text' name='precio' id='PrecioEdit' class="form-control" placeholder="precio"/></div>
+                    <div class='col-md-3'><input type='text' name='total' id='totalEdit' class="form-control" placeholder="Total"/></div>
                     <div class="col-md-6" id="caracter">
                             <p style="color:red;">Numero de caracteres (<span id="nCaracter">0</span> - 100)</p>
                         </div>
