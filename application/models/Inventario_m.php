@@ -23,7 +23,7 @@ class Inventario_m extends CI_Model
         $this->db->from("compras");
         $this->db->join("proveedor","proveedor.idProveedor=compras.idProveedor");
         $this->db->where($borrado);
-        $this->db->order_by("compras.fecha", "DESC");
+        $this->db->order_by("compras.idCompras", "DESC");
         $this->db->limit("10");
         $query = $this->db->get();
         return $query->result();
@@ -34,7 +34,7 @@ class Inventario_m extends CI_Model
         $borrado=array(
             'i.borradoLogico'=>1,
         );
-        $this->db->select("i.nombreInv,i.precio,i.stock,i.descripcion,p.nombre");
+        $this->db->select("i.idInventario,i.nombreInv,i.precio,i.stock,i.descripcion,p.nombre");
         $this->db->from("inventario i");
         $this->db->join("proveedor p","i.idProveedor=p  .idProveedor");
         $this->db->where($borrado);
@@ -90,9 +90,20 @@ class Inventario_m extends CI_Model
 
 
     public function mostrarProdcuto($id){
+    $borrado=array(
+        'borradoLogico'=>1,
+        'idProveedor'=>$id,
+    );
+    $this->db->select("idInventario,nombreInv");
+    $this->db->from("inventario");
+    $this->db->where($borrado);
+    $query = $this->db->get();
+    return $query->result();
+    }
+
+    public function mostrarProds(){
         $borrado=array(
             'borradoLogico'=>1,
-            'idProveedor'=>$id,
         );
         $this->db->select("idInventario,nombreInv");
         $this->db->from("inventario");
@@ -124,10 +135,14 @@ class Inventario_m extends CI_Model
        $compra=array(
             'd.idCompra'=>$idCompra,
         );
+        $where=array(
+            'd.rol'=>1,
+        );
         $this->db->select("d.idDetalleInvCompra, d.cantidad,d.newPrecio, i.nombreInv");
         $this->db->from("detalleinvcompra d");
         $this->db->join("inventario i","d.idInventario = i.idInventario");
         $this->db->where($compra);
+        $this->db->where($where);
         $query = $this->db->get();
         return $query->result();
     }
@@ -187,7 +202,7 @@ class Inventario_m extends CI_Model
         return $this->db->insert_id();
     }
 
-    //Metodo para Modificar Info. Registro New.
+    //Metodo para Modificar Info. Registro New. y Inv
     public function modifiicarNuevo($data,$where)
     {
         $this->db->update("inventario",$data,$where);
@@ -262,6 +277,13 @@ class Inventario_m extends CI_Model
     public function eliminarCompra($where)
     {
         $this->db->delete("compras",$where);
+        return $this->db->affected_rows();
+    }
+
+    //Eliminar Inv
+    public function eliminarInv($data,$where)
+    {
+        $this->db->update("inventario",$data,$where);
         return $this->db->affected_rows();
     }
 }

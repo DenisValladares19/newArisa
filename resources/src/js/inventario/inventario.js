@@ -10,19 +10,21 @@
                 $("#tablaCompras tbody tr").remove();
                 var nMayor=0;
                 $.each(data, function (key,val) {
-                    var fila ='<tr><td><div align="center">';
-                    fila=fila + val.fecha + '</div></td><td>';
-                    fila=fila + val.subtotal + '</div></td><td>';
-                    fila=fila + val.nombre + '</td>';
-                    fila = fila +  '<td> <a class="btn btn-outline-dark btnVer" id="'+val.idCompras+'"><i <i class="far fa-eye"></i></i></a>';
-                    if(nMayor<val.idCompras)
-                    {
-                        nMayor=val.idCompras;
-                        fila = fila +  '&nbsp;<a class="btn btn-outline-info btnEditarCompra" id="'+val.idCompras+'"><i class="fas fa-marker"></i></a>\n' +
-                            '                     <a class="btn btn-outline-danger btnEliminarCompra"id="'+val.idCompras+'"><i class="far fa-trash-alt"></i></a>';
-                    }
-                    fila = fila + '</td></tr>';
-                    $("#tablaCompras tbody").append(fila);
+                        var fila ='<tr><td><div align="center">';
+                        fila=fila + val.fecha + '</div></td><td>';
+                        fila=fila + val.subtotal + '</div></td><td>';
+                        fila=fila + val.nombre + '</td>';
+                        fila = fila +  '<td> <a class="btn btn-outline-dark btnVer" id="'+val.idCompras+'"><i <i class="far fa-eye"></i></i></a>';
+                       /* if(nMayor<val.idCompras)
+                        {
+                            nMayor=val.idCompras;
+                            fila = fila +  '&nbsp;<a class="btn btn-outline-info btnEditarCompra" id="'+val.idCompras+'"><i class="fas fa-marker"></i></a>\n' +
+                                '                     <a class="btn btn-outline-danger btnEliminarCompra"id="'+val.idCompras+'"><i class="far fa-trash-alt"></i></a>';
+                        }*/
+                        fila = fila + '</td></tr>';
+                        $("#tablaCompras tbody").append(fila);
+
+
                 });
                 $("#tablaCompras").dataTable({
                     bLengthChange: false,
@@ -69,8 +71,8 @@ function llenarTablaInv()
                     fila=fila + "$"+val.precio + '</div></td><td>';
                     fila=fila + "$"+(val.precio*val.stock).toFixed(2) + '</div></td><td>';
                     fila=fila + val.descripcion + '</div></td>';
-                    fila = fila +  '<td> <a class="btn btn-outline-info btnEditar" id="'+val.idInventario+'"><i class="fas fa-marker"></i></a>\n' +
-                        '                     <a class="btn btn-outline-danger btnEliminar"id="'+val.idInventario+'"><i class="far fa-trash-alt"></i></a>';
+                    fila = fila +  '<td> <a class="btn btn-outline-info btnEditarInv" id="'+val.idInventario+'"><i class="fas fa-marker"></i></a>\n' +
+                        '                     <a class="btn btn-outline-danger btnEliminarInv"id="'+val.idInventario+'"><i class="far fa-trash-alt"></i></a>';
                     fila = fila + '</td></tr>';
                     $("#tablaProd tbody").append(fila);
                 });
@@ -106,10 +108,12 @@ function listProv(){
     $.post("Inventario/mostrarProv",{},function(res){
         var r = JSON.parse(res);
         $("#selectProv option").remove();
-        $("#selectProv").append("<option>Elige el Proveedor</option>");
         for(var i = 0;i<r.length;i++){
             $("#selectProv").append("<option value='"+r[i].idProveedor+"'>"+r[i].nombre+"</option>");
         }
+    });
+    $("#selectProv").select2({
+        width: "100%"
     });
 }
 
@@ -740,3 +744,260 @@ $(document).ready(function () {
 
     }); //.Ready
 
+
+//Para CRUD TALA INV
+
+$(document).on("click",".btnEditarInv",function ()  {
+
+    var id= $(this).attr("id");
+
+    $.ajax({
+        url: "Inventario/mostrarNuevo",
+        type: "post",
+        data: {id: id}
+    })
+        .done(function (data) {
+
+            var datos = JSON.parse(data);
+            $("#txtIdInv").val(datos[0].idInventario);
+            $("#nombreInvE").val(datos[0].nombreInv);
+            $("#precioInvE").val(datos[0].precio);
+            $("#cantInvE").val(datos[0].stock);
+            $("#descInvE").val(datos[0].descripcion);
+        })
+        .fail(function () {
+
+        })
+    $("#editarInv").modal("show");
+
+});
+
+$(document).on("click","#editInv",function () {
+    event.preventDefault();
+    Swal.fire({
+        title: 'Está seguro de Editar la Información?',
+        text: "¡No podrás revertir esto!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, editarlo'
+    }).then((result) => {
+        if (result.value) {
+
+        var datosNew = $("#frmEditInv").serializeArray();
+        $.ajax({
+            url:"Inventario/modifiicarInv",
+            type:"POST",
+            data: datosNew,
+        }).done(function (res) {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 4000,
+                timerProgressBar: true,
+                onOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+        })
+
+            Toast.fire({
+                icon: 'success',
+                title: 'Producto Modificado con Exito'
+            });
+        });
+        $("#editarInv").modal("hide");
+        $('#frmEditInv')[0].reset();
+        llenarTablaInv();
+
+    }
+})
+
+});
+
+
+
+
+$(document).on("click",".btnEliminarInv",function ()  {
+
+    Swal.fire({
+        title: '¿Estás seguro de Eliminar el Producto?',
+        text: "Pueda que esta Información se Oculte de está Seccion",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Si, Eliminaló!'
+    }).then((result) => {
+        if (result.value) {
+
+        var id= $(this).attr("id");
+
+        $.ajax({
+            url: "Inventario/eliminarInv",
+            type: "post",
+            data: {id: id}
+        })
+
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 4000,
+            timerProgressBar: true,
+            onOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+    }
+    })
+
+        Toast.fire({
+            icon: 'success',
+            title: 'Producto Eliminado con Exito'
+        });
+        llenarTablaInv();
+    }
+});
+
+});
+
+
+
+$(document).on("click",".btnVer",function ()  {
+
+    $("#frmDetalleCompra").modal("show");
+    $("#frmCompras").modal("hide");
+    var id= $(this).attr("id");
+    llenarTablaExCompra(id);
+    llenarTablaNewCompra(id);
+
+});
+
+$(document).on("click","#cancelarDetalleCompra",function ()  {
+    $("#frmCompras").modal("show");
+    $("#frmDetalleCompra").modal("hide");
+});
+
+
+
+function llenarTablaExCompra(id)
+{
+    let idCompra = id;
+    $.ajax(
+        {
+            url:"Inventario/mostrarExt",
+            type: "POST",
+            data: {idCompra},
+            success:function (res) {
+                let data = JSON.parse(res);
+                if(data!=""){
+                    $("#compra1").show();
+                    $("#tablaDetalle1").show();
+                    $("#tablaDetalle1").dataTable().fnDestroy();
+                    $("#tablaDetalle1 tbody tr").remove();
+                    $.each(data, function (key,val) {
+                        var fila ='<tr><td><div align="center">';
+                        fila=fila + val.nombreInv + '</div></td><td>';
+                        fila=fila + val.cantidad + '</div></td><td>';
+                        if(val.newPrecio>0)
+                        {
+                            fila=fila + "$"+val.newPrecio + '</div></td>';
+                        }
+                        else
+                        {
+                            fila=fila + "Mismo Precio" + '</div></td>';
+                        }
+                        fila = fila + '</tr>';
+                        $("#tablaDetalle1 tbody").append(fila);
+                    });
+                    $("#tablaDetalle1").dataTable({
+                        bLengthChange: false,
+                        language: {
+                            "decimal": "",
+                            "emptyTable": "No hay información",
+                            "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                            "infoEmpty": "Mostrando 0 a 0 de 0 Entradas",
+                            "infoFiltered": "(Filtrado de  _MAX_  total entradas)",
+                            "infoPostFix": "",
+                            "thousands": ",",
+                            "lengthMenu": "Mostrar _MENU_ Entradas",
+                            "loadingRecords": "Cargando...",
+                            "processing": "Procesando...",
+                            "search": "Buscar:",
+                            "zeroRecords": "Sin resultados encontrados",
+                            "paginate": {
+                                "first": "Primero",
+                                "last": "Ultimo",
+                                "next": "Siguiente",
+                                "previous": "Anterior"
+                            }
+                        }
+                    });
+                }
+                else{
+                    $("#compra1").hide();
+                }
+
+            },
+        });
+}
+
+function llenarTablaNewCompra(id)
+{
+
+    let idCompra = id;
+    $.ajax(
+        {
+            url:"Inventario/mostrarNew",
+            type: "POST",
+            data: {idCompra},
+            success:function (res) {
+                let data = JSON.parse(res);
+                if(data!=""){
+                    $("#compra2").show();
+                    $("#tablaDetalle2").show();
+                    $("#tablaDetalle2").dataTable().fnDestroy();
+                    $("#tablaDetalle2 tbody tr").remove();
+                    $.each(data, function (key,val) {
+                        var fila ='<tr><td><div align="center">';
+                        fila=fila + val.nombreInv + '</div></td><td>';
+                        fila=fila + val.stock + '</div></td><td>';
+                        fila=fila + "$"+val.precio + '</div></td><td>';
+                        fila=fila + val.descripcion + '</div></td>';
+                        fila = fila + '</tr>';
+                        $("#tablaDetalle2 tbody").append(fila);
+                    });
+                    $("#tablaDetalle2").dataTable({
+                        bLengthChange: false,
+                        language: {
+                            "decimal": "",
+                            "emptyTable": "No hay información",
+                            "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                            "infoEmpty": "Mostrando 0 a 0 de 0 Entradas",
+                            "infoFiltered": "(Filtrado de  _MAX_  total entradas)",
+                            "infoPostFix": "",
+                            "thousands": ",",
+                            "lengthMenu": "Mostrar _MENU_ Entradas",
+                            "loadingRecords": "Cargando...",
+                            "processing": "Procesando...",
+                            "search": "Buscar:",
+                            "zeroRecords": "Sin resultados encontrados",
+                            "paginate": {
+                                "first": "Primero",
+                                "last": "Ultimo",
+                                "next": "Siguiente",
+                                "previous": "Anterior"
+                            }
+                        }
+                    });
+                }
+                else{
+                    $("#compra2").hide();
+                }
+
+            },
+        });
+}

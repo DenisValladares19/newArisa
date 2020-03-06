@@ -74,17 +74,26 @@
                                 <br>
                                 <div class="row mt-2">
                                     <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Fecha</label>
                                         <input type="text" name="fecha" id="fecha" placeholder="Fecha..." class="form-control" required="true">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row mt-2">
                                     <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Nombre del Proveedor</label>
                                         <select id="selectProv" class="form-control" name="selectProv">
                                             <option>Seleccione el Proveedor...</option>
                                         </select>
+                                        </div>
                                     </div>
                                     <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Sub-Total</label>
                                         <input type="text" name="subtotal" class="form-control" placeholder="Subtotal..." id="subTotal" required="true">
+                                        </div>
                                     </div>
                                 </div>
                                 </form>
@@ -194,10 +203,16 @@
                 <form id="frmEx" method="post">
                 <div class="row mt-2">
                     <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Nombre del Producto</label>
                         <select id="selectProd"  name="selectProd" class="form-control"></select>
+                        </div>
                     </div>
                     <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Cantidad</label>
                         <input type="text" class="form-control" placeholder="Cantidad..." name="cantidad" id="cantidad">
+                        </div>
                     </div>
                 </div>
                 </form>
@@ -243,8 +258,10 @@
                 <div id="siCamb">
                     <div class="row mt-2">
                         <div class="col-md-12">
+                            <div class="form-group">
                             <label>Escribe el Nuevo Precio</label>
                             <input type="text" name="precioNew" id="precioNew" placeholder="Nuevo Precio..." class="form-control" required="true">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -276,20 +293,26 @@
                     </div>
                     <div class="row mt-2">
                         <div class="col-md-6">
+                            <div class="form-group">
                             <label>Seleccione el Producto</label>
                             <select id="selectProdE"  name="selectProdE" class="form-control"></select>
+                            </div>
                         </div>
                         <div class="col-md-6">
+                            <div class="form-group">
                             <label>Cantidad</label>
                             <input type="text" class="form-control" placeholder="Cantidad..." name="cantidadE" id="cantidadE">
+                            </div>
                         </div>
 
                         <div id="inputNewPrecio">
                         <div class="col-md-12">
                             <br>
                             <br>
+                            <div class="form-group">
                             <label>Nuevo Precio</label>
                             <input type="text" class="form-control" placeholder="Nuevo Precio..." name="newPrecioE" id="newPrecioE">
+                            </div>
                         </div>
                         </div>
                     </div>
@@ -318,18 +341,30 @@
                 <form id="frmNew" method="post">
                     <div class="row mt-2">
                         <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Nombre del Producto</label>
                             <input type="text" class="form-control" placeholder="Nombre..." name="nombreNuevo" id="nombreNuevo">
+                            </div>
                         </div>
                         <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Precio Unitario</label>
                             <input type="text" class="form-control" placeholder="Precio Unitario..." name="precioNuevo" id="precioNuevo">
+                            </div>
                         </div>
                     </div>
                     <div class="row mt-2">
                         <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Cantidad</label>
                             <input type="text" class="form-control" placeholder="Cantidad..." name="cantNuevo" id="cantNuevo">
+                            </div>
                         </div>
                         <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Descripcion</label>
                             <input type="text" class="form-control" placeholder="Descripcion..." name="descNuevo" id="descNuevo">
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -363,18 +398,30 @@
                     </div>
                     <div class="row mt-2">
                         <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Nombre del Producto</label>
                             <input type="text" class="form-control" placeholder="Nombre..." name="nombreNuevoE" id="nombreNuevoE">
+                            </div>
                         </div>
                         <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Precio Unitario</label>
                             <input type="text" class="form-control" placeholder="Precio Unitario..." name="precioNuevoE" id="precioNuevoE">
+                            </div>
                         </div>
                     </div>
                     <div class="row mt-2">
                         <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Cantidad</label>
                             <input type="text" class="form-control" placeholder="Cantidad..." name="cantNuevoE" id="cantNuevoE">
+                            </div>
                         </div>
                         <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Descripcion</label>
                             <input type="text" class="form-control" placeholder="Descripcion..." name="descNuevoE" id="descNuevoE">
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -388,34 +435,7 @@
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!-- frn Compas -->
 
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="frmCompras">
     <div class="modal-dialog modal-lg">
@@ -446,6 +466,119 @@
         </div>
     </div>
 </div>
+
+
+
+<!-- Editar Inventario -->
+<div class="modal fade" id="editarInv" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Producto Nuevo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="frmEditInv" method="post">
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <input type="hidden" name="txtIdInv" id="txtIdInv" required>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                            <label>Nombre del Producto</label>
+                            <input type="text" class="form-control" placeholder="Nombre..." name="nombreInvE" id="nombreInvE">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                            <label>Precio Unitario</label>
+                            <input type="text" class="form-control" placeholder="Precio Unitario..." name="precioInvE" id="precioInvE">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                            <label>Cantidad</label>
+                            <input type="text" class="form-control" placeholder="Cantidad..." name="cantInvE" id="cantInvE" disabled="true">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                            <label>Descripcion</label>
+                            <input type="text" class="form-control" placeholder="Descripcion..." name="descInvE" id="descInvE">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger" data-dismiss="modal" id="cancelarAddInv">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="editInv">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Ver Detalle Compra -->
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="frmDetalleCompra">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Detalle de Compra</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+               <div id="compra1">
+                   <center><h3>Productos Existentes</h3></center>
+                   <table class="table table-bordered table-responsive-lg" width="100%" cellspacing="0" id="tablaDetalle1">
+                       <thead style="background-color: rgba(11, 23, 41 , 0.6);">
+                       <th>Nombres del Producto</th>
+                       <th>Cantidad</th>
+                       <th>Nuevo Precio</th>
+                       </thead>
+                       <tfoot>
+                       <th>Nombres del Producto</th>
+                       <th>Cantidad</th>
+                       <th>Nuevo Precio</th>
+                       </tfoot>
+                   </table>
+                   <br>
+               </div>
+                <div id="compra2">
+                    <center><h3>Productos Nuevos</h3></center>
+                    <table class="table table-bordered table-responsive-lg" width="100%" cellspacing="0" id="tablaDetalle2">
+                        <thead style="background-color: rgba(11, 23, 41 , 0.6);">
+                        <th>Nombres del Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio Unitario</th>
+                        <th>Descripcion</th>
+                        </thead>
+                        <tfoot>
+                        <th>Nombres del Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio Unitario</th>
+                        <th>Descripcion</th>
+                        </tfoot>
+                    </table>
+                    <br>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger" data-dismiss="modal" id="cancelarDetalleCompra">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 </section>
 </body>
 </html>

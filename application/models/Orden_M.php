@@ -118,7 +118,7 @@ class Orden_M extends CI_Model
         $borrado=array(
             'borradoLogico'=>1,
         );
-        $this->db->select("idCliente,nombre,apellido");
+        $this->db->select("idCliente,nombre,apellido,empresa");
         $this->db->from("cliente");
         $this->db->where($borrado);
         $query = $this->db->get();

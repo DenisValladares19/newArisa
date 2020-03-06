@@ -82,8 +82,9 @@ class Orden extends Padre_Desing
 
     public function eraseOrden(){
         $id = $this->input->get('idOrden');
-        $registro = $this->Orden_M->captureImage($id);
+       /* $registro = $this->Orden_M->captureImage($id);
         unlink("./resources/files/uploads/".$registro->cArchivo);
+       */
         $data = array(
             "borradoLogico"=>0
 

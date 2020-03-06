@@ -116,11 +116,24 @@ $(document).ready(function () {
             type:"POST",
             data: datos
         }).done(function(){
-            Swal.fire(
-                'Proveedor Ingresado con Exito!',
-                'La informacion se mistrará en la tabla principal!',
-                'success'
-            )
+
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                onOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+        })
+
+            Toast.fire({
+                icon: 'success',
+                title: 'Proveedor Ingresado con Exito!'
+            })
+
         });
         $("#frmAgregar").modal("hide");
         $('#frmAgregarDatos')[0].reset();
@@ -245,6 +258,8 @@ $(document).ready(function () {
             }
         });
 
+        llenarTabla();
+
     })
 
     $(document).on("click","#rest",function () {
@@ -255,7 +270,7 @@ $(document).ready(function () {
 
 
     $(document).on("click",".btnRest",function () {
-        $("#modalRecu").hide();
+        $("#modalRecu").modal("hide");
 
         Swal.fire({
             title: '¿Estás seguro de Recuperar la Info. del Proveedor?',
@@ -297,14 +312,16 @@ $(document).ready(function () {
                 llenarTablaRecuperacion();
             $("#modalRecu").modal("hide");
             }
-            else{
+            else
+             {
+                 llenarTablaRecuperacion();
             $("#modalRecu").modal("show");
-            }
+             }
         })
 
-    })
+    });
 
 
-
+llenarTabla();
 
 })

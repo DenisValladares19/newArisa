@@ -118,55 +118,22 @@ $(document).on('click','#btnGuardar',function(){
 
             localStorage.setItem("idM",res);
 
-
-            Swal.fire({
-                title: '¿Aprobar la Muestra?',
-                text: "De lo contrario esta permanecerá No Aprobada",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Si,Aprobar!',
-                cancelButtonText: 'No!'
-            }).then((result) => {
-                if (result.value) {
-
-                let idM = localStorage.getItem("idM");
-
-                $.ajax({
-                    url: 'Muestra/modificarEstado',
-                    type: 'POST',
-                    data: {idM:idM},
-                    error:function(jqXHR,status,exception){
-                    console.log(status+exception);
-                    console.warn(jqXHR.responseText);
-                    }
-                }).done(function () {
-                        const Toast = Swal.mixin({
-                            toast: true,
-                            position: 'top-end',
-                            showConfirmButton: false,
-                            timer: 3000,
-                            timerProgressBar: true,
-                            onOpen: (toast) => {
-                            toast.addEventListener('mouseenter', Swal.stopTimer)
-                            toast.addEventListener('mouseleave', Swal.resumeTimer)
-                         LlenarTabla();
-                    }
-                    })
-
-                        Toast.fire({
-                            icon: 'success',
-                            title: 'Muestra Aprobada con Exito'
-                        })
-
-                        $("#frmInsertarMuestra").modal("hide");
-                        $('#frmInsertar')[0].reset();
-                         LlenarTabla();
-                    })
-            }
-
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                onOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
         })
+
+            Toast.fire({
+                icon: 'success',
+                title: 'Muestra Guardada Correctamente'
+            })
 
             $("#frmInsertarMuestra").modal("hide");
             $('#frmInsertar')[0].reset();
@@ -190,7 +157,7 @@ $(document).on('click','#editar',function () {
     $.ajax({
         type:'ajax',
         method: 'get',
-        url: BASE_URL+'index.php/Muestra/updateSample',
+        url: 'Muestra/updateSample',
         data: {idMuestra:id},
         async: false,
         dataType: 'json',
@@ -214,6 +181,18 @@ $(document).on('click','#editar',function () {
 $(document).on('click','#btnEditSampleId',function(){
     event.preventDefault();
 
+    Swal.fire({
+        title: 'Está seguro de Editar la Información?',
+        text: "¡No podrás revertir esto!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, editarlo'
+    }).then((result) => {
+        if (result.value) {
+
+
     var formData = new FormData($("#frmSampleIdEdit")[0]);
     $.ajax({
         url: 'Muestra/saveChanges',
@@ -228,40 +207,114 @@ $(document).on('click','#btnEditSampleId',function(){
             $("#frmEditarMuestra").modal("hide");
             $('#frmSampleIdEdit')[0].reset();
 
-            alert("Muestra modificada con éxito");
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                onOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+        })
+
+            Toast.fire({
+                icon: 'success',
+                title: 'Muestra Editada Exitosamente'
+            })
             LlenarTabla();
 
         })
         .fail(function() {
-            alert("ocurrio un error");
-        });
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                onOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+        })
 
+            Toast.fire({
+                icon: 'error',
+                title: 'Error al Editar Muestra'
+            })
+        });
+    }
+})
 });
 
 
 $(document).on('click','#eliminar',function(){
     event.preventDefault();
+    Swal.fire({
+        title: '¿Estás seguro de Eliminar la Muestra?',
+        text: "Pueda que esta Información se Oculte de está Seccion",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Si, Eliminaló!'
+    }).then((result) => {
+        if (result.value) {
+
+
+
     var id = $(this).attr('data');
-    $("#deleteModal").modal("show");
-    $("#btnDeleteId").unbind().click(function () {
         $.ajax({
             type: 'ajax',
             method: 'get',
             async: false,
-            url: BASE_URL+'index.php/Muestra/eraseSample',
+            url: 'Muestra/eraseSample',
             data:{idMuestra:id},
             cache:false,
             dataType: 'json',
             success:function (response) {
                 $("#deleteModal").modal("hide");
                 LlenarTabla();
-                alert("Muestra eliminada con éxito");
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    onOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+            })
+
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Muestra Eliminada Exitosamente'
+                })
             },
             error:function () {
-                alert('Error al eliminar');
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    onOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+            })
+
+                Toast.fire({
+                    icon: 'error',
+                    title: 'Error Eliminar Muestra'
+                })
             }
         })
-    })
+    }
+});
 
 });
 
@@ -273,7 +326,7 @@ $(document).on('click','#download',function () {
         $.ajax({
         type:'ajax',
         method: 'get',
-        url:BASE_URL+'index.php/Muestra/download',
+        url:'Muestra/download',
         data: {idSample:idText},
         async: false,
 

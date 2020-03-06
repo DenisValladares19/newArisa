@@ -49,7 +49,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Insertar</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Insertar Muestra</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -78,11 +78,12 @@
                             <input type="text" name="coment" id="comentId" class="form-control">
                         </div>
                     </div>
-
-                    <button type="submit" name="btnSave" id="btnGuardar" class="btn btn-primary">Guardar Muestra</button>
                 </form>
             </div>
-
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger" data-dismiss="modal" id="cancelar">Cancelar</button>
+                <button type="submit" name="btnSave" id="btnGuardar" class="btn btn-primary">Guardar Muestra</button>
+            </div>
         </div>
     </div>
 </div>
@@ -93,7 +94,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Editar Muestra</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -132,41 +133,18 @@
                             <input type="text" name="comentE" id="comentIdE" class="form-control"></input>
                         </div>
                     </div>
-                    <button type="submit" name="btnEdit" id="btnEditSampleId" class="btn btn-primary">Modificar Muestra</button>
+
                 </form>
             </div>
-
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger" data-dismiss="modal" id="cancelar">Cancelar</button>
+                <button type="submit" name="btnEdit" id="btnEditSampleId" class="btn btn-primary">Modificar Muestra</button>
+            </div>
         </div>
     </div>
 </div>
 
 
-<!--Modal Delete-->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Confirmar Eliminación</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form method="post" id="formMuestra">
-
-
-                    <div class="form-column col-md-12">
-
-                        ¿Eliminar este registro?
-                    </div>
-
-                    <button type="submit" id="btnDeleteId" name="btnDelete" class="btn btn-danger">Eliminar</button>
-                </form>
-            </div>
-
-        </div>
-    </div>
-</div>
 
 
 <input type="hidden" name="txtIdname" id="txtIdText"></input>

@@ -1,41 +1,56 @@
 <script src="<?php echo base_url("resources/src/js/reporte/reporte.js")?>"></script>
 
-<div class="row">
+<h1>Reportes</h1>
+<br><br>
+<h3>Reportes  de Ordenes de Trabajo</h3>
+<br><br><br>
+<div class="container">
 
-    <div class="col-md-12">
-        <h1>Reportería de órdenes</h1>
+
+    <div class="row">
+        <div class="col-sm" id="reporteG">
+                <button style="color: #000000; background-color: rgba(196, 211, 245 , 0.9); serif; font-size:12pt; font-family: Raavi;" class="btn btn-light">
+                    <img src="<?php echo base_url("resources/images/reporte/reporte.png")?>" width="40%" height="30%">
+                    <br>
+                    <h4>Ordenes de Trabajo</h4>
+                    <br>
+                    <span style="font-size:12pt; text-transform: none;">Reporte de Todas la Ordenes</span>
+                    <br>
+                </button>
+        </div>
+        <div class="col-sm" id="reporteRF">
+                <button style="color: #000000; background-color: rgba(196, 211, 245 , 0.9); serif; font-size:12pt; font-family: Raavi;" class="btn btn-light">
+                    <img src="<?php echo base_url("resources/images/reporte/rango.png")?>" width="37%" height="30%">
+                    <br>
+                    <h4>Ordenes de Trabajo</h4>
+                    <br>
+                    <span style="font-size:12pt; text-transform: none;">Ordenes en un Rango de Fechas</span>
+                    <br>
+                </button>
+        </div>
+        <div class="col-sm">
+                <button style="color: #000000; background-color: rgba(196, 211, 245 , 0.9); serif; font-size:12pt; font-family: Raavi;" class="btn btn-light" id="reporteF">
+                    <img src="<?php echo base_url("resources/images/reporte/fecha.png")?>" width="37%" height="30%">
+                    <br>
+                    <h4>Ordenes de Trabajo</h4>
+                    <br>
+                    <span style="font-size:12pt; text-transform: none;">Ordenes en una Fecha Especifica</span>
+                    <br>
+                </button>
+        </div>
+        <div class="col-sm">
+                <button style="color: #000000; background-color: rgba(196, 211, 245 , 0.9); serif; font-size:12pt; font-family: Raavi;" class="btn btn-light" id="reporteC">
+                    <img src="<?php echo base_url("resources/images/dashboard/clientes.png")?>" width="30%" height="30%">
+                    <br>
+                    <h4>Ordenes de Trabajo</h4>
+                    <br>
+                    <span style="font-size:12pt; text-transform: none;">Ordenes de un Cliente en Especifico</span>
+                    <br>
+                </button>
+        </div>
     </div>
-
-    <div class="col-md-1">
-        <div class="btn btn-primary" id="reporteG">Órdenes en general</div>
-    </div>
-
-
-
-    <div class="col-md-1">
-        <div class="btn btn-primary" id="reporteC">Órdenes por cliente</div>
-    </div>
-
-
-
-    <div class="col-md-1">
-        <div class="btn btn-primary" id="reporteF">Órdenes por fecha</div>
-    </div>
-
-
-
-    <div class="col-md-1">
-        <div class="btn btn-primary" id="reporteRF">Órdenes por rango de fechas</div>
-    </div>
-
-    <!--<div class="col-md-1">
-        <div class="btn btn-primary" id="reporteOrden">Seleccionar orden</div>
-    </div>-->
 
 </div>
-
-
-
 
 
 

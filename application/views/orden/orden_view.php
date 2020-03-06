@@ -58,7 +58,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Insertar</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Insertar Orden</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -129,7 +129,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modificar</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Modificar Orden</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -175,41 +175,17 @@
                         </div>
                     </div>
 
-                    <button type="submit" id="btnEditOrdenId" name="btnEdit" class="btn btn-primary">Editar Orden</button>
+
                 </form>
             </div>
-
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-danger" data-dismiss="modal" id="cancelar">Cancelar</button>
+            <button type="submit" id="btnEditOrdenId" name="btnEdit" class="btn btn-primary">Editar Orden</button>
+        </div>
         </div>
     </div>
 </div>
 
-<!--Modal Delete-->
-
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Confirmar Eliminación</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form method="post" id="formRol">
-
-
-                    <div class="form-column col-md-12">
-
-                        ¿Eliminar este registro?
-                    </div>
-
-                    <button type="submit" id="btnDeleteId" name="btnDelete" class="btn btn-danger">Eliminar</button>
-                </form>
-            </div>
-
-        </div>
-    </div>
-</div>
 
 
 

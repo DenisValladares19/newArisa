@@ -2,10 +2,12 @@ function listaCliente(){
     $.post("Orden/mostrarCliente",{},function(res){
         var r = JSON.parse(res);
         $("#idCliente option").remove();
-        $("#idCliente").append("<option>Elige el Cliente</option>");
         for(var i = 0;i<r.length;i++){
-            $("#idCliente").append("<option value='"+r[i].idCliente+"'>"+r[i].nombre+" "+r[i].apellido+"</option>");
+            $("#idCliente").append("<option value='"+r[i].idCliente+"'>"+r[i].empresa+"</option>");
         }
+    });
+    $("#idCliente").select2({
+        width: "100%"
     });
 }
 
@@ -27,11 +29,13 @@ function llenarCotiz(){
                     for(var i = 0;i<r.length;i++){
                         $("#idCotiz").append("<option value='"+r[i].idCotizacion+"'>"+r[i].codigo+"</option>");
                     }
+                    llenarMuestra();
                 }
                 else
                 {
                     $("#idCotiz option").remove();
                     $("#idCotiz").append("<option>Este Cliente no tiene Ninguna Cotizacion</option>");
+                    llenarMuestra();
                 }
 
             },
@@ -69,7 +73,7 @@ function llenarMuestra(){
 
 
 function listProd(){
-    $.post("Inventario/mostrarProd",{},function(res){
+    $.post("Inventario/mostrarProds",{},function(res){
         var r = JSON.parse(res);
         $("#selectProd option").remove();
         $("#selectProd").append("<option>Elige el Producto</option>");
@@ -80,7 +84,7 @@ function listProd(){
 }
 
 function listProvEditarUtilizados(){
-    $.post("Inventario/mostrarProd",{},function(res){
+    $.post("Inventario/mostrarProds",{},function(res){
         var r = JSON.parse(res);
         $("#selectProdE option").remove();
         $("#selectProdE").append("<option>Elige el Producto</option>");
@@ -91,7 +95,7 @@ function listProvEditarUtilizados(){
 }
 
 function listProdDesp(){
-    $.post("Inventario/mostrarProd",{},function(res){
+    $.post("Inventario/mostrarProds",{},function(res){
         var r = JSON.parse(res);
         $("#selectProdD option").remove();
         $("#selectProdD").append("<option>Elige el Producto</option>");
@@ -102,7 +106,7 @@ function listProdDesp(){
 }
 
 function listProvEditarDesp(){
-    $.post("Inventario/mostrarProd",{},function(res){
+    $.post("Inventario/mostrarProds",{},function(res){
         var r = JSON.parse(res);
         $("#selectProdDE option").remove();
         $("#selectProdDE").append("<option>Elige el Producto</option>");
@@ -527,7 +531,7 @@ $(document).on('click','#btnSaveOrdenId',function(){
     var formData = new FormData($("#frmOrden")[0]);
 
     $.ajax({
-        url: BASE_URL+'index.php/Orden/addOrden',
+        url: 'Orden/addOrden',
         type: 'post',
         data: formData,
         cache: false,
@@ -537,13 +541,44 @@ $(document).on('click','#btnSaveOrdenId',function(){
     })
         .done(function() {
 
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                onOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+        })
+
+            Toast.fire({
+                icon: 'success',
+                title: 'Orden Ingresada con Exito'
+            })
             $("#frmInsertarOrden").modal("hide");
             $('#frmOrden')[0].reset();
             showOrden();
 
         })
         .fail(function() {
-            alert("ocurrio un error");
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                onOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+        })
+
+            Toast.fire({
+                icon: 'error',
+                title: 'Error al Insertar Orden'
+            })
         });
 
 });
@@ -559,7 +594,7 @@ $(document).on('click','#editar',function () {
     $.ajax({
         type:'ajax',
         method: 'get',
-        url: BASE_URL+'index.php/Orden/updateOrden',
+        url: 'Orden/updateOrden',
         data: {idOrden:id},
         async: false,
         dataType: 'json',
@@ -580,7 +615,22 @@ $(document).on('click','#editar',function () {
 
         },
         error:function () {
-            alert('Could not edit data');
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                onOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+        })
+
+            Toast.fire({
+                icon: 'error',
+                title: 'Error con la Conexion'
+            })
         }
     })
 
@@ -594,7 +644,7 @@ $(document).on('click','#download',function () {
     $.ajax({
         type:'ajax',
         method: 'get',
-        url:BASE_URL+'index.php/Orden/download',
+        url:'Orden/download',
         data: {idOrden:idText},
         async: false,
 
@@ -604,7 +654,22 @@ $(document).on('click','#download',function () {
 
         },
         error:function () {
-            alert('Could not download file');
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                onOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+        })
+
+            Toast.fire({
+                icon: 'error',
+                title: 'Error con la Conexion'
+            })
         }
     })
 
@@ -614,10 +679,23 @@ $(document).on('click','#download',function () {
 
 $(document).on('click','#btnEditOrdenId',function(){
     event.preventDefault();
+
+    Swal.fire({
+        title: 'Está seguro de Editar la Información?',
+        text: "¡No podrás revertir esto!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, editarlo'
+    }).then((result) => {
+        if (result.value) {
+
+
     var formData = new FormData($("#editFormOrden")[0]);
 
     $.ajax({
-        url: BASE_URL+'index.php/Orden/saveChanges',
+        url: 'Orden/saveChanges',
         type: 'post',
         data: formData,
         cache: false,
@@ -627,6 +705,23 @@ $(document).on('click','#btnEditOrdenId',function(){
     })
 
         .done(function() {
+
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                onOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+        })
+
+            Toast.fire({
+                icon: 'success',
+                title: 'Orden Editada Correctamente'
+            })
 
             $("#frmEditarOrden").modal("hide");
             history(formData);
@@ -645,8 +740,25 @@ $(document).on('click','#btnEditOrdenId',function(){
 
         })
         .fail(function() {
-            alert("ocurrio un error");
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                onOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+        })
+
+            Toast.fire({
+                icon: 'error',
+                title: 'Error al Editar Orden'
+            })
         });
+    }
+})
 
 });
 
@@ -657,28 +769,70 @@ $(document).on('click','#btnDeleteId',function(){
 
 $(document).on('click','#eliminar',function(){
     event.preventDefault();
+    Swal.fire({
+        title: '¿Estás seguro de Eliminar la Orden?',
+        text: "Pueda que esta Información se Oculte de está Seccion",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Si, Eliminaló!'
+    }).then((result) => {
+        if (result.value) {
+
     var id = $(this).attr('data');
-    $("#deleteModal").modal("show");
-    $("#btnDeleteId").unbind().click(function () {
         $.ajax({
             type: 'ajax',
             method: 'get',
             async: false,
-            url: BASE_URL+'index.php/Orden/eraseOrden',
+            url: 'Orden/eraseOrden',
             data:{idOrden:id},
             cache:false,
             dataType: 'json',
             success:function (response) {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    onOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+            })
+
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Orden Eliminada Correctamente'
+                })
                 $("#deleteModal").modal("hide");
                 showOrden();
             },
             error:function () {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    onOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+            })
+
+                Toast.fire({
+                    icon: 'error',
+                    title: 'Error al Elimanr Orden'
+                })
                 $("#deleteModal").modal("hide");
                 showOrden();
             }
         })
-    })
-
+    }
+});
 });
 
 
@@ -687,7 +841,7 @@ $(document).on('click','#eliminar',function(){
 function showOrden() {
     $.ajax({
         type: 'POST',
-        url: BASE_URL+'index.php/Orden/showOrdenes',
+        url: 'Orden/showOrdenes',
         async: false,
         dataType: 'json',
         success: function (data) {
@@ -701,7 +855,7 @@ function showOrden() {
                     '<td>'+data[i].nombreE+'</td>'+
                     '<td>'+
                     '<button class="btn btn-outline-info" href="javascript:;" data="'+data[i].idOrden+'" id="editar"><i class="fas fa-marker"></i></button>\n' +
-                    '<button class="btn btn-outline-dark mr-1" onClick="print('+data[i].idOrden+', '+data[i].idCotizacion+')" ><i class="fas fa-print"></i></button><button class="btn btn-outline-danger  href="javascript:;" data="\'+data[i].idOrden+\'" id="eliminar"><i class="fas fa-trash-alt"></i></button>'+
+                    '<button class="btn btn-outline-dark mr-1" onClick="print('+data[i].idOrden+', '+data[i].idCotizacion+')" ><i class="fas fa-print"></i></button><button class="btn btn-outline-danger  href="javascript:;" data="'+data[i].idOrden+'" id="eliminar"><i class="fas fa-trash-alt"></i></button>'+
                     '</td>'+
                     '</tr>';
             }
@@ -709,7 +863,22 @@ function showOrden() {
         },
 
         error: function () {
-            alert('Could not show data from database');
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                onOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+        })
+
+            Toast.fire({
+                icon: 'error',
+                title: 'Error con la Conexion'
+            })
         }
 
     });
@@ -721,7 +890,7 @@ function history(formData) {
 
     $.ajax({
         type: 'post',
-        url: BASE_URL+'index.php/Historial/addHistory',
+        url: 'Historial/addHistory',
         data: formData,
         cache: false,
         contentType: false,
@@ -731,7 +900,22 @@ function history(formData) {
         },
 
         error: function () {
-            alert('Could not save history');
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                onOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+        })
+
+            Toast.fire({
+                icon: 'error',
+                title: 'Error con la Conexion'
+            })
         }
 
     });
@@ -740,7 +924,7 @@ function history(formData) {
 
 
 
-$.post(BASE_URL+'index.php/cotizacion/getAllCotizacion',
+$.post('cotizacion/getAllCotizacion',
     function (data) {
         var cot = JSON.parse(data);
         $.each(cot,function (i,item) {
@@ -748,7 +932,7 @@ $.post(BASE_URL+'index.php/cotizacion/getAllCotizacion',
         });
     });
 
-$.post(BASE_URL+'index.php/cotizacion/getAllCotizacion',
+$.post('cotizacion/getAllCotizacion',
     function (data) {
         var cot = JSON.parse(data);
         $.each(cot,function (i,item) {
@@ -756,7 +940,7 @@ $.post(BASE_URL+'index.php/cotizacion/getAllCotizacion',
         });
     });
 
-$.post(BASE_URL+'index.php/muestra/llenar',
+$.post('muestra/llenar',
     function (data) {
         var muestra = JSON.parse(data);
         $.each(muestra,function (i,item) {
@@ -764,7 +948,7 @@ $.post(BASE_URL+'index.php/muestra/llenar',
         });
     });
 
-$.post(BASE_URL+'index.php/muestra/llenar',
+$.post('muestra/llenar',
     function (data) {
         var muestra = JSON.parse(data);
         $.each(muestra,function (i,item) {
@@ -773,7 +957,7 @@ $.post(BASE_URL+'index.php/muestra/llenar',
     });
 
 function statusLoad() {
-    $.post(BASE_URL + 'index.php/estado2/showStatus',
+    $.post('estado2/showStatus',
         function (data) {
             var status = JSON.parse(data);
             $.each(status, function (i, item) {
@@ -786,7 +970,7 @@ function status(data) {
 
     if (data==1){
         $('#estadoIdE').empty().append('Seleccione');
-        $.post(BASE_URL + 'index.php/estado2/showAllStatus',
+        $.post('estado2/showAllStatus',
             function (data) {
                 var status = JSON.parse(data);
                 $.each(status, function (i, item) {
@@ -797,7 +981,7 @@ function status(data) {
 
     else if(data==2){
         $('#estadoIdE').empty().append('Seleccione');
-        $.post(BASE_URL + 'index.php/estado2/showStatus1',
+        $.post('estado2/showStatus1',
             function (data) {
                 var status = JSON.parse(data);
                 $.each(status, function (i, item) {
@@ -808,7 +992,7 @@ function status(data) {
 
     else if(data==3){
         $('#estadoIdE').empty().append('Seleccione');
-        $.post(BASE_URL + 'index.php/estado2/showStatus2',
+        $.post('estado2/showStatus2',
             function (data) {
                 var status = JSON.parse(data);
                 $.each(status, function (i, item) {
@@ -819,7 +1003,7 @@ function status(data) {
 
     else if (data==4){
         $('#estadoIdE').empty().append('Seleccione');
-        $.post(BASE_URL + 'index.php/estado2/showStatus3',
+        $.post('estado2/showStatus3',
             function (data) {
                 var status = JSON.parse(data);
                 $.each(status, function (i, item) {
@@ -836,7 +1020,7 @@ function status(data) {
 function llenarCotizacion(){
     $.ajax({
         type: 'POST',
-        url: BASE_URL+'index.php/cotizacion/getAllCotizacion',
+        url: 'cotizacion/getAllCotizacion',
         async: false,
         dataType: 'json',
         success: function (data1) {
@@ -856,7 +1040,22 @@ function llenarCotizacion(){
         },
 
         error: function () {
-            alert('Could not show data from database');
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                onOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+        })
+
+            Toast.fire({
+                icon: 'error',
+                title: 'Error con la Conexion'
+            })
         }
 
     });

@@ -50,6 +50,12 @@ class Inventario extends Padre_Desing
         echo json_encode($res);
     }
 
+    public function mostrarProds(){
+        $res = $this->Inventario_m->mostrarProds();
+        echo json_encode($res);
+    }
+
+
     public function mostrarProdEdit(){
         $id=$_POST["idProveedor"];
         $res = $this->Inventario_m->mostrarProdcuto($id);
@@ -267,6 +273,37 @@ class Inventario extends Padre_Desing
             'idCompras'=>$_POST["idCompra"],
         );
         $res = $this->Inventario_m->eliminarCompra($where);
+        echo json_encode($res);
+    }
+
+
+    //CRUD INVENTARIO
+
+    public function modifiicarInv(){
+        $data = array(
+            'nombreInv'=>$_POST["nombreInvE"],
+            'precio'=>$_POST["precioInvE"],
+            'stock'=>$_POST["cantInvE"],
+            'descripcion'=>$_POST["descInvE"],
+            'borradoLogico'=>1,
+        );
+        $where=array(
+            'idInventario'=>$_POST["txtIdInv"],
+        );
+
+        $res = $this->Inventario_m->modifiicarNuevo($data,$where);
+        echo json_encode($res);
+    }
+
+    public function eliminarInv(){
+        $data = array(
+            'borradoLogico'=>0,
+        );
+        $where=array(
+            'idInventario'=>$_POST["id"],
+        );
+
+        $res = $this->Inventario_m->eliminarInv($data,$where);
         echo json_encode($res);
     }
 
