@@ -38,7 +38,9 @@ create table compras(
 idCompras int primary key auto_increment,
 fecha date,
 subtotal double,
-borradoLogico int
+idProveedor int,
+borradoLogico int,
+foreign key(idProveedor) references proveedor(idProveedor)
 );
 
 create table inventario(
@@ -48,7 +50,9 @@ precio double,
 stock int,
 descripcion varchar(50),
 idProveedor int,
+idCompra int,
 borradoLogico int,
+foreign key(idCompra) references compras(idCompras),
 foreign key(idProveedor) references proveedor(idProveedor)
 );
 
@@ -57,7 +61,9 @@ idDetalleInvCompra int primary key auto_increment,
 idCompra int,
 idInventario int,
 cantidad int,
+newPrecio double,
 cantAnterior int,
+rol int,
 foreign key(idCompra) references compras(idCompras),
 foreign key(idInventario) references inventario(idInventario)
 );
@@ -222,14 +228,14 @@ insert into proveedor values
 
 
 insert into compras values
-(1,"2019-11-11",273.5,1),
-(2,"2019-11-14",159.8,1),
-(3,"2019-11-15",886.9,2);
+(1,"2019-11-11",273.5,1,1),
+(2,"2019-11-14",159.8,1,1),
+(3,"2019-11-15",886.9,2,1);
 
 insert into inventario values
-(1,"Producto X",29.99,10,"Descripcion del Producto X",1,1),
-(2,"Producto Y",17.99,10,"Descripcion del Producto Y",2,1),
-(3,"Producto Z",92.99,10,"Descripcion del Producto Z",2,1);
+(1,"Producto X",29.99,10,"Descripcion del Producto X",1,1,1),
+(2,"Producto Y",17.99,10,"Descripcion del Producto Y",2,2,1),
+(3,"Producto Z",92.99,10,"Descripcion del Producto Z",2,3,1);
 
 insert into estado2 values
 (1,"En Espera",1),

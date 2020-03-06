@@ -110,6 +110,7 @@
                                             <thead style="background-color: rgba(11, 23, 41 , 0.6);">
                                             <th>Nombres del Producto</th>
                                             <th>Cantidad</th>
+                                            <th>Nuevo Precio</th>
                                             <th>Acciones</th>
                                             </thead>
                                             <tbody>
@@ -138,12 +139,28 @@
                                         <center>
                                             <a class="btn btn-outline-success add2"><i class="fa fa-plus-circle"></i> Agregar</a>
                                         </center>
-                                    
+
                                         <!-- Content here-->
                                         <div class="container-fluid" id="tabla1">
-                                            
+                                            <table class="table table-borderede" width="100%" cellspacing="0" id="tablaNew">
+                                                <thead style="background-color: rgba(11, 23, 41 , 0.6);">
+                                                <th>Nombres del Producto</th>
+                                                <th>Cantidad</th>
+                                                <th>Precio Unitario</th>
+                                                <th>Descripcion</th>
+                                                <th>Acciones</th>
+                                                </thead>
+                                                <tbody>
 
-                                               
+                                                </tbody>
+                                                <tfoot>
+                                                <th>Nombres del Producto</th>
+                                                <th>Cantidad</th>
+                                                <th>Precio Unitario</th>
+                                                <th>Descripcion</th>
+                                                <th>Acciones</th>
+                                                </tfoot>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
@@ -194,6 +211,51 @@
 </div>
 
 
+<!-- Productos Existentes cambiar precio -->
+<div class="modal fade" id="modalCambiarPrecio" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">¿Desea cambiar Precio?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div id="cambiPrecio">
+                    <center>
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                                ¿Cambiar el Precio a este Producto?
+                        </div>
+                        <br><br>
+                        <div class="col-md-6">
+                            <input type="submit" name="siCambiar" id="siCambiar" class="btn btn-outline-success" value="Si,quiero Cambiarlo">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="submit" name="noCambiar" id="noCambiar" class="btn btn-outline-danger" value="No">
+                        </div>
+                    </div>
+                    </center>
+                </div>
+
+                <div id="siCamb">
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <label>Escribe el Nuevo Precio</label>
+                            <input type="text" name="precioNew" id="precioNew" placeholder="Nuevo Precio..." class="form-control" required="true">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnSiCambiar">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <!-- Editar Productos Existentes -->
 <div class="modal fade" id="EditarEx" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -214,10 +276,21 @@
                     </div>
                     <div class="row mt-2">
                         <div class="col-md-6">
+                            <label>Seleccione el Producto</label>
                             <select id="selectProdE"  name="selectProdE" class="form-control"></select>
                         </div>
                         <div class="col-md-6">
+                            <label>Cantidad</label>
                             <input type="text" class="form-control" placeholder="Cantidad..." name="cantidadE" id="cantidadE">
+                        </div>
+
+                        <div id="inputNewPrecio">
+                        <div class="col-md-12">
+                            <br>
+                            <br>
+                            <label>Nuevo Precio</label>
+                            <input type="text" class="form-control" placeholder="Nuevo Precio..." name="newPrecioE" id="newPrecioE">
+                        </div>
                         </div>
                     </div>
                 </form>
@@ -356,16 +429,16 @@
             <div class="modal-body">
                 <table class="table table-bordered table-responsive-lg" width="100%" cellspacing="0" id="tablaCompras">
                     <thead style="background-color: rgba(11, 23, 41 , 0.6);">
-                    <th>Producto</th>
                     <th>Fecha</th>
                     <th>Subtotal</th>
                     <th>Proveedor</th>
+                    <th>Accion</th>
                     </thead>
                     <tfoot>
-                    <th>Producto</th>
                     <th>Fecha</th>
                     <th>Subtotal</th>
                     <th>Proveedor</th>
+                    <th>Accion</th>
                     </tfoot>
                 </table>
             </div>

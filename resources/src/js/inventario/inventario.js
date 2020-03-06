@@ -8,12 +8,19 @@
             success:function (data) {
                 $("#tablaCompras").dataTable().fnDestroy();
                 $("#tablaCompras tbody tr").remove();
+                var nMayor=0;
                 $.each(data, function (key,val) {
                     var fila ='<tr><td><div align="center">';
-                    fila=fila + val.nombreInv + '</div></td><td>';
                     fila=fila + val.fecha + '</div></td><td>';
                     fila=fila + val.subtotal + '</div></td><td>';
                     fila=fila + val.nombre + '</td>';
+                    fila = fila +  '<td> <a class="btn btn-outline-dark btnVer" id="'+val.idCompras+'"><i <i class="far fa-eye"></i></i></a>';
+                    if(nMayor<val.idCompras)
+                    {
+                        nMayor=val.idCompras;
+                        fila = fila +  '&nbsp;<a class="btn btn-outline-info btnEditarCompra" id="'+val.idCompras+'"><i class="fas fa-marker"></i></a>\n' +
+                            '                     <a class="btn btn-outline-danger btnEliminarCompra"id="'+val.idCompras+'"><i class="far fa-trash-alt"></i></a>';
+                    }
                     fila = fila + '</td></tr>';
                     $("#tablaCompras tbody").append(fila);
                 });
@@ -59,8 +66,8 @@ function llenarTablaInv()
                     fila=fila + val.nombreInv + '</div></td><td>';
                     fila=fila + val.nombre + '</div></td><td>';
                     fila=fila + val.stock + '</div></td><td>';
-                    fila=fila + val.precio + '</div></td><td>';
-                    fila=fila + (val.precio*val.stock).toFixed(2) + '</div></td><td>';
+                    fila=fila + "$"+val.precio + '</div></td><td>';
+                    fila=fila + "$"+(val.precio*val.stock).toFixed(2) + '</div></td><td>';
                     fila=fila + val.descripcion + '</div></td>';
                     fila = fila +  '<td> <a class="btn btn-outline-info btnEditar" id="'+val.idInventario+'"><i class="fas fa-marker"></i></a>\n' +
                         '                     <a class="btn btn-outline-danger btnEliminar"id="'+val.idInventario+'"><i class="far fa-trash-alt"></i></a>';
@@ -151,7 +158,15 @@ function llenarTablaEx()
                     $.each(data, function (key,val) {
                         var fila ='<tr><td><div align="center">';
                         fila=fila + val.nombreInv + '</div></td><td>';
-                        fila=fila + val.cantidad + '</div></td>';
+                        fila=fila + val.cantidad + '</div></td><td>';
+                        if(val.newPrecio>0)
+                        {
+                            fila=fila + "$"+val.newPrecio + '</div></td>';
+                        }
+                        else
+                        {
+                            fila=fila + "Mismo Precio" + '</div></td>';
+                        }
                         fila = fila +  '<td> <a class="btn btn-outline-info btnEditarEx" id="'+val.idDetalleInvCompra+'"><i class="fas fa-marker"></i></a>\n' +
                             '                     <a class="btn btn-outline-danger btnEliminarEx"id="'+val.idDetalleInvCompra+'"><i class="far fa-trash-alt"></i></a>';
                         fila = fila + '</td></tr>';
@@ -191,52 +206,31 @@ function llenarTablaEx()
 
 function llenarTablaNew()
 {
-    let idDetalle = localStorage.getItem("idDetalle");
+
+    let idCompra = localStorage.getItem("idCompra");
     $.ajax(
         {
             url:"Inventario/mostrarNew",
             type: "POST",
-            data: {idDetalle:idDetalle},
-            success:function (r) {
-                let data = JSON.parse(r);
-                console.log(data)
+            data: {idCompra},
+            success:function (res) {
+                let data = JSON.parse(res);
                 if(data!=""){
-                    
-                    let fila = `<table class="table table-bordered" width="100%" cellspacing="0" id="tablaNew">
-                    <thead style="background-color: rgba(11, 23, 41 , 0.6);">
-                    <th>Nombres del Producto</th>
-                    <th>Precio Unitario</th>
-                    <th>Cantidad</th>
-                    <th>Descripcion</th>
-                    <th>Acciones</th>
-                    </thead>
-                    <tbody>`;
-                    for(let i=0;i<data.length;i++){
-                        fila+= `
-                            <tr>
-                            <td><div align="center">${data[i].nombreInv}</div></td>
-                            <td><div>${data[i].precio}</div></td>
-                            <td><div>${data[i].stock}</div></td>
-                            <td><div>${data[i].descripcion}</div></td>
-                            <td> <a class="btn btn-outline-info btnEditarEx" id="${data[i].idInventario}"><i class="fas fa-marker"></i></a>
-                            <a class="btn btn-outline-danger btnEliminarEx" id="${data[i].idInventario}"><i class="far fa-trash-alt"></i></a>
-                            </td></tr>
-                        `;
-                    }
-                    fila+= ` </tbody>
-                    <tfoot>
-                    <th>Nombres del Producto</th>
-                    <th>Precio Unitario</th>
-                    <th>Cantidad</th>
-                    <th>Precio</th>
-                    <th>Descripcion</th>
-                    <th>Acciones</th>
-                    </tfoot>
-                </table>`;
-                    $("#tablaNew").empty();
-                    $("#tabla1").append(fila);
                     $("#tabla1").show();
-                    
+                    $("#tablaNew").show();
+                    $("#tablaNew").dataTable().fnDestroy();
+                    $("#tablaNew tbody tr").remove();
+                    $.each(data, function (key,val) {
+                        var fila ='<tr><td><div align="center">';
+                        fila=fila + val.nombreInv + '</div></td><td>';
+                        fila=fila + val.stock + '</div></td><td>';
+                        fila=fila + "$"+val.precio + '</div></td><td>';
+                        fila=fila + val.descripcion + '</div></td>';
+                        fila = fila +  '<td> <a class="btn btn-outline-info btnEditarNew" id="'+val.idInventario+'"><i class="fas fa-marker"></i></a>\n' +
+                            '                     <a class="btn btn-outline-danger btnEliminarNew"id="'+val.idInventario+'"><i class="far fa-trash-alt"></i></a>';
+                        fila = fila + '</td></tr>';
+                        $("#tablaNew tbody").append(fila);
+                    });
                     $("#tablaNew").dataTable({
                         bLengthChange: false,
                         language: {
@@ -337,7 +331,8 @@ $(document).ready(function () {
         }).done(function (res) {
             localStorage.setItem("idCompra",res);
             let idProveedor = localStorage.getItem("idProveedor");
-
+            llenarTablaEx();
+            llenarTablaNew();
             $.ajax({
                 url:"Inventario/validarProdExi",
                 type:"POST",
@@ -345,8 +340,10 @@ $(document).ready(function () {
             }).done(function (r) {
                 let re = JSON.parse(r);
                 if(re==true) {
+
                     listProd();
                     listProvEditarEx();
+
 
                     $("#cancelar").hide();
 
@@ -391,17 +388,88 @@ $(document).ready(function () {
             var datosEx = $("#frmEx").serializeArray();
             let idCompra = localStorage.getItem("idCompra");
             $.ajax({
-                url:"Inventario/insertarDetalle",
+                url:"Inventario/validarDetalle",
                 type:"POST",
                 data: {datosEx,idCompra},
             }).done(function (res) {
-                    localStorage.setItem("idDetalle",res);
-                $("#agregarInventario").modal("show");
-                $("#addEx").modal("hide");
-                $('#frmEx')[0].reset();
-                llenarTablaEx();
+                let r = JSON.parse(res);
+                var rol=0;
+                    if(r==false)
+                    {
+                        $("#addEx").modal("hide");
+                        $("#siCamb").hide();
+                        $("#btnSiCambiar").hide();
+                        $("#cambiPrecio").show();
+                        $("#modalCambiarPrecio").modal("show");
+
+
+                    }
+                    else if(r==true)
+                     {
+                         rol=2;
+                         $.ajax({
+                             url:"Inventario/insertarDetalle",
+                             type:"POST",
+                             data: {datosEx,idCompra,rol},
+                         }).done(function () {
+                             $("#agregarInventario").modal("show");
+                             $("#addEx").modal("hide");
+                             $('#frmEx')[0].reset();
+                             llenarTablaEx();
+                         })
+
+                    }
+
             })
      });
+
+
+    $(document).on("click","#siCambiar",function () {
+        $("#siCamb").show();
+        $("#cambiPrecio").hide();
+        $("#btnSiCambiar").show();
+    });
+
+    $(document).on("click","#btnSiCambiar",function () {
+        var newPrecio= $("#precioNew").val();
+        var datosEx = $("#frmEx").serializeArray();
+        let idCompra = localStorage.getItem("idCompra");
+        rol=1;
+        $.ajax({
+            url:"Inventario/insertarDetalle",
+            type:"POST",
+            data: {datosEx,idCompra,rol,newPrecio},
+        }).done(function (res) {
+            localStorage.setItem("idDetalle",res);
+            $("#agregarInventario").modal("show");
+            $("#addEx").modal("hide");
+            $('#frmEx')[0].reset();
+            $("#modalCambiarPrecio").modal("hide");
+            llenarTablaEx();
+        })
+    });
+
+
+    $(document).on("click","#noCambiar",function () {
+        $("#modalCambiarPrecio").modal("hide");
+        var newPrecio= 0;
+        var datosEx = $("#frmEx").serializeArray();
+        let idCompra = localStorage.getItem("idCompra");
+        rol=1;
+        $.ajax({
+            url:"Inventario/insertarDetalle",
+            type:"POST",
+            data: {datosEx,idCompra,rol,newPrecio},
+        }).done(function (res) {
+            localStorage.setItem("idDetalle",res);
+            $("#agregarInventario").modal("show");
+            $("#addEx").modal("hide");
+            $('#frmEx')[0].reset();
+            llenarTablaEx();
+        })
+    });
+
+
 
 
     $(document).on("click",".btnEditarEx",function ()  {
@@ -419,6 +487,17 @@ $(document).ready(function () {
                 $("#txtIdExit").val(datos[0].idDetalleInvCompra);
                 $("#selectProdE").val(parseInt(datos[0].idInventario));
                 $("#cantidadE").val(datos[0].cantidad);
+                if(datos[0].newPrecio!=null)
+                {
+                    $("#inputNewPrecio").show();
+                    $("#newPrecioE").val(datos[0].newPrecio);
+                }
+                else
+                {
+                 $("#inputNewPrecio").hide();
+                }
+
+
             })
             .fail(function () {
 
@@ -490,24 +569,27 @@ $(document).ready(function () {
         event.preventDefault();
         var datosNew = $("#frmNew").serializeArray();
         let idProveedor = localStorage.getItem("idProveedor");
+        let idCompra = localStorage.getItem("idCompra");
         $.ajax({
             url:"Inventario/insertarNuevo",
             type:"POST",
-            data: {datosNew,idProveedor},
+            data: {datosNew,idProveedor,idCompra},
         }).done(function (res) {
-            if(!localStorage.getItem("idDetalle")){
-                let nuevos = [`${res}`];
-                localStorage.setItem("idDetalle", nuevos)
-            }else{
-                let arreglo = localStorage.getItem("idDetalle");
-                arreglo.push(`${res}`);
-                localStorage.setItem("idDetalle", arreglo);
-            }
-            
-            $("#agregarInventario").modal("show");
-            $("#addNew").modal("hide");
-            $('#frmNew')[0].reset();
-            llenarTablaNew();
+            localStorage.setItem("idNewProdu",res);
+
+            let idNewProdu = localStorage.getItem("idNewProdu");
+            $.ajax({
+                url:"Inventario/insertarNuevoADetalle",
+                type:"POST",
+                data: {datosNew,idCompra,idNewProdu},
+            }).done(function () {
+                $("#agregarInventario").modal("show");
+                $("#addNew").modal("hide");
+                $('#frmNew')[0].reset();
+                llenarTablaNew();
+
+            })
+
         })
     });
 
@@ -584,22 +666,52 @@ $(document).ready(function () {
             data: {idCompra:idCompra}
         }).done(function(res){
             const data = JSON.parse(res);
-            for(let i=0;i<data.length;i++){
+
+            if(data!="")
+            {
+                for(let i=0;i<data.length;i++){
+                    $.ajax({
+                        url:"inventario/actualizarStock",
+                        type:"POST",
+                        data:{idCompra:idCompra, idInventario:data[i].idInventario}
+                    }).done(function(res){
+                        Swal.fire(
+                            'Inventario',
+                            'Compra Registrada Exitosamente!',
+                            'success'
+                        );
+                        llenarTablaInv();
+                        llenarTablaCompras();
+                        $('#frmCompra')[0].reset();
+                        llenarTablaEx();
+                        llenarTablaNew();
+                        $("#next1").show();
+                        $("#agregarInventario").modal("hide");
+                    });
+                }
+            }
+            else
+            {
                 $.ajax({
-                    url:"inventario/actualizarStock",
+                    url:"inventario/eliminarCompra",
                     type:"POST",
-                    data:{idCompra:idCompra, idInventario:data[i].idInventario}
-                }).done(function(res){
+                    data:{idCompra:idCompra}
+                }).done(function () {
                     Swal.fire(
                         'Inventario',
-                        'Compra Registrada Exitosamente!',
-                        'success'
+                        'No ingresaste ningun Producto!',
+                        'error'
                     );
                     llenarTablaInv();
                     llenarTablaCompras();
+                    $('#frmCompra')[0].reset();
+                    llenarTablaEx();
+                    llenarTablaNew();
+                    $("#next1").show();
                     $("#agregarInventario").modal("hide");
-                });
+                })
             }
+
         })
     });
 

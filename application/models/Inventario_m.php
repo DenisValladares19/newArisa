@@ -19,12 +19,11 @@ class Inventario_m extends CI_Model
         $borrado=array(
             'compras.borradoLogico'=>1,
         );
-        $this->db->select("compras.idCompras,compras.fecha,compras.subtotal,proveedor.nombre,inventario.nombreInv");
+        $this->db->select("compras.idCompras,compras.fecha,compras.subtotal,proveedor.nombre");
         $this->db->from("compras");
-        $this->db->join("proveedor","inventario.nombre proveedor.idProveedor=compras.idProveedor");
-        $this->db->join("inventario","inventario.idCompra = compras.idCompras");
+        $this->db->join("proveedor","proveedor.idProveedor=compras.idProveedor");
         $this->db->where($borrado);
-        $this->db->order_by("compras.fecha", "ASC");
+        $this->db->order_by("compras.fecha", "DESC");
         $this->db->limit("10");
         $query = $this->db->get();
         return $query->result();
@@ -125,7 +124,7 @@ class Inventario_m extends CI_Model
        $compra=array(
             'd.idCompra'=>$idCompra,
         );
-        $this->db->select("d.idDetalleInvCompra, d.cantidad, i.nombreInv");
+        $this->db->select("d.idDetalleInvCompra, d.cantidad,d.newPrecio, i.nombreInv");
         $this->db->from("detalleinvcompra d");
         $this->db->join("inventario i","d.idInventario = i.idInventario");
         $this->db->where($compra);
@@ -162,18 +161,13 @@ class Inventario_m extends CI_Model
 
 
     //Mostrar Productos Nuevos
-    public function mostrarNew($idDetalle){
-        $arreglo¡;
-        for($i=0;$i<count($idDetalle);$i++){
+    public function mostrarNew($idCompra){
             $this->db->select("*");
             $this->db->from("inventario");
-            $this->db->where("idInventario",$idDetalle[$i]);
+            $this->db->where("idCompra",$idCompra);
             $query = $this->db->get();
-            $arreglo = array(
-                "data"=>$query->result()
-            );
-        }
-        return $arreglo;
+
+        return $query->result();
     }
 
     //Mostrar Productos Nuevos Editar
@@ -253,8 +247,21 @@ class Inventario_m extends CI_Model
     public function actualizarStock($idCompra, $idInventario){
         $query = "UPDATE detalleinvcompra SET cantAnterior=(SELECT stock FROM inventario WHERE idInventario=$idInventario) WHERE idCompra=$idCompra";
         $query2 = "UPDATE inventario SET stock=(SELECT (d.cantidad + d.cantAnterior) FROM detalleinvcompra d WHERE d.idInventario= inventario.idInventario AND d.idCompra=$idCompra) WHERE idInventario=$idInventario";
+        $query3="update detalleinvcompra d set newPrecio=(select precio from inventario where idInventario=$idInventario) where idCompra=$idCompra and newPrecio=0";
+        $query4 = "UPDATE inventario SET precio=(SELECT newPrecio FROM detalleinvcompra d WHERE d.idInventario= inventario.idInventario AND d.idCompra=$idCompra) WHERE idInventario=$idInventario";
+
         $this->db->query($query);
         $this->db->query($query2);
+        $this->db->query($query3);
+        $this->db->query($query4);
+        return $this->db->affected_rows();
+    }
+
+
+    //Eliminar la Compra
+    public function eliminarCompra($where)
+    {
+        $this->db->delete("compras",$where);
         return $this->db->affected_rows();
     }
 }

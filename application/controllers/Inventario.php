@@ -61,6 +61,7 @@ class Inventario extends Padre_Desing
                 'idCompras'=>0,
                 'fecha'=>$_POST["fecha"],
                 'subtotal'=>$_POST["subtotal"],
+                'idProveedor'=>$_POST["selectProv"],
                 'borradoLogico'=>1,
             );
 
@@ -76,6 +77,18 @@ class Inventario extends Padre_Desing
         echo json_encode($res);
     }
 
+    //Este metodo valida si el producto ya exxiste en la tabla detalleInvCompra
+    public function validarDetalle(){
+        $form = $_POST["datosEx"];
+
+        $dataV = array(
+            'idCompra'=>$_POST["idCompra"],
+            'idInventario'=>$form[0]['value']
+        );
+        $resV = $this->Inventario_m->validarDetalle($dataV);
+        echo json_encode($resV);
+    }
+
 
 
     public function insertarDetalle(){
@@ -83,31 +96,26 @@ class Inventario extends Padre_Desing
 
         $cantidad=$form[1]['value'];
         $idCompra=$_POST["idCompra"];
+        $rol=$_POST["rol"];
         $idInv=$form[0]['value'];
-
-
-        $dataV = array(
-            'idCompra'=>$_POST["idCompra"],
-            'idInventario'=>$form[0]['value']
-        );
+        $newPrecio=$_POST["newPrecio"];
 
         $data = array(
             'idDetalleInvCompra'=>0,
             'idCompra'=>$_POST["idCompra"],
             'idInventario'=>$form[0]['value'],
-            'cantidad'=>$form[1]['value']
+            'cantidad'=>$form[1]['value'],
+            'newPrecio'=>$_POST["newPrecio"],
+            'rol'=>1 //Este es para diferenciar entre Prod. Existente y Prod. Nuevo
         );
 
 
-
-        $resV = $this->Inventario_m->validarDetalle($dataV);
-
-        if($resV==true)
+        if($rol==2)
             {
             $res = $this->Inventario_m->agregarDetalle2($cantidad,$idInv,$idCompra);
             echo json_encode($res);
             }
-        else
+        else if($rol==1)
             {
             $res = $this->Inventario_m->agregarDetalle($data);
             echo json_encode($res);
@@ -161,8 +169,8 @@ class Inventario extends Padre_Desing
 
     //Obteniendo datos de la tabla Inventario a la Hora de Insertar
     public function mostrarNew(){
-        $idDetalle = $_POST["idDetalle"];
-        $res = $this->Inventario_m->mostrarNew($idDetalle);
+        $idCompra = $_POST["idCompra"];
+        $res = $this->Inventario_m->mostrarNew($idCompra);
 
         echo json_encode($res);
     }
@@ -182,10 +190,25 @@ class Inventario extends Padre_Desing
             'stock'=>$form[2]['value'],
             'descripcion'=>$form[3]['value'],
             'idProveedor'=>$_POST["idProveedor"],
+            'idCompra'=>$_POST["idCompra"],
             'borradoLogico'=>1,
         );
 
         $res = $this->Inventario_m->agregarNuevo($data);
+        echo json_encode($res);
+    }
+
+    public function insertarNuevoADetalle(){
+        $form = $_POST["datosNew"];
+        $data = array(
+            'idCompra'=>$_POST["idCompra"],
+            'idInventario'=>$_POST["idNewProdu"],
+            'cantidad'=>0,
+            'newPrecio'=>$form[1]['value'],
+            'rol'=>2,
+        );
+
+        $res = $this->Inventario_m->agregarDetalle($data);
         echo json_encode($res);
     }
 
@@ -234,10 +257,18 @@ class Inventario extends Padre_Desing
     public function actualizarStock(){
         $idCompra = $_POST["idCompra"];
         $idInventario = $_POST["idInventario"];
-       // echo var_dump($_POST);
         $this->Inventario_m->actualizarStock($idCompra,$idInventario);
     }
 
+
+    //Para eliminar la Compra
+    public function eliminarCompra(){
+        $where=array(
+            'idCompras'=>$_POST["idCompra"],
+        );
+        $res = $this->Inventario_m->eliminarCompra($where);
+        echo json_encode($res);
+    }
 
 
 }
