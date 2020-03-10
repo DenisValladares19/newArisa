@@ -65,7 +65,7 @@
                     </div>
                     <div id='divDesc'>
                         <form id="frmDesc">
-                            <div class="row">
+                            <div class="row" id="inputDesc">
                                 <div class='col-md-6'><input type='text' name='desc' id='descI'class='form-control' onKeyup="validarCampo(event)"  placeholder='Descripción'/></div>
                                 <div class='col-md-3'><input type='text' name='cant' id='cantI' class='form-control' placeholder='Cantidad'/></div>
                                 <div class='col-md-3'><input type='text' name='total' id='totalI' class="form-control" placeholder="Total"/></div>

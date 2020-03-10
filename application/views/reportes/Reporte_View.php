@@ -8,7 +8,7 @@
 
 
     <div class="row">
-        <div class="col-sm" id="reporteG">
+        <!--<div class="col-sm" id="reporteG">
                 <button style="color: #000000; background-color: rgba(196, 211, 245 , 0.9); serif; font-size:12pt; font-family: Raavi;" class="btn btn-light">
                     <img src="<?php echo base_url("resources/images/reporte/reporte.png")?>" width="40%" height="30%">
                     <br>
@@ -17,7 +17,7 @@
                     <span style="font-size:12pt; text-transform: none;">Reporte de Todas la Ordenes</span>
                     <br>
                 </button>
-        </div>
+        </div>-->
         <div class="col-sm" id="reporteRF">
                 <button style="color: #000000; background-color: rgba(196, 211, 245 , 0.9); serif; font-size:12pt; font-family: Raavi;" class="btn btn-light">
                     <img src="<?php echo base_url("resources/images/reporte/rango.png")?>" width="37%" height="30%">
@@ -83,7 +83,7 @@
                         </div>
                     </div>
 
-                    <button type="submit" id="btnDeleteId" name="btnDelete" class="btn btn-danger">Eliminar</button>
+                    <button type="submit" id="btnDeleteId" name="btnDelete" class="btn btn-danger">Generar Reporte</button>
                 </form>
             </div>
 
@@ -142,11 +142,11 @@
 
                         <div class="form-group">
                             <label>Fecha</label>
-                            <input type="date" name="fecha">
+                            <input type="text" name="fecha" autocomplete='off' id="fecha" class="form-control">
                         </div>
                     </div>
 
-                    <button type="submit" id="btnDeleteId" name="btnDelete" class="btn btn-danger">Generar Reporte</button>
+                    <button type="submit" id="btnDeleteId"  name="btnDelete" class="btn btn-danger btn-block">Generar Reporte</button>
                 </form>
             </div>
 
@@ -179,7 +179,7 @@
 
                         <div class="form-group">
                             <label>Fecha Inicial</label>
-                            <input type="date" name="fechaI">
+                            <input type="text" name="fechaI"  autocomplete='off' id="fechaI" class="form-control">
                         </div>
                     </div>
 
@@ -189,12 +189,12 @@
 
                         <div class="form-group">
                             <label>Fecha Final</label>
-                            <input type="date" name="fechaF">
+                            <input type="text" name="fechaF" autocomplete='off' class="form-control" id="fechaF">
                         </div>
                     </div>
 
 
-                    <button type="submit" id="btnDeleteId" name="btnDelete" class="btn btn-danger">Generar Reporte</button>
+                    <button type="submit" id="btnDeleteId" name="btnDelete" class="btn btn-danger text-cente r btn-block">Generar Reporte</button>
                 </form>
             </div>
 
@@ -230,7 +230,7 @@
                         </div>
                     </div>
 
-                    <button type="submit" id="btnDeleteId" name="btnDelete" class="btn btn-danger">Eliminar</button>
+                    <button type="submit" id="btnDeleteId" name="btnDelete" class="btn btn-danger btn-block">Generar Reporte</button>
                 </form>
             </div>
 

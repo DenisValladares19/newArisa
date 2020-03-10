@@ -17,7 +17,7 @@ function LlenarTabla() {
                     '<td>'+
                     '<a class="btn btn-outline-info"  href="javascript:;" data="'+data[i].idMuestra+'" id="editar" ><i class="fas fa-marker"></i></a>\n' +
                     '<a class="btn btn-outline-danger" href="javascript:;" data="'+data[i].idMuestra+'" id="eliminar"><i class="far fa-trash-alt"></i></a>\n'+
-                    '<a class="btn btn-outline-dark" href="javascript:;" data="'+data[i].idMuestra+'" id="download"><i class="fas fa-cloud-download-alt"></i></a>\n'+
+                    '<!--<a class="btn btn-outline-dark" href="javascript:;" data="'+data[i].idMuestra+'" id="download"><i class="fas fa-cloud-download-alt"></i></a>-->\n'+
                     '</td>'+
                     '</tr>';
                 '</tr>';

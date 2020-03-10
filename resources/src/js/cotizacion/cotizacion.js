@@ -263,6 +263,14 @@ $(document).ready(function () {
                         })
                     }
                   })*/
+
+                  Swal.fire(
+                    'Cotización',
+                    'Se guardo exitosamente!',
+                    'success'
+                );
+                $("#inputDesc").show();
+
                   $("#frmInsertarCliente").modal("hide");
                 llenarCotizacion();
                 limpiarCot();
@@ -375,7 +383,7 @@ $(document).on("click","#addDes",function(){
     let form = $("#frmDesc").serializeArray();
     let idCotizacion = localStorage.getItem("idCotizacion");
     let idDesc = localStorage.getItem("idDesc");
-    if(a>2 && a<=10){
+    if(a>2 && a<=9){
         $.ajax({
             url:"cotizacion/insertarDescripcion",
             type:"POST",
@@ -385,6 +393,25 @@ $(document).on("click","#addDes",function(){
             limpiar();
             llenarDescripcion();
         });
+    }else{
+        swal.fire(
+            "Cotización",
+            "Ha alcanzado el maximo de detalles",
+            "warning"
+        )
+        $("#inputDesc").hide();
+    }
+});
+
+
+$(document).on("click","#addDes",function(){
+    if(a>=9){
+        swal.fire(
+            "Cotización",
+            "Ha alcanzado el maximo de detalles",
+            "warning"
+        )
+        $("#inputDesc").hide();
     }
 });
 
@@ -459,7 +486,7 @@ $(document).on("click",".editarC",function(e){
     $.post("cotizacion/getAllCliente",{},function(res){
         var r = JSON.parse(res);   
         for(var i = 0;i<r.length;i++){
-            $("#clienteE").append("<option value='"+r[i].idCliente+"'>"+r[i].nombre+" "+r[i].apellido+"</option>");
+            $("#clienteE").append("<option value='"+r[i].idCliente+"'>"+r[i].empresa+" </option>");
         }       
     });
 
@@ -541,7 +568,7 @@ function llenarCLientes(){
     $.post("cotizacion/getAllCliente",{},function(res){
         var r = JSON.parse(res);   
         for(var i = 0;i<r.length;i++){
-            $("#clienteI").append("<option value='"+r[i].idCliente+"'>"+r[i].nombre+" "+r[i].apellido+"</option>");
+            $("#clienteI").append("<option value='"+r[i].idCliente+"'>"+r[i].empresa+"</option>");
         }       
     });
 }
@@ -619,7 +646,7 @@ function llenarCotizacion(){
         var data = JSON.parse(JSON.stringify(res));
         var tabla = '<table class="table table-bordered" width="100%" cellspacing="0" id="data"><thead style="background-color: rgba(11, 23, 41 , 0.6); color:white;"><td>Codigo</td><td>Cliente</td><td>Fecha</td><td>Estado</td><td>Descripción</td><td>Total</td><td>Acciones</td></thead><tbody>';
         for(var i=0;i<data.length;i++){
-            tabla += "<tr><td>"+data[i].codigo+"</td><td>"+data[i].clNombre+" "+data[i].clApellido+"</td><td>"+data[i].fecha+"</td><td>"+data[i].estado+"</td><td>"+data[i].descripcion+"</td><td>"+data[i].vTotal+"</td><td><button class=' btn btn-outline-info mr-1 editarC' data-idDetalle='"+data[i].idDetalle+"' data-idCot='"+data[i].idCotizacion+"' data-idDesc='"+data[i].idDescripcion+"'><i class='fas fa-marker'></i></button><button class=' btn btn-outline-dark mr-1 printC' data-idDetalle='"+data[i].idDetalle+"' data-idCot='"+data[i].idCotizacion+"' data-idDesc='"+data[i].idDescripcion+"'><i class='fas fa-print'></i></button><button class='btn btn-outline-danger mr-1 eliminarC' data-idDetalle='"+data[i].idDetalle+"' data-idCot='"+data[i].idCotizacion+"' data-idDesc='"+data[i].idDescripcion+"'><i class='fas fa-trash-alt'></i></button></td></tr>";
+            tabla += "<tr><td>"+data[i].codigo+"</td><td>"+data[i].empresa+" </td><td>"+data[i].fecha+"</td><td>"+data[i].estado+"</td><td>"+data[i].descripcion+"</td><td>"+data[i].vTotal+"</td><td><button class=' btn btn-outline-info mr-1 editarC' data-idDetalle='"+data[i].idDetalle+"' data-idCot='"+data[i].idCotizacion+"' data-idDesc='"+data[i].idDescripcion+"'><i class='fas fa-marker'></i></button><button class=' btn btn-outline-dark mr-1 printC' data-idDetalle='"+data[i].idDetalle+"' data-idCot='"+data[i].idCotizacion+"' data-idDesc='"+data[i].idDescripcion+"'><i class='fas fa-print'></i></button><button class='btn btn-outline-danger mr-1 eliminarC' data-idDetalle='"+data[i].idDetalle+"' data-idCot='"+data[i].idCotizacion+"' data-idDesc='"+data[i].idDescripcion+"'><i class='fas fa-trash-alt'></i></button></td></tr>";
         }
         tabla += "</tbody><tfoot style='font-weight: bold;'><td>Cliente</td><td>Tipo de Impresión</td><td>Fecha</td><td>Estado</td><td>Descripción</td><td>Total</td><td>Acciones</td></tfoot></table>";
         
@@ -656,7 +683,7 @@ function llenarCotizacion(){
 function limpiar(){
     $("#descI").val('');
     $("#cantI").val('');
-    $("#total").val('');
+    $("#totalI").val('');
 }
 
 function limpiar2(){

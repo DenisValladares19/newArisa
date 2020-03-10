@@ -41,8 +41,8 @@ class Cotizacion_m extends CI_Model{
     }
     
     public function getAllCotizacion($id = null){
-        $query = "SELECT d.idDetalle, d.idCotizacion, d.idDescripcion, c.fecha, c.descripcion,cl.idCliente, e.idEstado1, cl.nombre AS clNombre, cl.apellido AS clApellido, e.nombre AS estado, de.subtotal, de.iva, de.vTotal FROM detallecotizacion d JOIN cotizacion c ON d.idCotizacion = c.idCotizacion JOIN cliente cl ON c.idCliente=cl.idCliente JOIN estado1 e ON c.idEstado1=e.idEstado1 JOIN descripcion de ON de.idDescripcion=d.idDescripcion WHERE c.borradoLogico=1 GROUP BY d.idCotizacion, d.idDescripcion, c.fecha, c.descripcion, cl.nombre, cl.apellido, e.nombre, de.subtotal, de.iva, de.vTotal HAVING COUNT(*)>0 ORDER BY d.idDetalle DESC";
-        $this->db->select("d.idDetalle, d.idCotizacion, d.idDescripcion, c.codigo,c.fecha, c.descripcion,cl.idCliente, e.idEstado1, cl.nombre AS clNombre, cl.apellido AS clApellido, e.nombre AS estado, de.vTotal");
+        //$query = "SELECT d.idDetalle, d.idCotizacion, d.idDescripcion, c.fecha, c.descripcion,cl.idCliente, e.idEstado1, cl.empresa, e.nombre AS estado, de.subtotal, de.iva, de.vTotal FROM detallecotizacion d JOIN cotizacion c ON d.idCotizacion = c.idCotizacion JOIN cliente cl ON c.idCliente=cl.idCliente JOIN estado1 e ON c.idEstado1=e.idEstado1 JOIN descripcion de ON de.idDescripcion=d.idDescripcion WHERE c.borradoLogico=1 GROUP BY d.idCotizacion, d.idDescripcion, c.fecha, c.descripcion, cl.nombre, cl.apellido, e.nombre, de.subtotal, de.iva, de.vTotal HAVING COUNT(*)>0 ORDER BY d.idDetalle DESC";
+        $this->db->select("d.idDetalle, d.idCotizacion, d.idDescripcion, c.codigo,c.fecha, c.descripcion,cl.idCliente, e.idEstado1, cl.empresa, e.nombre AS estado, de.vTotal");
         $this->db->from("detallecotizacion d");
         $this->db->join("cotizacion c","d.idCotizacion=c.idCotizacion");
         $this->db->join("cliente cl","c.idCliente = cl.idCliente");
@@ -129,7 +129,7 @@ class Cotizacion_m extends CI_Model{
     }
 
     public function generarCodigo($id){
-        $query = "UPDATE cotizacion o SET codigo = (SELECT CONCAT(UPPER(LEFT(c.nombre,1)),UPPER(LEFT(c.apellido,1)),(SELECT YEAR(NOW())),UPPER(LEFT(c.empresa,1)),(SELECT DAY(NOW())),UPPER(LEFT(c.correo,1)),RIGHT(idCotizacion,2)) AS codigo FROM cliente c WHERE c.idCliente = (SELECT o.idCliente WHERE o.idCotizacion = $id)) WHERE idCotizacion=$id";
+        $query = "UPDATE cotizacion o SET codigo = (SELECT CONCAT(UPPER(LEFT(c.empresa,5)),(SELECT YEAR(NOW())),UPPER(LEFT(c.nombre,1)),(SELECT DAY(NOW())),UPPER(LEFT(c.apellido,1)),RIGHT(idCotizacion,2)) AS codigo FROM cliente c WHERE c.idCliente = (SELECT o.idCliente WHERE o.idCotizacion = $id)) WHERE idCotizacion=$id";
         $this->db->query($query);
         return $this->db->affected_rows();
     }
