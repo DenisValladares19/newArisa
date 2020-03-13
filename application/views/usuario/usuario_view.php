@@ -5,7 +5,7 @@
     function validarFile(all)
     {
 
-        var extensiones_permitidas = [".png", ".jpg", ".jpeg"];
+        var extensiones_permitidas = [".png", ".PNG", ".jpg", ".JPG",".jpeg"];
         var tamano = 8;
         var rutayarchivo = all.value;
         var ultimo_punto = all.value.lastIndexOf(".");
@@ -24,6 +24,23 @@
         }
     }
 </script>
+
+<style>
+    .errores{
+        -webkit-boxshadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        background: red;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        color: #fff;
+        display: none;
+        font-size: 10px;
+        margin-top: -40px;
+        margin-left: 320px;
+        padding: 6px;
+        position: absolute;
+    }
+</style>
 
 <div class="full-box page-header">
     <h3 class="text-left">
@@ -48,6 +65,7 @@
     <table class="table table-bordered" width="100%" cellspacing="0" id="dataUsuario">
         <thead style="background-color: rgba(11, 23, 41 , 0.6); color: #f0f0f0">
         <td>Nombre de Usuario</td>
+        <td>Tipo de Usuario</td>
         <td>Correo Electronico</td>
         <td>Foto de Perfil</td>
         <td>Opciones</td>
@@ -57,6 +75,7 @@
         </tbody>
         <tfoot>
         <th>Username</th>
+        <th>Type of User</th>
         <th>E-Mail</th>
         <th>Profile Picture</th>
         <th>Options</th>
@@ -82,21 +101,27 @@
                         <div class="form-group">
                             <label>Nombre de Usuario &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             <span id="error" style="color: red;font-size: 12px;">ERROR:Este Usuario ya está registrado!</span></label>
-                            <input type="text" name="nombre" id="nombres" placeholder="Nombre de Usuario..." class="form-control" required>
+                            <input type="text" name="nombre" id="nombres" placeholder="Nombre de Usuario..." class="form-control" autocomplete='off' required>
+                            <div id="msjNombre" class="errores"> Nombre de Usuario... </div>
                         </div>
                     </div>
+
+                    <div id="inputs">
+
 
                     <div class="form-column col-md-12">
                         <div class="form-group">
                             <label>E-Mail</label>
-                            <input type="email" name="email" id="emailId" placeholder="E-Mail..." class="form-control" required>
+                            <input type="email" name="email" id="emailId" placeholder="E-Mail..." class="form-control" autocomplete='off' required>
+                            <div id="msjEmail" class="errores"> E-Mail... </div>
                         </div>
                     </div>
 
                     <div class="form-column col-md-12">
                         <div class="form-group">
                             <label>Contraseña</label>
-                            <input type="password" name="pass" id="passId" placeholder="Contraseña..."  class="form-control" required>
+                            <input type="password" name="pass" id="passId" placeholder="Contraseña..." autocomplete='off'  class="form-control" required>
+                            <div id="msjPass" class="errores"> Contraseña... </div>
                         </div>
                     </div>
 
@@ -104,7 +129,6 @@
                         <div class="form-group">
                             <label>Rol</label>
                             <select name="rol" id="rolId" class="form-control" required>
-                            <option disabled="true">Seleccione</option>
 
                             </select>
                         </div>
@@ -114,7 +138,10 @@
                         <div class="form-group">
                             <label>Imagen de Perfil</label>
                             <input type="file" name="imagen" id="imagenId" class="form-control" onchange="validarFile(this)" required>
+                            <div id="msjImg" class="errores"> Imagen... </div>
                         </div>
+                    </div>
+
                     </div>
 
                 </form>
@@ -146,6 +173,7 @@
                             <label>Nombre de Usuario</label>
                             <input type="hidden" name="txtId" value="0">
                             <input type="text" name="nombreE" placeholder="Nombre de Usuario..." id="nombresId" class="form-control" required>
+                            <div id="msjNombreE" class="errores"> Nombre de Usuario... </div>
                         </div>
                     </div>
 
@@ -153,6 +181,7 @@
                         <div class="form-group">
                             <label>E-Mail</label>
                             <input type="text" name="emailE" id="emailEId" placeholder="E-Mail..." class="form-control" required>
+                            <div id="msjEmailE" class="errores"> E-Mail... </div>
                         </div>
                     </div>
 
@@ -160,6 +189,7 @@
                         <div class="form-group">
                             <label>Contraseña</label>
                             <input type="password" name="passE" id="passEId" placeholder="Contraseña..." class="form-control" required>
+                            <div id="msjPassE" class="errores"> Contraseña... </div>
                         </div>
                     </div>
 
@@ -176,6 +206,7 @@
                         <div class="form-group">
                             <label>Imagen de Perfil</label>
                             <input type="file" name="imagenE" id="imagenEId" class="form-control" onchange="validarFile(this)" required>
+                            <div id="msjImgE" class="errores"> Imagen... </div>
                         </div>
                     </div>
 

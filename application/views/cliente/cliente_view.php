@@ -1,4 +1,5 @@
 <script src="<?php echo base_url("resources/src/js/cliente/cliente.js")?>"></script>
+<script src="<?php echo base_url("resources/js/jquery.mask.js")?>"></script>
 
   <?php $rol = $this->session->userdata('rol');
                         if($rol=='Vendedor'){
@@ -8,6 +9,7 @@
 <link rel="stylesheet type="text/css" href="<?php echo base_url("resources/src/css/dashboard_hide1.css")?>">
 
 
+
 <?php
 
                         }
@@ -15,6 +17,40 @@
 
 ?>
 
+
+
+<style>
+    .errores1{
+        -webkit-boxshadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        background: red;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        color: #fff;
+        display: none;
+        font-size: 10px;
+        margin-top: -40px;
+        margin-left: 130px;
+        padding: 6px;
+        position: absolute;
+    }
+
+    .errores2{
+        -webkit-boxshadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        background: red;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        color: #fff;
+        display: none;
+        font-size: 10px;
+        margin-top: -40px;
+        margin-left: 320px;
+        padding: 6px;
+        position: absolute;
+    }
+
+</style>
 
 <div class="full-box page-header">
     <h3 class="text-left">
@@ -88,13 +124,15 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Nombre del Cliente</label>
-                                <input type="text" name="nombre" id="nombreId" class="form-control" placeholder="Nombre..." required>
+                                <input type="text" name="nombre" id="nombreId" class="form-control soloLetra" placeholder="Nombre..." required>
+                                <div id="msjNombre" class="errores1"> Nombre... </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Apellido del Cliente</label>
-                                <input type="tel" name="apellido" id="apellidoId" class="form-control" placeholder="Apellido..." required>
+                                <input type="tel" name="apellido" id="apellidoId" class="form-control soloLetra" placeholder="Apellido..." required>
+                                <div id="msjApellido" class="errores1"> Apellido... </div>
                             </div>
                         </div>
                     </div>
@@ -104,7 +142,8 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Empresa</label>
-                                <input type="text" name="empresa" id="empresaId" class="form-control" placeholder="Empresa..." required>
+                                <input type="text" name="empresa" id="empresaId" class="form-control soloLetra" placeholder="Empresa..." required>
+                                <div id="msjEmpresa" class="errores2"> Empresa... </div>
                             </div>
                         </div>
                     </div>
@@ -115,12 +154,14 @@
                             <div class="form-group">
                                 <label>Teléfono</label>
                                 <input type="text" name="telefono" id="telefonoId" class="form-control" placeholder="Telefono..." required>
+                                <div id="msjTelefono" class="errores1"> Telefono... </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Celular</label>
                                 <input type="text" name="telefonoC" id="telefonoCId" class="form-control" placeholder="Celular..." required>
+                                <div id="msjCelular" class="errores1"> Celular... </div>
                             </div>
                         </div>
                     </div>
@@ -130,6 +171,7 @@
                             <div class="form-group">
                                 <label>Correo</label>
                                 <input type="email" name="email" id="emailId" class="form-control" placeholder="E-Mail..." required>
+                                <div id="msjEmail" class="errores2"> E-Mail... </div>
                             </div>
                         </div>
                     </div>
@@ -139,6 +181,7 @@
                             <div class="form-group">
                                 <label>Dirección</label>
                                 <input type="text" name="direccion" id="direccionId" class="form-control" placeholder="Dirección..." required>
+                                <div id="msjDireccion" class="errores2"> Dirección... </div>
                             </div>
                         </div>
                     </div>
@@ -148,12 +191,14 @@
                             <div class="form-group">
                                 <label>NIT</label>
                                 <input type="text" name="nit" id="nitId" class="form-control" placeholder="NIT..." required>
+                                <div id="msjNit" class="errores1"> NIT... </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Registro Fiscal</label>
                                 <input type="text" name="registroF" id="registroFId" class="form-control" placeholder="Registro Fiscal..." required>
+                                <div id="msjFiscal" class="errores1"> Registro Fiscal... </div>
                             </div>
                         </div>
                     </div>
@@ -186,13 +231,15 @@
                             <div class="form-group">
                                 <label>Nombre de Cliente</label>
                                 <input type="hidden" name="idCliente">
-                                <input type="text" name="nombreE" id="nombreIdE" class="form-control" placeholder="Nombre..." required>
+                                <input type="text" name="nombreE" id="nombreIdE" class="form-control soloLetra" placeholder="Nombre..." required>
+                                <div id="msjNombreE" class="errores1"> Nombre... </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Apellido del Cliente</label>
-                                <input type="tel" name="apellidoE" id="apellidoIdE" class="form-control" placeholder="Apellido..." required>
+                                <input type="tel" name="apellidoE" id="apellidoIdE" class="form-control soloLetra" placeholder="Apellido..." required>
+                                <div id="msjApellidoE" class="errores1"> Apellido... </div>
                             </div>
                         </div>
                     </div>
@@ -202,7 +249,8 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Empresa</label>
-                                <input type="text" name="empresaE" id="empresaIdE" class="form-control" placeholder="Empresa..." required>
+                                <input type="text" name="empresaE" id="empresaIdE" class="form-control soloLetra" placeholder="Empresa..." required>
+                                <div id="msjEmpresaE" class="errores2"> Empresa... </div>
                             </div>
                         </div>
                     </div>
@@ -213,12 +261,14 @@
                             <div class="form-group">
                                 <label>Teléfono</label>
                                 <input type="text" name="telefonoE" id="telefonoIdE" class="form-control" placeholder="Telefono..." required>
+                                <div id="msjTelefonoE" class="errores1"> Telefono... </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Celular</label>
                                 <input type="text" name="telefonoCE" id="telefonoCIdE" class="form-control" placeholder="Celular..." required>
+                                <div id="msjCelularE" class="errores1"> Celular... </div>
                             </div>
                         </div>
                     </div>
@@ -228,6 +278,7 @@
                             <div class="form-group">
                                 <label>Correo</label>
                                 <input type="email" name="emailE" id="emailIdE" class="form-control" placeholder="E-Mail..." required>
+                                <div id="msjEmailE" class="errores2"> E-Mail... </div>
                             </div>
                         </div>
                     </div>
@@ -237,6 +288,7 @@
                             <div class="form-group">
                                 <label>Dirección</label>
                                 <input type="text" name="direccionE" id="direccionIdE" class="form-control" placeholder="Dirección..." required>
+                                <div id="msjDireccionE" class="errores2"> Dirección... </div>
                             </div>
                         </div>
                     </div>
@@ -246,12 +298,14 @@
                             <div class="form-group">
                                 <label>NIT</label>
                                 <input type="text" name="nitE" id="nitIdE" class="form-control" placeholder="NIT..." required>
+                                <div id="msjNitE" class="errores1"> NIT... </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Registro Fiscal</label>
                                 <input type="text" name="registroFE" id="registroFIdE" class="form-control" placeholder="Registro Fiscal..." required>
+                                <div id="msjFiscalE" class="errores1"> Registro Fiscal... </div>
                             </div>
                         </div>
                     </div>

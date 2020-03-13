@@ -1,4 +1,38 @@
 <script src="<?php echo base_url("resources/src/js/proveedor/proveedor.js")?>"></script>
+<script src="<?php echo base_url("resources/js/jquery.mask.js")?>"></script>
+
+<style>
+    .errores1{
+        -webkit-boxshadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        background: red;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        color: #fff;
+        display: none;
+        font-size: 10px;
+        margin-top: -40px;
+        margin-left: 130px;
+        padding: 6px;
+        position: absolute;
+    }
+
+    .errores2{
+        -webkit-boxshadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        background: red;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        color: #fff;
+        display: none;
+        font-size: 10px;
+        margin-top: -40px;
+        margin-left: 320px;
+        padding: 6px;
+        position: absolute;
+    }
+
+</style>
 <body>
 <div class="full-box page-header">
     <h3 class="text-left">
@@ -67,13 +101,15 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Nombre del Proveedor</label>
-                                <input type="text" name="txtNombre" placeholder="Nombre..." class="form-control" required>
+                                <input type="text" name="txtNombre" id="txtNombre" placeholder="Nombre..." class="form-control soloLetra" autocomplete='off' required>
+                                <div id="msjNombre" class="errores1"> Nombre... </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Nombre de la Empresa</label>
-                                <input type="tel" name="txtEmpresa" class="form-control" placeholder="Empresa..." required>
+                                <input type="tel" name="txtEmpresa" id="txtEmpresa" class="form-control soloLetra" placeholder="Empresa..." autocomplete='off' required>
+                                <div id="msjEmpresa" class="errores1"> Empresa... </div>
                             </div>
                         </div>
                     </div>
@@ -81,7 +117,8 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>E-Mail</label>
-                                <input type="email" name="txtCorreo" placeholder="E-mail" class="form-control" required>
+                                <input type="email" name="txtCorreo" id="txtCorreo" placeholder="E-mail" class="form-control" autocomplete='off'>
+                                <div id="msjEmail" class="errores2"> E-Mail... </div>
                             </div>
                         </div>
                     </div>
@@ -89,7 +126,8 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Direccion</label>
-                                <input type="textar" name="txtDireccion" placeholder="Direccion..." class="form-control" required>
+                                <input type="textar" name="txtDireccion" id="txtDireccion" placeholder="Direccion..." class="form-control" autocomplete='off'>
+                                <div id="msjDireccion" class="errores2"> Dirección... </div>
                             </div>
                         </div>
                     </div>
@@ -97,13 +135,15 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Telefono</label>
-                                <input type="tel" name="txtTelefono" class="form-control" placeholder="Telefono..." required>
+                                <input type="tel" name="txtTelefono" id="txtTelefono" class="form-control" placeholder="Telefono..." autocomplete='off' required>
+                                <div id="msjTelefono" class="errores1"> Telefono... </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Celular</label>
-                                <input type="tel" name="txtCelular" class="form-control" placeholder="Celular..." required>
+                                <input type="tel" name="txtCelular" id="txtCelular" class="form-control" placeholder="Celular..." autocomplete='off' required>
+                                <div id="msjCelular" class="errores1"> Celular... </div>
                             </div>
                         </div>
                     </div>
@@ -111,13 +151,15 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>NIT</label>
-                                <input type="tel" name="txtNit" class="form-control" placeholder="NIT..." required>
+                                <input type="tel" name="txtNit" id="txtNit" class="form-control" placeholder="NIT..." autocomplete='off' required>
+                                <div id="msjNit" class="errores1"> NIT... </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>N° Registro Fiscal</label>
-                                <input type="tel" name="txtRegistro" class="form-control" placeholder="Registro Fiscal..." required>
+                                <input type="tel"  name="txtRegistro" id="txtRegistro" class="form-control" placeholder="Registro Fiscal..." autocomplete='off' required>
+                                <div id="msjFiscal" class="errores1"> Registro Fiscal... </div>
                             </div>
                         </div>
                     </div>
@@ -156,13 +198,15 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Nombre del Proveedor</label>
-                                <input type="text" name="txtNombreE" id="txtNombreE" placeholder="Nombre..." class="form-control" required>
+                                <input type="text" name="txtNombreE" id="txtNombreE" placeholder="Nombre..." class="form-control soloLetra" autocomplete='off' required>
+                                <div id="msjNombreE" class="errores1"> Nombre... </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Nombre de la Empresa</label>
-                                <input type="tel" name="txtEmpresaE" id="txtEmpresaE" class="form-control" placeholder="Empresa..." required>
+                                <input type="tel" name="txtEmpresaE" id="txtEmpresaE" class="form-control soloLetra" placeholder="Empresa..." autocomplete='off' required>
+                                <div id="msjEmpresaE" class="errores1"> Empresa... </div>
                             </div>
                         </div>
                     </div>
@@ -170,7 +214,8 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>E-Mail</label>
-                                <input type="email" name="txtCorreoE"  id="txtCorreoE" placeholder="E-mail" class="form-control" required>
+                                <input type="email" name="txtCorreoE"  id="txtCorreoE" placeholder="E-mail" class="form-control" autocomplete='off'>
+                                <div id="msjEmailE" class="errores2"> E-Mail... </div>
                             </div>
                         </div>
                     </div>
@@ -178,7 +223,8 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Direccion</label>
-                                <input type="textar" name="txtDireccionE"  id="txtDireccionE" placeholder="Direccion..." class="form-control" required>
+                                <input type="textar" name="txtDireccionE"  id="txtDireccionE" placeholder="Direccion..." class="form-control" autocomplete='off'>
+                                <div id="msjDireccionE" class="errores2"> Dirección... </div>
                             </div>
                         </div>
                     </div>
@@ -186,13 +232,15 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Telefono</label>
-                                <input type="tel" name="txtTelefonoE"  id="txtTelefonoE" class="form-control" placeholder="Telefono..." required>
+                                <input type="tel" name="txtTelefonoE"  id="txtTelefonoE" class="form-control" placeholder="Telefono..." autocomplete='off' required>
+                                <div id="msjTelefonoE" class="errores1"> Telefono... </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Celular</label>
-                                <input type="tel" name="txtCelularE"  id="txtCelularE" class="form-control" placeholder="Celular..." required>
+                                <input type="tel" name="txtCelularE"  id="txtCelularE" class="form-control" placeholder="Celular..." autocomplete='off' required>
+                                <div id="msjCelularE" class="errores1"> Celular... </div>
                             </div>
                         </div>
                     </div>
@@ -200,13 +248,15 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>NIT</label>
-                                <input type="tel" name="txtNitE" id="txtNitE" class="form-control" placeholder="NIT..." aria-required="true"  required>
+                                <input type="tel" name="txtNitE" id="txtNitE" class="form-control" placeholder="NIT..." aria-required="true"  autocomplete='off' required>
+                                <div id="msjNitE" class="errores1"> NIT... </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>N° Registro Fiscal</label>
-                                <input type="tel" name="txtRegistroE" id="txtRegistroE" class="form-control" placeholder="Registro Fiscal..." required>
+                                <input type="tel" name="txtRegistroE" id="txtRegistroE" class="form-control" placeholder="Registro Fiscal..." autocomplete='off' required>
+                                <div id="msjFiscalE" class="errores1"> Registro Fiscal... </div>
                             </div>
                         </div>
                     </div>

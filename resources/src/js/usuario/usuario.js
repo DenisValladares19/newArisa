@@ -1,3 +1,6 @@
+//Expresión para validar un correo electrónico
+var expr = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/;
+
 $(document).ready(function () {
 
     showUsers();
@@ -10,6 +13,8 @@ $(document).ready(function () {
 
 
 });
+
+
 
 
 function validarUsuario(){
@@ -25,11 +30,13 @@ function validarUsuario(){
                 if(r==false)
                 {
                     $("#error").hide();
+                    $('#inputs').show();
+
                 }
                 else
                 {
                     $("#error").show();
-
+                    $('#inputs').hide();
                 }
 
             },
@@ -47,47 +54,102 @@ $(document).on("click", "#agregarCliente", function () {
 });
 
 $(document).on('click','#btnSaveUserId',function(){
-    event.preventDefault();
-    var formData = new FormData($("#frmUserId")[0]);
 
-    $.ajax({
-        url: 'Usuario/addUser',
-        type: 'post',
-        data: formData,
-        cache: false,
-        contentType: false,
-        processData: false
+    var nombre = $("#nombres").val();
+    var correo = $("#emailId").val();
+    var pass = $("#passId").val();
+    var img = $("#imagenId").val();
 
-    })
-        .done(function() {
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 4000,
-                timerProgressBar: true,
-                onOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer)
-            toast.addEventListener('mouseleave', Swal.resumeTimer)
+    if(nombre == ""){
+        $("#msjNombre").fadeIn("slow");
+        return false;
+    }
+    else{
+        $("#msjNombre").fadeOut();
+
+        if(correo == "" || !expr.test(correo)){
+            $("#msjEmail").fadeIn("slow");
+            return false;
         }
-        })
-            Toast.fire({
-                icon: 'success',
-                title: 'Información Insertada Correctamente'
-            })
+        else{
+            $("#msjEmail").fadeOut();
 
-            $("#frmInsertarCliente").modal("hide");
-            $('#frmUserId')[0].reset();
-            showUsers();
+            if(pass == ""){
+                $("#msjPass").fadeIn("slow");
+                return false;
+            }
+            else{
+                $("#msjPass").fadeOut();
 
-        })
-        .fail(function() {
-            Swal.fire(
-                'Usuario!',
-                'Error en el Intentó de Inserción de Información',
-                'error'
-            )
-        });
+                if(img == ""){
+                    $("#msjImg").fadeIn("slow");
+                    return false;
+                }
+                else{
+                    $("#msjImg").fadeOut();
+
+
+                    //Nada esta vacio
+                    //Se envian los datos para ser agregados
+
+
+                    event.preventDefault();
+                    var formData = new FormData($("#frmUserId")[0]);
+
+                    $.ajax({
+                        url: 'Usuario/addUser',
+                        type: 'post',
+                        data: formData,
+                        cache: false,
+                        contentType: false,
+                        processData: false
+
+                    })
+                        .done(function() {
+                            const Toast = Swal.mixin({
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 4000,
+                                timerProgressBar: true,
+                                onOpen: (toast) => {
+                                toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                        })
+                            Toast.fire({
+                                icon: 'success',
+                                title: 'Información Insertada Correctamente'
+                            })
+
+                            $("#frmInsertarCliente").modal("hide");
+                            $('#frmUserId')[0].reset();
+                            showUsers();
+
+                        })
+                        .fail(function() {
+                            Swal.fire(
+                                'Usuario!',
+                                'Error en el Intentó de Inserción de Información',
+                                'error'
+                            )
+                        });
+
+
+
+                }
+
+            }
+
+
+
+        }
+
+    }
+
+
+
+
 
 });
 
@@ -124,7 +186,36 @@ $(document).on('click','#editar',function () {
 
 
 $(document).on('click','#btnEditUserId',function(){
-    event.preventDefault();
+
+
+    var nombre = $("#nombresId").val();
+    var correo = $("#emailEId").val();
+    var pass = $("#passEId").val();
+
+    if(nombre == ""){
+        $("#msjNombreE").fadeIn("slow");
+        return false;
+    }
+    else{
+        $("#msjNombreE").fadeOut();
+
+        if(correo == "" || !expr.test(correo)){
+            $("#msjEmailE").fadeIn("slow");
+            return false;
+        }
+        else{
+            $("#msjEmailE").fadeOut();
+
+            if(pass == ""){
+                $("#msjPassE").fadeIn("slow");
+                return false;
+            }
+            else{
+                $("#msjPassE").fadeOut();
+
+                //ENVIAR DATA
+
+                event.preventDefault();
     Swal.fire({
         title: 'Está seguro de Editar la Información?',
         text: "¡No podrás revertir esto!",
@@ -176,6 +267,17 @@ $(document).on('click','#btnEditUserId',function(){
         });
     }
 })
+
+
+
+            }
+
+
+
+        }
+
+    }
+
 });
 
 $(document).on('click','#btnDeleteId',function(){
@@ -249,6 +351,7 @@ function showUsers() {
             $.each(data, function (key,val) {
                 var fila ='<tr><td width="15%"><div>';
                 fila=fila + val.nombre + '</div></td><td>';
+                fila=fila + val.nombreRol + '</div></td><td>';
                 fila=fila + val.correo + '</div></td>';
                 fila = fila +  '<td>  <img style="width: 100px; height: 100px;" src="../resources/images/uploads/'+val.image+'"></td>';
                 fila = fila +  '<td> <a class="btn btn-outline-info btnEditar" href="javascript:;" data="'+val.idUser+'" id="editar"><i class="fas fa-marker"></i></a>\n' +

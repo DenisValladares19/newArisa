@@ -1,4 +1,23 @@
+//Expresión para validar un correo electrónico
+var expr = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/;
+
 $(document).ready(function () {
+
+    //Mascaras
+    $("#telefonoId").mask("2000-0000");
+    $("#telefonoCId").mask("0000-0000");
+    $("#nitId").mask("0000-000000-000-0");
+
+    $("#telefonoIdE").mask("2000-0000");
+    $("#telefonoCIdE").mask("0000-0000");
+    $("#nitIdE").mask("0000-000000-000-0");
+
+
+    //Validar Letras
+    $('.soloLetra').keypress(function (e) {
+        var tecla = document.all ? tecla = e.keyCode : tecla = e.which;
+        return !((tecla > 47 && tecla < 58) || tecla == 46);
+    });
 
     showClients();
 });
@@ -9,43 +28,140 @@ $(document).on("click", "#agregarCliente", function () {
 })
 
 $(document).on('click','#btnSaveId',function(){
-    event.preventDefault();
-    var data = $('#frmCliente').serialize();
-    $.ajax({
-        url: 'Cliente/addClient',
-        type: 'post',
-        data: data,
-    })
-        .done(function() {
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 4000,
-                timerProgressBar: true,
-                onOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer)
-            toast.addEventListener('mouseleave', Swal.resumeTimer)
+    var nombre = $("#nombreId").val();
+    var apellido = $("#apellidoId").val();
+    var empresa = $("#empresaId").val();
+    var telefono = $("#telefonoId").val();
+    var celular = $("#telefonoCId").val();
+    var email = $("#emailId").val();
+    var dir = $("#direccionId").val();
+    var nit = $("#nitId").val();
+    var fiscal = $("#registroFId").val();
+
+
+
+    if(nombre == "")
+    {
+        $("#msjNombre").fadeIn("slow");
+        return false;
+    }
+    else{
+        $("#msjNombre").fadeOut();
+
+
+        if(apellido == "")
+        {
+            $("#msjApellido").fadeIn("slow");
+            return false;
         }
-        })
+        else {
+            $("#msjApellido").fadeOut();
 
-            Toast.fire({
-                icon: 'success',
-                title: 'Información Insertada con Exito!'
-            })
 
-            $("#frmInsertarCliente").modal("hide");
-            $('#frmCliente')[0].reset();
-            showClients();
+            if(empresa == "")
+            {
+                $("#msjEmpresa").fadeIn("slow");
+                return false;
+            }
+            else {
+                $("#msjEmpresa").fadeOut();
 
-        })
-        .fail(function() {
-            Swal.fire(
-                'Cliente!',
-                'Error al momento de Insertar la Información!',
-                'error'
-            )
-        });
+                if(telefono == "")
+                {
+                    $("#msjTelefono").fadeIn("slow");
+                    return false;
+                }
+                else {
+                    $("#msjTelefono").fadeOut();
+
+                    if(celular == "")
+                    {
+                        $("#msjCelular").fadeIn("slow");
+                        return false;
+                    }
+                    else {
+                        $("#msjCelular").fadeOut();
+
+                        if(email == "" || !expr.test(email))
+                        {
+                            $("#msjEmail").fadeIn("slow");
+                            return false;
+                        }
+                        else {
+                            $("#msjEmail").fadeOut();
+
+                            if(dir == "")
+                            {
+                                $("#msjDireccion").fadeIn("slow");
+                                return false;
+                            }
+                            else {
+                                $("#msjDireccion").fadeOut();
+
+                                if(nit == "")
+                                {
+                                    $("#msjNit").fadeIn("slow");
+                                    return false;
+                                }
+                                else {
+                                    $("#msjNit").fadeOut();
+
+                                    if(fiscal == "")
+                                    {
+                                        $("#msjFiscal").fadeIn("slow");
+                                        return false;
+                                    }
+                                    else {
+                                        $("#msjFiscal").fadeOut();
+
+
+                                        event.preventDefault();
+                                        var data = $('#frmCliente').serialize();
+                                        $.ajax({
+                                            url: 'Cliente/addClient',
+                                            type: 'post',
+                                            data: data,
+                                        })
+                                            .done(function() {
+                                                const Toast = Swal.mixin({
+                                                    toast: true,
+                                                    position: 'top-end',
+                                                    showConfirmButton: false,
+                                                    timer: 4000,
+                                                    timerProgressBar: true,
+                                                    onOpen: (toast) => {
+                                                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                                                toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                            }
+                                            })
+
+                                                Toast.fire({
+                                                    icon: 'success',
+                                                    title: 'Información Insertada con Exito!'
+                                                })
+
+                                                $("#frmInsertarCliente").modal("hide");
+                                                $('#frmCliente')[0].reset();
+                                                showClients();
+
+                                            })
+                                            .fail(function() {
+                                                Swal.fire(
+                                                    'Cliente!',
+                                                    'Error al momento de Insertar la Información!',
+                                                    'error'
+                                                )
+                                            });
+
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
 });
 
@@ -89,57 +205,180 @@ $(document).on('click','#editar',function () {
 
 
 $(document).on('click','#btnEditId',function(){
-    event.preventDefault();
-    Swal.fire({
-        title: 'Está seguro de Editar la Información?',
-        text: "¡No podrás revertir esto!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, editarlo'
-    }).then((result) => {
-        if (result.value)
+    var nombre = $("#nombreIdE").val();
+    var apellido = $("#apellidoIdE").val();
+    var empresa = $("#empresaIdE").val();
+    var telefono = $("#telefonoIdE").val();
+    var celular = $("#telefonoCIdE").val();
+    var email = $("#emailIdE").val();
+    var dir = $("#direccionIdE").val();
+    var nit = $("#nitIdE").val();
+    var fiscal = $("#registroFIdE").val();
+
+
+
+    if(nombre == "")
     {
-
-        var data = $('#frmEditar').serialize();
-        $.ajax({
-            url: BASE_URL + 'index.php/Cliente/saveChanges',
-            type: 'post',
-            data: data,
-        })
-            .done(function () {
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    timer: 4000,
-                    timerProgressBar: true,
-                    onOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-            })
-
-                Toast.fire({
-                    icon: 'success',
-                    title: 'Información Modificada con Exito!'
-                })
-
-                $("#frmEditarCliente").modal("hide");
-                $('#frmEditar')[0].reset();
-                showClients();
-
-            })
-            .fail(function () {
-                Swal.fire(
-                    'Cliente!',
-                    'Error al momento de Editar la Información!',
-                    'error'
-                )
-            });
+        $("#msjNombreE").fadeIn("slow");
+        return false;
     }
-})
+    else
+    {
+        $("#msjNombreE").fadeOut();
+
+
+        if(apellido == "")
+        {
+            $("#msjApellidoE").fadeIn("slow");
+            return false;
+        }
+        else
+        {
+            $("#msjApellidoE").fadeOut();
+
+
+            if(empresa == "")
+            {
+                $("#msjEmpresaE").fadeIn("slow");
+                return false;
+            }
+            else
+            {
+                $("#msjEmpresaE").fadeOut();
+
+                if(telefono == "")
+                {
+                    $("#msjTelefonoE").fadeIn("slow");
+                    return false;
+                }
+                else
+                {
+                    $("#msjTelefonoE").fadeOut();
+
+                    if(celular == "")
+                    {
+                        $("#msjCelularE").fadeIn("slow");
+                        return false;
+                    }
+                    else
+                    {
+                        $("#msjCelularE").fadeOut();
+
+                        if(email == "" || !expr.test(email))
+                        {
+                            $("#msjEmailE").fadeIn("slow");
+                            return false;
+                        }
+                        else
+                        {
+                            $("#msjEmailE").fadeOut();
+
+                            if(dir == "")
+                            {
+                                $("#msjDireccionE").fadeIn("slow");
+                                return false;
+                            }
+                            else
+                            {
+                                $("#msjDireccionE").fadeOut();
+
+                                if(nit == "")
+                                {
+                                    $("#msjNitE").fadeIn("slow");
+                                    return false;
+                                }
+                                else
+                                {
+                                    $("#msjNitE").fadeOut();
+
+                                    if(fiscal == "")
+                                    {
+                                        $("#msjFiscalE").fadeIn("slow");
+                                        return false;
+                                    }
+                                    else
+                                    {
+                                        $("#msjFiscalE").fadeOut();
+
+
+                                        event.preventDefault();
+                                        Swal.fire({
+                                            title: 'Está seguro de Editar la Información?',
+                                            text: "¡No podrás revertir esto!",
+                                            icon: 'warning',
+                                            showCancelButton: true,
+                                            confirmButtonColor: '#3085d6',
+                                            cancelButtonColor: '#d33',
+                                            confirmButtonText: 'Si, editarlo'
+                                        }).then((result) => {
+                                            if (result.value)
+                                        {
+
+                                            var data = $('#frmEditar').serialize();
+                                            $.ajax({
+                                                url: BASE_URL + 'index.php/Cliente/saveChanges',
+                                                type: 'post',
+                                                data: data,
+                                            })
+                                                .done(function () {
+                                                    const Toast = Swal.mixin({
+                                                        toast: true,
+                                                        position: 'top-end',
+                                                        showConfirmButton: false,
+                                                        timer: 4000,
+                                                        timerProgressBar: true,
+                                                        onOpen: (toast) => {
+                                                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                                                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                                }
+                                                })
+
+                                                    Toast.fire({
+                                                        icon: 'success',
+                                                        title: 'Información Modificada con Exito!'
+                                                    })
+
+                                                    $("#frmEditarCliente").modal("hide");
+                                                    $('#frmEditar')[0].reset();
+                                                    showClients();
+
+                                                })
+                                                .fail(function () {
+                                                    Swal.fire(
+                                                        'Cliente!',
+                                                        'Error al momento de Editar la Información!',
+                                                        'error'
+                                                    )
+                                                });
+                                        }
+                                    })
+
+                                    }
+
+
+                                }
+
+
+                            }
+
+
+                        }
+
+
+                    }
+
+
+                }
+
+
+            }
+
+
+        }
+
+
+    }
+
 });
 
 $(document).on('click','#btnDeleteId',function(){

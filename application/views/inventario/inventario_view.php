@@ -1,6 +1,55 @@
 <head>
     <script src="<?php echo base_url("resources/src/js/inventario/inventario.js")?>"></script>
+    <script src="<?php echo base_url("resources/js/jquery.numeric.js")?>"></script>
+
 </head>
+
+<style>
+    .errores1{
+        -webkit-boxshadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        background: red;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        color: #fff;
+        display: none;
+        font-size: 10px;
+        margin-top: -40px;
+        margin-left: 700px;
+        padding: 6px;
+        position: absolute;
+    }
+
+    .errores2{
+        -webkit-boxshadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        background: red;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        color: #fff;
+        display: none;
+        font-size: 10px;
+        margin-top: -40px;
+        margin-left: 290px;
+        padding: 6px;
+        position: absolute;
+    }
+
+    .errores3{
+        -webkit-boxshadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        background: red;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        color: #fff;
+        display: none;
+        font-size: 10px;
+        margin-top: -40px;
+        margin-left: 110px;
+        padding: 6px;
+        position: absolute;
+    }
+</style>
 <body>
 <div class="full-box page-header">
     <h3 class="text-left">
@@ -77,6 +126,7 @@
                                         <div class="form-group">
                                             <label>Fecha</label>
                                         <input type="text" name="fecha" id="fecha" placeholder="Fecha..." class="form-control" required="true">
+                                            <div id="msjFecha" class="errores1"> Fecha... </div>
                                         </div>
                                     </div>
                                 </div>
@@ -92,7 +142,8 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Sub-Total</label>
-                                        <input type="text" name="subtotal" class="form-control" placeholder="Subtotal..." id="subTotal" required="true">
+                                        <input type="text" name="subtotal" class="form-control positive" placeholder="Subtotal..." id="subTotal" required="true">
+                                            <div id="msjSub" class="errores2"> Subtotal... </div>
                                         </div>
                                     </div>
                                 </div>
@@ -211,7 +262,8 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Cantidad</label>
-                        <input type="text" class="form-control" placeholder="Cantidad..." name="cantidad" id="cantidad">
+                        <input type="number" value="1" min="1" max="50" step="1" class="form-control integer" placeholder="Cantidad..." name="cantidad" id="cantidad">
+                            <div id="msjCantd" class="errores3"> Cantidad... </div>
                         </div>
                     </div>
                 </div>
@@ -260,7 +312,8 @@
                         <div class="col-md-12">
                             <div class="form-group">
                             <label>Escribe el Nuevo Precio</label>
-                            <input type="text" name="precioNew" id="precioNew" placeholder="Nuevo Precio..." class="form-control" required="true">
+                            <input type="text" name="precioNew" id="precioNew" placeholder="Nuevo Precio..." class="form-control positive" required="true">
+                                <div id="msjCambiarPrecio" class="errores2"> Nuevo Precio... </div>
                             </div>
                         </div>
                     </div>
@@ -301,7 +354,8 @@
                         <div class="col-md-6">
                             <div class="form-group">
                             <label>Cantidad</label>
-                            <input type="text" class="form-control" placeholder="Cantidad..." name="cantidadE" id="cantidadE">
+                            <input type="number" value="1" min="1" max="50" step="1" class="form-control integer" placeholder="Cantidad..." name="cantidadE" id="cantidadE">
+                                <div id="msjCantdE" class="errores3"> Cantidad... </div>
                             </div>
                         </div>
 
@@ -311,7 +365,8 @@
                             <br>
                             <div class="form-group">
                             <label>Nuevo Precio</label>
-                            <input type="text" class="form-control" placeholder="Nuevo Precio..." name="newPrecioE" id="newPrecioE">
+                            <input type="text" class="form-control positive" placeholder="Nuevo Precio..." name="newPrecioE" id="newPrecioE">
+                                <div id="msjCambiarPrecioE" class="errores3"> Cantidad... </div>
                             </div>
                         </div>
                         </div>
@@ -343,13 +398,15 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Nombre del Producto</label>
-                            <input type="text" class="form-control" placeholder="Nombre..." name="nombreNuevo" id="nombreNuevo">
+                            <input type="text" class="form-control soloLetra" placeholder="Nombre..." name="nombreNuevo" id="nombreNuevo">
+                                <div id="msjNombreNuevo" class="errores3"> Nombre... </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Precio Unitario</label>
-                            <input type="text" class="form-control" placeholder="Precio Unitario..." name="precioNuevo" id="precioNuevo">
+                            <input type="text" class="form-control positive" placeholder="Precio Unitario..." name="precioNuevo" id="precioNuevo">
+                                <div id="msjPrecioNuevo" class="errores3"> Precio Unitario... </div>
                             </div>
                         </div>
                     </div>
@@ -357,13 +414,15 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Cantidad</label>
-                            <input type="text" class="form-control" placeholder="Cantidad..." name="cantNuevo" id="cantNuevo">
+                            <input type="number" value="1" min="1" max="50" step="1" class="form-control integer" placeholder="Cantidad..." name="cantNuevo" id="cantNuevo">
+                                <div id="msjCantNuevo" class="errores3"> Cantidad... </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Descripcion</label>
                             <input type="text" class="form-control" placeholder="Descripcion..." name="descNuevo" id="descNuevo">
+                                <div id="msjDescNuevo" class="errores3"> Descripcion... </div>
                             </div>
                         </div>
                     </div>
@@ -400,13 +459,15 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Nombre del Producto</label>
-                            <input type="text" class="form-control" placeholder="Nombre..." name="nombreNuevoE" id="nombreNuevoE">
+                            <input type="text" class="form-control soloLetra" placeholder="Nombre..." name="nombreNuevoE" id="nombreNuevoE">
+                                <div id="msjNombreNuevoE" class="errores3"> Nombre... </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Precio Unitario</label>
-                            <input type="text" class="form-control" placeholder="Precio Unitario..." name="precioNuevoE" id="precioNuevoE">
+                            <input type="text" class="form-control positive" placeholder="Precio Unitario..." name="precioNuevoE" id="precioNuevoE">
+                                <div id="msjPrecioNuevoE" class="errores3"> Precio Unitario... </div>
                             </div>
                         </div>
                     </div>
@@ -414,13 +475,15 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Cantidad</label>
-                            <input type="text" class="form-control" placeholder="Cantidad..." name="cantNuevoE" id="cantNuevoE">
+                            <input type="number" value="1" min="1" max="50" step="1" class="form-control integer" placeholder="Cantidad..." name="cantNuevoE" id="cantNuevoE">
+                                <div id="msjCantNuevoE" class="errores3"> Cantidad... </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Descripcion</label>
                             <input type="text" class="form-control" placeholder="Descripcion..." name="descNuevoE" id="descNuevoE">
+                                <div id="msjDescNuevoE" class="errores3"> Descripcion... </div>
                             </div>
                         </div>
                     </div>

@@ -15,9 +15,13 @@ class Usuario_M extends CI_Model
     }
 
     public function getUsers(){
-        $this->db->select('*');
-        $this->db->from('usuario');
-        $this->db->where('borradoLogico!=',0);
+        $borrado=array(
+            'u.borradoLogico'=>1,
+        );
+        $this->db->select("u.idUser,u.nombre,u.correo,u.image,r.nombre AS nombreRol");
+        $this->db->from("usuario u");
+        $this->db->join("rol r","r.idRol=u.idRol");
+        $this->db->where($borrado);
         $query = $this->db->get();
 
         if ($query->num_rows()>0){

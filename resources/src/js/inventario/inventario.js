@@ -123,7 +123,6 @@ function listProd(){
     $.post("Inventario/mostrarProd",{idProveedor:idP},function(res){
         var r = JSON.parse(res);
         $("#selectProd option").remove();
-        $("#selectProd").append("<option>Elige el Producto</option>");
         for(var i = 0;i<r.length;i++){
             $("#selectProd").append("<option value='"+r[i].idInventario+"'>"+r[i].nombreInv+"</option>");
         }
@@ -136,7 +135,6 @@ function listProvEditarEx(){
     $.post("Inventario/mostrarProdEdit",{idProveedor:idP},function(res){
         var d = JSON.parse(res);
         $("#selectProdE option").remove();
-        $("#selectProdE").append("<option>Elige el Producto</option>");
         for(var i = 0;i<d.length;i++){
             $("#selectProdE").append("<option value='"+d[i].idInventario+"'>"+d[i].nombreInv+"</option>");
         }
@@ -270,6 +268,17 @@ function llenarTablaNew()
 
 $(document).ready(function () {
 
+    $(".positive").numeric({ negative: false }, function() { alert("No negative values"); this.value = ""; this.focus(); });
+
+    $(".integer").numeric(false, function() { alert("Integers only"); this.value = ""; this.focus(); });
+
+    /*
+    //Validar Letras
+    $('.soloLetra').keypress(function (e) {
+        var tecla = document.all ? tecla = e.keyCode : tecla = e.which;
+        return !((tecla > 47 && tecla < 58) || tecla == 46);
+    });
+*/
     $.datepicker.regional['es'] = {
         closeText: 'Cerrar',
         prevText: '< Ant',
@@ -324,56 +333,79 @@ $(document).ready(function () {
 
 
     $(document).on("click","#next1",function () {
-        event.preventDefault();
-        var datos = $("#frmCompra").serializeArray();
-        var proveedor= $("#selectProv").val();
-        localStorage.setItem("idProveedor",proveedor);
-        $.ajax({
-            url:"Inventario/insertarCompras",
-            type:"POST",
-            data: datos
-        }).done(function (res) {
-            localStorage.setItem("idCompra",res);
-            let idProveedor = localStorage.getItem("idProveedor");
-            llenarTablaEx();
-            llenarTablaNew();
-            $.ajax({
-                url:"Inventario/validarProdExi",
-                type:"POST",
-                data: {idProveedor:idProveedor}
-            }).done(function (r) {
-                let re = JSON.parse(r);
-                if(re==true) {
+        var fecha = $("#fecha").val();
+        var sub = $("#subTotal").val();
 
-                    listProd();
-                    listProvEditarEx();
+        if(fecha == ""){
+            $("#msjFecha").fadeIn("slow");
+            return false;
+        }
+        else {
+            $("#msjFecha").fadeOut();
+
+            if(sub == ""){
+                $("#msjSub").fadeIn("slow");
+                return false;
+            }
+            else {
+                $("#msjSub").fadeOut();
 
 
-                    $("#cancelar").hide();
+       event.preventDefault();
+       var datos = $("#frmCompra").serializeArray();
+       var proveedor= $("#selectProv").val();
+       localStorage.setItem("idProveedor",proveedor);
+       $.ajax({
+           url:"Inventario/insertarCompras",
+           type:"POST",
+           data: datos
+       }).done(function (res) {
+           localStorage.setItem("idCompra",res);
+           let idProveedor = localStorage.getItem("idProveedor");
+           llenarTablaEx();
+           llenarTablaNew();
+           $.ajax({
+               url:"Inventario/validarProdExi",
+               type:"POST",
+               data: {idProveedor:idProveedor}
+           }).done(function (r) {
+               let re = JSON.parse(r);
+               if(re==true) {
 
-                    $("#paso1").hide();
-                    $("#paso2").show();
-                    $("#paso3").hide();
-
-                    $("#next1").hide();
-                    $("#next2").show();
-                    $("#end").hide();
-
-                }
-                else if(re==false){
-                    $("#paso1").hide();
-                    $("#paso2").hide();
-                    $("#paso3").show();
-
-                    $("#next1").hide();
-                    $("#next2").hide();
-                    $("#end").show();
-
-                }
-            })
+                   listProd();
+                   listProvEditarEx();
 
 
-        })
+                   $("#cancelar").hide();
+
+                   $("#paso1").hide();
+                   $("#paso2").show();
+                   $("#paso3").hide();
+
+                   $("#next1").hide();
+                   $("#next2").show();
+                   $("#end").hide();
+
+               }
+               else if(re==false){
+                   $("#paso1").hide();
+                   $("#paso2").hide();
+                   $("#paso3").show();
+
+                   $("#next1").hide();
+                   $("#next2").hide();
+                   $("#end").show();
+
+               }
+           })
+
+
+       })
+
+
+
+            }
+        }
 
     });
 
@@ -388,43 +420,56 @@ $(document).ready(function () {
 
 
      $(document).on("click","#addExistentes",function () {
-            event.preventDefault();
-            var datosEx = $("#frmEx").serializeArray();
-            let idCompra = localStorage.getItem("idCompra");
-            $.ajax({
-                url:"Inventario/validarDetalle",
-                type:"POST",
-                data: {datosEx,idCompra},
-            }).done(function (res) {
-                let r = JSON.parse(res);
-                var rol=0;
-                    if(r==false)
-                    {
-                        $("#addEx").modal("hide");
-                        $("#siCamb").hide();
-                        $("#btnSiCambiar").hide();
-                        $("#cambiPrecio").show();
-                        $("#modalCambiarPrecio").modal("show");
+
+         var cantd = $("#cantidad").val();
+
+         if(cantd == ""){
+             $("#msjCantd").fadeIn("slow");
+             return false;
+         }
+         else {
+             $("#msjCantd").fadeOut();
+
+             event.preventDefault();
+             var datosEx = $("#frmEx").serializeArray();
+             let idCompra = localStorage.getItem("idCompra");
+             $.ajax({
+                 url:"Inventario/validarDetalle",
+                 type:"POST",
+                 data: {datosEx,idCompra},
+             }).done(function (res) {
+                 let r = JSON.parse(res);
+                 var rol=0;
+                 if(r==false)
+                 {
+                     $("#addEx").modal("hide");
+                     $("#siCamb").hide();
+                     $("#btnSiCambiar").hide();
+                     $("#cambiPrecio").show();
+                     $("#modalCambiarPrecio").modal("show");
 
 
-                    }
-                    else if(r==true)
-                     {
-                         rol=2;
-                         $.ajax({
-                             url:"Inventario/insertarDetalle",
-                             type:"POST",
-                             data: {datosEx,idCompra,rol},
-                         }).done(function () {
-                             $("#agregarInventario").modal("show");
-                             $("#addEx").modal("hide");
-                             $('#frmEx')[0].reset();
-                             llenarTablaEx();
-                         })
+                 }
+                 else if(r==true)
+                 {
+                     rol=2;
+                     $.ajax({
+                         url:"Inventario/insertarDetalle",
+                         type:"POST",
+                         data: {datosEx,idCompra,rol},
+                     }).done(function () {
+                         $("#agregarInventario").modal("show");
+                         $("#addEx").modal("hide");
+                         $('#frmEx')[0].reset();
+                         llenarTablaEx();
+                     })
 
-                    }
+                 }
 
-            })
+             })
+
+         }
+
      });
 
 
@@ -435,22 +480,34 @@ $(document).ready(function () {
     });
 
     $(document).on("click","#btnSiCambiar",function () {
-        var newPrecio= $("#precioNew").val();
-        var datosEx = $("#frmEx").serializeArray();
-        let idCompra = localStorage.getItem("idCompra");
-        rol=1;
-        $.ajax({
-            url:"Inventario/insertarDetalle",
-            type:"POST",
-            data: {datosEx,idCompra,rol,newPrecio},
-        }).done(function (res) {
-            localStorage.setItem("idDetalle",res);
-            $("#agregarInventario").modal("show");
-            $("#addEx").modal("hide");
-            $('#frmEx')[0].reset();
-            $("#modalCambiarPrecio").modal("hide");
-            llenarTablaEx();
-        })
+
+        var precioNew = $("#precioNew").val();
+
+        if(precioNew == ""){
+            $("#msjCambiarPrecio").fadeIn("slow");
+            return false;
+        }
+        else {
+            $("#msjCambiarPrecio").fadeOut();
+
+            var newPrecio = $("#precioNew").val();
+            var datosEx = $("#frmEx").serializeArray();
+            let idCompra = localStorage.getItem("idCompra");
+            rol = 1;
+            $.ajax({
+                url: "Inventario/insertarDetalle",
+                type: "POST",
+                data: {datosEx, idCompra, rol, newPrecio},
+            }).done(function (res) {
+                localStorage.setItem("idDetalle", res);
+                $("#agregarInventario").modal("show");
+                $("#addEx").modal("hide");
+                $('#frmEx')[0].reset();
+                $("#modalCambiarPrecio").modal("hide");
+                llenarTablaEx();
+            })
+
+        }
     });
 
 
@@ -512,17 +569,36 @@ $(document).ready(function () {
 
 
     $(document).on("click","#editarExistentes",function () {
-        event.preventDefault();
-        var datosEx = $("#frmExEdit").serializeArray();
-        $.ajax({
-            url:"Inventario/modifiicarDetalle",
-            type:"POST",
-            data: datosEx,
-        }).done(function (res) {
-            $("#EditarEx").modal("hide");
-            $('#frmExEdit')[0].reset();
-            llenarTablaEx();
-        })
+        var cantd = $("#cantidadE").val();
+        var precio = $("#newPrecioE").val();
+
+        if(cantd == ""){
+            $("#msjCantdE").fadeIn("slow");
+            return false;
+        }
+        else {
+            $("#msjCantdE").fadeOut();
+
+            if (precio == "") {
+                $("#msjCambiarPrecioE").fadeIn("slow");
+                return false;
+            }
+            else {
+                $("#msjCambiarPrecioE").fadeOut();
+
+                event.preventDefault();
+                var datosEx = $("#frmExEdit").serializeArray();
+                $.ajax({
+                    url: "Inventario/modifiicarDetalle",
+                    type: "POST",
+                    data: datosEx,
+                }).done(function (res) {
+                    $("#EditarEx").modal("hide");
+                    $('#frmExEdit')[0].reset();
+                    llenarTablaEx();
+                })
+            }
+        }
     });
 
 
@@ -570,31 +646,76 @@ $(document).ready(function () {
         //CRUD PRODUCTOS NUEVOS
 
     $(document).on("click","#addNuevos",function () {
-        event.preventDefault();
-        var datosNew = $("#frmNew").serializeArray();
-        let idProveedor = localStorage.getItem("idProveedor");
-        let idCompra = localStorage.getItem("idCompra");
-        $.ajax({
-            url:"Inventario/insertarNuevo",
-            type:"POST",
-            data: {datosNew,idProveedor,idCompra},
-        }).done(function (res) {
-            localStorage.setItem("idNewProdu",res);
 
-            let idNewProdu = localStorage.getItem("idNewProdu");
-            $.ajax({
-                url:"Inventario/insertarNuevoADetalle",
-                type:"POST",
-                data: {datosNew,idCompra,idNewProdu},
-            }).done(function () {
-                $("#agregarInventario").modal("show");
-                $("#addNew").modal("hide");
-                $('#frmNew')[0].reset();
-                llenarTablaNew();
+        var nombre = $("#nombreNuevo").val();
+        var precio = $("#precioNuevo").val();
+        var cantd = $("#cantNuevo").val();
+        var desc = $("#descNuevo").val();
 
-            })
+        if(nombre == ""){
+            $("#msjNombreNuevo").fadeIn("slow");
+            return false;
+        }
+        else {
+            $("#msjNombreNuevo").fadeOut();
 
-        })
+
+            if(precio == ""){
+                $("#msjPrecioNuevo").fadeIn("slow");
+                return false;
+            }
+            else {
+                $("#msjPrecioNuevo").fadeOut();
+
+                if(cantd == ""){
+                    $("#msjCantNuevo").fadeIn("slow");
+                    return false;
+                }
+                else {
+                    $("#msjCantNuevo").fadeOut();
+
+                    if(desc == ""){
+                        $("#msjDescNuevo").fadeIn("slow");
+                        return false;
+                    }
+                    else {
+                        $("#msjDescNuevo").fadeOut();
+
+                        event.preventDefault();
+                        var datosNew = $("#frmNew").serializeArray();
+                        let idProveedor = localStorage.getItem("idProveedor");
+                        let idCompra = localStorage.getItem("idCompra");
+                        $.ajax({
+                            url:"Inventario/insertarNuevo",
+                            type:"POST",
+                            data: {datosNew,idProveedor,idCompra},
+                        }).done(function (res) {
+                            localStorage.setItem("idNewProdu",res);
+/*
+                            let idNewProdu = localStorage.getItem("idNewProdu");
+                            $.ajax({
+                                url:"Inventario/insertarNuevoADetalle",
+                                type:"POST",
+                                data: {datosNew,idCompra,idNewProdu},
+                            }).done(function () {
+                                $("#agregarInventario").modal("show");
+                                $("#addNew").modal("hide");
+                                $('#frmNew')[0].reset();
+                                llenarTablaNew();
+
+                            })
+*/
+                            $("#agregarInventario").modal("show");
+                            $("#addNew").modal("hide");
+                            $('#frmNew')[0].reset();
+                            llenarTablaNew();
+                        })
+
+                    }
+                }
+            }
+        }
+
     });
 
 
@@ -626,17 +747,57 @@ $(document).ready(function () {
     });
 
     $(document).on("click","#editNuevos",function () {
-        event.preventDefault();
-        var datosNew = $("#frmNewEdit").serializeArray();
-        $.ajax({
-            url:"Inventario/modifiicarNuevo",
-            type:"POST",
-            data: datosNew,
-        }).done(function (res) {
-            $("#editarNew").modal("hide");
-            $('#frmNewEdit')[0].reset();
-            llenarTablaNew();
-        })
+        var nombre = $("#nombreNuevoE").val();
+        var precio = $("#precioNuevoE").val();
+        var cantd = $("#cantNuevoE").val();
+        var desc = $("#descNuevoE").val();
+
+        if(nombre == ""){
+            $("#msjNombreNuevoE").fadeIn("slow");
+            return false;
+        }
+        else {
+            $("#msjNombreNuevoE").fadeOut();
+
+
+            if(precio == ""){
+                $("#msjPrecioNuevoE").fadeIn("slow");
+                return false;
+            }
+            else {
+                $("#msjPrecioNuevoE").fadeOut();
+
+                if(cantd == ""){
+                    $("#msjCantNuevoE").fadeIn("slow");
+                    return false;
+                }
+                else {
+                    $("#msjCantNuevoE").fadeOut();
+
+                    if(desc == ""){
+                        $("#msjDescNuevoE").fadeIn("slow");
+                        return false;
+                    }
+                    else {
+                        $("#msjDescNuevoE").fadeOut();
+
+                        event.preventDefault();
+                        var datosNew = $("#frmNewEdit").serializeArray();
+                        $.ajax({
+                            url:"Inventario/modifiicarNuevo",
+                            type:"POST",
+                            data: datosNew,
+                        }).done(function (res) {
+                            $("#editarNew").modal("hide");
+                            $('#frmNewEdit')[0].reset();
+                            llenarTablaNew();
+                        })
+
+                    }
+                }
+            }
+        }
+
     });
 
 
