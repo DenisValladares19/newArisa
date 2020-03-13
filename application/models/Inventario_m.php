@@ -210,8 +210,9 @@ class Inventario_m extends CI_Model
     }
 
     //Metodo para Ocultar el Registro New.
-    public function eliminarNew($where)
+    public function eliminarNew($where,$whereDetalle)
     {
+        $this->db->delete("detalleinvcompra",$whereDetalle);
         $this->db->delete("inventario",$where);
         return $this->db->affected_rows();
     }

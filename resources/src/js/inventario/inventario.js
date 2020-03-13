@@ -691,7 +691,7 @@ $(document).ready(function () {
                             data: {datosNew,idProveedor,idCompra},
                         }).done(function (res) {
                             localStorage.setItem("idNewProdu",res);
-/*
+
                             let idNewProdu = localStorage.getItem("idNewProdu");
                             $.ajax({
                                 url:"Inventario/insertarNuevoADetalle",
@@ -704,7 +704,7 @@ $(document).ready(function () {
                                 llenarTablaNew();
 
                             })
-*/
+
                             $("#agregarInventario").modal("show");
                             $("#addNew").modal("hide");
                             $('#frmNew')[0].reset();
@@ -805,11 +805,12 @@ $(document).ready(function () {
     $(document).on("click",".btnEliminarNew",function ()  {
 
         var id= $(this).attr("id");
+        let idCompra = localStorage.getItem("idCompra");
 
         $.ajax({
             url: "Inventario/eliminarNew",
             type: "post",
-            data: {id: id}
+            data: {id: id,idCompra:idCompra}
         })
             .done(function (data) {
 
@@ -831,7 +832,6 @@ $(document).ready(function () {
             data: {idCompra:idCompra}
         }).done(function(res){
             const data = JSON.parse(res);
-
             if(data!="")
             {
                 for(let i=0;i<data.length;i++){

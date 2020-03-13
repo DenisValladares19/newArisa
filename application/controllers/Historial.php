@@ -58,7 +58,8 @@ class Historial extends New_Padre
                 "descripcion" => 'El usuario: ' . $user . ' ha realizado una modificación en el estado de la orden N° ' . $idOrden .
                     ', de ' . $nameStatus . ' a ' . $estado,
                 "fecha" => $fecha,
-                "hora" => $hora
+                "hora" => $hora,
+                "idOrden" => $idOrden
 
             );
 

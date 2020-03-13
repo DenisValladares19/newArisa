@@ -239,7 +239,12 @@ class Inventario extends Padre_Desing
             'idInventario'=>$_POST["id"],
         );
 
-        $res = $this->Inventario_m->eliminarNew($where);
+        $whereDetalle=array(
+            'idInventario'=>$_POST["id"],
+            'idCompra'=>$_POST["idCompra"],
+        );
+
+        $res = $this->Inventario_m->eliminarNew($where,$whereDetalle);
         echo json_encode($res);
     }
 
