@@ -59,7 +59,9 @@
                             <li>
                                 <a href="Muestra" id="mues"><i class="fas  fa-user-secret fa-fw"></i> &nbsp; Muestra</a>
                             </li>
-
+                            <li>
+                                <a href="Cotizacion" id="cot"><i class="fas  fa-user-secret fa-fw"></i> &nbsp; Cotizaciones</a>
+                            </li>
 
                             <?php
                         }

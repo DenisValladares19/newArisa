@@ -42,7 +42,7 @@ class Cotizacion_m extends CI_Model{
     
     public function getAllCotizacion($id = null){
         //$query = "SELECT d.idDetalle, d.idCotizacion, d.idDescripcion, c.fecha, c.descripcion,cl.idCliente, e.idEstado1, cl.empresa, e.nombre AS estado, de.subtotal, de.iva, de.vTotal FROM detallecotizacion d JOIN cotizacion c ON d.idCotizacion = c.idCotizacion JOIN cliente cl ON c.idCliente=cl.idCliente JOIN estado1 e ON c.idEstado1=e.idEstado1 JOIN descripcion de ON de.idDescripcion=d.idDescripcion WHERE c.borradoLogico=1 GROUP BY d.idCotizacion, d.idDescripcion, c.fecha, c.descripcion, cl.nombre, cl.apellido, e.nombre, de.subtotal, de.iva, de.vTotal HAVING COUNT(*)>0 ORDER BY d.idDetalle DESC";
-        $this->db->select("d.idDetalle, d.idCotizacion, d.idDescripcion, c.codigo,c.fecha, c.descripcion,cl.idCliente, e.idEstado1, cl.empresa, e.nombre AS estado, de.vTotal");
+        $this->db->select("d.idDetalle, d.idCotizacion, d.idDescripcion, c.codigo,c.fecha, c.descripcion,cl.idCliente, e.idEstado1, cl.empresa, cl.nombre AS clNombre, cl.apellido AS clApellido, e.nombre AS estado, de.vTotal");
         $this->db->from("detallecotizacion d");
         $this->db->join("cotizacion c","d.idCotizacion=c.idCotizacion");
         $this->db->join("cliente cl","c.idCliente = cl.idCliente");

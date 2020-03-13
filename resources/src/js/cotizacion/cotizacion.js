@@ -359,6 +359,7 @@ $(document).on("click","#addDes",function(){
       $("#divDesc").show("true");
     }
     a++;
+    document.getElementById("nCaracter").innerHTML="0";
 });
 $(document).on("click","#addDes",function(){
     let form = $("#frmDesc").serializeArray();
@@ -383,7 +384,7 @@ $(document).on("click","#addDes",function(){
     let form = $("#frmDesc").serializeArray();
     let idCotizacion = localStorage.getItem("idCotizacion");
     let idDesc = localStorage.getItem("idDesc");
-    if(a>2 && a<=9){
+    if(a>2 && a<=10){
         $.ajax({
             url:"cotizacion/insertarDescripcion",
             type:"POST",
@@ -393,19 +394,12 @@ $(document).on("click","#addDes",function(){
             limpiar();
             llenarDescripcion();
         });
-    }else{
-        swal.fire(
-            "Cotización",
-            "Ha alcanzado el maximo de detalles",
-            "warning"
-        )
-        $("#inputDesc").hide();
     }
 });
 
 
 $(document).on("click","#addDes",function(){
-    if(a>=9){
+    if(a>10){
         swal.fire(
             "Cotización",
             "Ha alcanzado el maximo de detalles",
@@ -676,6 +670,8 @@ function llenarCotizacion(){
                 }
             }
         });
+
+        validarRol($("#rol").val());
     });
 }
 
@@ -708,14 +704,26 @@ function limpiarCot(){
 function validarCampo(event){
     let element = event.target.parentNode.parentNode.parentNode.childNodes;
     let elementSpan = element[7].childNodes[1].childNodes[1];
-    element[1].childNodes[0].childNodes[0].maxLength = 100;
-
+    //console.log(element[1].childNodes[0])
+    //element[1].childNodes[0].childNodes[0].maxLength = 100;
+    
     if(event.target.value === ""){
         elementSpan.innerHTML = 0;
     }else{
         elementSpan.innerHTML = event.target.value.length;
         if(event.target.value.length >= 100){
             alert("Has sobrepasado el limite permitido")
+        }
+    }
+}
+
+function validarRol(rol){
+    if(rol==="Diseñador"){
+        $("#agregarCliente").hide();
+        const fila = document.getElementById("data  ").getElementsByTagName('tr');
+        for(let i=0;i<fila.length;i++){
+            fila[i].getElementsByTagName('td')[5].style.display="none";
+            fila[i].getElementsByTagName('td')[6].style.display="none";
         }
     }
 }

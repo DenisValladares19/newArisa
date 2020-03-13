@@ -27,9 +27,8 @@ class Padre_Desing extends CI_Controller
             header("Location:" . site_url("Login"));
         }
 
-        if ($rol == 'Diseñador') {
-            header("Location:" . site_url("Dashboard"));
+        if ($rol == 'Diseñador' ) {
+            //header("Location:" . site_url("Dashboard"));
         }
-
     }
 }
