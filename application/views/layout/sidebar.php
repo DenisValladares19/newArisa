@@ -118,6 +118,9 @@
                                     <li>
                                         <a href="Reporte"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Órdenes</a>
                                     </li>
+                                    <li>
+                                        <a href="Reporte/cotizacion"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Cotización</a>
+                                    </li>
                                 </ul>
                             </li>
 
