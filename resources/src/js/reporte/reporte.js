@@ -111,3 +111,24 @@ $.post(BASE_URL + 'index.php/orden/showOrdenes',
             $('#OrdenId').append('<option value="' + item.idCotizacion + '">' + item.idOrden +'</option>');
         });
     });
+
+/*    Codigo de Reportes de cotizacion   */
+
+function reporteCliente(e){
+    e.preventDefault();
+    let idCliente = $("#clienteId").val();
+    window.open("cotizacionCliente?c="+idCliente,"_back");
+}
+
+function reporteFechaInicialFinal(e){
+    e.preventDefault();
+    let fechaI = $("#fechaI").val();
+    let fechaF = $("#fechaF").val();
+    window.open("cotizacionRangoFecha?i="+fechaI+"&f="+fechaF,"_back");
+}
+
+function reporteFecha(e){
+    e.preventDefault();
+    let fecha = $("#fecha").val();
+    window.open("cotizacionFecha?f="+fecha,"_back");
+}
