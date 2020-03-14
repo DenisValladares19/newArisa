@@ -204,9 +204,11 @@ foreign key(idOrden) references orden(idOrden)
 
 create table historial
 (idH int not null primary key auto_increment,
+idOrden int not null,
 descripcion varchar(200) not null,
 fecha varchar(50) not null,
-hora varchar(50) not null);
+hora varchar(50) not null,
+foreign key(idOrden) references orden(idOrden));
 
 
 
@@ -245,7 +247,8 @@ insert into estado2 values
 
 insert into estado1 values
 (1,"Aprobado",1),
-(2,"No Aprobado",1);
+(2,"No Aprobado",1),
+(3,"Terminado",1);
 
 insert into tipoImpresion values
 (1,"Laser",5,1),

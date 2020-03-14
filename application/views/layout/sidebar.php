@@ -107,10 +107,10 @@
                             <li>
                                 <a href="Orden" id="orden"><i class="fas fa-store-alt fa-fw"></i> &nbsp; Orden de trabajo</a>
                             <li>
-
+                            <!--
                             <li>
                                 <a href="Historial" id="his"><i class="fas fa-list-ul"></i> &nbsp; Registro de actividad</a>
-                            </li>
+                            </li>-->
 
                             <li>
                                 <a href="#" class="nav-btn-submenu" id="rep"><i class="fas fa-file-signature"></i> &nbsp; Reportes <i class="fas fa-chevron-down"></i></a>
@@ -119,7 +119,7 @@
                                         <a href="Reporte"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Órdenes</a>
                                     </li>
                                     <li>
-                                        <a href="Reporte/cotizacion"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Cotización</a>
+                                        <a href="Reporte_cotizacion"><i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Cotización</a>
                                     </li>
                                 </ul>
                             </li>

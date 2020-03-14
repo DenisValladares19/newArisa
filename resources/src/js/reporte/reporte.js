@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+    llenarEstado();
 
     $(document).on("click", "#reporteC", function () {
         $("#reporteCModal").modal("show");
@@ -19,6 +19,10 @@ $(document).ready(function () {
 
     $(document).on("click", "#reporteOrden", function () {
         $("#reporteOrdenModal").modal("show");
+    });
+
+    $(document).on("click", "#reporteEstado", function () {
+        $("#reporteEs").modal("show");
     });
 
     $.datepicker.regional['es'] = {
@@ -117,18 +121,33 @@ $.post(BASE_URL + 'index.php/orden/showOrdenes',
 function reporteCliente(e){
     e.preventDefault();
     let idCliente = $("#clienteId").val();
-    window.open("cotizacionCliente?c="+idCliente,"_back");
+    window.open("Reporte_cotizacion/cotizacionCliente?c="+idCliente,"_back");
 }
 
 function reporteFechaInicialFinal(e){
     e.preventDefault();
     let fechaI = $("#fechaI").val();
     let fechaF = $("#fechaF").val();
-    window.open("cotizacionRangoFecha?i="+fechaI+"&f="+fechaF,"_back");
+    window.open("Reporte_cotizacion/cotizacionRangoFecha?i="+fechaI+"&f="+fechaF,"_back");
 }
 
 function reporteFecha(e){
     e.preventDefault();
     let fecha = $("#fecha").val();
-    window.open("cotizacionFecha?f="+fecha,"_back");
+    window.open("Reporte_cotizacion/cotizacionFecha?f="+fecha,"_back");
+}
+
+function llenarEstado(){
+    $.post("cotizacion/getAllEstados",{},function(res){
+        var r = JSON.parse(res);   
+        for(var i = 0;i<r.length;i++){
+            $("#estado").append("<option value='"+r[i].idEstado1+"'>"+r[i].nombre+"</option>");
+        }       
+    });
+}
+
+function reporteEstado(e){
+    e.preventDefault();
+    let estado = $("#estado").val();
+    window.open("Reporte_cotizacion/cotizacionEstado?e="+estado,"_back");
 }

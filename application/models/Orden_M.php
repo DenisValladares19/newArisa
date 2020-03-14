@@ -128,6 +128,7 @@ class Orden_M extends CI_Model
     public function mostrarCotiz($id){
         $borrado=array(
             'borradoLogico'=>1,
+            "idEstado1"=>1
         );
         $this->db->select("idCotizacion,codigo");
         $this->db->from("cotizacion");
@@ -268,6 +269,19 @@ class Orden_M extends CI_Model
         $this->db->select("*");
         $this->db->from("detalleCotizacion");
         $this->db->where(" idCotizacion=$id ");
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    public function cambiarEstadoCot($data,$where){
+        $this->db->update("cotizacion",$data,$where);
+        return $this->db->affected_rows();
+    }
+
+    public function verficarEstado($id){
+        $this->db->select("*");
+        $this->db->from("detalleMaterial");
+        $this->db->where("idOrden",$id);
         $query = $this->db->get();
         return $query->result();
     }

@@ -36,6 +36,16 @@
                     <br>
                 </button>
         </div>
+        <div class="col-sm">
+                <button style="color: #000000; background-color: rgba(196, 211, 245 , 0.9); serif; font-size:12pt; font-family: Raavi;" class="btn btn-light" id="reporteEstado">
+                    <img src="<?php echo base_url("resources/images/dashboard/clientes.png")?>" width="30%" height="30%">
+                    <br>
+                    <h4>Cotizaciónes</h4>
+                    <br>
+                    <span style="font-size:12pt; text-transform: none;">Cotizaciónes de por estado</span>
+                    <br><br>
+                </button>
+        </div>
     </div>
 
 </div>
@@ -183,6 +193,52 @@
 
 
                     <button type="submit" id="btnDeleteId" onclick="reporteFechaInicialFinal(event);" name="btnDelete" class="btn btn-danger text-center btn-block">Generar Reporte</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="reporteEs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Generar Reporte</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" id="formReporteCliente" action="Reporte_Orden_Fecha_B">
+
+
+
+                    <div class="form-column col-md-12">
+
+                        <select id="estado" class="form-control">
+                        
+                        </select>       
+                    </div>
+
+                    <div class="form-column col-md-12">
+
+                        <div class="form-group">
+                            <label>Fecha Inicial</label>
+                            <input type="text" name="fechaI"   autocomplete='off' id="fechaI" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="form-column col-md-12">
+
+                        <div class="form-group">
+                            <label>Fecha Final</label>
+                            <input type="text" name="fechaF" autocomplete='off' class="form-control" id="fechaF">
+                        </div>
+                    </div>
+
+                    <button type="submit" id="btnDeleteId" onclick="reporteEstado(event);" name="btnDelete" class="btn btn-danger text-center btn-block">Generar Reporte</button>
                 </form>
             </div>
 

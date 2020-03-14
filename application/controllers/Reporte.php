@@ -25,34 +25,4 @@ class Reporte extends CI_Controller
         $this->load->view("reportes/Reporte_View");
         $this->load->view("layout/footer");
     }
-
-    public function cotizacion(){
-        $data["title"] = "Reporte - Cotización";
-        $this->load->view("layout/header",$data);
-        $this->load->view("layout/sidebar");
-        $this->load->view("layout/navbar");
-        $this->load->view("reportes/Reporte_cotizacion_view");
-        $this->load->view("layout/footer");
-    }
-
-    public function cotizacionCliente(){
-        $idCliente = $this->input->get("c");
-        $data = array("idCliente"=>$idCliente);
-        $this->load->view("reportes/Reporte_cotizacion_cliente",$data);
-    }
-
-    public function cotizacionRangoFecha(){
-        $inicial = $this->input->get("i");
-        $final = $this->input->get("f");
-        $data = array("inicial"=>$inicial,
-            "final"=>$final
-        );
-        $this->load->view("reportes/Reporte_cotizacion_rango",$data);
-    }
-
-    public function cotizacionFecha(){
-        $fecha = $this->input->get("f");
-        $data = array("fecha"=>$fecha);
-        $this->load->view("reportes/Reporte_cotizacion_fecha",$data);
-    }
 }

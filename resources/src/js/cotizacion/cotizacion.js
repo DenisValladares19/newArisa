@@ -527,6 +527,7 @@ $(document).on("click","#btnCambios",function(e){
                     'Se modifico exitosamente',
                     'success'
                   );
+                  $("#modalCotizacionEditar").modal("hide");
                   $("#formModalEditar").hide("true");
                   $("#frmDescEditar").show("true");
                   llenarDescripcion2();
@@ -720,7 +721,7 @@ function validarCampo(event){
 function validarRol(rol){
     if(rol==="Diseñador"){
         $("#agregarCliente").hide();
-        const fila = document.getElementById("data  ").getElementsByTagName('tr');
+        const fila = document.getElementById("data").getElementsByTagName('tr');
         for(let i=0;i<fila.length;i++){
             fila[i].getElementsByTagName('td')[5].style.display="none";
             fila[i].getElementsByTagName('td')[6].style.display="none";

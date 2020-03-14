@@ -18,8 +18,9 @@ class PDF extends FPDF
         $this->Cell(50,10,utf8_decode('Codigo'),1,0,'C',true);
         $this->Cell(120,10,'Empresa',1,0,'C',true);
         $this->Cell(30,10,'Fecha',1,0,'C',true);
-        $this->Cell(40,10,'Total',1,0,'C',true);
         $this->Cell(40,10,'Estado',1,0,'C',true);
+        $this->Cell(40,10,'Total',1,0,'C',true);
+        
         $this->Ln();
 
     }
@@ -43,19 +44,22 @@ $query = mysqli_query($con, "SELECT d.idDetalle, d.idCotizacion, d.idDescripcion
 $pdf=new PDF('L','mm','A4');
 $pdf->AddPage();
 $pdf->SetFont('Arial','',14);
-
+$total=0;
 while($data=mysqli_fetch_array($query)){
 
     $pdf->Cell(50,7,$data['codigo'],1,0,'C');
     $pdf->Cell(120,7,utf8_decode($data['empresa']),1,0,'C');
     $pdf->Cell(30,7,utf8_decode($data['fecha']),1,0,'C');
-    $pdf->Cell(40,7,$data['vTotal'],1,0,'C');
     $pdf->Cell(40,7,utf8_decode($data['estado']),1,0,'C');
+    $pdf->Cell(40,7,$data['vTotal'],1,0,'C');
     $pdf->Ln();
 
-
+    $total+=$data['vTotal'];
 
 }
+    
+    $pdf->Cell(240,7,"TOTAL",1,0,'R');
+    $pdf->Cell(40,7,utf8_decode(number_format($total,2)),1,0,'C');
 
 $pdf->Output();
 ?>

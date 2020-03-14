@@ -49,16 +49,13 @@ class Historial extends New_Padre
 
         if ($estadoA != $estadoN) {
 
-            date_default_timezone_set('America/El_Salvador');
-            $fecha = date('Y-m-d');
-            $hora = strftime("%H:%M:%S");
+            //date_default_timezone_set('America/El_Salvador');
+            $fecha = date('m/d/Y g:ia');
             $user = $this->session->userdata('nombre');
 
             $data = array("idH" => 0,
-                "descripcion" => 'El usuario: ' . $user . ' ha realizado una modificación en el estado de la orden N° ' . $idOrden .
-                    ', de ' . $nameStatus . ' a ' . $estado,
+                "descripcion" => 'El usuario: '.$user.' ha realizado una modificación de estado de la orden, de '.$nameStatus.'  a '.$estado,
                 "fecha" => $fecha,
-                "hora" => $hora,
                 "idOrden" => $idOrden
 
             );
@@ -71,6 +68,12 @@ class Historial extends New_Padre
     public function showHistory(){
         $result = $this->Historial_M->getHistorial();
         echo json_encode($result);
+    }
+
+    public function verHistorial(){
+        $id = $_POST["idOrden"];
+        $res = $this->Historial_M->verHistorial($id);
+        echo json_encode($res);
     }
 
 }

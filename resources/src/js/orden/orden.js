@@ -731,9 +731,20 @@ $(document).on('click','#btnEditOrdenId',function(){
             var estado=$("#estadoIdE").val();
 
             if(estado==3){
-                llenarTablaUtilizados();
-                $("#prodUtilizados").modal("show");
-                $('#frmUtilizados')[0].reset();
+                let idOrden = localStorage.getItem("idOrden");
+                $.ajax({
+                    url:"orden/verficarEstado",
+                    type:"POST",
+                    data:{idOrden:idOrden}
+                }).done(function(res){
+                    let data = JSON.parse(res);
+
+                    if(data==""){
+                        llenarTablaUtilizados();
+                        $("#prodUtilizados").modal("show");
+                        $('#frmUtilizados')[0].reset();
+                    }
+                })     
 
             }
 
@@ -855,7 +866,7 @@ function showOrden() {
                     '<td>'+data[i].nombreE+'</td>'+
                     '<td>'+
                     '<button class="btn btn-outline-info" href="javascript:;" data="'+data[i].idOrden+'" id="editar"><i class="fas fa-marker"></i></button>\n' +
-                    '<button class="btn btn-outline-dark mr-1" onClick="print('+data[i].idOrden+', '+data[i].idCotizacion+')" ><i class="fas fa-print"></i></button><button class="btn btn-outline-danger  href="javascript:;" data="'+data[i].idOrden+'" id="eliminar"><i class="fas fa-trash-alt"></i></button>'+
+                    '<button class="btn btn-outline-dark mr-1" onClick="print('+data[i].idOrden+', '+data[i].idCotizacion+')" ><i class="fas fa-print"></i></button><button class="btn btn-outline-danger  href="javascript:;" data="'+data[i].idOrden+'" id="eliminar"><i class="fas fa-trash-alt"></i></button> <button class="btn btn-outline-dark ver" id="'+data[i].idOrden+'" > <i class="far fa-eye"></i></button>'+
                     '</td>'+
                     '</tr>';
             }
@@ -1076,3 +1087,48 @@ $(document).on('click','#select',function(){
 function print(idOrden, idCotizacion){
     window.open("orden/print?o="+idOrden+"&d="+idCotizacion,"_back");
 }
+
+
+$(document).on("click",".ver", function(e){
+    e.preventDefault();
+    let idOrden = $(this).attr("id");
+    $.ajax({
+        url:"historial/verHistorial",
+        type:"POST",
+        data: {idOrden:idOrden}
+    }).done(function (res){
+        let data = JSON.parse(res);
+        $("#tablaHistorial").dataTable().fnDestroy();
+        $("#tablaHistorial tbody tr").remove();
+        for(let i=0;i<data.length;i++){
+            var fila ='<tr><td><div align="center">';
+            fila=fila + data[i].descripcion+ ' '+ data[i].fecha+'</div></td></tr>';
+            $("#tablaHistorial tbody").append(fila);
+        }
+        $("#tablaHistorial").dataTable({
+            bLengthChange: false,
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                "infoEmpty": "Mostrando 0 a 0 de 0 Entradas",
+                "infoFiltered": "(Filtrado de  _MAX_  total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            }
+        });
+
+        $("#modalHistorial").modal("show");
+    })    
+})

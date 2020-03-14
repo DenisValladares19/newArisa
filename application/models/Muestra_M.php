@@ -88,6 +88,7 @@ class Muestra_M extends CI_Model
     public function mostrarCotizacion(){
         $borrado=array(
             'borradoLogico'=>1,
+            "idEstado1"=>1
         );
         $this->db->select("idCotizacion,codigo");
         $this->db->from("cotizacion");

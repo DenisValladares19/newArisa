@@ -63,7 +63,11 @@ class Orden extends Padre_Desing
         $data = null;
         $id = $this->input->post('txtId');
 
-
+            if($_POST["estadoE"]==3){
+                $data = array("idEstado1"=>3);
+                $where = array("idCotizacion"=>$_POST["idC"]);
+                $res = $this->Orden_M->cambiarEstadoCot($data,$where);
+            }
 
             $data = array(
                 "idCotizacion"=>$_POST["idC"],
@@ -250,6 +254,12 @@ class Orden extends Padre_Desing
         );
 
         $this->load->view("orden/reporte",$data);
+    }
+
+    public function verficarEstado(){
+        $idOrden = $_POST["idOrden"];
+        $res = $this->Orden_M->verficarEstado($idOrden);
+        echo json_encode($res);
     }
 
 }

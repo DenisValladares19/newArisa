@@ -483,3 +483,29 @@
         </div>
     </div>
 </div>
+
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="modalHistorial">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Historial</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered table-responsive-lg" width="100%" cellspacing="0" id="tablaHistorial">
+                    <thead style="background-color: rgba(11, 23, 41 , 0.6);">
+                    <th>Descripción</th>
+                    </thead>
+                    <tfoot>
+                    <th>Descripción</th>
+                    </tfoot>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>

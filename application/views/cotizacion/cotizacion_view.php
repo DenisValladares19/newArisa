@@ -269,7 +269,7 @@
                             <p style="color:red;">Numero de caracteres (<span id="nCaracter">0</span> - 100)</p>
                         </div>
                     </div>
->
+                    
                     <!-- cargar tabla de la descripcion -->
                     <div class="row mt-1">
                         <div class='col-md-12'>

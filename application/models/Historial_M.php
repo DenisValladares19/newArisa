@@ -32,5 +32,13 @@ class Historial_M extends CI_Model
         }
     }
 
+    public function verHistorial($id){
+        $this->db->select("*");
+        $this->db->from("historial");
+        $this->db->where("idOrden",$id);
+        $query = $this->db->get();
+        return $query->result();
+    }
+
 
 }

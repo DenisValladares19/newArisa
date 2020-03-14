@@ -14,7 +14,7 @@
                         fila=fila + val.fecha + '</div></td><td>';
                         fila=fila + val.subtotal + '</div></td><td>';
                         fila=fila + val.nombre + '</td>';
-                        fila = fila +  '<td> <a class="btn btn-outline-dark btnVer" id="'+val.idCompras+'"><i <i class="far fa-eye"></i></i></a>';
+                        fila = fila +  '<td> <a class="btn btn-outline-dark btnVer" id="'+val.idCompras+'"><i class="far fa-eye"></i></a>';
                        /* if(nMayor<val.idCompras)
                         {
                             nMayor=val.idCompras;
