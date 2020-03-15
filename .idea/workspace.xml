@@ -3,10 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="dc70b34d-f42a-49b0-bec1-cbcb24508da6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Historial.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Historial.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Inventario.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Inventario.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/Inventario_m.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Inventario_m.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/src/js/inventario/inventario.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/src/js/inventario/inventario.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Reporte_cotizacion.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Reporte_cotizacion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/reportes/Reporte_cotizacion_cliente.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/reportes/Reporte_cotizacion_cliente.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/reportes/Reporte_cotizacion_estado.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/reportes/Reporte_cotizacion_estado.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/reportes/Reporte_cotizacion_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/reportes/Reporte_cotizacion_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/db/arisa.sql" beforeDir="false" afterPath="$PROJECT_DIR$/resources/db/arisa.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/files/uploads/ExposicionesPAEO.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/files/uploads/Unidad_2_Paeo.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/images/uploads/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/src/js/reporte/reporte.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/src/js/reporte/reporte.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +76,8 @@
     <session id="-102341041">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="16" />
+          <entry key="project.closed" value="17" />
+          <entry key="project.open.time.114" value="1" />
           <entry key="project.open.time.115" value="1" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.3" value="1" />
@@ -89,7 +95,7 @@
           <entry key="project.open.time.82" value="1" />
           <entry key="project.open.time.98" value="1" />
           <entry key="project.open.time.99" value="1" />
-          <entry key="project.opened" value="17" />
+          <entry key="project.opened" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -97,36 +103,36 @@
           <entry key="css" value="4" />
           <entry key="ico" value="1" />
           <entry key="jpg" value="5" />
-          <entry key="js" value="111" />
-          <entry key="php" value="247" />
+          <entry key="js" value="112" />
+          <entry key="php" value="252" />
           <entry key="png" value="2" />
-          <entry key="sql" value="14" />
+          <entry key="sql" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="4" />
           <entry key="Image" value="8" />
-          <entry key="JavaScript" value="111" />
-          <entry key="PHP" value="247" />
-          <entry key="SQL" value="14" />
+          <entry key="JavaScript" value="112" />
+          <entry key="PHP" value="252" />
+          <entry key="SQL" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="9067" />
-          <entry key="php" value="13108" />
-          <entry key="sql" value="425" />
+          <entry key="js" value="9094" />
+          <entry key="php" value="13147" />
+          <entry key="sql" value="431" />
           <entry key="txt" value="72" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="1" />
-          <entry key="JavaScript" value="9066" />
-          <entry key="PHP" value="13108" />
+          <entry key="JavaScript" value="9093" />
+          <entry key="PHP" value="13147" />
           <entry key="PLAIN_TEXT" value="72" />
-          <entry key="SQL" value="425" />
+          <entry key="SQL" value="431" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.class">
@@ -138,20 +144,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/src/js/orden/orden.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3188">
-              <caret line="696" column="12" lean-forward="true" selection-start-line="696" selection-start-column="12" selection-end-line="696" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/controllers/Historial.php">
+        <entry file="file://$PROJECT_DIR$/resources/db/arisa.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="60" column="32" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="32" />
+            <state relative-caret-position="769">
+              <caret line="247" lean-forward="true" selection-start-line="247" selection-end-line="247" />
             </state>
           </provider>
         </entry>
@@ -185,6 +182,7 @@
       <find>deleteO</find>
       <find>number</find>
       <find>eliminarC</find>
+      <find>inicia</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -197,10 +195,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ARISA/application/models/Usuario_M.php" />
-        <option value="$PROJECT_DIR$/ARISA/application/views/login/login_view.php" />
-        <option value="$PROJECT_DIR$/application/config/config.php" />
-        <option value="F:/recu/proveedor_view.php" />
         <option value="$PROJECT_DIR$/application/models/Proveedor_m.php" />
         <option value="$PROJECT_DIR$/application/controllers/Padre_Session.php" />
         <option value="$PROJECT_DIR$/application/controllers/Login.php" />
@@ -212,7 +206,6 @@
         <option value="$PROJECT_DIR$/application/controllers/Reporte_Orden_Detalle.php" />
         <option value="$PROJECT_DIR$/application/controllers/Proveedor.php" />
         <option value="$PROJECT_DIR$/application/controllers/Muestra.php" />
-        <option value="$PROJECT_DIR$/resources/src/js/reporte/reporte.js" />
         <option value="$PROJECT_DIR$/application/controllers/Cotizacion.php" />
         <option value="$PROJECT_DIR$/application/views/reportes/Reporte_Orden.php" />
         <option value="$PROJECT_DIR$/application/views/cotizacion/cotizacion_view.php" />
@@ -228,7 +221,6 @@
         <option value="$PROJECT_DIR$/application/controllers/Usuario.php" />
         <option value="$PROJECT_DIR$/application/models/Cliente_M.php" />
         <option value="$PROJECT_DIR$/application/controllers/Cliente.php" />
-        <option value="$PROJECT_DIR$/resources/db/arisa.sql" />
         <option value="$PROJECT_DIR$/application/models/Orden_M.php" />
         <option value="$PROJECT_DIR$/resources/src/js/muestra/muestra.js" />
         <option value="$PROJECT_DIR$/application/views/orden/orden_view.php" />
@@ -248,6 +240,12 @@
         <option value="$PROJECT_DIR$/application/controllers/Inventario.php" />
         <option value="$PROJECT_DIR$/application/models/Inventario_m.php" />
         <option value="$PROJECT_DIR$/application/controllers/Historial.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Reporte_cotizacion.php" />
+        <option value="$PROJECT_DIR$/application/views/reportes/Reporte_cotizacion_cliente.php" />
+        <option value="$PROJECT_DIR$/application/views/reportes/Reporte_cotizacion_estado.php" />
+        <option value="$PROJECT_DIR$/application/views/reportes/Reporte_cotizacion_view.php" />
+        <option value="$PROJECT_DIR$/resources/src/js/reporte/reporte.js" />
+        <option value="$PROJECT_DIR$/resources/db/arisa.sql" />
       </list>
     </option>
   </component>
@@ -291,44 +289,13 @@
             <path>
               <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
               <item name="newArisa" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
               <item name="newArisa" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="files" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="newArisa" type="b2602c69:ProjectViewProjectNode" />
-              <item name="newArisa" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -403,7 +370,8 @@
       <workItem from="1582899484760" duration="1047000" />
       <workItem from="1583441163518" duration="36240000" />
       <workItem from="1584068019159" duration="18421000" />
-      <workItem from="1584110891858" duration="1258000" />
+      <workItem from="1584110891858" duration="1345000" />
+      <workItem from="1584246945768" duration="2614000" />
     </task>
     <task id="LOCAL-00001" summary="Seccion de Edgard">
       <created>1579147141544</created>
@@ -538,17 +506,24 @@
       <option name="project" value="LOCAL" />
       <updated>1584086498106</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary=" end">
+      <created>1584112226771</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1584112226771</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="227443000" />
+    <option name="totallyTimeSpent" value="230144000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1369936" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13859275" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -607,30 +582,6 @@
     <option name="LAST_COMMIT_MESSAGE" value=" end" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/models/Estado2_M.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="64" column="31" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Cotizacion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="85" column="30" selection-start-line="85" selection-start-column="30" selection-end-line="85" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/layout/footer.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/images/icon/ariisa.png" />
-    <entry file="file://$PROJECT_DIR$/resources/images/icon/Arisa.ico">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/images/uploads/3df127c3f9a76ad11a1b2202b2be7df21.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/images/uploads/admin.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -723,13 +674,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="773">
           <caret line="73" column="32" selection-start-line="73" selection-start-column="32" selection-end-line="73" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/db/arisa.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="728">
-          <caret line="232" column="25" selection-start-line="232" selection-start-column="25" selection-end-line="232" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -907,6 +851,55 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
           <caret line="60" column="32" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/src/js/reporte/reporte.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="219" column="94" selection-start-line="219" selection-start-column="94" selection-end-line="219" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/reportes/Reporte_cotizacion_view.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="252" column="123" selection-start-line="252" selection-start-column="111" selection-end-line="252" selection-end-column="123" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Reporte_cotizacion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/reportes/Reporte_cotizacion_rango.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="39" column="492" lean-forward="true" selection-start-line="39" selection-start-column="449" selection-end-line="39" selection-end-column="492" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/reportes/Reporte_cotizacion_cliente.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="39" column="520" selection-start-line="39" selection-start-column="520" selection-end-line="39" selection-end-column="520" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/reportes/Reporte_cotizacion_estado.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="39" column="518" selection-start-line="39" selection-start-column="518" selection-end-line="39" selection-end-column="518" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/db/arisa.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="769">
+          <caret line="247" lean-forward="true" selection-start-line="247" selection-end-line="247" />
         </state>
       </provider>
     </entry>

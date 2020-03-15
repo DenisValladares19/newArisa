@@ -21,7 +21,11 @@ class Reporte_cotizacion extends CI_Controller
 
     public function cotizacionCliente(){
         $idCliente = $this->input->get("c");
-        $data = array("idCliente"=>$idCliente);
+        $inicial = $this->input->get("i");
+        $final = $this->input->get("f");
+        $data = array("idCliente"=>$idCliente,
+            "inicial"=>$inicial,
+            "final"=>$final);
         $this->load->view("reportes/Reporte_cotizacion_cliente",$data);
     }
 
@@ -42,7 +46,11 @@ class Reporte_cotizacion extends CI_Controller
 
     public function cotizacionEstado(){
         $idEstado = $_GET["e"];
-        $data = array("idEstado"=>$idEstado);
+        $inicial = $this->input->get("i");
+        $final = $this->input->get("f");
+        $data = array("idEstado"=>$idEstado,
+            "inicial"=>$inicial,
+            "final"=>$final);
         $this->load->view("reportes/Reporte_cotizacion_estado",$data);
         
     }

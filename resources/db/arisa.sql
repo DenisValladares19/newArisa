@@ -207,7 +207,6 @@ create table historial
 idOrden int not null,
 descripcion varchar(200) not null,
 fecha varchar(50) not null,
-hora varchar(50) not null,
 foreign key(idOrden) references orden(idOrden));
 
 
@@ -224,20 +223,6 @@ insert into rol values
 insert into usuario values
 (1,"Admin","admin@mail.com",sha1("12345"),"admin.jpg",1,1);
 
-insert into proveedor values
-(1,"Guillermo Jandres","Telecom S.A de C.V","2328-9887","0315-141280-120-2","MELM8305281H0","7364-2157","juan@mail.com","San Julian",1),
-(2,"Nelson Ortiz","Freund S.A de C.V","2200-9367","0585-100694-100-1","LSJM8305281M2","7995-2097","rocio@mail.com","San Salvador",1);
-
-
-insert into compras values
-(1,"2019-11-11",273.5,1,1),
-(2,"2019-11-14",159.8,1,1),
-(3,"2019-11-15",886.9,2,1);
-
-insert into inventario values
-(1,"Producto X",29.99,10,"Descripcion del Producto X",1,1,1),
-(2,"Producto Y",17.99,10,"Descripcion del Producto Y",2,2,1),
-(3,"Producto Z",92.99,10,"Descripcion del Producto Z",2,3,1);
 
 insert into estado2 values
 (1,"En Espera",1),
@@ -260,8 +245,3 @@ alter table orden add column fecha date not null;
 
 alter table orden add CONSTRAINT fk_Cot FOREIGN KEY (idCotizacion) REFERENCES cotizacion (idCotizacion) on DELETE no ACTION on UPDATE CASCADE;
 
-
-insert into cliente values
-(1,"Jose","Perez","Jugueton S.A de C.V","2698-9874","7698-9841","joseJugeton@mail.com","0978-140991-687-9","Santa Tecla","MSH89SGDH4",1),
-(2,"Pedro","Cazada","Bimbo S.A de C.V","2025-9405","7699-0087","pedroBimbo@mail.com","0112-041293-022-7","Santa Tecla","JUI881SDJ1",1),
-(3,"Carmen","Guillen","Impresa Repuestos S.A de C.V","2255-9800","7056-4021","carmenImpRespuestos@mail.com","0132-010179-112-9","San Salvador","LPS984SJ4",1);

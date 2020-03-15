@@ -79,6 +79,22 @@
 
                             </select>
                         </div>
+
+                        <div class="form-column col-md-12">
+
+                            <div class="form-group">
+                                <label>Fecha Inicial</label>
+                                <input type="text" name="fechaICliente"   autocomplete='off' id="fechaICliente" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-column col-md-12">
+
+                            <div class="form-group">
+                                <label>Fecha Final</label>
+                                <input type="text" name="fechaFCliente" autocomplete='off' class="form-control" id="fechaFCliente">
+                            </div>
+                        </div>
                     </div>
 
                     <button type="submit" id="btnDeleteId" onclick="reporteCliente(event);" name="btnDelete" class="btn btn-danger">Generar Reporte</button>
@@ -211,7 +227,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="post" id="formReporteCliente" action="Reporte_Orden_Fecha_B">
+                <form method="post" id="formReporteCliente" action="">
 
 
 
@@ -226,7 +242,7 @@
 
                         <div class="form-group">
                             <label>Fecha Inicial</label>
-                            <input type="text" name="fechaI"   autocomplete='off' id="fechaI" class="form-control">
+                            <input type="text" name="fechaIEstado"   autocomplete='off' id="fechaIEstado" class="form-control">
                         </div>
                     </div>
 
@@ -234,7 +250,7 @@
 
                         <div class="form-group">
                             <label>Fecha Final</label>
-                            <input type="text" name="fechaF" autocomplete='off' class="form-control" id="fechaF">
+                            <input type="text" name="fechaFEstado" autocomplete='off' class="form-control" id="fechaFEstado">
                         </div>
                     </div>
 
